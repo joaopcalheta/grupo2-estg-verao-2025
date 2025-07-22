@@ -1,3 +1,16 @@
+html,
+body {
+  background-color: #f2f2f2 !important;
+  overflow: auto;
+  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none; /* firefox */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari e Edge */
+}
+
+v
 /*
 .toggle-password {
   position: absolute;
@@ -130,6 +143,7 @@
 
 body {
   overflow-x: hidden;
+  background-color: #f2f2f2 !important;
 }
 
 /* espaço minimo para qualquer pagina, serve para garantir que o footer fique sempre no final da pagina e que nao de para ver a partida */
@@ -511,23 +525,6 @@ select {
 /* SCROLL */
 
 /* fazer scroll com grab */
-
-.grabbing-scroll-container {
-  overflow: auto;
-  white-space: nowrap;
-  -ms-overflow-style: none;
-  /* esconder scroll IE Edge */
-  scrollbar-width: none;
-  /* esconder scroll Firefox */
-  cursor: grab;
-}
-
-/* fazer scroll com grab */
-
-.grabbing-scroll-container::-webkit-scrollbar {
-  display: none;
-  /* esconder scroll Chrome Safari Edge */
-}
 
 /**/
 
