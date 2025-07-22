@@ -1,0 +1,34 @@
+<div class="cardsAD-list" id="meusAnuncios">
+  <!-- criar anuncios de forma dinâmica-->
+</div>
+<button class="btn btn-blue btn-fixed-bottom" onclick="location.href='criar_anuncio.html'">+ Adicionar anúncio</button>
+
+<script>
+
+  function loadAnuncios() {
+    const anuncios = JSON.parse(localStorage.getItem('anuncios')) || [];
+    const container = document.getElementById('meusAnuncios');
+    container.innerHTML = '';
+
+    anuncios.forEach((anuncio, index) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${anuncio.foto || '/client/public/images/soespeto.jpg'}" alt="foto anúncio" class="thumbnail">
+        <h3>${anuncio.profissao}</h3>
+        <p>${anuncio.local}</p>
+        <p>${anuncio.regime}</p>
+        <button class="btn btn-blue" onclick="verCandidatos(${index})">Ver candidatos</button>
+        <button class="btn btn-black" onclick="gerirAnuncio(${index})">Gerir</button>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  function gerirAnuncio(index) {
+    location.href = 'gerir_anuncio.html';
+  }
+
+  document.addEventListener('DOMContentLoaded', loadAnuncios);
+
+</script>
