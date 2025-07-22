@@ -1,22 +1,28 @@
-const express = require("express");
+const express = require("express"); // framework web
+const http = require("http"); // módulo HTTP do Node.js
+const path = require("path"); // para lidar com caminhos de ficheiros
+const expressLayouts = require("express-ejs-layouts"); // plugin para usar um layout base com EJS
 
+const app = express(); // inicializa a aplicação Express
+const PORT = process.env.PORT || 3000; // porta do servidor (usa 3000 se não houver variável de ambiente)
 
-const http = require("http");
+// configuração do motor de templates EJS
+app.set("view engine", "ejs"); // define EJS como motor de views
+app.set("views", path.join(__dirname, "..", "client", "views")); // define a pasta onde estão as views
 
+// Middlewares
+app.use(express.static(path.join(__dirname, "..", "client", "public"))); // serve ficheiros estáticos (CSS, imagens)
+app.use(express.urlencoded({ extended: true })); // para ler dados de formulários (POST)
+app.use(expressLayouts); // usa layouts com EJS
 
-const expressLayouts = require("express-ejs-layouts"); // layout base (footer, header e head)
+// importa as rotas
+const homeRoute = require("./routes/homeRoute");
+app.use("/", homeRoute);
 
-
-const app = express();
-
-app.set('view engine', 'ejs');
-
-app.use(expressLayouts);
-
+// cria o servidor HTTP
 const server = http.createServer(app);
 
-const SERVER_PORT = 3000;
-
-server.listen(SERVER_PORT, () => {
-  console.log(`ON -- http://localhost:${SERVER_PORT}`);
+// inicia o servidor
+server.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`); // Mostra que o servidor está ativo
 });
