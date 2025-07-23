@@ -1,7 +1,19 @@
+<head>
+  <link href="/css/ad.css" rel="stylesheet" />
+  <link href="/css/general.css" rel="stylesheet" />
+</head>
+    <div class="company-profile">
+    <p id="perfil">Meu Perfil</p>
+    </div>
+    <div class="company-add">
+    <p id="cand">Meus Anúncios</p>
+    </div>
+    <hr id="linha" />
+
 <div class="cardsAD-list" id="meusAnuncios">
   <!-- criar anuncios de forma dinâmica-->
 </div>
-<button class="btn btn-blue btn-fixed-bottom" onclick="location.href='criar_anuncio.html'">+ Adicionar anúncio</button>
+<button class="btn btn-blue btn-fixed-bottom" onclick="location.href='/createAd'">+ Adicionar anúncio</button>
 
 <script>
 
@@ -26,7 +38,7 @@
   }
 
   function gerirAnuncio(index) {
-    location.href = 'gerir_anuncio.html';
+    location.href = '/manageAd';
   }
 
   document.addEventListener('DOMContentLoaded', loadAnuncios);

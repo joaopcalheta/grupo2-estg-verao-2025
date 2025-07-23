@@ -1,3 +1,9 @@
+
+<head>
+  <link href="/css/ad.css" rel="stylesheet" />
+  <link href="/css/general.css" rel="stylesheet" />
+</head>
+
 <h2>Criar Anúncio</h2>
 <form id="createAnuncioForm">
   <label>Nome da profissão
@@ -62,7 +68,7 @@
   localStorage.setItem('anuncios', JSON.stringify(anuncios));
 
   alert('Anúncio criado com sucesso.');
-    window.location.href = 'anuncios.html';
+    window.location.href = '/myAds';
   });
 
 </script>
