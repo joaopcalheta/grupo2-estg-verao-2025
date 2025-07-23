@@ -19,6 +19,9 @@ app.use(expressLayouts); // usa layouts com EJS
 const homeRoute = require("./routes/homeRoute");
 app.use("/", homeRoute);
 
+const loginRoute = require("./routes/loginRoute");
+app.use("/", loginRoute);
+
 // cria o servidor HTTP
 const server = http.createServer(app);
 
