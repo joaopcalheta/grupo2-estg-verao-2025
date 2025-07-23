@@ -28,6 +28,8 @@ app.use("/manageAd", manageAdRoute);
 const loginRoute = require("./routes/loginRoute");
 app.use("/", loginRoute);
 
+const candidatesRoute = require("./routes/candidatesRoute");
+app.use("/candidates", candidatesRoute);
 const myProfileClientRoute = require("./routes/myProfileClientRoute");
 app.use("/myProfileClient", myProfileClientRoute);
 
