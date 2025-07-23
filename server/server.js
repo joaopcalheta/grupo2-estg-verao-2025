@@ -18,6 +18,12 @@ app.use(expressLayouts); // usa layouts com EJS
 // importa as rotas
 const homeRoute = require("./routes/homeRoute");
 app.use("/", homeRoute);
+const myAdsRoute = require("./routes/myAdsRoute");
+app.use("/myAds", myAdsRoute);
+const createAdRoute = require("./routes/createAdRoute");
+app.use("/createAd", createAdRoute);
+const manageAdRoute = require("./routes/manageAdRoute");
+app.use("/manageAd", manageAdRoute);
 
 // cria o servidor HTTP
 const server = http.createServer(app);
