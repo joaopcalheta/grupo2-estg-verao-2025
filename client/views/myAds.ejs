@@ -17,6 +17,8 @@
 
 <script>
 
+  document.addEventListener('DOMContentLoaded', loadAnuncios);
+
   function loadAnuncios() {
     const anuncios = JSON.parse(localStorage.getItem('anuncios')) || [];
     const container = document.getElementById('meusAnuncios');
@@ -26,7 +28,7 @@
       const card = document.createElement('div');
       card.className = 'card';
       card.innerHTML = `
-        <img src="${anuncio.foto || '/client/public/images/soespeto.jpg'}" alt="foto anúncio" class="thumbnail">
+        <img src="${anuncio.foto || '/images/anuncio1.jpg'}" alt="foto anúncio" class="thumbnail">
         <h3>${anuncio.profissao}</h3>
         <p>${anuncio.local}</p>
         <p>${anuncio.regime}</p>
@@ -38,9 +40,12 @@
   }
 
   function gerirAnuncio(index) {
+    localStorage.setItem('editIndex', index);
     location.href = '/manageAd';
   }
 
-  document.addEventListener('DOMContentLoaded', loadAnuncios);
+  function verCandidatos(index) {
+    location.href = '/candidates';
+  }
 
 </script>

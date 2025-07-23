@@ -54,6 +54,7 @@ p {
   justify-content: center;            /* centraliza horizontalmente */
   text-align: center;
   margin-bottom: 0.5rem;
+  transition: filter 0.2s ease;
 }
 
 .btn-blue {
@@ -62,16 +63,34 @@ p {
   font-weight: bold;
 }
 
+.btn-blue:hover {
+  filter: brightness(80%);
+  background-color: #007acc;
+  color:#fff
+}
+
 .btn-black { 
   background: #333;
   color: #fff;
   font-weight: bold;
 }
 
+.btn-black:hover {
+  filter: brightness(80%);
+  background-color: #131313;
+  color:#fff
+}
+
 .btn-delete {
   background: #C31818;
   color: #fff;
   font-weight: bold; 
+}
+
+.btn-delete:hover {
+  filter: brightness(80%);
+  background-color: #d30303;
+  color:#fff
 }
 
 /*
