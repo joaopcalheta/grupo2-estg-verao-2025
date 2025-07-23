@@ -30,6 +30,14 @@ app.use("/", loginRoute);
 
 const candidatesRoute = require("./routes/candidatesRoute");
 app.use("/candidates", candidatesRoute);
+const myProfileClientRoute = require("./routes/myProfileClientRoute");
+app.use("/myProfileClient", myProfileClientRoute);
+
+const myCandClientRoute = require("./routes/myCandClientRoute");
+app.use("/myCandClient", myCandClientRoute);
+
+const myProfileCompanyRoute = require("./routes/myProfileCompanyRoute");
+app.use("/myProfileCompany", myProfileCompanyRoute);
 
 // cria o servidor HTTP
 const server = http.createServer(app);

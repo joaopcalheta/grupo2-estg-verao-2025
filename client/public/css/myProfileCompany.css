@@ -1,0 +1,115 @@
+/*----------------------PAGE SWITCH-----------------------*/
+.company-profile {
+  cursor: pointer;
+}
+.company-add {
+  cursor: pointer;
+}
+
+
+#linha {
+  position: relative;
+  top: -20px;
+  left: 0px;
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+
+#perfil {
+  display: inline-flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  position: absolute;
+  left:10px;
+  font-weight: bold;
+}
+
+#cand {
+   display: inline-flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  position: relative;
+  left: 130px;
+}
+
+
+
+
+
+/* ---------------------------PROFILE FORM----------------------------- */
+
+.form-group {
+  margin-bottom: 10px;
+  margin-left: 5px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+#personalData {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  position: relative;
+  left: 50px;
+}
+
+#pfp-container {
+  position: relative;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: black;
+  cursor: pointer;
+}
+
+
+
+
+
+/* ---------------Save Changes and Cancel Buttons--------------------- */
+.buttons {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: small;
+  position: relative;
+  top: 10px;
+  display: flex;
+  gap: 10px;
+}
+#saveChanges {
+  background-color: #1895C3; /* Green */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#cancelChanges {
+  text-align: center;
+  background-color: #dfc84b; /* Yellow */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.deleteACC {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  top: 20px;
+}
+#deleteAccount {
+  background-color: #d61002; /* Red */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
