@@ -25,6 +25,9 @@ app.use("/createAd", createAdRoute);
 const manageAdRoute = require("./routes/manageAdRoute");
 app.use("/manageAd", manageAdRoute);
 
+const loginRoute = require("./routes/loginRoute");
+app.use("/", loginRoute);
+
 // cria o servidor HTTP
 const server = http.createServer(app);
 
