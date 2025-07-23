@@ -1,0 +1,58 @@
+<head>
+  <link href="/css/myProfileCompany.css" rel="stylesheet" />
+</head>
+<div onclick="myCompanyProfile()" class="company-profile">
+    <p id="perfil">Meu Perfil</p>
+    </div>
+    <div onclick="myAdd()" class="company-add">
+    <p id="cand">Meus Anúncios</p>
+    </div>
+    <hr id="linha" /> 
+    <form id="profile-form">
+      <div id="pfp-container">
+        <img id="pfpImg"src="/images/my-account.png" alt="pfp">
+        <p id="pfpChange">Alterar Imagem</p>
+      </div>
+      <h2 id="personalData">Dados Pessoais</h2>
+      <div>
+        <input class="form-group" type="text" name="name" placeholder="Nome da Empresa" />
+      </div>
+      <div >
+        <input class="form-group" type="text" name="username" placeholder="Nome de Utilizador" />
+      </div>
+      <div >
+        <input class="form-group" type="tel" name="phone" placeholder="Nº Telemóvel" />
+      </div>
+      <div >
+        <input class="form-group" type="text" name="nif" placeholder="NIF da Empresa" />
+      </div>
+      <div >
+        <input class="form-group" type="text" name="email" placeholder="Morada" />
+      </div>
+      <div >
+        <input class="form-group" type="text" name="email" placeholder="Localidade" />
+      </div>
+      <div >
+        <input class="form-group" type="text" name="confirmEmail" placeholder="E-mail" />
+      </div>
+       <div >
+        <input class="form-group" type="text" name="confirmEmail" placeholder="Confirmar E-mail" />
+      </div>
+      <div >
+        <input class="form-group" type="text" name="password" placeholder="Palavra-passe" />
+      </div>
+      <div >
+        <input class="form-group" type="text" name="newPassword"placeholder=" Nova Palavra-passe" />
+      </div>
+    </form>
+    
+    <div class="buttons">
+      <button class="buttons" id="saveChanges">Guardar Alterações</button>
+      <button class="buttons" id="cancelChanges">Cancelar</button>
+    </div>
+    <div class="deleteACC">
+      <button class="deleteACC"id="deleteAccount">Eliminar Conta</button>
+    </div>  
+    <script src="/js/companyProfile.js"></script> 
+</body>
+</html>

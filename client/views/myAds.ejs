@@ -2,10 +2,10 @@
   <link href="/css/ad.css" rel="stylesheet" />
   <link href="/css/general.css" rel="stylesheet" />
 </head>
-    <div class="company-profile">
+    <div onclick="myCompanyProfile()" class="company-profile">
     <p id="perfil">Meu Perfil</p>
     </div>
-    <div class="company-add">
+    <div onclick="myAdd()" class="company-add">
     <p id="cand">Meus Anúncios</p>
     </div>
     <hr id="linha" />
@@ -44,3 +44,4 @@
   document.addEventListener('DOMContentLoaded', loadAnuncios);
 
 </script>
+<script src="/js/companyProfile.js"></script>
