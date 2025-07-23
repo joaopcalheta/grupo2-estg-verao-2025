@@ -28,6 +28,15 @@ app.use("/manageAd", manageAdRoute);
 const loginRoute = require("./routes/loginRoute");
 app.use("/", loginRoute);
 
+const myProfileClientRoute = require("./routes/myProfileClientRoute");
+app.use("/myProfileClient", myProfileClientRoute);
+
+const myCandClientRoute = require("./routes/myCandClientRoute");
+app.use("/myCandClient", myCandClientRoute);
+
+const myProfileCompanyRoute = require("./routes/myProfileCompanyRoute");
+app.use("/myProfileCompany", myProfileCompanyRoute);
+
 // cria o servidor HTTP
 const server = http.createServer(app);
 
