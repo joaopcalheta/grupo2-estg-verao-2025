@@ -1,0 +1,172 @@
+.switch {
+  position: relative;
+  display: flex;
+  width: 70%;
+  height: 50px;
+  border-radius: 15px;
+  background: #dff2ff;
+  overflow: hidden;
+  padding: 5px;
+}
+
+.switch button {
+  flex: 1;
+  border: none;
+  background: transparent;
+  z-index: 2;
+  color: #1799d1;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: #1799d1;
+  border-radius: 15px;
+  transition: left 0.3s;
+  z-index: 1;
+}
+
+.switch button.active {
+  color: white;
+  font-weight: bold;
+}
+
+.switch-container {
+  align-items: center;
+  margin: auto;
+}
+
+.form {
+  display: none;
+}
+
+.form.active {
+  display: block;
+}
+
+body {
+  text-align: center;
+  background: #f2f2f2;
+  align-items: center;
+}
+
+.lgn {
+  background-color: #1895c3;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 15px 10px;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 30px;
+  cursor: pointer;
+  width: 90%;
+}
+
+.mailpass {
+  font-size: 10px;
+  width: 100% !important;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 25px;
+  /*gap: 20px;*/
+  align-items: center;
+}
+
+/*.container input {*/
+input[type="email"],
+input[type="password"] {
+  background-color: #ffffff;
+  border: 1px solid black;
+  margin: 8px 0px;
+  /*padding: 12px 15px;*/
+  font-size: 9px;
+  border-radius: 15px;
+  width: 100%;
+  outline: none;
+  gap: 20px;
+}
+
+/*.esqueci {
+    align-items: center;
+}*/
+
+.container a {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  font-size: 10px;
+  text-decoration: none;
+  margin: 15px 0 10px;
+  /*text-align: end;*/
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  margin: 50px 0px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.container p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  /*line-height: 20px;*/
+  letter-spacing: 0.3px;
+  margin: 20px 0px;
+  padding-top: 25px;
+  padding-bottom: 20px;
+}
+
+.rgst {
+  background-color: #1895c3;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 10px 100px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.radio-group {
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 30px;
+}
+
+/*.container input {*/
+input[type="nome"],
+input[type="email"],
+input[type="password"],
+input[type="confirmpassword"] {
+  background-color: #ffffff;
+  border: 1px solid black;
+  margin: 8px 0px 20px;
+  padding: 12px 15px;
+  font-size: 9px;
+  border-radius: 15px;
+  width: 90%;
+  outline: none;
+  gap: 10px;
+}
+
+.checkbox-group {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}

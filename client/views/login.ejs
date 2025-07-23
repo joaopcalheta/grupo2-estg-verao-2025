@@ -1,0 +1,93 @@
+<head>
+  <link href="/css/login.css" rel="stylesheet" />
+</head>
+
+<div class="container">
+  <div>
+    <p><b>Bem-vindo!</b></p>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <div class="switch">
+      <div class="slider" id="slider"></div>
+      <button id="btn-login" class="active">Login</button>
+      <button id="btn-register">Registar</button>
+    </div>
+  </div>
+
+  <div id="login-form" class="form active">
+    <div class="container" id="container">
+      <!--<p><b>Bem-vindo!</b></p>-->
+      <!--<div class="login" id="login">
+    
+        <button class="btn btn-login"><b>Login</b></button>
+        <button class="btn btn-registar">Registar</button>
+  
+        </div>-->
+
+      <br />
+      <div class="mailpass">
+        <label>Email</label>
+        <br />
+        <input type="email" placeholder="Escreva o seu email" />
+        <br />
+        <label>Password</label>
+        <br />
+        <input type="password" placeholder="Escreva a sua password" />
+      </div>
+      <br />
+      <div class="checkbox-group">
+        <span><input type="checkbox" id="checkbox" />Lembrar-me</span>
+        <a href="#" class="esqueci">Esqueceu-se da palavra-passe?</a>
+      </div>
+      <button class="lgn">Login</button>
+    </div>
+  </div>
+  <div id="register-form" class="form">
+    <div class="container" id="container">
+      <!--<p><b>Bem-vindo!</b></p>-->
+      <!--<div class="registo" id="registo">
+    
+            <button class="btn btn-login" id="btnlogin">Login</b></button>
+            <button class="btn btn-registar" id="btnregisto"><b>Registar</b></button>
+  
+            </div>-->
+
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="tipo" value="candidato" checked />
+          Candidato
+        </label>
+        <label>
+          <input type="radio" name="tipo" value="empresa" />
+          Empresa
+        </label>
+      </div>
+
+      <br />
+      <div class="mailpass">
+        <label>Nome</label>
+        <br />
+        <input type="nome" placeholder="Escreva o seu nome" />
+        <br />
+        <label>Email</label>
+        <br />
+
+        <input type="email" placeholder="Escreva o seu email" />
+        <br />
+        <label>Password</label>
+        <br />
+        <input type="password" placeholder="Escreva a sua password" />
+        <br />
+        <label>Confirmar password</label>
+        <br />
+        <input type="confirmpassword" placeholder="Confirme a sua password" />
+      </div>
+      <br />
+
+      <br />
+      <button class="rgst">Registar</button>
+    </div>
+  </div>
+</div>
+<script src="/js/login.js"></script>

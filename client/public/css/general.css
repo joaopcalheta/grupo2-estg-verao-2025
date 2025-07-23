@@ -449,7 +449,7 @@ textarea {
 
 /* este é o botao preto principal */
 
-.black-button {
+/*.black-button {
   height: clamp(50px, 3vw, 60px);
   border-radius: 30px;
   padding-left: clamp(35px, 3vw, 40px);
@@ -461,11 +461,11 @@ textarea {
   display: inline-block;
   text-align: center;
   font-weight: bold;
-}
+}*/
 
 /* este é o botao preto secundario (mais pequeno) */
 
-.small-black-button {
+/*.small-black-button {
   height: clamp(43px, 5vw, 50px);
   border-radius: 30px;
   padding-left: clamp(20px, 5vw, 25px);
@@ -481,7 +481,7 @@ textarea {
 .black-button:hover,
 .small-black-button:hover {
   background-color: #444;
-}
+}*/
 
 /**/
 
@@ -491,10 +491,10 @@ textarea {
 
 /* OVERRIDES */
 
-button {
+/*button {
   all: unset;
   cursor: pointer;
-}
+}*/
 
 h4 {
   font-size: clamp(20px, 3vw, 25px) !important;

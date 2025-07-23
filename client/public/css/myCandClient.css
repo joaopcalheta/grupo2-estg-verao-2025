@@ -1,0 +1,35 @@
+/*----------------------PAGE SWITCH-----------------------*/
+.client-profile {
+  cursor: pointer;
+}
+.client-cand {
+  cursor: pointer;
+}
+
+
+#linha {
+  position: relative;
+  top: -20px;
+  left: 0px;
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+
+#perfil {
+  display: inline-flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  position: absolute;
+  left:10px;
+
+}
+
+#cand {
+  display: inline-flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  position: relative;
+  left: 130px;
+  font-weight: bold;
+}
