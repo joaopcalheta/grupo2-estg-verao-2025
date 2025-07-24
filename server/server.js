@@ -27,6 +27,7 @@ const routes = [
   "myCandClientRoute",
   "myProfileCompanyRoute",
   "filterRoute",
+  "submitRoute",
 ];
 
 routes.forEach((route) => {
