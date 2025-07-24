@@ -1,11 +1,7 @@
-const getLogin = async (req, res) => {
-  try {
-    res.render("login", {
-      title: "",
-    });
-  } catch (err) {
-    console.error(err);
-  }
+const getLogin = function (req, res) {
+  res.render("login", {
+    title: "",
+  });
 };
 
 module.exports = { getLogin };
