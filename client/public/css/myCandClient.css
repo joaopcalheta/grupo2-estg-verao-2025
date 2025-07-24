@@ -16,20 +16,16 @@
   background-color: black;
 }
 
-#perfil {
-  display: inline-flex;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  position: absolute;
-  left:10px;
-
-}
 
 #cand {
-  display: inline-flex;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  position: relative;
-  left: 130px;
   font-weight: bold;
+}
+
+#menu-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Espaço entre os itens */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
 }

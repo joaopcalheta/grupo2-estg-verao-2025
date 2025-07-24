@@ -2,12 +2,14 @@
   <link href="/css/myProfileCompany.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/general.css">
 </head>
-<div onclick="myCompanyProfile()" class="company-profile">
+  <div id="menu-container">
+    <div onclick="myCompanyProfile()" class="company-profile">
     <p id="perfil">Meu Perfil</p>
     </div>
     <div onclick="myAdd()" class="company-add">
     <p id="cand">Meus Anúncios</p>
     </div>
+  </div>
     <hr id="linha" /> 
     <form id="profile-form">
       <div id="pfp-container">
@@ -47,13 +49,13 @@
       </div>
     </form>
     
-    <div class="actions-btn">
-      <button type="button" class="btn btn-blue" onclick="history.back()">Voltar</button>
-      <button type="submit" class="btn btn-blue">Guardar</button>
+    <div class="actions-btn d-flex">
+      <div class="d-flex justify-content-between gap-3 buttonWidth">
+      <button type="button" class="buttonWidth btn btn-blue" onclick="history.back()">Voltar</button>
+      <button type="submit" class="buttonWidth btn btn-blue">Guardar</button>
+      </div>
     </div>
-    <div class="actions-btn">
-      <button class="btn btn-delete">Eliminar 🗑️</button>
+    <div class="actions-btn d-grid buttonWidth">
+      <button class="btn btn-delete">Eliminar Conta</button>
     </div> 
     <script src="/js/companyProfile.js"></script> 
-</body>
-</html>

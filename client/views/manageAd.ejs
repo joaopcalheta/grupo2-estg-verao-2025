@@ -3,96 +3,55 @@
   <link href="/css/general.css" rel="stylesheet" />
 </head>
 
-<h2>Gerir Anúncio</h2>
-  <form id="editAnuncioForm">
-    <label>Nome da profissão
-      <input type="text" name="title" id="title">
-    </label>
-    <label>Categoria
-      <select name="category" id="category">
-        <option>-- Selecione uma opção --</option>
-        <option>Restauração</option>
-        <option>Limpeza</option>
-        <option>Construção</option>
-        <option>Vendedor</option>
-      </select>
-    </label>
-    <label>Tipo de contrato
-      <select name="type" id="type">
-        <option>-- Selecione uma opção --</option>
-        <option>Emprego</option>
-        <option>Estágio</option>
-      </select>
-    </label>
-    <label>Local do emprego
-      <input type="text" name="location" id="location">
-    </label>
-    <label>Regime
-      <select name="regime" id="regime">
-        <option>-- Selecione uma opção --</option>
-        <option>Full-Time</option>
-        <option>Part-Time</option>
-      </select>
-    </label>
-    <label>Descrição
-      <textarea name="description" id="description"></textarea>
-    </label>
-    <label>Foto Atual
-      <img src="" id="currentPhoto">
-    </label>
-    <label>Atualizar Foto
-      <input type="file" name="photo">
-    </label>
-    <div class="actions-btn">
-      <button type="button" class="btn btn-blue" onclick="history.back()">Voltar</button>
-      <button type="submit" class="btn btn-blue">Guardar</button>
-    </div>
-    <div class="actions-btn">
-      <button class="btn btn-delete">Eliminar 🗑️</button>
-    </div>
-  </form>
+<div class="container-ad">
+  <h2 class="text-center my-4">Gerir Anúncio</h2>
+    <form id="editAnuncioForm">
+      <label>Nome da profissão
+        <input type="text" name="title" id="title">
+      </label>
+      <label>Categoria
+        <select name="category" id="category">
+          <option>-- Selecione uma opção --</option>
+          <option>Restauração</option>
+          <option>Limpeza</option>
+          <option>Construção</option>
+          <option>Vendedor</option>
+        </select>
+      </label>
+      <label>Tipo de contrato
+        <select name="type" id="type">
+          <option>-- Selecione uma opção --</option>
+          <option>Emprego</option>
+          <option>Estágio</option>
+        </select>
+      </label>
+      <label>Local do emprego
+        <input type="text" name="location" id="location">
+      </label>
+      <label>Regime
+        <select name="regime" id="regime">
+          <option>-- Selecione uma opção --</option>
+          <option>Full-Time</option>
+          <option>Part-Time</option>
+        </select>
+      </label>
+      <label>Descrição
+        <textarea name="description" id="description"></textarea>
+      </label>
+      <label>Foto Atual
+        <img src="" id="currentPhoto">
+      </label>
+      <label>Atualizar Foto
+        <input type="file" name="photo">
+      </label>
+      <div class="actions-btn">
+        <button type="button" class="btn btn-blue" onclick="history.back()">Voltar</button>
+        <button type="submit" class="btn btn-blue">Guardar</button>
+      </div>
+      <div class="actions-btn">
+        <button id="deletebtn" type="button" class="btn btn-delete">Eliminar 🗑️</button>
+      </div>
+    </form>
+</div>
 
-  <script>
- 
-  document.addEventListener("DOMContentLoaded", function () {
-    const anuncios = JSON.parse(localStorage.getItem('anuncios')) || [];
-    const index = localStorage.getItem('editIndex');
-    const anuncio = anuncios[index];
-
-
-    // BUSCA OS DADOS INTRODUZIDOS QUANDO FOI CRIADO O ANUNCIO
-    document.getElementById('title').value = anuncio.profissao || '';
-    document.getElementById('category').value = anuncio.categoria || '';
-    document.getElementById('type').value = anuncio.tipo || '';
-    document.getElementById('location').value = anuncio.local || '';
-    document.getElementById('regime').value = anuncio.regime || '';
-    document.getElementById('description').value = anuncio.descricao || '';
-    document.getElementById('currentPhoto').src = anuncio.foto || 'images/anuncio1.jpg';
-  });
-
-
-  // GUARDA AS ALTERAÇOES DO ANUNCIO CASO TENHA SIDO EDITADO
-  document.getElementById('editAnuncioForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const anuncios = JSON.parse(localStorage.getItem('anuncios')) || [];
-    const index = localStorage.getItem('editIndex');
-
-    const form = e.target;
-    const updatedAnuncio = {
-      profissao: form.title.value,
-      categoria: form.category.value,
-      tipo: form.type.value,
-      local: form.location.value,
-      regime: form.regime.value,
-      descricao: form.description.value,
-      foto: anuncios[index].foto
-    };
-
-    anuncios[index] = updatedAnuncio;
-    localStorage.setItem('anuncios', JSON.stringify(anuncios));
-    alert("Anúncio atualizado com sucesso.");
-    window.location.href = "/myAds";
-  });
-
-</script>
+<script src="/js/manageAd.js"></script>

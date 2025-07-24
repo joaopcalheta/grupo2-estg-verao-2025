@@ -1,10 +1,9 @@
-main {
+.container-ad {
   display: flex;
   flex-direction: column;
   min-height: 100vh;                   /* ocupa toda a altura da tela */
   justify-content: flex-start;         /* conteúdo principal no topo */
-  align-items: center; 
-  padding: 1rem;
+  padding: 0.3rem;
 }
 
 /* Botão fica fixo em baixo */
@@ -69,7 +68,7 @@ form .actions-btn .btn {
   margin-bottom: 1rem;
   width: 100%;
   max-width: 400px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.2);
 }
 
 .card img.thumbnail {
@@ -77,6 +76,14 @@ form .actions-btn .btn {
   height: auto;
   border-radius: 8px;
   margin-bottom: 0.6rem;
+}
+
+/* CARD DO CANDIDATO */
+
+.candidate-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 /*----------------------PAGE SWITCH-----------------------*/
@@ -97,20 +104,15 @@ form .actions-btn .btn {
   background-color: black;
 }
 
-#perfil {
-  display: inline-flex;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  position: absolute;
-  left:10px;
-  
+#cand {
+  font-weight: bold;
 }
 
-#cand {
-   display: inline-flex;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  position: relative;
-  left: 130px;
-  font-weight: bold;
+#menu-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Espaço entre os itens */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
 }

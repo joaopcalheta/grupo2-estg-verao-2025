@@ -2,12 +2,14 @@
   <link href="/css/myProfileClient.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/general.css">
 </head>
-    <div onclick="clientProfile()" class="client-profile">
+  <div id="menu-container">
+    <div onclick="clientProfile()" class="client-profile ">
     <p id="perfil">Meu Perfil</p>
     </div>
-    <div onclick="clientCand()" class="client-cand">
+    <div onclick="clientCand()" class="client-cand ">
     <p id="cand">Candidaturas</p>
     </div>
+  </div>
     <hr id="linha" /> 
     <form id="profile-form">
       <div id="pfp-container">
@@ -53,14 +55,24 @@
       </div>
       <div>
         <h5 id="cv">Anexar CV:</h5>
-        <input class="form-group_CV"type="file"/>
+        <input type="file" class="d-none" id="fileInput">
+        <label for="fileInput" class="btn btn-primary">
+          <i class="bi bi-upload"></i> Enviar arquivo
+        </label>
+      </div>
     </form>
-    <div class="actions-btn">
-      <button type="button" class="btn btn-blue" onclick="history.back()">Voltar</button>
-      <button type="submit" class="btn btn-blue">Guardar</button>
+    <br>
+    <br>
+    <div class="actions-btn d-flex">
+      <div class="d-flex justify-content-between gap-3 buttonWidth">
+      <button type="button" class="buttonWidth btn btn-blue" onclick="history.back()">Voltar</button>
+      <button type="submit" class="buttonWidth btn btn-blue">Guardar</button>
+      </div>
     </div>
-    <div class="actions-btn">
-      <button class="btn btn-delete">Eliminar 🗑️</button>
+    <div class="actions-btn d-grid buttonWidth">
+      <button class="btn btn-delete">Eliminar Conta</button>
     </div>
+  
+
     <script src="/js/clientProfile.js"></script>
     
