@@ -17,12 +17,26 @@
   </div>
 
   <div class="d-flex justify-content-between">
-    <!-- ordernar -->
-    <button class="d-flex main-card-filter-right justify-content-center">
-      <i class="bi bi-filter me-2"></i> <b>ORDENAR</b>
-    </button>
-
-    <!-- filtrar -->
+    <!-- ordernar (dropdown) -->
+    <div class="d-flex main-card-filter-right justify-content-center">
+      <button
+        type="button"
+        id="dropdown-menu-order"
+        data-bs-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-filter me-2"></i> <b>ORDENAR</b>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdown-menu-order">
+        <a class="dropdown-item" href="#">Mais recente</a>
+        <a class="dropdown-item" href="#">Mais antigo</a>
+        <a class="dropdown-item" href="#">Em destaque</a>
+        <a class="dropdown-item" href="#">A - Z</a>
+        <a class="dropdown-item" href="#">Z - A</a>
+      </div>
+    </div>
+    <!-- filtrar (pagina) -->
     <button
       onclick="window.location.href='/filter'"
       class="d-flex main-card-filter-left justify-content-center"
@@ -189,4 +203,3 @@
 <a href="/myProfileCompany">Meu Perfil(empresa) - temporário</a>
 <br />
 <a href="/login">Login - temporário</a>
-
