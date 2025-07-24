@@ -3,6 +3,6 @@ const router = express.Router();
 const manageAdController = require("../controllers/manageAdController");
 
 // rota GET //
-router.get("/", manageAdController.getManageAd);
+router.get("/manageAd", manageAdController.getManageAd);
 
 module.exports = router;

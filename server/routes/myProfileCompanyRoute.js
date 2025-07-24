@@ -3,6 +3,9 @@ const router = express.Router();
 const manageMyProfileCompanyController = require("../controllers/myProfileCompanyController");
 
 // rota GET //
-router.get("/", manageMyProfileCompanyController.getMyProfileCompany);
+router.get(
+  "/myProfileCompany",
+  manageMyProfileCompanyController.getMyProfileCompany
+);
 
 module.exports = router;
