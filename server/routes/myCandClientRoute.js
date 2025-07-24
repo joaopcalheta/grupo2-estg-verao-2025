@@ -3,6 +3,6 @@ const router = express.Router();
 const manageMyCandClientController = require("../controllers/myCandClientController");
 
 // rota GET //
-router.get("/", manageMyCandClientController.getMyCandClient);
+router.get("/myCandClient", manageMyCandClientController.getMyCandClient);
 
 module.exports = router;

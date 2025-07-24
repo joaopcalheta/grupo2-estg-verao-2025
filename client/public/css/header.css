@@ -4,6 +4,7 @@
   background: #ffffff;
   color: black;
   font-size: 30px;
+  cursor: pointer;
 }
 
 header {
@@ -25,3 +26,5 @@ header {
 .icon {
   width: 30px;
 }
+
+

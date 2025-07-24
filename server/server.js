@@ -10,34 +10,28 @@ const PORT = process.env.PORT || 3000; // porta do servidor (usa 3000 se não ho
 app.set("view engine", "ejs"); // define EJS como motor de views
 app.set("views", path.join(__dirname, "..", "client", "views")); // define a pasta onde estão as views
 
-// Middlewares
+// middlewares
 app.use(express.static(path.join(__dirname, "..", "client", "public"))); // serve ficheiros estáticos (CSS, imagens)
 app.use(express.urlencoded({ extended: true })); // para ler dados de formulários (POST)
 app.use(expressLayouts); // usa layouts com EJS
 
 // importa as rotas
-const homeRoute = require("./routes/homeRoute");
-app.use("/", homeRoute);
-const myAdsRoute = require("./routes/myAdsRoute");
-app.use("/myAds", myAdsRoute);
-const createAdRoute = require("./routes/createAdRoute");
-app.use("/createAd", createAdRoute);
-const manageAdRoute = require("./routes/manageAdRoute");
-app.use("/manageAd", manageAdRoute);
+const routes = [
+  "homeRoute",
+  "myAdsRoute",
+  "createAdRoute",
+  "manageAdRoute",
+  "loginRoute",
+  "candidatesRoute",
+  "myProfileClientRoute",
+  "myCandClientRoute",
+  "myProfileCompanyRoute",
+  "filterRoute",
+];
 
-const loginRoute = require("./routes/loginRoute");
-app.use("/", loginRoute);
-
-const candidatesRoute = require("./routes/candidatesRoute");
-app.use("/candidates", candidatesRoute);
-const myProfileClientRoute = require("./routes/myProfileClientRoute");
-app.use("/myProfileClient", myProfileClientRoute);
-
-const myCandClientRoute = require("./routes/myCandClientRoute");
-app.use("/myCandClient", myCandClientRoute);
-
-const myProfileCompanyRoute = require("./routes/myProfileCompanyRoute");
-app.use("/myProfileCompany", myProfileCompanyRoute);
+routes.forEach((route) => {
+  app.use(require(`./routes/${route}`));
+});
 
 // cria o servidor HTTP
 const server = http.createServer(app);
