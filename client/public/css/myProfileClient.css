@@ -55,7 +55,7 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   position: relative;
-  left: 50px;
+  text-align: center;
 }
 .form-group_CV {
   margin-bottom: 10px;
@@ -85,46 +85,3 @@
 
 
 
-/* ---------------Save Changes and Cancel Buttons--------------------- */
-.buttons {
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  font-size: small;
-  position: relative;
-  top: 10px;
-  display: flex;
-  gap: 10px;
-}
-#saveChanges {
-  background-color: #1895C3; /* Green */
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-#cancelChanges {
-  text-align: center;
-  background-color: #dfc84b; /* Yellow */
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.deleteACC {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  text-align: center;
-  position: relative;
-  top: 20px;
-}
-#deleteAccount {
-  background-color: #d61002; /* Red */
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
