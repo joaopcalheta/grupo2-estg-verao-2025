@@ -40,9 +40,13 @@ function guardarAlteracoes() {
   };
 
   anuncios[index] = updatedAnuncio;
-  
+
   localStorage.setItem('anuncios', JSON.stringify(anuncios));
   alert("Anúncio atualizado com sucesso.");
   window.location.href = "/myAds";
   });
+}
+
+function eliminarAnuncio() {
+  
 }

@@ -3,7 +3,6 @@
   flex-direction: column;
   min-height: 100vh;                   /* ocupa toda a altura da tela */
   justify-content: flex-start;         /* conteúdo principal no topo */
-  align-items: center; 
   padding: 0.3rem;
 }
 
@@ -77,6 +76,14 @@ form .actions-btn .btn {
   height: auto;
   border-radius: 8px;
   margin-bottom: 0.6rem;
+}
+
+/* CARD DO CANDIDATO */
+
+.candidate-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 /*----------------------PAGE SWITCH-----------------------*/
