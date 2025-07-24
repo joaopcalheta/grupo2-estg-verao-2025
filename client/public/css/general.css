@@ -115,6 +115,19 @@ p {
   color: #fff;
 }
 
+.trash-icon {
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #444;
+  transition: color 0.2s;
+  margin-top: 10px;
+  align-self:last baseline;
+}
+
+.trash-icon:hover {
+  color: #c31818;
+}
+
 /*
 .toggle-password {
   position: absolute;
