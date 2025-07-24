@@ -1,5 +1,5 @@
 .main-card-search-filter {
-  box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
 }
 
@@ -43,5 +43,3 @@
 .search-bottom {
   border-top-right-radius: 15px !important;
 }
-
-
