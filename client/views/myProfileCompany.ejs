@@ -1,5 +1,6 @@
 <head>
   <link href="/css/myProfileCompany.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/general.css">
 </head>
 <div onclick="myCompanyProfile()" class="company-profile">
     <p id="perfil">Meu Perfil</p>
@@ -46,13 +47,13 @@
       </div>
     </form>
     
-    <div class="buttons">
-      <button class="buttons" id="saveChanges">Guardar Alterações</button>
-      <button class="buttons" id="cancelChanges">Cancelar</button>
+    <div class="actions-btn">
+      <button type="button" class="btn btn-blue" onclick="history.back()">Voltar</button>
+      <button type="submit" class="btn btn-blue">Guardar</button>
     </div>
-    <div class="deleteACC">
-      <button class="deleteACC"id="deleteAccount">Eliminar Conta</button>
-    </div>  
+    <div class="actions-btn">
+      <button class="btn btn-delete">Eliminar 🗑️</button>
+    </div> 
     <script src="/js/companyProfile.js"></script> 
 </body>
 </html>
