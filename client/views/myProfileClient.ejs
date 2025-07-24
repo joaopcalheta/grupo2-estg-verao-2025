@@ -12,12 +12,31 @@
   </div>
     <hr id="linha" /> 
     <form id="profile-form">
-      <div id="pfp-container">
-        <img id="pfpImg" src="/images/my-account.png" alt="pfp">
+      <input type="file" id="uploadFoto" accept="image/*" style="display: none;">
+      <div id="pfp-container" style="cursor: pointer; text-align: center;">
+        <img id="pfpImg" src="/images/my-account.png" alt="pfp" >
         <p id="pfpChange">Alterar Imagem</p>
       </div>
       <h2 id="personalData">Dados Pessoais</h2>
-      <div>
+        <script>
+          // Quando clica no container, abre o seletor de ficheiros
+            document.getElementById('pfp-container').addEventListener('click', function () {
+            document.getElementById('uploadFoto').click();
+            });
+
+          // Quando seleciona uma imagem, atualiza a imagem visível
+            document.getElementById('uploadFoto').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = function (e) {
+              document.getElementById('pfpImg').src = e.target.result;
+              };
+             reader.readAsDataURL(file);
+              }
+            });
+        </script>
+        <div>
         <input class="form-group" type="text" name="name" placeholder="Nome e apelido" />
       </div>
       <div >
