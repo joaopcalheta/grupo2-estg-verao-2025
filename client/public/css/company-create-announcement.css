@@ -1,0 +1,45 @@
+/* FORMULÁRIO CRIAR ANÚNCIO */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.6rem;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+/* Estilo dos inputs, selects e textarea */
+form input[type="text"],
+form textarea,
+form select,
+form input[type="file"] {
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+form label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+form .actions-btn {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+form .actions-btn .btn {
+  flex: 1;
+}
