@@ -1,6 +1,6 @@
-const getManageAd = async (req, res) => {
+const getCompanyManageAnnouncement = async (req, res) => {
   try {
-    res.render("manageAd", {
+    res.render("company-manage-announcement", {
       title: "Página Gerir Anúncio",
     });
   } catch (err) {
@@ -9,4 +9,4 @@ const getManageAd = async (req, res) => {
   }
 };
 
-module.exports = { getManageAd };
+module.exports = { getCompanyManageAnnouncement };

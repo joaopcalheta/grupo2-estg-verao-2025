@@ -1,6 +1,6 @@
-const getCreateAd = async (req, res) => {
+const getCompanyCreateAnnouncement = async (req, res) => {
   try {
-    res.render("createAd", {
+    res.render("company-create-announcement", {
       title: "Página Criar Anúncio",
     });
   } catch (err) {
@@ -9,4 +9,4 @@ const getCreateAd = async (req, res) => {
   }
 };
 
-module.exports = { getCreateAd };
+module.exports = { getCompanyCreateAnnouncement };

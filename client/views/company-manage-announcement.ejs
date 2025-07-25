@@ -1,0 +1,69 @@
+<head>
+  <link href="/css/general.css" rel="stylesheet" />
+  <link href="/css/company-my-announcements.css" rel="stylesheet" />
+</head>
+
+<div class="container-ad">
+  <h2 class="text-center my-4">Gerir Anúncio</h2>
+  <form id="editAnuncioForm">
+    <label
+      >Nome da profissão
+      <input type="text" name="title" id="title" />
+    </label>
+    <label
+      >Categoria
+      <select name="category" id="category">
+        <option>-- Selecione uma opção --</option>
+        <option>Restauração</option>
+        <option>Limpeza</option>
+        <option>Construção</option>
+        <option>Vendedor</option>
+      </select>
+    </label>
+    <label
+      >Tipo de contrato
+      <select name="type" id="type">
+        <option>-- Selecione uma opção --</option>
+        <option>Emprego</option>
+        <option>Estágio</option>
+      </select>
+    </label>
+    <label
+      >Local do emprego
+      <input type="text" name="location" id="location" />
+    </label>
+    <label
+      >Regime
+      <select name="regime" id="regime">
+        <option>-- Selecione uma opção --</option>
+        <option>Full-Time</option>
+        <option>Part-Time</option>
+      </select>
+    </label>
+    <label
+      >Descrição
+      <textarea name="description" id="description"></textarea>
+    </label>
+    <label
+      >Foto Atual
+      <img src="" id="currentPhoto" />
+    </label>
+    <label
+      >Atualizar Foto
+      <input type="file" name="photo" />
+    </label>
+    <div class="actions-btn">
+      <button type="button" class="btn btn-blue" onclick="history.back()">
+        Voltar
+      </button>
+      <button type="submit" class="btn btn-blue">Guardar</button>
+    </div>
+    <div class="actions-btn">
+      <button id="deletebtn" type="button" class="btn btn-delete">
+        Eliminar 🗑️
+      </button>
+    </div>
+  </form>
+</div>
+
+<script src="/js/company-manage-announcement.js"></script>

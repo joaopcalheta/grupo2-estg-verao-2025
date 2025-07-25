@@ -1,6 +1,6 @@
-const getMyProfileClient = async (req, res) => {
+const getClientMyProfile = async (req, res) => {
   try {
-    res.render("myProfileClient", {
+    res.render("client-my-profile", {
       title: "Meu Perfil",
     });
   } catch (err) {
@@ -9,4 +9,4 @@ const getMyProfileClient = async (req, res) => {
   }
 };
 
-module.exports = { getMyProfileClient };
+module.exports = { getClientMyProfile };

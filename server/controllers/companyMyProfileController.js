@@ -1,6 +1,6 @@
-const getMyProfileCompany = async (req, res) => {
+const getCompanyMyProfile = async (req, res) => {
   try {
-    res.render("myProfileCompany", {
+    res.render("company-my-profile", {
       title: "Meu Perfil",
     });
   } catch (err) {
@@ -9,4 +9,4 @@ const getMyProfileCompany = async (req, res) => {
   }
 };
 
-module.exports = { getMyProfileCompany };
+module.exports = { getCompanyMyProfile };

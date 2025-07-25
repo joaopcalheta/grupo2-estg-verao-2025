@@ -6,7 +6,7 @@ body {
 }
 
 .filtro-container {
-  width: 300px;
+  width: 100%;
   background-color: #ffffff;
   border: 1px solid #ccc;
   padding-bottom: 0px;

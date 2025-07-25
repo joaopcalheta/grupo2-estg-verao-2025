@@ -1,6 +1,6 @@
-const getCandidates = async (req, res) => {
+const getCompanyCandidates = async (req, res) => {
   try {
-    res.render("candidates", {
+    res.render("company-candidates", {
       title: "Página Candidatos",
     });
   } catch (err) {
@@ -9,4 +9,4 @@ const getCandidates = async (req, res) => {
   }
 };
 
-module.exports = { getCandidates };
+module.exports = { getCompanyCandidates };

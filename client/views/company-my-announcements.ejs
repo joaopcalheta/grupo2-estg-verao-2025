@@ -1,0 +1,28 @@
+<head>
+  <link href="/css/general.css" rel="stylesheet" />
+  <link href="/css/company-my-announcements.css" rel="stylesheet" />
+</head>
+<div id="menu-container">
+  <div onclick="myCompanyProfile()" class="company-profile">
+    <p id="perfil">Meu Perfil</p>
+  </div>
+  <div onclick="myAdd()" class="company-add">
+    <p id="cand">Anúncios</p>
+  </div>
+</div>
+<hr id="linha" />
+
+<div class="container">
+  <div id="meusAnuncios">
+    <!-- criar anuncios de forma dinâmica-->
+  </div>
+  <button
+    class="btn btn-blue btn-fixed-bottom"
+    onclick="location.href='/createAd'"
+  >
+    + Adicionar anúncio
+  </button>
+</div>
+
+<script src="/js/company-my-announcements.js"></script>
+<script src="/js/company-my-profile.js"></script>

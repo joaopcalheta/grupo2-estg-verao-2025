@@ -1,4 +1,4 @@
-const getsubmit = async (req, res) => {
+const getClientSubmit = async (req, res) => {
   try {
     res.render("submit", {
       title: "Página submeter candidatura",
@@ -9,4 +9,4 @@ const getsubmit = async (req, res) => {
   }
 };
 
-module.exports = { getsubmit };
+module.exports = { getClientSubmit };

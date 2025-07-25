@@ -1,16 +1,17 @@
-
 <head>
-  <link href="/css/ad.css" rel="stylesheet" />
   <link href="/css/general.css" rel="stylesheet" />
+  <link href="/css/company-my-announcements.css" rel="stylesheet" />
 </head>
 
 <div class="container-ad">
   <h2 class="text-center my-4">Criar Anúncio</h2>
   <form id="createAnuncioForm">
-    <label>Nome da profissão
-      <input type="text" name="title" required>
+    <label
+      >Nome da profissão
+      <input type="text" name="title" required />
     </label>
-    <label>Categoria
+    <label
+      >Categoria
       <select name="category">
         <option>-- Selecione uma opção --</option>
         <option>Restauração</option>
@@ -19,34 +20,45 @@
         <option>Vendedor</option>
       </select>
     </label>
-    <label>Tipo de contrato
+    <label
+      >Tipo de contrato
       <select name="type">
         <option>-- Selecione uma opção --</option>
         <option>Emprego</option>
         <option>Estágio</option>
       </select>
     </label>
-    <label>Local do emprego
-      <input type="text" name="location" required>
+    <label
+      >Local do emprego
+      <input type="text" name="location" required />
     </label>
-    <label>Regime
+    <label
+      >Regime
       <select name="regime">
         <option>-- Selecione uma opção --</option>
         <option>Full-Time</option>
         <option>Part-Time</option>
       </select>
     </label>
-    <label>Descrição
+    <label
+      >Descrição
       <textarea name="description" rows="4"></textarea>
     </label>
-    <label>Adicionar foto
-      <input type="file" name="photo">
-    </label>
+      <div>
+        <h5>Adicionar Foto:</h5>
+        <br>
+        <input type="file" class="d-none" id="fileInput">
+        <label for="fileInput" class="btn btn-primary">
+          <i class="bi bi-upload"></i> Enviar
+        </label>
+      </div>
     <div class="actions-btn">
-      <button type="button" class="btn btn-blue" onclick="history.back()">Voltar</button>
+      <button type="button" class="btn btn-blue" onclick="history.back()">
+        Voltar
+      </button>
       <button type="submit" class="btn btn-blue">Criar</button>
     </div>
   </form>
 </div>
 
-<script src="/js/createAd.js"></script>
+<script src="/js/company-create-announcement.js"></script>
