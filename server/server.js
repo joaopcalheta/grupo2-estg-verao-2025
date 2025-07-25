@@ -28,6 +28,7 @@ const routes = [
   "myProfileCompanyRoute",
   "filterRoute",
   "submitRoute",
+  "detailsAdRoute",
 ];
 
 routes.forEach((route) => {
