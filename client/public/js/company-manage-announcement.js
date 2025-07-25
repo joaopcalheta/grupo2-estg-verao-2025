@@ -43,7 +43,7 @@ function guardarAlteracoes() {
 
   localStorage.setItem('anuncios', JSON.stringify(anuncios));
   alert("Anúncio atualizado com sucesso.");
-  window.location.href = "/myAds";
+  window.location.href = "/company-my-announcements";
   });
 }
 

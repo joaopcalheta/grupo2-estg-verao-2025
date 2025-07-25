@@ -22,6 +22,6 @@ function criarAnuncio() {
   localStorage.setItem('anuncios', JSON.stringify(anuncios));
 
   alert('Anúncio criado com sucesso.');
-    window.location.href = '/myAds';
+    window.location.href = '/company-my-announcements';
   });
 }

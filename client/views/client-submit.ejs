@@ -1,5 +1,6 @@
 <head>
   <link href="/css/client-submit.css" rel="stylesheet" />
+  <link href="/css/general.css" rel="stylesheet" />
 </head>
 <div class="container">
   <p><b>Candidatura</b></p>
@@ -18,7 +19,17 @@
     <br />
     <input type="localidade" placeholder="Localidade" />
     <br />
-    <input type="escolaridade" placeholder="escolaridade" />
+    <!-- Escolaridade -->
+    <div class="escolaridade">
+      <select id="escolaridade" name="escolaridade">
+        <option value="selecione">Selecione o nível de escolaridade</option>
+        <option value="basico">Ensino Básico</option>
+        <option value="secundario">Ensino Secundário</option>
+        <option value="licenciatura">Licenciatura</option>
+        <option value="mestrado">Mestrado</option>
+        <option value="doutoramento">Doutoramento</option>
+      </select>
+    </div>
     <br />
     <input type="linguas" placeholder="Linguas" />
     <br />
@@ -28,7 +39,6 @@
     <br />
     <div>
       <h5 id="cv">Anexar CV:</h5>
-      <br />
       <input type="file" class="d-none" id="fileInput" />
       <label for="fileInput" class="btn btn-primary">
         <i class="bi bi-upload"></i> Enviar arquivo

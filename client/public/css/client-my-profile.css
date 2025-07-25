@@ -1,4 +1,3 @@
-
 /*----------------------PAGE SWITCH-----------------------*/
 .client-profile {
   cursor: pointer;
@@ -6,7 +5,6 @@
 .client-cand {
   cursor: pointer;
 }
-
 
 #linha {
   position: relative;
@@ -21,24 +19,19 @@
   font-weight: bold;
 }
 #menu-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px; /* Espaço entre os itens */
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-  
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* Espaço entre os itens */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+
+  margin-bottom: 20px;
 }
-
-
-
-
 
 /* ---------------------------PROFILE FORM----------------------------- */
 
 .form-group {
   margin-bottom: 10px;
-  margin-left: 5px;
   border-radius: 10px;
   border: 1px solid #ccc;
   padding: 10px;
@@ -47,6 +40,31 @@
   font-size: 14px;
   transition: border-color 0.3s ease;
 }
+
+.sobre input {
+  padding-bottom: 70px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+  padding-bottom: 70px;
+}
+
+.escolaridade select {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 12px;
+  transition: border-color 0.3s ease;
+}
+
 #personalData {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
@@ -76,8 +94,3 @@
   color: black;
   cursor: pointer;
 }
-
-
-
-
-
