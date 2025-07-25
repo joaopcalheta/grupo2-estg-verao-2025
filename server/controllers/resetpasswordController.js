@@ -1,6 +1,6 @@
-const getresetpassword = async (req, res) => {
+const getResetPassword = async (req, res) => {
   try {
-    res.render("resetpassword", {
+    res.render("reset-password", {
       title: "Página de resetar password",
     });
   } catch (err) {
@@ -9,4 +9,4 @@ const getresetpassword = async (req, res) => {
   }
 };
 
-module.exports = { getresetpassword };
+module.exports = { getResetPassword };
