@@ -28,6 +28,7 @@ const routes = [
   "loginRoute",
   "searchFilterRoute",
   "clientSubmitRoute",
+  "clientDetailsAnnouncementRoute",
 ];
 
 routes.forEach((route) => {
