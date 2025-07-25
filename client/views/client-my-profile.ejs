@@ -100,13 +100,16 @@
   <div>
     <input class="form-group" type="text" name="name" placeholder="Línguas" />
   </div>
-  <div>
-    <input
-      class="form-group"
-      type="text"
-      name="username"
-      placeholder="Escolaridade"
-    />
+  <!-- Escolaridade -->
+  <div class="escolaridade">
+    <select id="escolaridade" name="escolaridade">
+      <option value="selecione">Selecione o nível de escolaridade</option>
+      <option value="basico">Ensino Básico</option>
+      <option value="secundario">Ensino Secundário</option>
+      <option value="licenciatura">Licenciatura</option>
+      <option value="mestrado">Mestrado</option>
+      <option value="doutoramento">Doutoramento</option>
+    </select>
   </div>
   <div>
     <input
@@ -119,6 +122,7 @@
   <div class="sobre">
     <input type="sobre" placeholder="Sobre mim" />
   </div>
+
   <div>
     <h5 id="cv">Anexar CV:</h5>
     <input type="file" class="d-none" id="fileInput" />
