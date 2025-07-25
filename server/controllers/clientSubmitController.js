@@ -1,6 +1,6 @@
 const getClientSubmit = async (req, res) => {
   try {
-    res.render("submit", {
+    res.render("client-submit", {
       title: "Página submeter candidatura",
     });
   } catch (err) {
