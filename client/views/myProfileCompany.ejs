@@ -1,0 +1,81 @@
+<head>
+  <link href="/css/myProfileCompany.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/general.css">
+</head>
+  <div id="menu-container">
+    <div onclick="myCompanyProfile()" class="company-profile">
+    <p id="perfil">Meu Perfil</p>
+    </div>
+    <div onclick="myAdd()" class="company-add">
+    <p id="cand">Anúncios</p>
+    </div>
+  </div>
+    <hr id="linha" /> 
+    <form id="profile-form">
+      <input type="file" id="uploadFoto" accept="image/*" style="display: none;">
+      <div id="pfp-container" style="cursor: pointer; text-align: center;">
+        <img id="pfpImg" src="/images/my-account.png" alt="pfp">
+        <p id="pfpChange">Alterar Imagem</p>
+      </div>
+
+        <script>
+          // Quando clica no container, abre o seletor de ficheiros
+            document.getElementById('pfp-container').addEventListener('click', function () {
+            document.getElementById('uploadFoto').click();
+            });
+
+          // Quando seleciona uma imagem, atualiza a imagem visível
+            document.getElementById('uploadFoto').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = function (e) {
+              document.getElementById('pfpImg').src = e.target.result;
+              };
+             reader.readAsDataURL(file);
+              }
+            });
+        </script>
+      <h2 id="personalData">Dados Pessoais</h2>
+      <div>
+        <input class="form-group" type="text" name="name" placeholder="Nome da Empresa" />
+      </div>
+      <div >
+        <input class="form-group" type="text" name="username" placeholder="Nome de Utilizador" />
+      </div>
+      <div >
+        <input class="form-group" type="tel" name="phone" placeholder="Nº Telemóvel" />
+      </div>
+      <div >
+        <input class="form-group" type="text" name="nif" placeholder="NIF da Empresa" />
+      </div>
+      <div >
+        <input class="form-group" type="text" name="email" placeholder="Morada" />
+      </div>
+      <div >
+        <input class="form-group" type="text" name="email" placeholder="Localidade" />
+      </div>
+      <div >
+        <input class="form-group" type="text" name="confirmEmail" placeholder="E-mail" />
+      </div>
+       <div >
+        <input class="form-group" type="text" name="confirmEmail" placeholder="Confirmar E-mail" />
+      </div>
+      <div >
+        <input class="form-group" type="text" name="password" placeholder="Palavra-passe" />
+      </div>
+      <div >
+        <input class="form-group" type="text" name="newPassword"placeholder=" Nova Palavra-passe" />
+      </div>
+    </form>
+    
+    <div class="actions-btn d-flex mt-5">
+      <div class="d-flex justify-content-between gap-3 buttonWidth">
+      <button type="button" class="buttonWidth btn btn-blue" onclick="history.back()">Voltar</button>
+      <button type="submit" class="buttonWidth btn btn-blue">Guardar</button>
+      </div>
+    </div>
+    <div class="actions-btn d-grid buttonWidth">
+      <button class="btn btn-delete mt-2">Eliminar Conta</button>
+    </div> 
+    <script src="/js/companyProfile.js"></script> 

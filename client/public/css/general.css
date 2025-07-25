@@ -35,7 +35,7 @@ button {
   width: 100% !important;
 }
 
-/* Matilde -  
+/* Matilde  
 
 h2 {
   font-family: Arial, Helvetica, sans-serif;
@@ -67,7 +67,6 @@ p {
   text-align: center;
   margin-bottom: 0.2rem;
   transition: filter 0.2s ease;
-  margin-top: 0.3rem;
 }
 
 .btn-blue {
@@ -267,7 +266,7 @@ body {
 
 .container {
   min-height: 100vh;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 }
 
 .clicable {

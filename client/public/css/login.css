@@ -61,6 +61,7 @@ body {
   background-color: #1895c3;
   color: #ffffff;
   font-size: 15px;
+  align-items: stretch;
   padding: 15px 10px;
   border: 1px solid transparent;
   border-radius: 15px;
@@ -69,42 +70,30 @@ body {
   text-transform: uppercase;
   margin-top: 30px;
   cursor: pointer;
-  width: 90%;
+  width: 92%;
   text-align: center;
 }
 
-#container.container {
-  align-items: center;
-  margin-left: 10px;
+.login-form.form.active {
+  margin-bottom: 0px;
 }
 
 .mailpass {
-  font-size: 10px;
-  width: 100% !important;
-  text-align: left;
-  font-family: Arial, Helvetica, sans-serif;
-  margin-top: 25px;
-  /*gap: 20px;*/
-  align-items: center;
+  max-width: 600px;
+  margin: 0 auto; /* CENTRA horizontalmente */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
-/*.container input {*/
-input[type="email"],
-input[type="password"] {
-  background-color: #ffffff;
-  border: 1px solid black;
-  margin: 8px 0px;
-  /*padding: 12px 15px;*/
-  font-size: 9px;
-  border-radius: 15px;
+.mailpass input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #333;
   width: 100%;
-  outline: none;
-  gap: 20px;
+  box-sizing: border-box;
 }
-
-/*.esqueci {
-    align-items: center;
-}*/
 
 .container a {
   font-family: Arial, Helvetica, sans-serif;
@@ -147,45 +136,20 @@ p {
   letter-spacing: 0.5px;
   text-transform: uppercase;
   cursor: pointer;
-  width: 90%;
+  width: 92%;
   text-align: center;
-  /*background-color: #1895c3;
-  color: #ffffff;
-  font-size: 12px;
-  padding: 10px 100px;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-top: 10px;
-  cursor: pointer;*/
 }
 
 .radio-group {
   font-family: Arial, Helvetica, sans-serif;
   padding-top: 30px;
-  gap: 40px;
-  display: inline-flex;
+  gap: 0px;
+  display: flex;
+  justify-content: space-between;
   text-align: center;
-}
-
-/*.container input {*/
-input[type="nome"],
-input[type="email"],
-input[type="nomeempresa"],
-input[type="nifempresa"],
-input[type="password"],
-input[type="confirmpassword"] {
-  background-color: #ffffff;
-  border: 1px solid black;
-  margin: 8px 0px 20px;
-  padding: 12px 15px;
-  font-size: 9px;
-  border-radius: 15px;
-  width: 90%;
-  outline: none;
-  gap: 10px;
+  margin: 25px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 .checkbox-group {
@@ -193,7 +157,8 @@ input[type="confirmpassword"] {
   font-size: 12px;
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 100%;
+  text-align: center;
 }
 
 .empresa-f {

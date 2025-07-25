@@ -30,22 +30,6 @@ btnRegister.addEventListener("click", () => {
   empresaFields.style.display = "block";
 });
 
-/*const btnCandidato = document.getElementById("btn-candidato");
-const btnEmpresa = document.getElementById("btn-empresa");
-
-const candidatoFields = document.getElementById("candidato-f");
-const empresaFields = document.getElementById("empresa-f");
-
-btnCandidato.addEventListener("click", () => {
-  candidatoFields.style.display = "block";
-  empresaFields.style.display = "none";
-});
-
-btnEmpresa.addEventListener("click", () => {
-  candidatoFields.style.display = "none";
-  empresaFields.style.display = "block";
-});*/
-
 const radioCandidato = document.getElementById("btn-candidato");
 const radioEmpresa = document.getElementById("btn-empresa");
 
