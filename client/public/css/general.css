@@ -35,7 +35,7 @@ button {
   width: 100% !important;
 }
 
-/* Matilde -  */
+/* Matilde  
 
 h2 {
   font-family: Arial, Helvetica, sans-serif;
@@ -46,12 +46,14 @@ h3 {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
-
+ 
 p {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
-}
+  margin: 2px 0;
 
+}
+*/
 .btn {
   padding: 0.5rem 1rem;
   border: none;
@@ -63,7 +65,7 @@ p {
   align-items: center; /* centraliza verticalmente */
   justify-content: center; /* centraliza horizontalmente */
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
   transition: filter 0.2s ease;
 }
 
@@ -101,14 +103,28 @@ p {
   background-color: white;
   border-radius: 15px;
   padding: 10px;
-  box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.2);
   margin-bottom: 15px;
+  border: 1px solid #000000;
 }
 
 .btn-delete:hover {
   filter: brightness(80%);
   background-color: #d30303;
   color: #fff;
+}
+
+.trash-icon {
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #444;
+  transition: color 0.2s;
+  margin-top: 10px;
+  align-self:last baseline;
+}
+
+.trash-icon:hover {
+  color: #c31818;
 }
 
 /*

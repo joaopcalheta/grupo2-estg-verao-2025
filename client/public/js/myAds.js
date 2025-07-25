@@ -15,7 +15,7 @@ function mostrarAnuncios() {
       <h3>${anuncio.profissao}</h3>
       <p>${anuncio.local}</p>
       <p>${anuncio.regime}</p>
-      <button class="btn btn-blue" onclick="verCandidatos(${index})">Ver candidatos</button>
+      <button class="btn btn-blue mb-2" onclick="verCandidatos(${index})">Ver candidatos</button>
       <button class="btn btn-black" onclick="gerirAnuncio(${index})">Gerir</button>
     `;
     container.appendChild(card);

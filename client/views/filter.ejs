@@ -1,81 +1,75 @@
-<!DOCTYPE html>
-<html lang="pt">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Filtro</title>
-    <link rel="stylesheet" href="filtrar.css" />
-  </head>
+<head>
+  <link href="/css/filter.css" rel="stylesheet" />
+</head>
 
-  <body>
-    <div class="filtro-container">
-      <div class="filtro-header">
-        <h2>FILTRAR</h2>
-        <button class="close-btn">&times;</button>
+<div class="container">
+  <div class="filtro-container">
+    <div class="filtro-header">
+      <h2>FILTRAR</h2>
+      <button class="close-btn">&times;</button>
+    </div>
+
+    <div class="filtro-section">
+      <button class="dropdown-btn">Categoria ▾</button>
+    </div>
+
+    <div class="filtro-section">
+      <button class="dropdown-btn">Concelho ▾</button>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Ponta do Sol</label><br />
+        <label><input type="checkbox" /> Calheta</label><br />
+        <label><input type="checkbox" /> Ribeira Brava</label><br />
+        <label><input type="checkbox" /> Câmara de Lobos</label><br />
+        <label><input type="checkbox" /> Funchal</label><br />
+        <label><input type="checkbox" /> Santa Cruz</label><br />
+        <label><input type="checkbox" /> Machico</label><br />
+        <label><input type="checkbox" /> Santana</label><br />
+        <label><input type="checkbox" /> São Vicente</label><br />
+        <label><input type="checkbox" /> Porto Moniz</label><br />
+        <label><input type="checkbox" /> Porto Santo</label><br />
       </div>
+    </div>
 
-      <div class="filtro-section">
-        <button class="dropdown-btn">Categoria ▾</button>
-      </div>
-
-      <div class="filtro-section">
-        <button class="dropdown-btn">Concelho ▾</button>
-        <div class="checkbox-group">
-          <label><input type="checkbox" /> Ponta do Sol</label><br />
-          <label><input type="checkbox" /> Calheta</label><br />
-          <label><input type="checkbox" /> Ribeira Brava</label><br />
-          <label><input type="checkbox" /> Câmara de Lobos</label><br />
-          <label><input type="checkbox" /> Funchal</label><br />
-          <label><input type="checkbox" /> Santa Cruz</label><br />
-          <label><input type="checkbox" /> Machico</label><br />
-          <label><input type="checkbox" /> Santana</label><br />
-          <label><input type="checkbox" /> São Vicente</label><br />
-          <label><input type="checkbox" /> Porto Moniz</label><br />
-          <label><input type="checkbox" /> Porto Santo</label><br />
-        </div>
-      </div>
-
-      <!--<div class="filtro-section">
+    <!--<div class="filtro-section">
         <button class="dropdown-btn">Profissão ▾</button>
       </div>-->
 
-      <div class="filtro-section">
-        <button class="dropdown-btn active">Tipo ▴</button>
-        <div class="checkbox-group">
-          <label><input type="checkbox" /> Emprego</label><br />
-          <label><input type="checkbox" /> Estágio</label>
-        </div>
-      </div>
-
-      <div class="filtro-section">
-        <button class="dropdown-btn active">Regime ▴</button>
-        <div class="checkbox-group">
-          <label><input type="checkbox" /> Full-time</label><br />
-          <label><input type="checkbox" /> Part-time</label>
-        </div>
-      </div>
-
-      <div class="filtro-section">
-        <button class="dropdown-btn active">Escolaridade ▴</button>
-        <div class="checkbox-group">
-          <label><input type="checkbox" /> 1º ciclo</label><br />
-          <label><input type="checkbox" /> 2º ciclo</label><br />
-          <label><input type="checkbox" /> 3º ciclo</label><br />
-          <label><input type="checkbox" /> Secundário</label><br />
-          <label><input type="checkbox" /> Licenciatura</label><br />
-          <label><input type="checkbox" /> Mestrado</label><br />
-        </div>
-      </div>
-
-      <div class="filtro-section">
-        <button class="dropdown-btn active">Horário ▴</button>
-        <div class="checkbox-group">
-          <label><input type="checkbox" /> 9h - 18h</label><br />
-          <label><input type="checkbox" /> 15h - 00h</label><br />
-          <label><input type="checkbox" /> 00h-08h</label><br />
-        </div>
+    <div class="filtro-section">
+      <button class="dropdown-btn active">Tipo ▴</button>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Emprego</label><br />
+        <label><input type="checkbox" /> Estágio</label>
       </div>
     </div>
-  </body>
-  <script src="filtrar.js"></script>
-</html>
+
+    <div class="filtro-section">
+      <button class="dropdown-btn active">Regime ▴</button>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Full-time</label><br />
+        <label><input type="checkbox" /> Part-time</label>
+      </div>
+    </div>
+
+    <div class="filtro-section">
+      <button class="dropdown-btn active">Escolaridade ▴</button>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> 1º ciclo</label><br />
+        <label><input type="checkbox" /> 2º ciclo</label><br />
+        <label><input type="checkbox" /> 3º ciclo</label><br />
+        <label><input type="checkbox" /> Secundário</label><br />
+        <label><input type="checkbox" /> Licenciatura</label><br />
+        <label><input type="checkbox" /> Mestrado</label><br />
+      </div>
+    </div>
+
+    <div class="filtro-section">
+      <button class="dropdown-btn active">Horário ▴</button>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> 9h - 18h</label><br />
+        <label><input type="checkbox" /> 15h - 00h</label><br />
+        <label><input type="checkbox" /> 00h-08h</label><br />
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/filter.js"></script>

@@ -2,190 +2,204 @@
   <link href="/css/home.css" rel="stylesheet" />
 </head>
 
-<div class="container">
-  <!-- pesquisar, ordenar e filtrar -->
-  <div class="main-card-search-filter mb-3">
-    <!-- pesquisar -->
-    <div class="input-group">
-      <input
-        class="main-card-search form-control rounded-bottom-0"
-        type="text"
-        placeholder="Pesquisar emprego"
-      />
-      <button class="search-bottom p-2 bg-black text-white">
-        <i class="bi bi-search px-1"></i>
-      </button>
-    </div>
+<!-- pesquisar, ordenar e filtrar -->
+<div class="main-card-search-filter mb-3">
+  <!-- pesquisar -->
+  <div class="input-group">
+    <input
+      class="main-card-search form-control rounded-bottom-0"
+      type="text"
+      placeholder="Pesquisar emprego"
+    />
+    <button class="search-bottom p-2 bg-black text-white">
+      <i class="bi bi-search px-1"></i>
+    </button>
+  </div>
 
-    <div class="d-flex justify-content-between">
-      <!-- ordernar -->
-      <button class="d-flex main-card-filter-right justify-content-center">
+  <div class="d-flex justify-content-between">
+    <!-- ordernar (dropdown) -->
+    <div class="d-flex main-card-filter-right justify-content-center">
+      <button
+        type="button"
+        id="dropdown-menu-order"
+        data-bs-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
         <i class="bi bi-filter me-2"></i> <b>ORDENAR</b>
       </button>
-
-      <!-- filtrar -->
-      <button class="d-flex main-card-filter-left justify-content-center">
-        <i class="bi bi-funnel-fill me-2"></i> <b>FILTRAR</b>
-      </button>
-    </div>
-  </div>
-
-  <!-- anuncio card -->
-  <div class="white-card">
-    <div class="d-flex justify-content-start">
-      <!-- imagem -->
-      <div class="me-2">
-        <img class="announcement" src="/images/anuncio1.jpg" />
-      </div>
-      <!-- texto -->
-      <div class="d-flex flex-column justify-content-between">
-        <div>
-          <h5>Cozinheiro</h5>
-          <h6 class="mb-0 fw-normal">Santa Cruz</h6>
-          <h6 class="fw-normal">Full-time</h6>
-        </div>
-        <div>
-          <a class="text-muted" href="/">
-            <h6 class="fw-normal">Saber mais</h6>
-          </a>
-        </div>
+      <div class="dropdown-menu" aria-labelledby="dropdown-menu-order">
+        <a class="dropdown-item" href="#">Mais recente</a>
+        <a class="dropdown-item" href="#">Mais antigo</a>
+        <a class="dropdown-item" href="#">Em destaque</a>
+        <a class="dropdown-item" href="#">A - Z</a>
+        <a class="dropdown-item" href="#">Z - A</a>
       </div>
     </div>
+    <!-- filtrar (pagina) -->
+    <button
+      onclick="window.location.href='/filter'"
+      class="d-flex main-card-filter-left justify-content-center"
+    >
+      <i class="bi bi-funnel-fill me-2"></i> <b>FILTRAR</b>
+    </button>
   </div>
-
-  <!-----------------apagar qdo for dinamico------------------------------------->
-  <div class="white-card">
-    <div class="d-flex justify-content-start">
-      <!-- imagem -->
-      <div class="me-2">
-        <img class="announcement" src="/images/anuncio1.jpg" />
-      </div>
-      <!-- texto -->
-      <div class="d-flex flex-column justify-content-between">
-        <div>
-          <h5>Cozinheiro</h5>
-          <h6 class="mb-0 fw-normal">Santa Cruz</h6>
-          <h6 class="fw-normal">Full-time</h6>
-        </div>
-        <div>
-          <a class="text-muted" href="/">
-            <h6 class="fw-normal">Saber mais</h6>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="white-card">
-    <div class="d-flex justify-content-start">
-      <!-- imagem -->
-      <div class="me-2">
-        <img class="announcement" src="/images/anuncio1.jpg" />
-      </div>
-      <!-- texto -->
-      <div class="d-flex flex-column justify-content-between">
-        <div>
-          <h5>Cozinheiro</h5>
-          <h6 class="mb-0 fw-normal">Santa Cruz</h6>
-          <h6 class="fw-normal">Full-time</h6>
-        </div>
-        <div>
-          <a class="text-muted" href="/">
-            <h6 class="fw-normal">Saber mais</h6>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="white-card">
-    <div class="d-flex justify-content-start">
-      <!-- imagem -->
-      <div class="me-2">
-        <img class="announcement" src="/images/anuncio1.jpg" />
-      </div>
-      <!-- texto -->
-      <div class="d-flex flex-column justify-content-between">
-        <div>
-          <h5>Cozinheiro</h5>
-          <h6 class="mb-0 fw-normal">Santa Cruz</h6>
-          <h6 class="fw-normal">Full-time</h6>
-        </div>
-        <div>
-          <a class="text-muted" href="/">
-            <h6 class="fw-normal">Saber mais</h6>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="white-card">
-    <div class="d-flex justify-content-start">
-      <!-- imagem -->
-      <div class="me-2">
-        <img class="announcement" src="/images/anuncio1.jpg" />
-      </div>
-      <!-- texto -->
-      <div class="d-flex flex-column justify-content-between">
-        <div>
-          <h5>Cozinheiro</h5>
-          <h6 class="mb-0 fw-normal">Santa Cruz</h6>
-          <h6 class="fw-normal">Full-time</h6>
-        </div>
-        <div>
-          <a class="text-muted" href="/">
-            <h6 class="fw-normal">Saber mais</h6>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="white-card">
-    <div class="d-flex justify-content-start">
-      <!-- imagem -->
-      <div class="me-2">
-        <img class="announcement" src="/images/anuncio1.jpg" />
-      </div>
-      <!-- texto -->
-      <div class="d-flex flex-column justify-content-between">
-        <div>
-          <h5>Cozinheiro</h5>
-          <h6 class="mb-0 fw-normal">Santa Cruz</h6>
-          <h6 class="fw-normal">Full-time</h6>
-        </div>
-        <div>
-          <a class="text-muted" href="/">
-            <h6 class="fw-normal">Saber mais</h6>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="white-card">
-    <div class="d-flex justify-content-start">
-      <!-- imagem -->
-      <div class="me-2">
-        <img class="announcement" src="/images/anuncio1.jpg" />
-      </div>
-      <!-- texto -->
-      <div class="d-flex flex-column justify-content-between">
-        <div>
-          <h5>Cozinheiro</h5>
-          <h6 class="mb-0 fw-normal">Santa Cruz</h6>
-          <h6 class="fw-normal">Full-time</h6>
-        </div>
-        <div>
-          <a class="text-muted" href="/">
-            <h6 class="fw-normal">Saber mais</h6>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-----------------apagar qdo for dinamico------------------------------------->
 </div>
+
+<!-- anuncio card -->
+<div class="white-card">
+  <div class="d-flex justify-content-start">
+    <!-- imagem -->
+    <div class="me-2">
+      <img class="announcement" src="/images/anuncio1.jpg" />
+    </div>
+    <!-- texto -->
+    <div class="d-flex flex-column justify-content-between">
+      <div>
+        <h5>Cozinheiro</h5>
+        <h6 class="mb-0 fw-normal">Santa Cruz</h6>
+        <h6 class="fw-normal">Full-time</h6>
+      </div>
+      <div>
+        <a class="text-muted" href="/">
+          <h6 class="fw-normal">Saber mais</h6>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-----------------apagar qdo for dinamico------------------------------------->
+<div class="white-card">
+  <div class="d-flex justify-content-start">
+    <!-- imagem -->
+    <div class="me-2">
+      <img class="announcement" src="/images/anuncio1.jpg" />
+    </div>
+    <!-- texto -->
+    <div class="d-flex flex-column justify-content-between">
+      <div>
+        <h5>Cozinheiro</h5>
+        <h6 class="mb-0 fw-normal">Santa Cruz</h6>
+        <h6 class="fw-normal">Full-time</h6>
+      </div>
+      <div>
+        <a class="text-muted" href="/">
+          <h6 class="fw-normal">Saber mais</h6>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="white-card">
+  <div class="d-flex justify-content-start">
+    <!-- imagem -->
+    <div class="me-2">
+      <img class="announcement" src="/images/anuncio1.jpg" />
+    </div>
+    <!-- texto -->
+    <div class="d-flex flex-column justify-content-between">
+      <div>
+        <h5>Cozinheiro</h5>
+        <h6 class="mb-0 fw-normal">Santa Cruz</h6>
+        <h6 class="fw-normal">Full-time</h6>
+      </div>
+      <div>
+        <a class="text-muted" href="/">
+          <h6 class="fw-normal">Saber mais</h6>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="white-card">
+  <div class="d-flex justify-content-start">
+    <!-- imagem -->
+    <div class="me-2">
+      <img class="announcement" src="/images/anuncio1.jpg" />
+    </div>
+    <!-- texto -->
+    <div class="d-flex flex-column justify-content-between">
+      <div>
+        <h5>Cozinheiro</h5>
+        <h6 class="mb-0 fw-normal">Santa Cruz</h6>
+        <h6 class="fw-normal">Full-time</h6>
+      </div>
+      <div>
+        <a class="text-muted" href="/">
+          <h6 class="fw-normal">Saber mais</h6>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="white-card">
+  <div class="d-flex justify-content-start">
+    <!-- imagem -->
+    <div class="me-2">
+      <img class="announcement" src="/images/anuncio1.jpg" />
+    </div>
+    <!-- texto -->
+    <div class="d-flex flex-column justify-content-between">
+      <div>
+        <h5>Cozinheiro</h5>
+        <h6 class="mb-0 fw-normal">Santa Cruz</h6>
+        <h6 class="fw-normal">Full-time</h6>
+      </div>
+      <div>
+        <a class="text-muted" href="/">
+          <h6 class="fw-normal">Saber mais</h6>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="white-card">
+  <div class="d-flex justify-content-start">
+    <!-- imagem -->
+    <div class="me-2">
+      <img class="announcement" src="/images/anuncio1.jpg" />
+    </div>
+    <!-- texto -->
+    <div class="d-flex flex-column justify-content-between">
+      <div>
+        <h5>Cozinheiro</h5>
+        <h6 class="mb-0 fw-normal">Santa Cruz</h6>
+        <h6 class="fw-normal">Full-time</h6>
+      </div>
+      <div>
+        <a class="text-muted" href="/">
+          <h6 class="fw-normal">Saber mais</h6>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="white-card">
+  <div class="d-flex justify-content-start">
+    <!-- imagem -->
+    <div class="me-2">
+      <img class="announcement" src="/images/anuncio1.jpg" />
+    </div>
+    <!-- texto -->
+    <div class="d-flex flex-column justify-content-between">
+      <div>
+        <h5>Cozinheiro</h5>
+        <h6 class="mb-0 fw-normal">Santa Cruz</h6>
+        <h6 class="fw-normal">Full-time</h6>
+      </div>
+      <div>
+        <a class="text-muted" href="/">
+          <h6 class="fw-normal">Saber mais</h6>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-----------------apagar qdo for dinamico------------------------------------->
 
 <a href="/myAds">Ver anúncios - temporário</a>
 <a href="/myProfileClient">Meu Perfil - temporário</a>
 <a href="/myProfileCompany">Meu Perfil(empresa) - temporário</a>
-<br>
+<br />
 <a href="/login">Login - temporário</a>
-
