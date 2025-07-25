@@ -27,6 +27,7 @@ const routes = [
   "homeRoute",
   "loginRoute",
   "searchFilterRoute",
+  "clientSubmitRoute",
 ];
 
 routes.forEach((route) => {
