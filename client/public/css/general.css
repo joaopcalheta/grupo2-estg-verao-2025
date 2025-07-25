@@ -1,6 +1,6 @@
 html,
 body {
-  background-color: #f2f2f2 !important;
+  background-color: rgb(236, 236, 236) !important;
   overflow: auto;
   -ms-overflow-style: none; /* IE 10+ */
   scrollbar-width: none; /* firefox */
@@ -98,14 +98,14 @@ p {
   color: #fff;
   font-weight: bold;
 }
-/* fundo branco para cada anuncio */
+/* fundo branco para cada anuncio - calheta */
 .white-card {
   background-color: white;
   border-radius: 15px;
   padding: 10px;
-  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   margin-bottom: 15px;
-  border: 1px solid #000000;
+  border: 1px solid #000000 !important;
 }
 
 .btn-delete:hover {
@@ -120,13 +120,51 @@ p {
   color: #444;
   transition: color 0.2s;
   margin-top: 10px;
-  align-self:last baseline;
+  align-self: last baseline;
 }
 
 .trash-icon:hover {
   color: #c31818;
 }
 
+
+
+h4 {
+  font-size: clamp(20px, 3vw, 25px) !important;
+  margin-left: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+h5 {
+  font-size: clamp(15px, 3vw, 20px) !important;
+  margin-bottom: 0px !important;
+}
+
+h6 {
+  font-size: clamp(12px, 3vw, 16px) !important;
+  margin-bottom: 0px !important;
+}
+
+option {
+  padding-right: 0px;
+}
+
+ol,
+li {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  list-style: none !important;
+}
+
+select {
+  border-radius: 30px !important;
+  border: 1.5px solid black !important;
+  padding-left: clamp(25px, 5vw, 30px) !important;
+  padding-right: clamp(25px, 5vw, 30px) !important;
+  cursor: pointer;
+}
 /*
 .toggle-password {
   position: absolute;
@@ -257,13 +295,8 @@ p {
 
 /* COISAS GERAIS */
 
-body {
-  overflow-x: hidden;
-  background-color: #f2f2f2 !important;
-}
-
 /* espaço minimo para qualquer pagina, serve para garantir que o footer fique sempre no final da pagina e que nao de para ver a partida */
-
+/*
 .container {
   min-height: 100vh;
   padding-bottom: 20px;
@@ -320,7 +353,7 @@ textarea {
 /**/
 
 /* BOXES */
-
+/*
 .gray-box-background {
   background: #d9d9d9;
   border-radius: 30px;
@@ -329,7 +362,7 @@ textarea {
 }
 
 /* fundo light blue para usar nas caixas */
-
+/* 
 .light-blue-box-background {
   position: relative;
   background-color: #dcf3ff;
@@ -339,7 +372,7 @@ textarea {
 }
 
 /* fundo branco para usar nas caixas */
-
+/* 
 .white-box-background {
   position: relative;
   background-color: #ffffff;
@@ -349,7 +382,7 @@ textarea {
 }
 
 /* deve ser usado após as classes anteriores se quisermos delimitar o conteudo das boxes */
-
+/* 
 .box-content {
   margin-top: 25px;
   margin-left: clamp(10px, 5vw, 20px);
@@ -357,7 +390,7 @@ textarea {
 }
 
 /* faixas azuis, normalmente headers de caixas com fundo light blue*/
-
+/* 
 .blue-box {
   position: relative;
   left: 0;
@@ -386,7 +419,7 @@ textarea {
 }
 
 /* faixas brancas com contorno preto, normalmente usadas inserir texto ou mostrar texto */
-
+/* 
 .white-box {
   position: relative;
   left: 0;
@@ -408,13 +441,13 @@ textarea {
 }
 
 /* para ser usado juntamente com a classe acima quando nao queremos que isto vá até ao fim da divisao e adaptar-se ao conteudo */
-
+/* 
 .responsive-white-box {
   width: auto;
 }
 
 /* white-box mas sem contorno e com sombra */
-
+/* 
 .no-border-white-box {
   border: none;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.2);
@@ -425,7 +458,7 @@ textarea {
 }
 
 /* faixas cinzas, normalmente meter texto dentro*/
-
+/* 
 .gray-box {
   position: relative;
   left: 0;
@@ -446,7 +479,7 @@ textarea {
 }
 
 /* usado no pre jogo para alinhar */
-
+/* 
 .invisible-box {
   position: relative;
   left: 0;
@@ -462,7 +495,7 @@ textarea {
 }
 
 /* margens adicionais para quando só se usa texto na box */
-
+/* 
 .final-text {
   margin-left: 30px;
   margin-right: 30px;
@@ -478,7 +511,7 @@ textarea {
 /* TITULOS */
 
 /* título principal de todas as páginas */
-
+/* 
 .page-title {
   margin-top: 4vh;
   margin-bottom: 11vh;
@@ -488,7 +521,7 @@ textarea {
 }
 
 /* titulo branco normalmente usado nas faixas */
-
+/* 
 .white-title {
   color: white;
   font-size: clamp(20px, 3vw, 25px);
@@ -498,7 +531,7 @@ textarea {
 }
 
 /* subtitulo branco normalmente usado nas faixas */
-
+/* 
 .white-subtitle {
   color: white;
   font-size: clamp(16px, 3vw, 20px);
@@ -516,7 +549,7 @@ textarea {
 /* TEXTO */
 
 /* se tiver muito texto fica reticencias */
-
+/* 
 .text-overflow {
   white-space: nowrap;
   overflow: hidden;
@@ -524,13 +557,13 @@ textarea {
 }
 
 /* cor azul para identificar subtitulos */
-
+/* 
 .color-blue-subtitle {
   color: #43c0ff;
 }
 
 /* para evita que o texto va sempre pa frente */
-
+/* 
 .break-text {
   word-break: break-word !important;
   overflow-wrap: break-word !important;
@@ -594,7 +627,7 @@ textarea {
   all: unset;
   cursor: pointer;
 }*/
-
+/* 
 h4 {
   font-size: clamp(20px, 3vw, 25px) !important;
   margin-left: 0px !important;
@@ -651,7 +684,7 @@ select {
 /* IMAGENS */
 
 /* redimensiona a imagem para 200x200 */
-
+/* 
 .resize-200 {
   width: 200px;
   height: 200px;
@@ -659,7 +692,7 @@ select {
 }
 
 /* redimensiona a imagem para 200x300 */
-
+/* 
 .resize-300-200 {
   width: 300px;
   height: 200px;
@@ -668,7 +701,7 @@ select {
 }
 
 /* redimensiona imagem e adiciona borda, para usar em chats etc */
-
+/* 
 .small-user-image {
   width: 50px !important;
   height: 50px !important;
@@ -708,7 +741,7 @@ select {
 /**/
 
 /* MOSTRAR/ESCONDER CONTEUDO DA CAIXA (COLLAPSE) */
-
+/* 
 .box-info {
   display: none;
 }
@@ -752,7 +785,7 @@ select {
 /**/
 
 /* INTERRUPTOR */
-
+/* 
 .alternar-botoes {
   display: flex;
   justify-content: center;

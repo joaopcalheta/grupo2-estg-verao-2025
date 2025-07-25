@@ -1,75 +1,322 @@
 <head>
   <link href="/css/search-filter.css" rel="stylesheet" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
 </head>
 
-<div class="container">
-  <div class="filtro-container">
-    <div class="filtro-header">
-      <h2>FILTRAR</h2>
-      <button class="close-btn">&times;</button>
+<div class="white-card p-3">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="p-0 m-0 fw-bold">FILTRAR</h1>
+    <button class="btn-close close-btn pt-1 p-0"></button>
+  </div>
+  <!-- Categoria -->
+  <div class="pe-3">
+    <div class="pe-3">
+      <button
+        class="text-start white-card p-1 px-3 filter-option d-flex justify-content-between align-items-center"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#filtro-categoria"
+        aria-expanded="true"
+        aria-controls="filtro-categoria"
+        id="btn-categoria"
+      >
+        Categoria
+        <i class="bi bi-chevron-down rotate-icon"></i>
+      </button>
     </div>
 
-    <div class="filtro-section">
-      <button class="dropdown-btn">Categoria ▾</button>
-    </div>
-
-    <div class="filtro-section">
-      <button class="dropdown-btn">Concelho ▾</button>
-      <div class="checkbox-group">
-        <label><input type="checkbox" /> Ponta do Sol</label><br />
-        <label><input type="checkbox" /> Calheta</label><br />
-        <label><input type="checkbox" /> Ribeira Brava</label><br />
-        <label><input type="checkbox" /> Câmara de Lobos</label><br />
-        <label><input type="checkbox" /> Funchal</label><br />
-        <label><input type="checkbox" /> Santa Cruz</label><br />
-        <label><input type="checkbox" /> Machico</label><br />
-        <label><input type="checkbox" /> Santana</label><br />
-        <label><input type="checkbox" /> São Vicente</label><br />
-        <label><input type="checkbox" /> Porto Moniz</label><br />
-        <label><input type="checkbox" /> Porto Santo</label><br />
+    <div class="collapse show ps-3" id="filtro-categoria">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="categoria1"
+          value="educacao"
+        />
+        <label class="form-check-label" for="categoria1">Educação</label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="categoria2"
+          value="saude"
+        />
+        <label class="form-check-label" for="categoria2">Saúde</label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="categoria3"
+          value="tecnologia"
+        />
+        <label class="form-check-label" for="categoria3">IT</label>
       </div>
     </div>
+  </div>
 
-    <!--<div class="filtro-section">
-        <button class="dropdown-btn">Profissão ▾</button>
-      </div>-->
-
-    <div class="filtro-section">
-      <button class="dropdown-btn active">Tipo ▴</button>
-      <div class="checkbox-group">
-        <label><input type="checkbox" /> Emprego</label><br />
-        <label><input type="checkbox" /> Estágio</label>
-      </div>
+  <!-- Tipo -->
+  <div class="pe-3">
+    <div class="pe-3">
+      <button
+        class="text-start white-card p-1 px-3 filter-option d-flex justify-content-between align-items-center"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#filtro-tipo"
+        aria-expanded="true"
+        aria-controls="filtro-tipo"
+        id="btn-tipo"
+      >
+        Tipo
+        <i class="bi bi-chevron-down rotate-icon"></i>
+      </button>
     </div>
 
-    <div class="filtro-section">
-      <button class="dropdown-btn active">Regime ▴</button>
-      <div class="checkbox-group">
-        <label><input type="checkbox" /> Full-time</label><br />
-        <label><input type="checkbox" /> Part-time</label>
+    <div class="collapse show ps-3" id="filtro-tipo">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="tipo1"
+          value="emprego"
+        />
+        <label class="form-check-label" for="tipo1">Emprego</label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="tipo2"
+          value="estagio"
+        />
+        <label class="form-check-label" for="tipo2">Estágio</label>
       </div>
     </div>
+  </div>
 
-    <div class="filtro-section">
-      <button class="dropdown-btn active">Escolaridade ▴</button>
-      <div class="checkbox-group">
-        <label><input type="checkbox" /> 1º ciclo</label><br />
-        <label><input type="checkbox" /> 2º ciclo</label><br />
-        <label><input type="checkbox" /> 3º ciclo</label><br />
-        <label><input type="checkbox" /> Secundário</label><br />
-        <label><input type="checkbox" /> Licenciatura</label><br />
-        <label><input type="checkbox" /> Mestrado</label><br />
-      </div>
+  <!-- Regime -->
+  <div class="pe-3">
+    <div class="pe-3">
+      <button
+        class="text-start white-card p-1 px-3 filter-option d-flex justify-content-between align-items-center"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#filtro-regime"
+        aria-expanded="true"
+        aria-controls="filtro-regime"
+        id="btn-regime"
+      >
+        Regime
+        <i class="bi bi-chevron-down rotate-icon"></i>
+      </button>
     </div>
 
-    <div class="filtro-section">
-      <button class="dropdown-btn active">Horário ▴</button>
-      <div class="checkbox-group">
-        <label><input type="checkbox" /> 9h - 18h</label><br />
-        <label><input type="checkbox" /> 15h - 00h</label><br />
-        <label><input type="checkbox" /> 00h-08h</label><br />
+    <div class="collapse show ps-3" id="filtro-regime">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="regime1"
+          value="fulltime"
+        />
+        <label class="form-check-label" for="regime1">Full-time</label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="regime2"
+          value="parttime"
+        />
+        <label class="form-check-label" for="regime2">Part-time</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concelho -->
+  <div class="pe-3">
+    <div class="pe-3">
+      <button
+        class="text-start white-card p-1 px-3 filter-option d-flex justify-content-between align-items-center"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#filtro-concelho"
+        aria-expanded="true"
+        aria-controls="filtro-concelho"
+        id="btn-concelho"
+      >
+        Concelho
+        <i class="bi bi-chevron-down rotate-icon"></i>
+      </button>
+    </div>
+
+    <div class="collapse show ps-3" id="filtro-concelho">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="pds" /><label
+          class="form-check-label"
+          for="pds"
+          >Ponta do Sol</label
+        >
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="calheta" /><label
+          class="form-check-label"
+          for="calheta"
+          >Calheta</label
+        >
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="rb" /><label
+          class="form-check-label"
+          for="rb"
+          >Ribeira Brava</label
+        >
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cl" /><label
+          class="form-check-label"
+          for="cl"
+          >Câmara de Lobos</label
+        >
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="funchal" /><label
+          class="form-check-label"
+          for="funchal"
+          >Funchal</label
+        >
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="sc" /><label
+          class="form-check-label"
+          for="sc"
+          >Santa Cruz</label
+        >
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="machico" /><label
+          class="form-check-label"
+          for="machico"
+          >Machico</label
+        >
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="santana" /><label
+          class="form-check-label"
+          for="santana"
+          >Santana</label
+        >
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="sv" /><label
+          class="form-check-label"
+          for="sv"
+          >São Vicente</label
+        >
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="pm" /><label
+          class="form-check-label"
+          for="pm"
+          >Porto Moniz</label
+        >
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="ps" /><label
+          class="form-check-label"
+          for="ps"
+          >Porto Santo</label
+        >
+      </div>
+    </div>
+  </div>
+
+  <!-- Escolaridade -->
+  <div class="pe-3">
+    <div class="pe-3">
+      <button
+        class="text-start white-card p-1 px-3 filter-option d-flex justify-content-between align-items-center"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#filtro-escolaridade"
+        aria-expanded="true"
+        aria-controls="filtro-escolaridade"
+        id="btn-escolaridade"
+      >
+        Escolaridade
+        <i class="bi bi-chevron-down rotate-icon"></i>
+      </button>
+    </div>
+
+    <div class="collapse show ps-3" id="filtro-escolaridade">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="1c" /><label
+          class="form-check-label"
+          for="1c"
+          >1º ciclo</label
+        >
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="2c" /><label
+          class="form-check-label"
+          for="2c"
+          >2º ciclo</label
+        >
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="3c" /><label
+          class="form-check-label"
+          for="3c"
+          >3º ciclo</label
+        >
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="sec" /><label
+          class="form-check-label"
+          for="sec"
+          >Secundário</label
+        >
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="es" /><label
+          class="form-check-label"
+          for="es"
+          >Ensino Superior</label
+        >
       </div>
     </div>
   </div>
 </div>
-<script src="/js/filter.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".filter-option");
+
+    buttons.forEach((button) => {
+      const targetId = button.getAttribute("data-bs-target")?.replace("#", "");
+      const target = document.getElementById(targetId);
+      const icon = button.querySelector(".rotate-icon");
+
+      if (!target || !icon) return;
+
+      target.addEventListener("show.bs.collapse", () => {
+        icon.classList.add("rotated");
+        button.classList.add("active-bold");
+      });
+
+      target.addEventListener("hide.bs.collapse", () => {
+        icon.classList.remove("rotated");
+        button.classList.remove("active-bold");
+      });
+
+      // Set initial state
+      if (target.classList.contains("show")) {
+        icon.classList.add("rotated");
+        button.classList.add("active-bold");
+      }
+    });
+  });
+</script>

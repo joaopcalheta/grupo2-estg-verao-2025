@@ -1,8 +1,16 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  margin: 0;
-  padding: 0;
+.filter-option {
+  width: 100%;
+}
+
+.rotate-icon {
+  transition: transform 0s ease;
+}
+.rotate-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.active-bold {
+  font-weight: bold;
 }
 
 .filtro-container {

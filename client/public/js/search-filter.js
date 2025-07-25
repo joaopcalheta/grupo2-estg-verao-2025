@@ -1,3 +1,5 @@
+// search-filter.js
+
 document.addEventListener("DOMContentLoaded", function () {
   const dropdownButtons = document.querySelectorAll(".dropdown-btn");
 
