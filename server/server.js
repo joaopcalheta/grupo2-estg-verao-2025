@@ -17,16 +17,16 @@ app.use(expressLayouts); // usa layouts com EJS
 
 // importa as rotas
 const routes = [
+  "clientMyApplicationsRoute",
+  "clientMyProfileRoute",
+  "companyCandidatesRoute",
+  "companyCreateAnnouncementRoute",
+  "companyManageAnnouncementRoute",
+  "companyMyAnnouncementsRoute",
+  "companyMyProfileRoute",
   "homeRoute",
-  "myAdsRoute",
-  "createAdRoute",
-  "manageAdRoute",
   "loginRoute",
-  "candidatesRoute",
-  "myProfileClientRoute",
-  "myCandClientRoute",
-  "myProfileCompanyRoute",
-  "filterRoute",
+  "searchFilterRoute",
 ];
 
 routes.forEach((route) => {

@@ -1,6 +1,6 @@
-const getMyCandClient = async (req, res) => {
+const getClientMyApplications = async (req, res) => {
   try {
-    res.render("myCandClient", {
+    res.render("client-my-applications", {
       title: "Candidaturas",
     });
   } catch (err) {
@@ -9,4 +9,4 @@ const getMyCandClient = async (req, res) => {
   }
 };
 
-module.exports = { getMyCandClient };
+module.exports = { getClientMyApplications };

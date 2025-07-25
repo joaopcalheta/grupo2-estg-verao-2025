@@ -1,8 +1,8 @@
 //clicar para chegar ao meu perfil~(empresa)
 function myCompanyProfile() {
-    location.href = '/myProfileCompany'
+  location.href = "/company-my-profile";
 }
 //clicar para chegar aos meus anuncios(empresa)
 function myAdd() {
-    location.href = '/myAds'
+  location.href = "/company-my-announcements";
 }
