@@ -24,9 +24,9 @@ function mostrarAnuncios() {
 
 function gerirAnuncio(index) {
   localStorage.setItem('editIndex', index);
-  location.href = '/manageAd';
+  location.href = '/company-manage-announcement';
 }
 
 function verCandidatos(index) {
-  location.href = '/candidates';
+  location.href = '/company-candidates';
 }
