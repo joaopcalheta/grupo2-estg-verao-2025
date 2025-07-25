@@ -28,6 +28,7 @@ const routes = [
   "loginRoute",
   "searchFilterRoute",
   "clientSubmitRoute",
+  "resetPasswordRoute",
   "clientDetailsAnnouncementRoute",
 ];
 
