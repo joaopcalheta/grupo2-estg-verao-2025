@@ -39,9 +39,14 @@
     <label>Descrição
       <textarea name="description" rows="4"></textarea>
     </label>
-    <label>Adicionar foto
-      <input type="file" name="photo">
-    </label>
+      <div>
+        <h5>Adicionar Foto:</h5>
+        <br>
+        <input type="file" class="d-none" id="fileInput">
+        <label for="fileInput" class="btn btn-primary">
+          <i class="bi bi-upload"></i> Enviar
+        </label>
+      </div>
     <div class="actions-btn">
       <button type="button" class="btn btn-blue" onclick="history.back()">Voltar</button>
       <button type="submit" class="btn btn-blue">Criar</button>
