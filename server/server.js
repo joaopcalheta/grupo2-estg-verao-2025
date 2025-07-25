@@ -28,7 +28,8 @@ const routes = [
   "loginRoute",
   "searchFilterRoute",
   "clientSubmitRoute",
-  "resetpasswordRoute",
+  "resetPasswordRoute",
+  "clientDetailsAnnouncementRoute",
 ];
 
 routes.forEach((route) => {
