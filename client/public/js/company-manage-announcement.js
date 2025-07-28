@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     carregarDadosAnuncio();
     guardarAlteracoes();
-    eliminarAnuncio();
+    //eliminarAnuncio();
 });
 
 function carregarDadosAnuncio() {
@@ -47,6 +47,3 @@ function guardarAlteracoes() {
   });
 }
 
-function eliminarAnuncio() {
-  
-}
