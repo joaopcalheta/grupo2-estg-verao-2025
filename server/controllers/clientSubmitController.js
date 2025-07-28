@@ -1,4 +1,8 @@
-const getClientSubmit = async (req, res) => {
+// controllers/clientSubmitController.js
+
+const Application = require("../models/application")
+
+const getClientSubmitApplication = async (req, res) => {
   try {
     res.render("client-submit", {
       title: "Página submeter candidatura",
@@ -9,4 +13,51 @@ const getClientSubmit = async (req, res) => {
   }
 };
 
-module.exports = { getClientSubmit };
+const postClientSubmitApplication = async (req, res) => {
+  try {
+    const {
+      name,
+      email,
+      phone,
+      nif,
+      address,
+      municipality,
+      postcode,
+      languages,
+      education_level,
+      age,
+      cv,
+      about_me,
+
+    } = req.body;
+
+    console.log("Dados recebidos:", req.body);
+
+    const newApplication = new Application({
+      name,
+      email,
+      phone,
+      nif,
+      address,
+      municipality,
+      postcode,
+      languages,
+      education_level,
+      age,
+      cv,
+      about_me,
+    });
+
+    await newApplication.save();
+
+    res.send("Candidatura enviada com sucesso!");
+  } catch (err) {
+    console.error("Erro ao enviar candidatura:", err);
+    res.status(500).send("Erro ao enviar candidatura");
+  }
+};
+
+module.exports = { 
+  getClientSubmitApplication,
+  postClientSubmitApplication,
+};

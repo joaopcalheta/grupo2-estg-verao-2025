@@ -3,26 +3,28 @@
   <link href="/css/general.css" rel="stylesheet" />
 
 </head>
+<form action="/client-submit/" method="POST">
 <div class="container">
   <p><b>Candidatura</b></p>
   <div class="dados">
-    <input type="nome" placeholder="Nome completo" />
+    <input type="nome" name="name" placeholder="Nome completo" />
     <br />
-    <input type="idade" placeholder="Idade" />
+    <input type="idade" name="age" placeholder="Idade" />
     <br />
-    <input type="numero" placeholder="Nº de Telefone" />
+    <input type="numero" name="phone" placeholder="Nº de Telefone" />
     <br />
-    <input type="nif" placeholder="NIF" />
+    <input type="nif" name="nif" placeholder="NIF" />
     <br />
-    <input type="email" placeholder="E-mail" />
+    <input type="email" name="email" placeholder="E-mail" />
     <br />
-    <input type="morada" placeholder="Morada" />
+    <input type="morada" name="address"  placeholder="Morada" />
     <br />
-    <input type="localidade" placeholder="Localidade" />
+    <input type="localidade" name="municipality" placeholder="Localidade" />
     <br />
+    <input type="postcode" name="postcode" placeholder="Código Postal" />
     <!-- Escolaridade -->
     <div class="escolaridade">
-      <select id="escolaridade" name="escolaridade">
+      <select id="escolaridade" name="education_level">
         <option value="selecione">Selecione o nível de escolaridade</option>
         <option value="basico">Ensino Básico</option>
         <option value="secundario">Ensino Secundário</option>
@@ -48,36 +50,37 @@
   <h5 class="mb-2">Línguas</h5>
   <div class="d-flex flex-wrap gap-3">
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="linguas[]" value="Inglês" id="lingua-ingles">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Inglês" id="lingua-ingles">
       <label class="form-check-label" for="lingua-ingles">Inglês</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="linguas[]" value="Francês" id="lingua-frances">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Francês" id="lingua-frances">
       <label class="form-check-label" for="lingua-frances">Francês</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="linguas[]" value="Espanhol" id="lingua-espanhol">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Espanhol" id="lingua-espanhol">
       <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="linguas[]" value="Alemão" id="lingua-alemao">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Alemão" id="lingua-alemao">
       <label class="form-check-label" for="lingua-alemao">Alemão</label>
     </div>
   </div>
 </div>
     <br />
     <div class="sobre">
-      <input type="sobre" placeholder="Sobre mim" />
+      <input type="sobre" name="about_me" placeholder="Sobre mim" />
     </div>
     <br />
     <div>
       <h5 id="cv">Anexar CV:</h5>
       <br />
-      <input type="file" class="d-none" id="fileInput" />
+      <input type="file" name="cv" class="d-none" id="fileInput" />
       <label for="fileInput" class="btn btn-primary">
         <i class="bi bi-upload"></i> Enviar arquivo
       </label>
     </div>
+  </form>
 
     <div class="actions-btn">
       <button type="button" class="btn btn-blue" onclick="window.location.href='/'">
