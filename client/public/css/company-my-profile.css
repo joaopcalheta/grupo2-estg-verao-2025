@@ -61,7 +61,9 @@
   color: black;
   cursor: pointer;
 }
-
+.sobre input {
+  padding-bottom: 70px;
+}
 
 
 

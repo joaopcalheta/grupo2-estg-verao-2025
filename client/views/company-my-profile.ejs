@@ -11,8 +11,8 @@
   </div>
 </div>
 <hr id="linha" />
-<form id="profile-form">
-  <input type="file" id="uploadFoto" accept="image/*" style="display: none" />
+<form id="profile-form" method="post">
+  <input type="file" id="uploadFoto" accept="image/*" style="display: none" name="pic"/>
   <div id="pfp-container" style="cursor: pointer; text-align: center">
     <img id="pfpImg" src="/images/my-account.png" alt="pfp" />
     <p id="pfpChange">Alterar Imagem</p>
@@ -74,13 +74,13 @@
     />
   </div>
   <div>
-    <input class="form-group" type="text" name="email" placeholder="Morada" />
+    <input class="form-group" type="text" name="address" placeholder="Morada" />
   </div>
   <div>
     <input
       class="form-group"
       type="text"
-      name="email"
+      name="municipality"
       placeholder="Localidade"
     />
   </div>
@@ -88,7 +88,7 @@
     <input
       class="form-group"
       type="text"
-      name="confirmEmail"
+      name="email"
       placeholder="E-mail"
     />
   </div>
@@ -116,6 +116,10 @@
       placeholder=" Nova Palavra-passe"
     />
   </div>
+  <div class="sobre">
+      <input class="form-group" type="sobre" placeholder="Sobre mim" name="about_us" />
+    </div>
+    <br>
 </form>
 
 <div class="actions-btn d-flex">
