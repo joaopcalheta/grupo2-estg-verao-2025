@@ -60,6 +60,6 @@ const announcementSchema = new mongoose.Schema(
   }
 );
 
-const Announcement = mongoose.model("Company", announcementSchema);
+const Announcement = mongoose.model("Announcement", announcementSchema);
 
 module.exports = Announcement;
