@@ -5,10 +5,10 @@
 
 <div class="container-ad">
   <h2 class="text-center my-4">Gerir Anúncio</h2>
-  <form id="editAnuncioForm">
+  <form id="editAnuncioForm" method="POST">
     <label
       >Nome da profissão
-      <input type="text" name="title" id="title" />
+      <input type="text" name="job_name" id="job_name" />
     </label>
     <label
       >Categoria
@@ -30,7 +30,7 @@
     </label>
     <label
       >Local do emprego
-      <input type="text" name="location" id="location" />
+      <input type="text" name="municipality" id="municipality" />
     </label>
     <label
       >Regime
@@ -53,6 +53,31 @@
     </div>
 </div>
     <label
+      >Escolaridade
+      <select name="education_level" required>
+        <option>-- Selecione uma opção --</option>
+        <option>Ensino Básico</option>
+        <option>ensino Secundário</option>
+        <option>ensino Superior</option>
+      </select>
+    </label>
+    <label
+      >Línguas
+      <input type="text" name="languages" required />
+    </label>
+    <label
+      >Salário
+      <input type="text" name="salary" required />
+    </label>
+    <label
+      >Horário de trabalho
+      <input type="text" name="schedule" required />
+    </label>
+    <label
+      >Prazo de candidatura
+      <input type="text" name="end_date" required />
+    </label>
+    <label
       >Descrição
       <textarea name="description" id="description"></textarea>
     </label>
@@ -62,7 +87,7 @@
     </label>
     <label
       >Atualizar Foto
-      <input type="file" name="photo" />
+      <input type="file" name="pic" />
     </label>
     <div class="actions-btn">
       <button type="button" class="btn btn-blue" onclick="history.back()">
