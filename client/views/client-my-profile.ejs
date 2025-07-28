@@ -98,7 +98,39 @@
 <form id="professional-form">
   <h2 id="personalData">Dados Profissionais</h2>
   <div>
-    <input class="form-group" type="text" name="name" placeholder="Línguas" />
+    <style>
+  /* Força o estilo padrão de checkbox */
+  .form-check-input[type="checkbox"] {
+    appearance: checkbox;
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    width: auto;
+    height: auto;
+    margin-top: 0.3em;
+  }
+</style>
+
+<div class="mb-3">
+  <h5 class="mb-2">Línguas</h5>
+  <div class="d-flex flex-wrap gap-3">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="linguas[]" value="Inglês" id="lingua-ingles">
+      <label class="form-check-label" for="lingua-ingles">Inglês</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="linguas[]" value="Francês" id="lingua-frances">
+      <label class="form-check-label" for="lingua-frances">Francês</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="linguas[]" value="Espanhol" id="lingua-espanhol">
+      <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="linguas[]" value="Alemão" id="lingua-alemao">
+      <label class="form-check-label" for="lingua-alemao">Alemão</label>
+    </div>
+  </div>
+</div>
   </div>
   <!-- Escolaridade -->
   <div class="escolaridade">
