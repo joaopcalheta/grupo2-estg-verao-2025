@@ -72,6 +72,13 @@ body {
   cursor: pointer;
   width: 92%;
   text-align: center;
+  transition: filter 0.3s ease;
+}
+
+.lgn:hover {
+  filter: brightness(80%);
+  background-color: #007acc;
+  color: #fff;
 }
 
 .login-form.form.active {
@@ -138,6 +145,13 @@ p {
   cursor: pointer;
   width: 92%;
   text-align: center;
+  transition: filter 0.3s ease;
+}
+
+.rgst:hover {
+  filter: brightness(80%);
+  background-color: #007acc;
+  color: #fff;
 }
 
 .radio-group {
