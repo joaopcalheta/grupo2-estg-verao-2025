@@ -18,9 +18,15 @@ const announcementSchema = new mongoose.Schema(
       trim: true,
     },
     schedule: {
-      type: String,
+      startTime: {
+        type: String, // ou Date
+        trim: true,
+    },
+      endTime: {
+        type: String, // ou Date
       trim: true,
     },
+  },
     regime: {
       type: String,
       trim: true,
