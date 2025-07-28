@@ -1,6 +1,7 @@
 <head>
   <link href="/css/client-submit.css" rel="stylesheet" />
   <link href="/css/general.css" rel="stylesheet" />
+
 </head>
 <div class="container">
   <p><b>Candidatura</b></p>
@@ -31,7 +32,39 @@
       </select>
     </div>
     <br />
-    <input type="linguas" placeholder="Linguas" />
+<style>
+  /* Força o estilo padrão de checkbox */
+  .form-check-input[type="checkbox"] {
+    appearance: checkbox;
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    width: auto;
+    height: auto;
+    margin-top: 0.3em;
+  }
+</style>
+
+<div class="mb-3">
+  <h5 class="mb-2">Línguas</h5>
+  <div class="d-flex flex-wrap gap-3">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="linguas[]" value="Inglês" id="lingua-ingles">
+      <label class="form-check-label" for="lingua-ingles">Inglês</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="linguas[]" value="Francês" id="lingua-frances">
+      <label class="form-check-label" for="lingua-frances">Francês</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="linguas[]" value="Espanhol" id="lingua-espanhol">
+      <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="linguas[]" value="Alemão" id="lingua-alemao">
+      <label class="form-check-label" for="lingua-alemao">Alemão</label>
+    </div>
+  </div>
+</div>
     <br />
     <div class="sobre">
       <input type="sobre" placeholder="Sobre mim" />
@@ -39,6 +72,7 @@
     <br />
     <div>
       <h5 id="cv">Anexar CV:</h5>
+      <br />
       <input type="file" class="d-none" id="fileInput" />
       <label for="fileInput" class="btn btn-primary">
         <i class="bi bi-upload"></i> Enviar arquivo
@@ -46,7 +80,7 @@
     </div>
 
     <div class="actions-btn">
-      <button type="button" class="btn btn-blue" onclick="history.back()">
+      <button type="button" class="btn btn-blue" onclick="window.location.href='/'">
         Voltar
       </button>
       <button type="submit" class="btn btn-blue">Enviar</button>
