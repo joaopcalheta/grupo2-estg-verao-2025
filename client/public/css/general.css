@@ -66,7 +66,7 @@ p {
   justify-content: center; /* centraliza horizontalmente */
   text-align: center;
   margin-bottom: 0.2rem;
-  transition: filter 0.2s ease;
+  transition: filter 0.3s ease;
 }
 
 .btn-blue {
