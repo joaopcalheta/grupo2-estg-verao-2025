@@ -8,10 +8,10 @@ function criarAnuncio() {
 
   const form = e.target;
   const anuncio = {
-    profissao: form.title.value,
+    profissao: form.job_name.value,
     categoria: form.category.value,
     tipo: form.type.value,
-    local: form.location.value,
+    local: form.municipality.value,
     regime: form.regime.value,
     descricao: form.description.value,
     foto: ''  //foto ainda não funciona

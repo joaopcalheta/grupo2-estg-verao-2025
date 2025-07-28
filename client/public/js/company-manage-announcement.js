@@ -10,10 +10,10 @@ function carregarDadosAnuncio() {
   const anuncio = anuncios[index];
 
   // BUSCA OS DADOS INTRODUZIDOS QUANDO FOI CRIADO O ANUNCIO
-  document.getElementById('title').value = anuncio.profissao || '';   //SE O VALOR ESTIVER UNDEFINED FICA VAZIO
+  document.getElementById('job_name').value = anuncio.profissao || '';   //SE O VALOR ESTIVER UNDEFINED FICA VAZIO
   document.getElementById('category').value = anuncio.categoria || '';
   document.getElementById('type').value = anuncio.tipo || '';
-  document.getElementById('location').value = anuncio.local || '';
+  document.getElementById('municipality').value = anuncio.local || '';
   document.getElementById('regime').value = anuncio.regime || '';
   document.getElementById('description').value = anuncio.descricao || '';
   document.getElementById('currentPhoto').src = anuncio.foto || 'images/anuncio1.jpg';
