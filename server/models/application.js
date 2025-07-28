@@ -1,7 +1,14 @@
 const mongoose = require("mongoose");
 
 const applicationSchema = new mongoose.Schema(
-{
+  {
+    state: {
+      type: String,
+      required: true,
+      trim: true,
+      enum: ["pending", "approved", "rejected", "under_review"],
+      default: "pending",
+    },
     name: {
       type: String,
       required: true,
@@ -46,9 +53,9 @@ const applicationSchema = new mongoose.Schema(
       trim: true,
     },
     age: {
-        type: String,
-        trim: true,
-   },
+      type: String,
+      trim: true,
+    },
     cv: {
       type: String, // pode ser o caminho de um arquivo ou uma URL
       trim: true,

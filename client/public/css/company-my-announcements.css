@@ -25,14 +25,22 @@
   max-width: 400px;
   box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.2);
   border-color: black;
-  
 }
-
-.card img.thumbnail {
+/* isto é da matilde */
+.card img {
   width: 100%;
   height: auto;
   border-radius: 8px;
   margin-bottom: 0.6rem;
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.1);
+}
+/* calheta meteu isto provisoriamente */
+.full-announcement img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.6rem;
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.1);
 }
 
 /* CARD DO CANDIDATO */
