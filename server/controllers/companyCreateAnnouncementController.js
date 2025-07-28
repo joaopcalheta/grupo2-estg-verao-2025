@@ -1,3 +1,7 @@
+// controllers/createCompanyCreateAnnouncementController.js
+
+const Announcement = require("../models/announcement");
+
 const getCompanyCreateAnnouncement = async (req, res) => {
   try {
     res.render("company-create-announcement", {
@@ -9,4 +13,49 @@ const getCompanyCreateAnnouncement = async (req, res) => {
   }
 };
 
-module.exports = { getCompanyCreateAnnouncement };
+const postCompanyCreateAnnouncement = async (req, res) => {
+  try {
+    const {
+      job_name,
+      category,
+      schedule,
+      type,
+      municipality,
+      regime,
+      education_level,
+      languages,
+      salary,
+      end_date,
+      description,
+    } = req.body;
+
+    console.log("Dados recebidos:", req.body);
+
+    const newAnnouncement = new Announcement({
+      job_name,
+      category,
+      type,
+      municipality,
+      regime,
+      education_level,
+      schedule,
+      languages: languages.split(",").map((lang) => lang.trim()),
+      salary,
+      end_date,
+      description,
+      schedule,
+    });
+
+    await newAnnouncement.save();
+
+    res.send("Anúncio criado com sucesso!");
+  } catch (err) {
+    console.error("Erro ao criar anúncio:", err);
+    res.status(500).send("Erro ao criar anúncio");
+  }
+};
+
+module.exports = {
+  getCompanyCreateAnnouncement,
+  postCompanyCreateAnnouncement,
+};
