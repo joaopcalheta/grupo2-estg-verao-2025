@@ -19,9 +19,12 @@
   },
   "homepage": "https://github.com/joaopcalheta/grupo2-estg-verao-2025#readme",
   "dependencies": {
+    "dotenv": "^17.2.1",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
-    "express-ejs-layouts": "^2.5.1"
+    "express-ejs-layouts": "^2.5.1",
+    "mongodb": "^6.18.0",
+    "mongoose": "^8.16.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
