@@ -5,7 +5,7 @@
 
 <div class="container-ad">
   <h2 class="text-center my-4">Gerir Anúncio</h2>
-  <form id="editAnuncioForm" method="POST">
+  <form id="editAnuncioForm" method="POST" action="/company-manage-announcement?id=<%= announcement._id %>">
     <label
       >Nome da profissão
       <input type="text" name="job_name" id="job_name" value="<%=announcement.job_name%>"/>
@@ -131,4 +131,3 @@
   </form>
 </div>
 
-<script src="/js/company-manage-announcement.js"></script>

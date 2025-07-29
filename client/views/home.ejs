@@ -1,3 +1,4 @@
+<!-- home.ejs -->
 <head>
   <link href="/css/home.css" rel="stylesheet" />
 </head>
@@ -29,11 +30,31 @@
         <i class="bi bi-filter me-2"></i> <b>ORDENAR</b>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdown-menu-order">
-        <a class="dropdown-item" href="#">Mais recente</a>
-        <a class="dropdown-item" href="#">Mais antigo</a>
-        <a class="dropdown-item" href="#">Em destaque</a>
-        <a class="dropdown-item" href="#">A - Z</a>
-        <a class="dropdown-item" href="#">Z - A</a>
+        <a
+          class="dropdown-item <%= order === 'recent' ? 'active' : '' %>"
+          href="?order=recent"
+          >Mais recente</a
+        >
+        <a
+          class="dropdown-item <%= order === 'old' ? 'active' : '' %>"
+          href="?order=old"
+          >Mais antigo</a
+        >
+        <a
+          class="dropdown-item <%= order === 'featured' ? 'active' : '' %>"
+          href="?order=featured"
+          >Em destaque</a
+        >
+        <a
+          class="dropdown-item <%= order === 'a-z' ? 'active' : '' %>"
+          href="?order=a-z"
+          >A - Z</a
+        >
+        <a
+          class="dropdown-item <%= order === 'z-a' ? 'active' : '' %>"
+          href="?order=z-a"
+          >Z - A</a
+        >
       </div>
     </div>
     <!-- filtrar (pagina) -->
