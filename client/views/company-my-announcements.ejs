@@ -12,6 +12,35 @@
 </div>
 <hr id="linha" />
 
+<% if (announcements.length === 0) { %>
+<p class="text-center">Nenhum anúncio disponível no momento.</p>
+<% } %> <% announcements.forEach((announcement) => { %>
+<div class="white-card d-flex p-0">
+  <div class="d-flex justify-content-start">
+    <!-- imagem -->
+    <div class="image-wrapper">
+      <img class="announcement-img" src="<%= announcement.pic %>" />
+    </div>
+    <!-- texto -->
+    <div class="d-flex flex-column justify-content-between ps-2 pt-1 pb-2">
+      <div class="mb-2">
+        <h5><%= announcement.job_name %></h5>
+        <h6 class="mb-0 fw-normal"><%= announcement.municipality %></h6>
+        <h6 class="fw-normal"><%= announcement.regime %></h6>
+      </div>
+      <div>
+        <a
+          class="text-muted"
+          href="/company-details-announcement?id=<%= announcement._id %>"
+        >
+          <h6 class="fw-normal">Saber mais</h6>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<% }); %>
+
 <div class="container">
   <div id="meusAnuncios">
     <!-- criar anuncios de forma dinâmica-->
