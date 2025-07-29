@@ -6,11 +6,13 @@
   />
 </head>
 
-<div class="white-card p-3">
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h1 class="p-0 m-0 fw-bold">FILTRAR</h1>
-    <button class="btn-close close-btn pt-1 p-0"></button>
-  </div>
+<!-- tirar dps -->
+<head>
+  <link href="/css/home.css" rel="stylesheet" />
+</head>
+
+  <!-- tirar dps  -->
+
   <!-- Categoria -->
   <div class="pe-3">
     <div class="pe-3">
@@ -291,6 +293,26 @@
     </div>
   </div>
 </div>
+<div class="white-card d-flex p-0">
+  <!-- imagem ocupa altura total da card -->
+  <div class="image-wrapper">
+    <img class="announcement-img" src="images/anuncio1.jpg" />
+  </div>
+  <!-- texto -->
+  <div class="d-flex flex-column justify-content-between px-2 py-1 w-100">
+    <div>
+      <h5>Cozinheiro</h5>
+      <h6 class="mb-0 fw-normal">Camara de Lobos</h6>
+      <h6 class="fw-normal">Full-time</h6>
+    </div>
+    <div>
+      <a class="text-muted" href="/">
+        <h6 class="fw-normal">Saber mais</h6>
+      </a>
+    </div>
+  </div>
+</div>
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const buttons = document.querySelectorAll(".filter-option");

@@ -5,45 +5,40 @@
 
 <div class="white-card full-announcement p-3">
   <div class="gap-2">
-    <h3><b>Cozinheiro</b></h3>
+    <h3 class="mb-3"><b><%= announcement.job_name %></b></h3>
 
-    <h5 class="mb-0 fw-normal">
-      <span class="fw-semibold">Local:</span> Santa Cruz
+    <h5 class="mb-1 fw-normal">
+      <span class="fw-semibold">Local:</span> <%= announcement.municipality %>
     </h5>
-    <h5 class="fw-normal">
-      <span class="fw-semibold">Regime:</span> Full-time
+    <h5 class="mb-1 fw-normal">
+      <span class="fw-semibold">Regime:</span> <%= announcement.regime %>
     </h5>
-    <h5 class="fw-normal">
-      <span class="fw-semibold">Categoria:</span> Restauração
+    <h5 class="mb-1 fw-normal">
+      <span class="fw-semibold">Categoria:</span> <%= announcement.category %>
     </h5>
-    <h5 class="fw-normal"><span class="fw-semibold">Tipo:</span> Emprego</h5>
-    <h5 class="fw-normal">
-      <span class="fw-semibold">Escolaridade:</span> Ensino Básico
+    <h5 class="mb-1 fw-normal"><span class="fw-semibold">Tipo:</span> <%= announcement.type %>
     </h5>
-    <h5 class="fw-normal">
-      <span class="fw-semibold">Línguas:</span> Português; Inglês
+    <h5 class="mb-1 fw-normal">
+      <span class="fw-semibold">Escolaridade:</span> <%= announcement.education_level %>
     </h5>
-    <h5 class="fw-normal">
-      <span class="fw-semibold">Horário:</span> 09H00 - 17H00
+    <h5 class="mb-1 fw-normal">
+      <span class="fw-semibold">Línguas:</span>
+      <%= announcement.languages && announcement.languages.length > 0 ? announcement.languages.join(" ; ") : "Não especificado" %>
     </h5>
-    <h5 class="fw-normal">
-      <span class="fw-semibold">Salário:</span> A combinar
+    <h5 class="mb-1 fw-normal">
+      <span class="fw-semibold">Horário:</span> <%= announcement.schedule.startTime %> 
     </h5>
-    <h5 class="fw-normal">
-      <span class="fw-semibold">Fim do anúncio:</span> 14/08/2025
+    <h5 class="mb-1 fw-normal">
+      <span class="fw-semibold">Salário:</span>
+      <%= announcement.salary ? announcement.salary + "€" : "A combinar" %>
     </h5>
-    <img src="/images/anuncio1.jpg" class="mt-2" />
+    <h5 class="mb-1 fw-normal">
+      <span class="fw-semibold">Fim do anúncio:</span>
+      <%= announcement.end_date ? announcement.end_date.toLocaleDateString("pt-PT") : "Indefinido" %>
+    </h5>
+    <img src="<%= announcement.pic %>" class="mt-2" />
     <h6 class="fw-normal">
-      <span class="fw-semibold">Descrição:</span>
-
-      Responsabilidades: Preparar e montar pratos de acordo com o cardápio da
-      casa; Garantir a qualidade e apresentação dos alimentos; Zelar pela
-      higiene e organização da cozinha; Controlar o estoque de ingredientes e
-      solicitar reposições quando necessário; Trabalhar em equipe, mantendo um
-      ambiente colaborativo e produtivo. Requisitos: Experiência comprovada como
-      cozinheiro(a); Conhecimento em boas práticas de higiene e segurança
-      alimentar; Agilidade, responsabilidade e bom relacionamento interpessoal;
-      Desejável ensino médio completo e/ou curso na área de gastronomia.
+      <span class="bfw-semibold">Descrição:</span> <%= announcement.description %>
     </h6>
   </div>
 
