@@ -40,7 +40,7 @@ const postCompanyCreateAnnouncement = async (req, res) => {
       regime,
       education_level,
       schedule,
-      languages: languages.split(",").map((lang) => lang.trim()),
+      languages,
       salary,
       end_date,
       description,
