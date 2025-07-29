@@ -16,7 +16,6 @@ app.use(express.static(path.join(__dirname, "..", "client", "public"))); // serv
 app.use(express.urlencoded({ extended: true })); // para ler dados de formulários (POST)
 app.use(expressLayouts); // usa layouts com EJS
 
-
 // importa as rotas
 const routes = [
   "clientMyApplicationsRoute",
