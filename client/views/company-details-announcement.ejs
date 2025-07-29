@@ -16,17 +16,21 @@
     <h5 class="mb-1 fw-normal">
       <span class="fw-semibold">Categoria:</span> <%= announcement.category %>
     </h5>
-    <h5 class="mb-1 fw-normal"><span class="fw-semibold">Tipo:</span> <%= announcement.type %>
+    <h5 class="mb-1 fw-normal">
+      <span class="fw-semibold">Tipo:</span> <%= announcement.type %>
     </h5>
     <h5 class="mb-1 fw-normal">
-      <span class="fw-semibold">Escolaridade:</span> <%= announcement.education_level %>
+      <span class="fw-semibold">Escolaridade:</span> <%=
+      announcement.education_level %>
     </h5>
     <h5 class="mb-1 fw-normal">
       <span class="fw-semibold">Línguas:</span>
-      <%= announcement.languages && announcement.languages.length > 0 ? announcement.languages.join(" ; ") : "Não especificado" %>
+      <%= announcement.languages && announcement.languages.length > 0 ?
+      announcement.languages.join(" ; ") : "Não especificado" %>
     </h5>
     <h5 class="mb-1 fw-normal">
-      <span class="fw-semibold">Horário:</span> <%= announcement.schedule.startTime %> - <%= announcement.schedule.endTime %>
+      <span class="fw-semibold">Horário:</span> <%=
+      announcement.schedule.startTime %> - <%= announcement.schedule.endTime %>
     </h5>
     <h5 class="mb-1 fw-normal">
       <span class="fw-semibold">Salário:</span>
@@ -34,21 +38,31 @@
     </h5>
     <h5 class="mb-1 fw-normal">
       <span class="fw-semibold">Fim do anúncio:</span>
-      <%= announcement.end_date ? announcement.end_date.toLocaleDateString("pt-PT") : "Indefinido" %>
+      <%= announcement.end_date ?
+      announcement.end_date.toLocaleDateString("pt-PT") : "Indefinido" %>
     </h5>
     <img src="<%= announcement.pic %>" class="mt-2" />
     <h6 class="fw-normal">
-      <span class="bfw-semibold">Descrição:</span> <%= announcement.description %>
+      <span class="bfw-semibold">Descrição:</span> <%= announcement.description
+      %>
     </h6>
   </div>
 
   <div class="d-grid gap-2 mt-3">
-    <a
-      href="/client-submit?id=<%= announcement._id %>"
-      class="d-grid gap-2 text-reset text-decoration-none"
-    >
-      <button class="btn btn-blue">Enviar Candidatura</button>
-    </a>
+    <div class="d-flex gap-2">
+      <a
+        href="/company-manage-announcement?id=<%= announcement._id %>"
+        class="d-grid gap-2 text-reset text-decoration-none w-100"
+      >
+        <button class="btn btn-blue">Editar</button>
+      </a>
+      <a
+        href="/company-candidates?id=<%= announcement._id %>"
+        class="d-grid gap-2 text-reset text-decoration-none w-100"
+      >
+        <button class="btn btn-blue">Candidatos</button>
+      </a>
+    </div>
     <button class="btn btn-black" onclick="history.back()">Voltar</button>
   </div>
 </div>

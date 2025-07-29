@@ -5,90 +5,99 @@
 
 <div class="container-ad">
   <h2 class="text-center my-4">Gerir Anúncio</h2>
-  <form id="editAnuncioForm" method="POST">
+  <form id="editAnuncioForm" method="POST" action="/company-manage-announcement?id=<%= announcement._id %>">
     <label
       >Nome da profissão
-      <input type="text" name="job_name" id="job_name" />
+      <input type="text" name="job_name" id="job_name" value="<%=announcement.job_name%>"/>
     </label>
     <label
       >Categoria
       <select name="category" id="category">
         <option>-- Selecione uma opção --</option>
-        <option>Restauração</option>
-        <option>Limpeza</option>
-        <option>Construção</option>
-        <option>Vendedor</option>
+        <option value="Restauração" <%= announcement.category === 'Restauração' ? 'selected' : '' %>>Restauração</option>
+        <option value="Limpeza" <%= announcement.category === 'Limpeza' ? 'selected' : '' %>>Limpeza</option>
+        <option value="Construção" <%= announcement.category === 'Construção' ? 'selected' : '' %>>Construção</option>
+        <option value="Vendedor" <%= announcement.category === 'Vendedor' ? 'selected' : '' %>>Vendedor</option>
       </select>
     </label>
     <label
       >Tipo de contrato
       <select name="type" id="type">
-        <option>-- Selecione uma opção --</option>
-        <option>Emprego</option>
-        <option>Estágio</option>
-      </select>
+  <option value="">-- Selecione uma opção --</option>
+  <option value="Emprego" <%= announcement.type === 'Emprego' ? 'selected' : '' %>>Emprego</option>
+  <option value="Estágio" <%= announcement.type === 'Estágio' ? 'selected' : '' %>>Estágio</option>
+</select>
+
     </label>
     <label
       >Local do emprego
-      <input type="text" name="municipality" id="municipality" />
+      <input type="text" name="municipality" id="municipality" value="<%=announcement.municipality%>"/>
     </label>
-    <label
-      >Regime
-      <select name="regime" id="regime">
-        <option>-- Selecione uma opção --</option>
-        <option>Full-Time</option>
-        <option>Part-Time</option>
-      </select>
-    </label>
-    <label
-      >Escolaridade
-      <select name="education_level" required>
-        <option>-- Selecione uma opção --</option>
-        <option>Ensino Básico</option>
-        <option>ensino Secundário</option>
-        <option>ensino Superior</option>
-      </select>
-    </label>
+    <label>
+  Regime
+  <select name="regime" id="regime">
+    <option value="">-- Selecione uma opção --</option>
+    <option value="Full-Time" <%= announcement.regime === 'Full-Time' ? 'selected' : '' %>>Full-Time</option>
+    <option value="Part-Time" <%= announcement.regime === 'Part-Time' ? 'selected' : '' %>>Part-Time</option>
+  </select>
+</label>
+
+<label>
+  Escolaridade
+  <select name="education_level" required>
+    <option value="">-- Selecione uma opção --</option>
+    <option value="Ensino Básico" <%= announcement.education_level === 'Ensino Básico' ? 'selected' : '' %>>Ensino Básico</option>
+    <option value="ensino Secundário" <%= announcement.education_level === 'ensino Secundário' ? 'selected' : '' %>>ensino Secundário</option>
+    <option value="ensino Superior" <%= announcement.education_level === 'ensino Superior' ? 'selected' : '' %>>ensino Superior</option>
+  </select>
+</label>
+
 <div class="mb-3">
-  <h5 class="mb-2">Línguas</h5>
+  <label>Línguas</label>
   <div class="d-flex flex-wrap gap-3">
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Inglês" id="lingua-ingles">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Inglês" id="lingua-ingles"
+        <%= announcement.languages && announcement.languages.includes('Inglês') ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-ingles">Inglês</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Francês" id="lingua-frances">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Francês" id="lingua-frances"
+        <%= announcement.languages && announcement.languages.includes('Francês') ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-frances">Francês</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Espanhol" id="lingua-espanhol">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Espanhol" id="lingua-espanhol"
+        <%= announcement.languages && announcement.languages.includes('Espanhol') ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Alemão" id="lingua-alemao">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Alemão" id="lingua-alemao"
+        <%= announcement.languages && announcement.languages.includes('Alemão') ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-alemao">Alemão</label>
     </div>
   </div>
+  
 </div>
+
     <label
       >Salário
-      <input type="text" name="salary" required />
+      <input type="text" name="salary" required value="<%= announcement.salary%>" />
     </label>
       <label>Horário de trabalho
       <div class="d-inline-flex p-2 gap-5">
     <div class="form-group">
       <label for="inicio">Horário de Início:</label>
-      <input type="time" id="inicio" name="schedule[startTime]">
+      <input type="time" id="inicio" name="schedule[startTime]" value="<%= announcement.schedule['startTime']%>">
     </div>
 
     <div class="form-group">
       <label for="fim">Horário de Término:</label>
-      <input type="time" id="fim" name="schedule[endTime]">
+      <input type="time" id="fim" name="schedule[endTime]" value="<%= announcement.schedule['endTime']%>">
     </div>
 </div>
     <label
       >Prazo de candidatura
-      <input type="text" name="end_date" required />
+      <input type="text" name="end_date" value="<%=announcement.end_date%>" required />
     </label>
     <label
       >Descrição
@@ -122,4 +131,3 @@
   </form>
 </div>
 
-<script src="/js/company-manage-announcement.js"></script>

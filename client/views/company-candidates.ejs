@@ -3,54 +3,29 @@
   <link href="/css/company-my-announcements.css" rel="stylesheet" />
 </head>
 
-<div class="container-ad">
-  <h2 class="text-center my-4">Candidatos</h2>
-  <!-- Vai ser para mudar mais tarde - tornar dinamico -->
-  <div class="card">
-    <div class="d-flex align-items-center">
-      <img src="/images/my-account.png" class="candidate-img me-3" />
-      <div>
-        <h5 class="font-weight-bold">Pedro</h5>
-        <p class="mb-1">Descrição: Sou o Pedro, tenho 28 anos...</p>
-        <a href="/" class="text-muted small">Saber mais</a>
+<% if (applications.length === 0) { %>
+  <p class="text-center fw-bold mt-4">Ainda não há candidaturas para este anúncio.</p>
+<% } else { %>
+  <% applications.forEach(application => { %>
+    <div class="white-card">
+      <div class="d-flex align-items-center">
+        <img src="/images/my-account.png" class="candidate-img me-3" />
+        <div>
+          <h4 class="font-weight-bold mb-2"><%= application.name %></h4>
+          <h6 class="bfw-semibold mb-3">Descrição: <%= application.about_me %></h6>
+          <a href="/?id=<%= application._id %>" class="text-muted small">Saber mais</a>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between mt-2">
+        <form method="POST" action="//<%= application._id %>/approve">
+          <button class="btn btn-blue">Aceitar</button>
+        <form method="POST" action="//<%= application._id %>/reject">
+          <button class="btn btn-delete">Rejeitar</button>
+        </form>
       </div>
     </div>
-    <div class="d-flex justify-content-between mt-2">
-      <button class="btn btn-blue">Aceitar</button>
-      <button class="btn btn-delete">Rejeitar</button>
-    </div>
-  </div>
-
-  <!-- Card de cada candidato -->
-  <div class="card">
-    <div class="d-flex align-items-center">
-      <img src="/images/my-account.png" class="candidate-img me-3" />
-      <div>
-        <h5 class="font-weight-bold">Pedro</h5>
-        <p class="mb-1">Descrição: Sou o Pedro, tenho 28 anos...</p>
-        <a href="/" class="text-muted small">Saber mais</a>
-      </div>
-    </div>
-    <div class="d-flex justify-content-between mt-2">
-      <button class="btn btn-blue">Aceitar</button>
-      <button class="btn btn-delete">Rejeitar</button>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="d-flex align-items-center">
-      <img src="/images/my-account.png" class="candidate-img me-3" />
-      <div>
-        <h5 class="font-weight-bold">Pedro</h5>
-        <p class="mb-1">Descrição: Sou o Pedro, tenho 28 anos...</p>
-        <a href="/" class="text-muted small">Saber mais</a>
-      </div>
-    </div>
-    <div class="d-flex justify-content-between mt-2">
-      <button class="btn btn-blue">Aceitar</button>
-      <button class="btn btn-delete">Rejeitar</button>
-    </div>
-  </div>
+  <% }) %>
+<% } %>
 
   <div class="d-flex justify-content-center mt-5">
     <button type="button" class="btn btn-black" onclick="history.back()">Voltar</button>

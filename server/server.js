@@ -32,6 +32,7 @@ const routes = [
   "resetPasswordRoute",
   "resetPasswordSendRoute",
   "clientDetailsAnnouncementRoute",
+  "companyDetailsAnnouncementRoute",
 ];
 
 routes.forEach((route) => {
