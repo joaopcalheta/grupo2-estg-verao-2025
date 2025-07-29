@@ -17,10 +17,9 @@
         </div>
       </div>
       <div class="d-flex justify-content-between mt-2">
-        <form method="POST" action="/candidates/<%= application._id %>/approve">
+        <form method="POST" action="//<%= application._id %>/approve">
           <button class="btn btn-blue">Aceitar</button>
-        </form>
-        <form method="POST" action="/candidates/<%= application._id %>/reject">
+        <form method="POST" action="//<%= application._id %>/reject">
           <button class="btn btn-delete">Rejeitar</button>
         </form>
       </div>
