@@ -27,6 +27,7 @@ const postCompanyCreateAnnouncement = async (req, res) => {
       salary,
       end_date,
       description,
+      pic,
     } = req.body;
 
     console.log("Dados recebidos:", req.body);

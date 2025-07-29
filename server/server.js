@@ -30,6 +30,7 @@ const routes = [
   "searchFilterRoute",
   "clientSubmitRoute",
   "resetPasswordRoute",
+  "resetPasswordSendRoute",
   "clientDetailsAnnouncementRoute",
 ];
 

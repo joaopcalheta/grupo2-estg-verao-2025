@@ -40,6 +40,40 @@
         <option>Part-Time</option>
       </select>
     </label>
+    <label
+      >Escolaridade
+      <select name="education_level" required>
+        <option>-- Selecione uma opção --</option>
+        <option>Ensino Básico</option>
+        <option>ensino Secundário</option>
+        <option>ensino Superior</option>
+      </select>
+    </label>
+<div class="mb-3">
+  <h5 class="mb-2">Línguas</h5>
+  <div class="d-flex flex-wrap gap-3">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Inglês" id="lingua-ingles">
+      <label class="form-check-label" for="lingua-ingles">Inglês</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Francês" id="lingua-frances">
+      <label class="form-check-label" for="lingua-frances">Francês</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Espanhol" id="lingua-espanhol">
+      <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Alemão" id="lingua-alemao">
+      <label class="form-check-label" for="lingua-alemao">Alemão</label>
+    </div>
+  </div>
+</div>
+    <label
+      >Salário
+      <input type="text" name="salary" required />
+    </label>
       <label>Horário de trabalho
       <div class="d-inline-flex p-2 gap-5">
     <div class="form-group">
@@ -52,27 +86,6 @@
       <input type="time" id="fim" name="schedule[endTime]">
     </div>
 </div>
-    <label
-      >Escolaridade
-      <select name="education_level" required>
-        <option>-- Selecione uma opção --</option>
-        <option>Ensino Básico</option>
-        <option>ensino Secundário</option>
-        <option>ensino Superior</option>
-      </select>
-    </label>
-    <label
-      >Línguas
-      <input type="text" name="languages" required />
-    </label>
-    <label
-      >Salário
-      <input type="text" name="salary" required />
-    </label>
-    <label
-      >Horário de trabalho
-      <input type="text" name="schedule" required />
-    </label>
     <label
       >Prazo de candidatura
       <input type="text" name="end_date" required />
@@ -87,7 +100,13 @@
     </label>
     <label
       >Atualizar Foto
-      <input type="file" name="pic" />
+    <div>
+      <br />
+      <input type="file" name="pic" class="d-none" id="fileInput" />
+      <label for="fileInput" class="btn btn-primary">
+        <i class="bi bi-upload"></i> Enviar
+      </label>
+    </div>
     </label>
     <div class="actions-btn">
       <button type="button" class="btn btn-blue" onclick="history.back()">
