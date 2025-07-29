@@ -41,7 +41,7 @@ const updateCompanyAnnouncement = async (req, res) => {
       return res.status(404).send("Anúncio não foi encontrado");
     }
 
-    res.redirect(`/company-manage-announcement?id=${announcementId}`);
+    res.redirect(`/company-my-announcements?id=${announcementId}`);
   } catch (err) {
     console.error("Erro ao atualizar anúncio:", err);
     res.status(500).send("Erro interno no servidor");

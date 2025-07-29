@@ -99,10 +99,11 @@
       >Prazo de candidatura
       <input type="text" name="end_date" value="<%=announcement.end_date%>" required />
     </label>
-    <label
-      >Descrição
-      <textarea name="description" id="description"></textarea>
-    </label>
+    <label>
+  Descrição
+  <textarea name="description" id="description"><%= announcement.description %></textarea>
+</label>
+
     <label
       >Foto Atual
       <img src="" id="currentPhoto" />
