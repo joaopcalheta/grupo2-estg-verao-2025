@@ -49,10 +49,27 @@
         <option>ensino Superior</option>
       </select>
     </label>
-    <label
-      >Línguas
-      <input type="text" name="languages" required />
-    </label>
+<div class="mb-3">
+  <h5 class="mb-2">Línguas</h5>
+  <div class="d-flex flex-wrap gap-3">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Inglês" id="lingua-ingles">
+      <label class="form-check-label" for="lingua-ingles">Inglês</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Francês" id="lingua-frances">
+      <label class="form-check-label" for="lingua-frances">Francês</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Espanhol" id="lingua-espanhol">
+      <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Alemão" id="lingua-alemao">
+      <label class="form-check-label" for="lingua-alemao">Alemão</label>
+    </div>
+  </div>
+</div>
     <label
       >Salário
       <input type="text" name="salary" required />
