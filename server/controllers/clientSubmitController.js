@@ -4,8 +4,10 @@ const Application = require("../models/application")
 
 const getClientSubmitApplication = async (req, res) => {
   try {
+    const { id } = req.query;
     res.render("client-submit", {
       title: "Página submeter candidatura",
+      announcementId: id,
     });
   } catch (err) {
     console.error("Erro ao carregar a página:", err);
@@ -34,6 +36,7 @@ const postClientSubmitApplication = async (req, res) => {
     console.log("Dados recebidos:", req.body);
 
     const newApplication = new Application({
+      announcement_id: req.body.announcement_id,
       name,
       email,
       phone,
