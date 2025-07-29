@@ -22,16 +22,6 @@ const getClientDetailsAnnouncement = async (req, res) => {
   }
 };
 
-const postClientSubmitApplication = async (req, res) => {
-  try {
-    // Lógica da candidatura caso o utilizador esteje logado
-    res.send("Candidatura enviada!");
-  } catch (err) {
-    res.status(500).send("Erro ao enviar a candidatura");
-  }
-}
 
-module.exports = {
-  getClientDetailsAnnouncement,
-  postClientSubmitApplication,
-};
+
+module.exports = { getClientDetailsAnnouncement };
