@@ -14,10 +14,10 @@
       >Categoria
       <select name="category" id="category">
         <option>-- Selecione uma opção --</option>
-        <option>Restauração</option>
-        <option>Limpeza</option>
-        <option>Construção</option>
-        <option>Vendedor</option>
+        <option value="Restauração" <%= announcement.category === 'Restauração' ? 'selected' : '' %>>Restauração</option>
+        <option value="Limpeza" <%= announcement.category === 'Limpeza' ? 'selected' : '' %>>Limpeza</option>
+        <option value="Construção" <%= announcement.category === 'Construção' ? 'selected' : '' %>>Construção</option>
+        <option value="Vendedor" <%= announcement.category === 'Vendedor' ? 'selected' : '' %>>Vendedor</option>
       </select>
     </label>
     <label
