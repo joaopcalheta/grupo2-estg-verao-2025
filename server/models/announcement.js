@@ -9,7 +9,7 @@ const announcementSchema = new mongoose.Schema(
       trim: true,
     },
     end_date: {
-      type: Date,
+      type: Date, // ou Date
       required: true,
     },
     category: {
@@ -21,12 +21,12 @@ const announcementSchema = new mongoose.Schema(
       startTime: {
         type: String, // ou Date
         trim: true,
-    },
+      },
       endTime: {
         type: String, // ou Date
-      trim: true,
+        trim: true,
+      },
     },
-  },
     regime: {
       type: String,
       trim: true,
