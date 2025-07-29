@@ -7,4 +7,9 @@ router.get(
   companyManageAnnouncementController.getCompanyManageAnnouncement
 );
 
+router.post(
+  "/company-manage-announcement",
+  companyManageAnnouncementController.updateCompanyAnnouncement
+);
+
 module.exports = router;
