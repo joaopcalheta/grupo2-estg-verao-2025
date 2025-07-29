@@ -9,7 +9,7 @@ const announcementSchema = new mongoose.Schema(
       trim: true,
     },
     end_date: {
-      type: String, // ou Date
+      type: Date, // ou Date
       required: true,
     },
     category: {
