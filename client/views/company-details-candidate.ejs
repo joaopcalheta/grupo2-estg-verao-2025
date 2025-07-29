@@ -1,0 +1,28 @@
+<head>
+  <link href="/css/general.css" rel="stylesheet" />
+</head>
+
+<div class="container mt-4">
+  <h2 class="text-center mt-2 mb-3">Detalhes do Candidato</h2>
+
+  <div class="white-card">
+    <p><b>Nome: </b><%= application.name %></p>
+    <p><b>Idade: </b><%= application.age %></p>
+    <p><b>Nº de Telefone: </b><%= application.phone %></p>
+    <p><b>NIF: </b><%= application.nif %></p>
+    <p><b>E-mail: </b><%= application.email %></p>
+    <p><b>Morada: </b><%= application.address %></p>
+    <p><b>Localidade: </b><%= application.municipality %></p>
+    <p><b>Código Postal: </b><%= application.postcode %></p>
+    <p><b>Escolaridade</b>: </b><%= application.education_level %></p>
+    <p><b>Línguas: </b><%= application.languages && application.languages.length > 0 ? application.languages.join(" ; ") : "Não especificado" %></p>
+    <p><b>Descrição: </b><%= application.about_me %></p>
+    <% if (application.cv) { %>
+      <p><b>CV: </b> <a href="<%= application.cv %>" target="_blank">Ver CV</a></p>
+    <% } %>
+  </div>
+
+  <div class="d-flex justify-content-center mt-3">
+    <button class="btn btn-blue" onclick="history.back()">Voltar</button>
+  </div>
+</div>

@@ -33,6 +33,7 @@ const routes = [
   "resetPasswordSendRoute",
   "clientDetailsAnnouncementRoute",
   "companyDetailsAnnouncementRoute",
+  "companyDetailsCandidateRoute",
 ];
 
 routes.forEach((route) => {
