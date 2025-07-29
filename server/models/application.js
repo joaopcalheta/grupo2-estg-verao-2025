@@ -64,6 +64,11 @@ const applicationSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    announcement_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Announcement",
+      required: true,
+    },
   },
   {
     timestamps: true,
