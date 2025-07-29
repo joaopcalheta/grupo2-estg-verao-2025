@@ -17,18 +17,19 @@
       >Categoria
       <select name="category" required>
         <option>-- Selecione uma opção --</option>
-        <option>Restauração</option>
-        <option>Limpeza</option>
-        <option>Construção</option>
-        <option>Vendedor</option>
+        <option value="rest">Restauração</option>
+        <option value="limp">Limpeza</option>
+        <option value="const">Construção</option>
+        <option value="vend">Vendedor</option>
+        <option value="saude">Saúde</option>
       </select>
     </label>
     <label
       >Tipo de contrato
       <select name="type" required>
         <option>-- Selecione uma opção --</option>
-        <option>Emprego</option>
-        <option>Estágio</option>
+        <option value="emp">Emprego</option>
+        <option value="est">Estágio</option>
       </select>
     </label>
     <label
@@ -39,54 +40,56 @@
       >Regime
       <select name="regime" required>
         <option>-- Selecione uma opção --</option>
-        <option value="full-time">Full-Time</option>
-        <option value="part-time">Part-Time</option>
+        <option value="ftime">Full-Time</option>
+        <option value="ptime">Part-Time</option>
       </select>
     </label>
     <label
       >Escolaridade
       <select name="education_level" required>
         <option>-- Selecione uma opção --</option>
-        <option>Ensino Básico</option>
-        <option>Ensino Secundário</option>
-        <option>Ensino Superior</option>
+        <option value="1c">1º Ciclo</option>
+        <option value="2c">2º Ciclo</option>
+        <option value="3c">3º Ciclo</option>
+        <option value="sec">Secundário</option>
+        <option value="es">Ensino Superior</option>
       </select>
     </label>
 <div class="mb-3">
   <h5 class="mb-2">Línguas</h5>
   <div class="d-flex flex-wrap gap-3">
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Inglês" id="lingua-ingles">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="ing" id="lingua-ingles">
       <label class="form-check-label" for="lingua-ingles">Inglês</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Francês" id="lingua-frances">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="fra" id="lingua-frances">
       <label class="form-check-label" for="lingua-frances">Francês</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Espanhol" id="lingua-espanhol">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="esp" id="lingua-espanhol">
       <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Alemão" id="lingua-alemao">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="ale" id="lingua-alemao">
       <label class="form-check-label" for="lingua-alemao">Alemão</label>
     </div>
   </div>
 </div>
     <label
       >Salário
-      <input type="text" name="salary" />
+      <input type="text" name="salary" value="salary" />
     </label>
       <label>Horário de trabalho
       <div class="d-inline-flex p-2 gap-5">
     <div class="form-group">
       <label for="inicio">Horário de Início:</label>
-      <input type="time" id="inicio" name="schedule[startTime]">
+      <input value="start" type="time" id="inicio" name="schedule[startTime]">
     </div>
 
     <div class="form-group">
       <label for="fim">Horário de Término:</label>
-      <input type="time" id="fim" name="schedule[endTime]">
+      <input value="end" type="time" id="fim" name="schedule[endTime]">
     </div>
 </div>
     <label
