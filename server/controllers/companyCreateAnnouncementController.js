@@ -43,7 +43,7 @@ const postCompanyCreateAnnouncement = async (req, res) => {
       salary,
       end_date,
       description,
-      schedule,
+      pic,
     });
 
     await newAnnouncement.save();

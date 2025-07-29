@@ -54,7 +54,7 @@
   box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.1);
 }
 .image-wrapper {
-  width: 110px;
+  width: 100px;
   height: 100%;
   flex-shrink: 0;
 
