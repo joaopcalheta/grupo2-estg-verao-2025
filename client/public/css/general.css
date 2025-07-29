@@ -55,14 +55,14 @@ p {
 }
 
 .btn-blue {
-  background: #1895c3;
+  background: #2C5CFA;
   color: #fff;
   font-weight: bold;
 }
 
 .btn-blue:hover {
   filter: brightness(80%);
-  background-color: #007acc;
+  background-color: #2146c0;
   color: #fff;
 }
 
