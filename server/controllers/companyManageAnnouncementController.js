@@ -48,4 +48,30 @@ const updateCompanyAnnouncement = async (req, res) => {
   }
 };
 
-module.exports = { getCompanyManageAnnouncement, updateCompanyAnnouncement };
+const deleteCompanyAnnouncement = async (req, res) => {
+  console.log("Deleting announcement...",req.query);
+  try {
+    const announcementId = req.query.id;
+    if (!announcementId) {
+      return res.status(400).send("ID do anúncio não foi fornecido");
+    }
+
+    const deletedAnnouncement = await Announcement.findByIdAndDelete(announcementId);
+
+    if (!deletedAnnouncement) {
+      return res.status(404).send("Anúncio não foi encontrado");
+    }
+
+    res.redirect("/company-my-announcements"); // Redireciona para a lista de anúncios
+  } catch (err) {
+    console.error("Erro ao excluir anúncio:", err);
+    res.status(500).send("Erro interno no servidor");
+  }
+};
+
+
+module.exports = {
+   getCompanyManageAnnouncement, 
+  updateCompanyAnnouncement,
+  deleteCompanyAnnouncement 
+};
