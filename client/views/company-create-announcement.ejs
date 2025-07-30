@@ -6,12 +6,12 @@
 <div class="container-ad">
   <h2 class="text-center my-4">Criar Anúncio</h2>
   <form method="POST" action="/company-create-announcement/">
-    <label
-      >Nome da profissão
+    <label 
+      >Nome da profissão 
       <input type="text" name="job_name" required />
-    </label>
-    <label
-      >Categoria
+    </label> 
+    <label 
+      >Categoria 
       <select name="category" required>
         <option disabled selected>Selecione uma categoria</option>
         <option value="Restauração">Restauração</option>
@@ -31,16 +31,16 @@
         <option value="Serviços Gerais">Serviços Gerais</option>
       </select>
     </label>
-    <label
-      >Tipo de contrato
+    <label 
+      >Tipo de contrato 
       <select name="type" required>
         <option>Selecione uma opção</option>
         <option value="Emprego">Emprego</option>
         <option value="Estágio">Estágio</option>
       </select>
     </label>
-    <label
-      >Concelho
+    <label 
+      >Concelho 
       <select name="municipality" required>
         <option disabled selected>Selecione um concelho</option>
         <option value="Ponta do Sol">Ponta do Sol</option>
@@ -56,8 +56,8 @@
         <option value="Porto Santo">Porto Santo</option>
       </select>
     </label>
-    <label
-      >Freguesia
+    <label 
+      >Freguesia 
       <select name="freg" required>
         <option>Selecione uma freguesia</option>
         <option value="Achadas da Cruz">Achadas da Cruz</option>
@@ -151,7 +151,7 @@
       </select>
     </label>
     <div class="mb-3">
-      <h5 class="mb-2">Línguas</h5>
+      <p class="mb-3 fw-bold">Línguas</p>
       <div class="d-flex flex-wrap gap-3">
         <div class="form-check">
           <input
@@ -161,7 +161,7 @@
             value="Eng"
             id="lingua-ingles"
           />
-          <label class="form-check-label" for="lingua-ingles">Inglês</label>
+          <label class="form-check-label h6" for="lingua-ingles">Inglês</label>
         </div>
         <div class="form-check">
           <input
@@ -171,7 +171,7 @@
             value="Fr"
             id="lingua-frances"
           />
-          <label class="form-check-label" for="lingua-frances">Francês</label>
+          <label class="form-check-label h6" for="lingua-frances">Francês</label>
         </div>
         <div class="form-check">
           <input
@@ -181,7 +181,7 @@
             value="Esp"
             id="lingua-espanhol"
           />
-          <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
+          <label class="form-check-label h6" for="lingua-espanhol">Espanhol</label>
         </div>
         <div class="form-check">
           <input
@@ -191,7 +191,7 @@
             value="Ger"
             id="lingua-alemao"
           />
-          <label class="form-check-label" for="lingua-alemao">Alemão</label>
+          <label class="form-check-label h6" for="lingua-alemao">Alemão</label>
         </div>
       </div>
     </div>
@@ -202,7 +202,7 @@
     <label>Horário de trabalho </label>
     <div class="d-inline-flex p-2 gap-5">
       <div class="form-group">
-        <label for="inicio">Horário de Início:</label>
+        <label for="inicio">Início</label>
         <input
           value="start"
           type="time"
@@ -212,7 +212,7 @@
       </div>
 
       <div class="form-group">
-        <label for="fim">Horário de Término:</label>
+        <label for="fim">Fim</label>
         <input value="end" type="time" id="fim" name="schedule[endTime]" />
       </div>
     </div>
@@ -225,8 +225,8 @@
       <textarea name="description" rows="4"></textarea>
     </label>
     <div>
-      <h5>Adicionar Foto:</h5>
-      <br />
+      <p class="fw-bold">Adicionar Foto</p>
+      
       <label>
         <input type="text" name="pic" />
       </label>
