@@ -3,6 +3,8 @@
   <link href="/css/company-my-announcements.css" rel="stylesheet" />
 </head>
 
+<div class="container">
+  <h3 class="text-center fw-bold mb-3 mt-2">Candidatos</h3>
 <% if (applications.length === 0) { %>
   <p class="text-center fw-bold mt-4">Ainda não há candidaturas para este anúncio.</p>
 <% } else { %>
@@ -27,6 +29,7 @@
     </div>
   <% }) %>
 <% } %>
+</div>
 
   <div class="d-grid mt-4">
     <button type="button" class="btn btn-black" onclick="history.back()">Voltar</button>
