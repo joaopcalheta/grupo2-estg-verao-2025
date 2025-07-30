@@ -7,7 +7,7 @@ const companyCreateAnnouncementController = require("../controllers/companyCreat
 router.get(
   "/company-create-announcement",
   companyCreateAnnouncementController.getCompanyCreateAnnouncement
-);
+); // renderiza a página 
 
 router.post(
   "/company-create-announcement",

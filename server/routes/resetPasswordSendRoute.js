@@ -5,6 +5,6 @@ const resetPasswordSendController = require("../controllers/resetPasswordSendCon
 router.get(
   "/reset-password-send",
   resetPasswordSendController.getResetPasswordSend
-);
+); // renderiza a página 
 
 module.exports = router;

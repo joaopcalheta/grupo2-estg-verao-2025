@@ -5,6 +5,6 @@ const companyMyProfileController = require("../controllers/companyMyProfileContr
 router.get(
   "/company-my-profile",
   companyMyProfileController.getCompanyMyProfile
-);
+); // renderiza a página 
 
 module.exports = router;

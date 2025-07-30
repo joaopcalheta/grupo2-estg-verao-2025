@@ -1,3 +1,5 @@
+<!-- views/login.ejs-->
+
 <head>
   <link href="/css/login.css" rel="stylesheet" />
   <link
@@ -21,17 +23,27 @@
     </div>
   </div>
 
-  <div id="login-form" class="form active">
+  <form id="login-form" class="form active" action="/login" method="POST">
     <br />
     <div class="mailpass">
       <div>
         <label>Email</label>
         <br />
-        <input type="email" placeholder="Escreva o seu email" required />
+        <input
+          type="email"
+          name="email"
+          placeholder="Escreva o seu email"
+          required
+        />
         <br />
         <label>Password</label>
         <br />
-        <input type="password" placeholder="Escreva a sua password" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Escreva a sua password"
+          required
+        />
       </div>
     </div>
     <br />
@@ -46,87 +58,59 @@
       </div>
     </div>
 
-    <button class="lgn">Login</button>
-  </div>
-  <div id="register-form" class="form">
-    <div class="radio-group">
-      <label>
-        <input
-          type="radio"
-          name="tipo"
-          value="candidato"
-          id="btn-candidato"
-          checked
-        />
-        Candidato
-      </label>
-      <label>
-        <input type="radio" name="tipo" value="empresa" id="btn-empresa" />
-        Empresa
-      </label>
-    </div>
-
-    <br />
+    <button type="submit" class="lgn">Login</button>
+  </form>
+  <form id="register-form" class="form" method="POST" action="/register">
     <div class="mailpass">
       <div class="candidato-f">
-        <label>Nome</label>
-        <br />
-        <input type="nome" placeholder="Escreva o seu nome" />
-        <br />
-        <label>Email</label>
-        <br />
-        <input type="email" placeholder="Escreva o seu email" />
-        <br />
-        <label>Password</label>
-        <br />
-        <input type="password" placeholder="Escreva a sua password" />
-        <br />
-        <label>Confirmar password</label>
-        <br />
-        <input type="confirmpassword" placeholder="Confirme a sua password" />
-      </div>
-      <div class="empresa-f">
-        <label>Nome da empresa</label>
-        <br />
-        <input type="nomeempresa" placeholder="Escreva o nome da sua empresa" />
-        <br />
-        <label>Email da empresa</label>
-        <br />
-        <input type="email" placeholder="Escreva o email da sua empresa" />
-        <br />
-        <label>Número de telefone</label>
-        <br />
-        <input type="telefone" placeholder="Insira o número de telefone" />
-        <br />
-        <label>NIF da empresa</label>
-        <br />
-        <input type="nifempresa" placeholder="Insira o nif da sua empresa" />
-        <br />
-        <label>Morada</label>
-        <br />
-        <input type="morada" placeholder="Morada da sua empresa" />
-        <br />
-        <label>Localidade</label>
-        <br />
-        <input type="localidade" placeholder="Localidade da sua empresa" />
-        <br />
-        <label>Código postal</label>
-        <br />
-        <input type="postal_code" placeholder="Código postal da sua empresa" />
-        <br />
-        <label>Password</label>
-        <br />
-        <input type="password" placeholder="Escreva a sua password" />
-        <br />
-        <label>Confirmar password</label>
-        <br />
-        <input type="confirmpassword" placeholder="Confirme a sua password" />
+        <label>Nome</label><br />
+        <input
+          name="name"
+          type="text"
+          placeholder="Escreva o seu nome"
+          required
+        /><br />
+
+        <label>Username</label><br />
+        <input
+          name="username"
+          type="text"
+          placeholder="Escreva o seu nome de utilizador"
+          required
+        /><br />
+
+        <label>Email</label><br />
+        <input
+          name="email"
+          type="email"
+          placeholder="Escreva o seu email"
+          required
+        /><br />
+
+        <label>Password</label><br />
+        <input
+          name="password"
+          type="password"
+          placeholder="Escreva a sua password"
+          required
+        /><br />
+
+        <label>Confirmar password</label><br />
+        <input
+          name="confirmpassword"
+          type="password"
+          placeholder="Confirme a sua password"
+          required
+        />
       </div>
     </div>
-    <br />
-
-    <br />
-    <button class="rgst">Registar</button>
-  </div>
+    <button type="submit" class="rgst">Registar</button>
+  </form>
 </div>
+
+<% if (success) { %>
+<div class="alert alert-success"><%= success %></div>
+<% } %> <% if (error) { %>
+<div class="alert alert-danger"><%= error %></div>
+<% } %>
 <script src="js/login.js"></script>
