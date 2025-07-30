@@ -5,10 +5,7 @@
 
 <div class="container-ad">
   <h2 class="text-center my-4">Criar Anúncio</h2>
-  <form
-    method="POST"
-    action="/company-create-announcement/"
-  >
+  <form method="POST" action="/company-create-announcement/">
     <label
       >Nome da profissão
       <input type="text" name="job_name" required />
@@ -16,79 +13,211 @@
     <label
       >Categoria
       <select name="category" required>
-        <option>-- Selecione uma opção --</option>
-        <option>Restauração</option>
-        <option>Limpeza</option>
-        <option>Construção</option>
-        <option>Vendedor</option>
+        <option disabled selected>Selecione uma categoria</option>
+        <option value="Restauração">Restauração</option>
+        <option value="Limpeza">Limpeza</option>
+        <option value="Construção">Construção</option>
+        <option value="Vendedor">Vendedor</option>
+        <option value="Saúde">Saúde</option>
+        <option value="Educação">Educação</option>
+        <option value="IT">IT</option>
+        <option value="Administração">Administração</option>
+        <option value="Transporte">Transporte</option>
+        <option value="Atendimento ao Cliente">Atendimento ao Cliente</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Financeiro">Financeiro</option>
+        <option value="Logística">Logística</option>
+        <option value="Segurança">Segurança</option>
+        <option value="Serviços Gerais">Serviços Gerais</option>
       </select>
     </label>
     <label
       >Tipo de contrato
       <select name="type" required>
-        <option>-- Selecione uma opção --</option>
-        <option>Emprego</option>
-        <option>Estágio</option>
+        <option>Selecione uma opção</option>
+        <option value="Emprego">Emprego</option>
+        <option value="Estágio">Estágio</option>
       </select>
     </label>
     <label
-      >Local do emprego
-      <input type="text" name="municipality" required />
+      >Concelho
+      <select name="municipality" required>
+        <option disabled selected>Selecione um concelho</option>
+        <option value="Ponta do Sol">Ponta do Sol</option>
+        <option value="Calheta">Calheta</option>
+        <option value="Ribeira Brava">Ribeira Brava</option>
+        <option value="Câmara de Lobos">Câmara de Lobos</option>
+        <option value="Funchal">Funchal</option>
+        <option value="Santa Cruz">Santa Cruz</option>
+        <option value="Machico">Machico</option>
+        <option value="Santana">Santana</option>
+        <option value="São Vicente">São Vicente</option>
+        <option value="Porto Moniz">Porto Moniz</option>
+        <option value="Porto Santo">Porto Santo</option>
+      </select>
+    </label>
+    <label
+      >Freguesia
+      <select name="freg" required>
+        <option>Selecione uma freguesia</option>
+        <option value="Achadas da Cruz">Achadas da Cruz</option>
+        <option value="Água de Pena">Água de Pena</option>
+        <option value="Arco da Calheta">Arco da Calheta</option>
+        <option value="Arco de São Jorge">Arco de São Jorge</option>
+        <option value="Boaventura">Boaventura</option>
+        <option value="Calheta">Calheta</option>
+        <option value="Câmara de Lobos">Câmara de Lobos</option>
+        <option value="Campanário">Campanário</option>
+        <option value="Canhas">Canhas</option>
+        <option value="Caniçal">Caniçal</option>
+        <option value="Caniço">Caniço</option>
+        <option value="Camacha">Camacha</option>
+        <option value="Curral das Freiras">Curral das Freiras</option>
+        <option value="Estreito da Calheta">Estreito da Calheta</option>
+        <option value="Estreito de Câmara de Lobos">
+          Estreito de Câmara de Lobos
+        </option>
+        <option value="Faial">Faial</option>
+        <option value="Fajã da Ovelha">Fajã da Ovelha</option>
+        <option value="Gaula">Gaula</option>
+        <option value="Ilha">Ilha</option>
+        <option value="Imaculado Coração de Maria">
+          Imaculado Coração de Maria
+        </option>
+        <option value="Jardim da Serra">Jardim da Serra</option>
+        <option value="Jardim do Mar">Jardim do Mar</option>
+        <option value="Machico">Machico</option>
+        <option value="Madalena do Mar">Madalena do Mar</option>
+        <option value="Monte">Monte</option>
+        <option value="Paúl do Mar">Paúl do Mar</option>
+        <option value="Ponta Delgada">Ponta Delgada</option>
+        <option value="Ponta do Pargo">Ponta do Pargo</option>
+        <option value="Ponta do Sol">Ponta do Sol</option>
+        <option value="Porto da Cruz">Porto da Cruz</option>
+        <option value="Porto Moniz">Porto Moniz</option>
+        <option value="Porto Santo">Porto Santo</option>
+        <option value="Prazeres">Prazeres</option>
+        <option value="Quinta Grande">Quinta Grande</option>
+        <option value="Ribeira Brava">Ribeira Brava</option>
+        <option value="Ribeira da Janela">Ribeira da Janela</option>
+        <option value="Santa Cruz">Santa Cruz</option>
+        <option value="Santa Luzia">Santa Luzia</option>
+        <option value="Santa Maria Maior">Santa Maria Maior</option>
+        <option value="Santana">Santana</option>
+        <option value="Santo António">Santo António</option>
+        <option value="Santo António da Serra (Machico)">
+          Santo António da Serra (Machico)
+        </option>
+        <option value="Santo António da Serra (Santa Cruz)">
+          Santo António da Serra (Santa Cruz)
+        </option>
+        <option value="São Gonçalo">São Gonçalo</option>
+        <option value="São Jorge">São Jorge</option>
+        <option value="São Martinho">São Martinho</option>
+        <option value="São Pedro">São Pedro</option>
+        <option value="São Roque">São Roque</option>
+        <option value="São Roque do Faial">São Roque do Faial</option>
+        <option value="São Vicente">São Vicente</option>
+        <option value="Seixal">Seixal</option>
+        <option value="Serra de Água">Serra de Água</option>
+        <option value="Sé">Sé</option>
+        <option value="Tabua">Tabua</option>
+      </select>
+    </label>
+
+    <label
+      >Morada
+      <input type="text" name="address" required />
+    </label>
+    <label
+      >Código Postal
+      <input type="text" name="postcode" required />
     </label>
     <label
       >Regime
       <select name="regime" required>
-        <option>-- Selecione uma opção --</option>
-        <option value="full-time">Full-Time</option>
-        <option value="part-time">Part-Time</option>
+        <option>Selecione uma opção</option>
+        <option value="Full-Time">Full-Time</option>
+        <option value="Part-Time">Part-Time</option>
       </select>
     </label>
     <label
       >Escolaridade
       <select name="education_level" required>
-        <option>-- Selecione uma opção --</option>
-        <option>Ensino Básico</option>
-        <option>Ensino Secundário</option>
-        <option>Ensino Superior</option>
+        <option>Selecione uma opção</option>
+        <option value="1º Ciclo">1º Ciclo</option>
+        <option value="2º Ciclo">2º Ciclo</option>
+        <option value="3º Ciclo">3º Ciclo</option>
+        <option value="Secundário">Secundário</option>
+        <option value="Ensino Superior">Ensino Superior</option>
       </select>
     </label>
-<div class="mb-3">
-  <h5 class="mb-2">Línguas</h5>
-  <div class="d-flex flex-wrap gap-3">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Inglês" id="lingua-ingles">
-      <label class="form-check-label" for="lingua-ingles">Inglês</label>
+    <div class="mb-3">
+      <h5 class="mb-2">Línguas</h5>
+      <div class="d-flex flex-wrap gap-3">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="languages[]"
+            value="Eng"
+            id="lingua-ingles"
+          />
+          <label class="form-check-label" for="lingua-ingles">Inglês</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="languages[]"
+            value="Fr"
+            id="lingua-frances"
+          />
+          <label class="form-check-label" for="lingua-frances">Francês</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="languages[]"
+            value="Esp"
+            id="lingua-espanhol"
+          />
+          <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="languages[]"
+            value="Ger"
+            id="lingua-alemao"
+          />
+          <label class="form-check-label" for="lingua-alemao">Alemão</label>
+        </div>
+      </div>
     </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Francês" id="lingua-frances">
-      <label class="form-check-label" for="lingua-frances">Francês</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Espanhol" id="lingua-espanhol">
-      <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Alemão" id="lingua-alemao">
-      <label class="form-check-label" for="lingua-alemao">Alemão</label>
-    </div>
-  </div>
-</div>
     <label
       >Salário
       <input type="text" name="salary" />
     </label>
-      <label>Horário de trabalho
-      <div class="d-inline-flex p-2 gap-5">
-    <div class="form-group">
-      <label for="inicio">Horário de Início:</label>
-      <input type="time" id="inicio" name="schedule[startTime]">
-    </div>
+    <label>Horário de trabalho </label>
+    <div class="d-inline-flex p-2 gap-5">
+      <div class="form-group">
+        <label for="inicio">Horário de Início:</label>
+        <input
+          value="start"
+          type="time"
+          id="inicio"
+          name="schedule[startTime]"
+        />
+      </div>
 
-    <div class="form-group">
-      <label for="fim">Horário de Término:</label>
-      <input type="time" id="fim" name="schedule[endTime]">
+      <div class="form-group">
+        <label for="fim">Horário de Término:</label>
+        <input value="end" type="time" id="fim" name="schedule[endTime]" />
+      </div>
     </div>
-</div>
     <label
       >Prazo de candidatura
       <input type="text" name="end_date" />
@@ -100,10 +229,9 @@
     <div>
       <h5>Adicionar Foto:</h5>
       <br />
-      <label
-      >
-      <input type="text" name="pic" />
-    </label>
+      <label>
+        <input type="text" name="pic" />
+      </label>
       <!--<input type="file" name="pic" class="d-none" id="fileInput" />
       <label for="fileInput" class="btn btn-primary">
         <i class="bi bi-upload"></i> Enviar
