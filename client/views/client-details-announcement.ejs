@@ -8,8 +8,7 @@
     <h3 class="mb-3"><b><%= announcement.job_name %></b></h3>
 
     <h5 class="mb-1 fw-normal">
-      <span class="fw-semibold">Concelho:</span> <%= announcement.municipality
-      %>
+      <span class="fw-semibold">Concelho:</span> <%= announcement.municipality%>
     </h5>
     <h5 class="mb-1 fw-normal">
       <span class="fw-semibold">Freguesia:</span> <%= announcement.freg %>
@@ -58,6 +57,35 @@
       <span class="bfw-semibold">Descrição:</span> <%= announcement.description
       %>
     </h6>
+
+    <!--<hr/>
+    <h4>Dados da empresa</h4>
+    <% if (company) { %>
+      <h5 class="mb-1 fw-normal">
+        <span class="fw-semibold">Nome:</span> <%= company.name %>
+      </h5>
+      <h5 class="mb-1 fw-normal">
+        <span class="fw-semibold">Email:</span> <%= announcement.user_id.email %>
+      </h5>
+      <h5 class="mb-1 fw-normal">
+        <span class="fw-semibold">Nº de Telefone:</span> <%= company.phone %>
+      </h5>
+      <h5 class="mb-1 fw-normal">
+        <span class="fw-semibold">NIF:</span> <%= company.nif %>
+      </h5>
+      <h5 class="mb-1 fw-normal">
+        <span class="fw-semibold">Morada:</span> <%= company.address %>
+      </h5>
+      <h5 class="mb-1 fw-normal">
+        <span class="fw-semibold">Localidade:</span> <%= company.municipality %>
+      </h5>
+      <h5 class="mb-1 fw-normal">
+        <span class="fw-semibold">Código-Postal:</span> <%= company.postcode %>
+      </h5>
+    <% } else { %>
+      <p>Dados da empresa não disponíveis.</p>
+    <% } %>-->
+
   </div>
 
   <div class="d-grid gap-2 mt-3">
