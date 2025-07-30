@@ -58,3 +58,29 @@
 </div>
 
 <script src="/js/company-my-profile.js"></script>
+
+<div id="notification" class="notification" style="display: none">
+  <div class="alert">!</div>
+  <div class="content">
+    <div class="title">Notificação</div>
+    <div class="message">Anúncio criado</div>
+  </div>
+</div>
+<script>
+  // Verifica se há notificação a ser exibida
+  if (sessionStorage.getItem("mostrarNotificacao") === "true") {
+    const notification = document.getElementById("notification");
+    notification.style.display = "flex";
+
+    // Remove o gatilho da sessão para não repetir
+    sessionStorage.removeItem("mostrarNotificacao");
+
+    // Esconde após x segundos
+    setTimeout(() => {
+      notification.classList.add("hide");
+      setTimeout(() => {
+        notification.remove();
+      }, 500);
+    }, 5000);
+  }
+</script>
