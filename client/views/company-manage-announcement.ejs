@@ -46,9 +46,9 @@
   Escolaridade
   <select name="education_level" required>
     <option value="">-- Selecione uma opção --</option>
-    <option value="Ensino Básico" <%= announcement.education_level === 'Ensino Básico' ? 'selected' : '' %>>Ensino Básico</option>
-    <option value="ensino Secundário" <%= announcement.education_level === 'ensino Secundário' ? 'selected' : '' %>>ensino Secundário</option>
-    <option value="ensino Superior" <%= announcement.education_level === 'ensino Superior' ? 'selected' : '' %>>ensino Superior</option>
+    <option value="ensino básico" <%= announcement.education_level === 'ensino básico' ? 'selected' : '' %>>Ensino básico</option>
+    <option value="ensino secundário" <%= announcement.education_level === 'ensino secundário' ? 'selected' : '' %>>Ensino secundário</option>
+    <option value="ensino superior" <%= announcement.education_level === 'ensino superior' ? 'selected' : '' %>>Ensino superior</option>
   </select>
 </label>
 
@@ -56,23 +56,23 @@
   <label>Línguas</label>
   <div class="d-flex flex-wrap gap-3">
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Inglês" id="lingua-ingles"
-        <%= announcement.languages && announcement.languages.includes('Inglês') ? 'checked' : '' %>>
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Eng" id="lingua-ingles"
+        <%= announcement.languages && announcement.languages.includes('Eng') ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-ingles">Inglês</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Francês" id="lingua-frances"
-        <%= announcement.languages && announcement.languages.includes('Francês') ? 'checked' : '' %>>
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Fr" id="lingua-frances"
+        <%= announcement.languages && announcement.languages.includes('Fr') ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-frances">Francês</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Espanhol" id="lingua-espanhol"
-        <%= announcement.languages && announcement.languages.includes('Espanhol') ? 'checked' : '' %>>
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Esp" id="lingua-espanhol"
+        <%= announcement.languages && announcement.languages.includes('Esp') ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Alemão" id="lingua-alemao"
-        <%= announcement.languages && announcement.languages.includes('Alemão') ? 'checked' : '' %>>
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Ger" id="lingua-alemao"
+        <%= announcement.languages && announcement.languages.includes('Ger') ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-alemao">Alemão</label>
     </div>
   </div>
@@ -104,20 +104,9 @@
   <textarea name="description" id="description"><%= announcement.description %></textarea>
 </label>
 
-    <label
-      >Foto Atual
-      <img src="" id="currentPhoto" />
-    </label>
-    <label
-      >Atualizar Foto
-    <div>
-      <br />
-      <input type="file" name="pic" class="d-none" id="fileInput" />
-      <label for="fileInput" class="btn btn-primary">
-        <i class="bi bi-upload"></i> Enviar
+    <label>Foto
+        <input type="text" name="pic" value="<%=announcement.pic%>" />
       </label>
-    </div>
-    </label>
     <div class="actions-btn">
       <button type="button" class="btn btn-blue" onclick="history.back()">
         Voltar

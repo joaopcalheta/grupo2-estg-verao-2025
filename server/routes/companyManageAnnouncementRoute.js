@@ -11,5 +11,11 @@ router.post(
   "/company-manage-announcement",
   companyManageAnnouncementController.updateCompanyAnnouncement
 );
+router.delete(
+  "/company-manage-announcement",
+  companyManageAnnouncementController.deleteCompanyAnnouncement
+);
+
 
 module.exports = router;
+
