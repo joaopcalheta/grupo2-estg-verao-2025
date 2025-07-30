@@ -6,6 +6,7 @@ const mongoose = require("mongoose"); // ODM para MongoDB
 require("dotenv").config(); // carrega variáveis de ambiente do ficheiro .env
 const app = express(); // inicializa a aplicação Express
 const PORT = process.env.PORT || 3000; // porta do servidor (usa 3000 se não houver variável de ambiente)
+const methodOverride = require("method-override"); // para simular PUT e DELETE
 
 // configuração do motor de templates EJS
 app.set("view engine", "ejs"); // define EJS como motor de views
@@ -15,6 +16,9 @@ app.set("views", path.join(__dirname, "..", "client", "views")); // define a pas
 app.use(express.static(path.join(__dirname, "..", "client", "public"))); // serve ficheiros estáticos (CSS, imagens)
 app.use(express.urlencoded({ extended: true })); // para ler dados de formulários (POST)
 app.use(expressLayouts); // usa layouts com EJS
+// middleware que permite que formulários HTML simulem requisições PUT e DELETE (útil porque o HTML padrão só suporta GET e POST: input type="hidden" name="_method" value="DELETE"> fará um DELETE em vez de POST)
+// mais info -> https://expressjs.com/en/resources/middleware/method-override.html
+app.use(methodOverride("_method"));
 
 // importa as rotas
 const routes = [

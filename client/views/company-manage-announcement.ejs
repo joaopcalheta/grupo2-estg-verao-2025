@@ -129,6 +129,34 @@
         Eliminar 🗑️
       </button>
     </div>
+    
+<script>
+  document.getElementById("deletebtn").addEventListener("click", async () => {
+    const confirmed = confirm("Tens a certeza que queres eliminar este anúncio?");
+    if (!confirmed) return;
+
+    const announcementId = "<%= announcement._id %>";
+
+    try {
+      const response = await fetch(`/company-manage-announcement?id=${announcementId}&_method=DELETE`, {
+  method: "POST"
+});
+
+      if (response.ok) {
+        alert("Anúncio eliminado com sucesso!");
+        window.location.href = "/company-my-announcements"; // Redirecionar após sucesso
+      } else {
+        const errorText = await response.text();
+        alert("Erro ao eliminar anúncio: " + errorText);
+      }
+    } catch (err) {
+      console.error("Erro ao eliminar:", err);
+      alert("Erro interno ao tentar eliminar o anúncio.");
+    }
+  });
+</script>
   </form>
 </div>
+
+
 
