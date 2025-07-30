@@ -42,6 +42,18 @@ const announcementSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    freg: {
+      type: String,
+      trim: true,
+    },
+    address: {
+      type: String,
+      trim: true,
+    },
+    postcode: {
+      type: String,
+      trim: true,
+    },
     languages: [
       {
         type: String,
