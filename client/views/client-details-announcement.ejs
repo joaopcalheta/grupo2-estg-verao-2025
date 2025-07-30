@@ -8,7 +8,18 @@
     <h3 class="mb-3"><b><%= announcement.job_name %></b></h3>
 
     <h5 class="mb-1 fw-normal">
-      <span class="fw-semibold">Local:</span> <%= announcement.municipality %>
+      <span class="fw-semibold">Concelho:</span> <%= announcement.municipality
+      %>
+    </h5>
+    <h5 class="mb-1 fw-normal">
+      <span class="fw-semibold">Freguesia:</span> <%= announcement.freg %>
+    </h5>
+    <h5 class="mb-1 fw-normal">
+      <span class="fw-semibold">Rua:</span> <%= announcement.address %>
+    </h5>
+    <h5 class="mb-1 fw-normal">
+      <span class="fw-semibold">Código postal:</span> <%= announcement.postcode
+      %>
     </h5>
     <h5 class="mb-1 fw-normal">
       <span class="fw-semibold">Regime:</span> <%= announcement.regime %>
@@ -16,17 +27,21 @@
     <h5 class="mb-1 fw-normal">
       <span class="fw-semibold">Categoria:</span> <%= announcement.category %>
     </h5>
-    <h5 class="mb-1 fw-normal"><span class="fw-semibold">Tipo:</span> <%= announcement.type %>
+    <h5 class="mb-1 fw-normal">
+      <span class="fw-semibold">Tipo:</span> <%= announcement.type %>
     </h5>
     <h5 class="mb-1 fw-normal">
-      <span class="fw-semibold">Escolaridade:</span> <%= announcement.education_level %>
+      <span class="fw-semibold">Escolaridade:</span> <%=
+      announcement.education_level %>
     </h5>
     <h5 class="mb-1 fw-normal">
       <span class="fw-semibold">Línguas:</span>
-      <%= announcement.languages && announcement.languages.length > 0 ? announcement.languages.join(" ; ") : "Não especificado" %>
+      <%= announcement.languages && announcement.languages.length > 0 ?
+      announcement.languages.join(" ; ") : "Não especificado" %>
     </h5>
     <h5 class="mb-1 fw-normal">
-      <span class="fw-semibold">Horário:</span> <%= announcement.schedule.startTime %> - <%= announcement.schedule.endTime %>
+      <span class="fw-semibold">Horário:</span> <%=
+      announcement.schedule.startTime %> - <%= announcement.schedule.endTime %>
     </h5>
     <h5 class="mb-1 fw-normal">
       <span class="fw-semibold">Salário:</span>
@@ -34,11 +49,13 @@
     </h5>
     <h5 class="mb-1 fw-normal">
       <span class="fw-semibold">Fim do anúncio:</span>
-      <%= announcement.end_date ? announcement.end_date.toLocaleDateString("pt-PT") : "Indefinido" %>
+      <%= announcement.end_date ?
+      announcement.end_date.toLocaleDateString("pt-PT") : "Indefinido" %>
     </h5>
     <img src="<%= announcement.pic %>" class="mt-2" />
     <h6 class="fw-normal">
-      <span class="bfw-semibold">Descrição:</span> <%= announcement.description %>
+      <span class="bfw-semibold">Descrição:</span> <%= announcement.description
+      %>
     </h6>
   </div>
 

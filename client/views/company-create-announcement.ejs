@@ -34,16 +34,32 @@
     <label
       >Tipo de contrato
       <select name="type" required>
-        <option>-- Selecione uma opção --</option>
+        <option>Selecione uma opção</option>
         <option value="Emprego">Emprego</option>
         <option value="Estágio">Estágio</option>
       </select>
     </label>
-
+    <label
+      >Concelho
+      <select name="municipality" required>
+        <option disabled selected>Selecione um concelho</option>
+        <option value="Ponta do Sol">Ponta do Sol</option>
+        <option value="Calheta">Calheta</option>
+        <option value="Ribeira Brava">Ribeira Brava</option>
+        <option value="Câmara de Lobos">Câmara de Lobos</option>
+        <option value="Funchal">Funchal</option>
+        <option value="Santa Cruz">Santa Cruz</option>
+        <option value="Machico">Machico</option>
+        <option value="Santana">Santana</option>
+        <option value="São Vicente">São Vicente</option>
+        <option value="Porto Moniz">Porto Moniz</option>
+        <option value="Porto Santo">Porto Santo</option>
+      </select>
+    </label>
     <label
       >Freguesia
       <select name="freg" required>
-        <option>-- Selecione uma opção --</option>
+        <option>Selecione uma freguesia</option>
         <option value="Achadas da Cruz">Achadas da Cruz</option>
         <option value="Água de Pena">Água de Pena</option>
         <option value="Arco da Calheta">Arco da Calheta</option>
@@ -108,23 +124,6 @@
         <option value="Tabua">Tabua</option>
       </select>
     </label>
-    <label
-      >Concelho
-      <select name="municipality" required>
-        <option disabled selected>Selecione um concelho</option>
-        <option value="Ponta do Sol">Ponta do Sol</option>
-        <option value="Calheta">Calheta</option>
-        <option value="Ribeira Brava">Ribeira Brava</option>
-        <option value="Câmara de Lobos">Câmara de Lobos</option>
-        <option value="Funchal">Funchal</option>
-        <option value="Santa Cruz">Santa Cruz</option>
-        <option value="Machico">Machico</option>
-        <option value="Santana">Santana</option>
-        <option value="São Vicente">São Vicente</option>
-        <option value="Porto Moniz">Porto Moniz</option>
-        <option value="Porto Santo">Porto Santo</option>
-      </select>
-    </label>
 
     <label
       >Morada
@@ -137,7 +136,7 @@
     <label
       >Regime
       <select name="regime" required>
-        <option>-- Selecione uma opção --</option>
+        <option>Selecione uma opção</option>
         <option value="Full-Time">Full-Time</option>
         <option value="Part-Time">Part-Time</option>
       </select>
@@ -145,7 +144,7 @@
     <label
       >Escolaridade
       <select name="education_level" required>
-        <option>-- Selecione uma opção --</option>
+        <option>Selecione uma opção</option>
         <option value="1º Ciclo">1º Ciclo</option>
         <option value="2º Ciclo">2º Ciclo</option>
         <option value="3º Ciclo">3º Ciclo</option>
@@ -161,7 +160,8 @@
             class="form-check-input"
             type="checkbox"
             name="languages[]"
-            value="Inglês"
+            value="Eng"
+            id="lingua-ingles"
           />
           <label class="form-check-label" for="lingua-ingles">Inglês</label>
         </div>
@@ -170,7 +170,7 @@
             class="form-check-input"
             type="checkbox"
             name="languages[]"
-            value="fra"
+            value="Fr"
             id="lingua-frances"
           />
           <label class="form-check-label" for="lingua-frances">Francês</label>
@@ -180,7 +180,7 @@
             class="form-check-input"
             type="checkbox"
             name="languages[]"
-            value="esp"
+            value="Esp"
             id="lingua-espanhol"
           />
           <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
@@ -190,7 +190,7 @@
             class="form-check-input"
             type="checkbox"
             name="languages[]"
-            value="ale"
+            value="Ger"
             id="lingua-alemao"
           />
           <label class="form-check-label" for="lingua-alemao">Alemão</label>
@@ -199,7 +199,7 @@
     </div>
     <label
       >Salário
-      <input type="text" name="salary" value="salary" />
+      <input type="text" name="salary" />
     </label>
     <label>Horário de trabalho </label>
     <div class="d-inline-flex p-2 gap-5">
