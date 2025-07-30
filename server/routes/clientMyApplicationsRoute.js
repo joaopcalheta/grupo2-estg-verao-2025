@@ -5,6 +5,6 @@ const clientMyApplicationsController = require("../controllers/clientMyApplicati
 router.get(
   "/client-my-applications",
   clientMyApplicationsController.getClientMyApplications
-);
+); // renderiza a página 
 
 module.exports = router;

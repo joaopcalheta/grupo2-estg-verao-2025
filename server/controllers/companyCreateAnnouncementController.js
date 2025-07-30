@@ -56,7 +56,13 @@ const postCompanyCreateAnnouncement = async (req, res) => {
 
     await newAnnouncement.save();
 
-    res.send("Anúncio criado com sucesso!");
+    res.send(`
+  <script>
+  sessionStorage.setItem('mostrarNotificacao', 'true');
+      // Redireciona para a página de destino
+      window.location.href = '/company-my-announcements';
+  </script>
+`);
   } catch (err) {
     console.error("Erro ao criar anúncio:", err);
     res.status(500).send("Erro ao criar anúncio");

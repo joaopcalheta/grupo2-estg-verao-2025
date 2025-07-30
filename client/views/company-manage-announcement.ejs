@@ -46,9 +46,9 @@
   Escolaridade
   <select name="education_level" required>
     <option value="">-- Selecione uma opção --</option>
-    <option value="ensino básico" <%= announcement.education_level === 'ensino básico' ? 'selected' : '' %>>Ensino básico</option>
-    <option value="ensino secundário" <%= announcement.education_level === 'ensino secundário' ? 'selected' : '' %>>Ensino secundário</option>
-    <option value="ensino superior" <%= announcement.education_level === 'ensino superior' ? 'selected' : '' %>>Ensino superior</option>
+    <option value="Ensino Básico" <%= announcement.education_level === 'Ensino Básico' ? 'selected' : '' %>>Ensino Básico</option>
+    <option value="ensino Secundário" <%= announcement.education_level === 'ensino Secundário' ? 'selected' : '' %>>ensino Secundário</option>
+    <option value="ensino Superior" <%= announcement.education_level === 'ensino Superior' ? 'selected' : '' %>>ensino Superior</option>
   </select>
 </label>
 
@@ -56,23 +56,23 @@
   <label>Línguas</label>
   <div class="d-flex flex-wrap gap-3">
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Eng" id="lingua-ingles"
-        <%= announcement.languages && announcement.languages.includes('Eng') ? 'checked' : '' %>>
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Inglês" id="lingua-ingles"
+        <%= announcement.languages && announcement.languages.includes('Inglês') ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-ingles">Inglês</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Fr" id="lingua-frances"
-        <%= announcement.languages && announcement.languages.includes('Fr') ? 'checked' : '' %>>
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Francês" id="lingua-frances"
+        <%= announcement.languages && announcement.languages.includes('Francês') ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-frances">Francês</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Esp" id="lingua-espanhol"
-        <%= announcement.languages && announcement.languages.includes('Esp') ? 'checked' : '' %>>
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Espanhol" id="lingua-espanhol"
+        <%= announcement.languages && announcement.languages.includes('Espanhol') ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Ger" id="lingua-alemao"
-        <%= announcement.languages && announcement.languages.includes('Ger') ? 'checked' : '' %>>
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Alemão" id="lingua-alemao"
+        <%= announcement.languages && announcement.languages.includes('Alemão') ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-alemao">Alemão</label>
     </div>
   </div>
@@ -104,9 +104,20 @@
   <textarea name="description" id="description"><%= announcement.description %></textarea>
 </label>
 
-    <label>Foto
-        <input type="text" name="pic" value="<%=announcement.pic%>" />
+    <label
+      >Foto Atual
+      <img src="" id="currentPhoto" />
+    </label>
+    <label
+      >Atualizar Foto
+    <div>
+      <br />
+      <input type="file" name="pic" class="d-none" id="fileInput" />
+      <label for="fileInput" class="btn btn-primary">
+        <i class="bi bi-upload"></i> Enviar
       </label>
+    </div>
+    </label>
     <div class="actions-btn">
       <button type="button" class="btn btn-blue" onclick="history.back()">
         Voltar
@@ -118,22 +129,44 @@
         Eliminar 🗑️
       </button>
     </div>
-    
+  </form>
+</div>
+<div class="modal" id="confirmModal" style="display: none;">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="icon">!</div>
+  <h2>Tem certeza?</h2>
+  <p>Você está prestes a excluir seu anúncio. Esta ação não pode ser desfeita.</p>
+  <div class="buttons">
+    <button class="delete-btn" onclick="confirmDelete()">Sim, excluir</button>
+    <button class="cancel-btn" onclick="closeModal()">Cancelar</button>
+  </div>
+</div>
+
+<!-- Script -->
 <script>
-  document.getElementById("deletebtn").addEventListener("click", async () => {
-    const confirmed = confirm("Tens a certeza que queres eliminar este anúncio?");
-    if (!confirmed) return;
+  // ID do anúncio (passado do EJS para JS)
+  const announcementId = "<%= announcement._id %>";
 
-    const announcementId = "<%= announcement._id %>";
+  // Botão "Eliminar"
+  document.getElementById("deletebtn").addEventListener("click", () => {
+    document.getElementById("confirmModal").style.display = "block";
+  });
 
+  // Fecha o modal
+  function closeModal() {
+    document.getElementById("confirmModal").style.display = "none";
+  }
+
+  // Confirma eliminação
+  async function confirmDelete() {
     try {
-      const response = await fetch(`/company-manage-announcement?id=${announcementId}&_method=DELETE`, {
-  method: "POST"
-});
+      const response = await fetch(`/company-manage-announcement?id=${announcementId}`, {
+        method: "DELETE"
+      });
 
       if (response.ok) {
         alert("Anúncio eliminado com sucesso!");
-        window.location.href = "/company-my-announcements"; // Redirecionar após sucesso
+        window.location.href = "/company-my-announcements";
       } else {
         const errorText = await response.text();
         alert("Erro ao eliminar anúncio: " + errorText);
@@ -141,11 +174,10 @@
     } catch (err) {
       console.error("Erro ao eliminar:", err);
       alert("Erro interno ao tentar eliminar o anúncio.");
+    } finally {
+      closeModal();
     }
-  });
+  }
 </script>
-  </form>
-</div>
-
 
 
