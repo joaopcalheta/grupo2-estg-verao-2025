@@ -5,10 +5,7 @@
 
 <div class="container-ad">
   <h2 class="text-center my-4">Criar Anúncio</h2>
-  <form
-    method="POST"
-    action="/company-create-announcement/"
-  >
+  <form method="POST" action="/company-create-announcement/">
     <label
       >Nome da profissão
       <input type="text" name="job_name" required />
@@ -16,20 +13,30 @@
     <label
       >Categoria
       <select name="category" required>
-        <option>-- Selecione uma opção --</option>
-        <option value="rest">Restauração</option>
-        <option value="limp">Limpeza</option>
-        <option value="const">Construção</option>
-        <option value="vend">Vendedor</option>
-        <option value="saude">Saúde</option>
+        <option value="" disabled selected>Selecione uma opção</option>
+        <option value="Restauração">Restauração</option>
+        <option value="Limpeza">Limpeza</option>
+        <option value="Construção">Construção</option>
+        <option value="Vendedor">Vendedor</option>
+        <option value="Saúde">Saúde</option>
+        <option value="Educação">Educação</option>
+        <option value="IT">IT</option>
+        <option value="Administração">Administração</option>
+        <option value="Transporte">Transporte</option>
+        <option value="Atendimento ao Cliente">Atendimento ao Cliente</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Financeiro">Financeiro</option>
+        <option value="Logística">Logística</option>
+        <option value="Segurança">Segurança</option>
+        <option value="Serviços Gerais">Serviços Gerais</option>
       </select>
     </label>
     <label
       >Tipo de contrato
       <select name="type" required>
         <option>-- Selecione uma opção --</option>
-        <option value="emp">Emprego</option>
-        <option value="est">Estágio</option>
+        <option value="Emprego">Emprego</option>
+        <option value="Estágio">Estágio</option>
       </select>
     </label>
     <label
@@ -40,58 +47,86 @@
       >Regime
       <select name="regime" required>
         <option>-- Selecione uma opção --</option>
-        <option value="ftime">Full-Time</option>
-        <option value="ptime">Part-Time</option>
+        <option value="Full-Time">Full-Time</option>
+        <option value="Part-Time">Part-Time</option>
       </select>
     </label>
     <label
       >Escolaridade
       <select name="education_level" required>
         <option>-- Selecione uma opção --</option>
-        <option value="1c">1º Ciclo</option>
-        <option value="2c">2º Ciclo</option>
-        <option value="3c">3º Ciclo</option>
-        <option value="sec">Secundário</option>
-        <option value="es">Ensino Superior</option>
+        <option value="1º Ciclo">1º Ciclo</option>
+        <option value="2º Ciclo">2º Ciclo</option>
+        <option value="3º Ciclo">3º Ciclo</option>
+        <option value="Secundário">Secundário</option>
+        <option value="Ensino Superior">Ensino Superior</option>
       </select>
     </label>
-<div class="mb-3">
-  <h5 class="mb-2">Línguas</h5>
-  <div class="d-flex flex-wrap gap-3">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="ing" id="lingua-ingles">
-      <label class="form-check-label" for="lingua-ingles">Inglês</label>
+    <div class="mb-3">
+      <h5 class="mb-2">Línguas</h5>
+      <div class="d-flex flex-wrap gap-3">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="languages[]"
+            value="Inglês"
+          />
+          <label class="form-check-label" for="lingua-ingles">Inglês</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="languages[]"
+            value="fra"
+            id="lingua-frances"
+          />
+          <label class="form-check-label" for="lingua-frances">Francês</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="languages[]"
+            value="esp"
+            id="lingua-espanhol"
+          />
+          <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="languages[]"
+            value="ale"
+            id="lingua-alemao"
+          />
+          <label class="form-check-label" for="lingua-alemao">Alemão</label>
+        </div>
+      </div>
     </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="fra" id="lingua-frances">
-      <label class="form-check-label" for="lingua-frances">Francês</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="esp" id="lingua-espanhol">
-      <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="ale" id="lingua-alemao">
-      <label class="form-check-label" for="lingua-alemao">Alemão</label>
-    </div>
-  </div>
-</div>
     <label
       >Salário
       <input type="text" name="salary" value="salary" />
     </label>
-      <label>Horário de trabalho
-      <div class="d-inline-flex p-2 gap-5">
-    <div class="form-group">
-      <label for="inicio">Horário de Início:</label>
-      <input value="start" type="time" id="inicio" name="schedule[startTime]">
-    </div>
+    <label>Horário de trabalho </label>
+    <div class="d-inline-flex p-2 gap-5">
+      <div class="form-group">
+        <label for="inicio">Horário de Início:</label>
+        <input
+          value="start"
+          type="time"
+          id="inicio"
+          name="schedule[startTime]"
+        />
+      </div>
 
-    <div class="form-group">
-      <label for="fim">Horário de Término:</label>
-      <input value="end" type="time" id="fim" name="schedule[endTime]">
+      <div class="form-group">
+        <label for="fim">Horário de Término:</label>
+        <input value="end" type="time" id="fim" name="schedule[endTime]" />
+      </div>
     </div>
-</div>
     <label
       >Prazo de candidatura
       <input type="text" name="end_date" />
@@ -103,10 +138,9 @@
     <div>
       <h5>Adicionar Foto:</h5>
       <br />
-      <label
-      >
-      <input type="text" name="pic" />
-    </label>
+      <label>
+        <input type="text" name="pic" />
+      </label>
       <!--<input type="file" name="pic" class="d-none" id="fileInput" />
       <label for="fileInput" class="btn btn-primary">
         <i class="bi bi-upload"></i> Enviar
