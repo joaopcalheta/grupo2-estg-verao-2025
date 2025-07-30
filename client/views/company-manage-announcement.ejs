@@ -138,9 +138,9 @@
     const announcementId = "<%= announcement._id %>";
 
     try {
-      const response = await fetch(`/company-manage-announcement?id=${announcementId}`, {
-        method: "DELETE"
-      });
+      const response = await fetch(`/company-manage-announcement?id=${announcementId}&_method=DELETE`, {
+  method: "POST"
+});
 
       if (response.ok) {
         alert("Anúncio eliminado com sucesso!");
