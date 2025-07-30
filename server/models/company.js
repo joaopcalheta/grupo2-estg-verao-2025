@@ -7,17 +7,6 @@ const companySchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    email: {
-      type: String,
-      required: true,
-      lowercase: true,
-      trim: true,
-      unique: true,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
     phone: {
       type: String,
       required: true,
@@ -44,17 +33,17 @@ const companySchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-
     about_us: {
       type: String,
       default: "",
       trim: true,
     },
-    pic: {
-      type: String,
-      default: "",
-      trim: true,
-    },
+    user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+      unique: true,
+    }
   },
   {
     timestamps: true,
