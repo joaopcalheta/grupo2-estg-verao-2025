@@ -3,6 +3,23 @@
   <link href="/css/client-my-profile.css" rel="stylesheet" />
 </head>
 
+
+<div id="menu-container">
+  <div onclick="clientProfile()" class="pointer">
+    <h6 id="perfil">Meu perfil</h6>
+  </div>
+  <div onclick="profData()" class="pointer">
+    <h6 id="prof-data">Dados profissionais</h6>
+  </div>
+  <div onclick="clientCand()" class="pointer">
+    <h6 id="cand">Candidaturas</h6>
+  </div>
+  <div onclick="myComp()" class="pointer">
+    <h6 id="my-comp">Minhas empresas</h6>
+  </div>
+</div>
+<hr id="linha" />
+
 <form id="professional-form">
   <h2 class="fw-bold mb-4" id="personalData">Dados Profissionais</h2>
   <div>
@@ -109,3 +126,4 @@
     <button type="submit" class="buttonWidth btn btn-blue">Guardar</button>
   </div>
 </div>
+<script src="/js/client-my-profile.js"></script>
