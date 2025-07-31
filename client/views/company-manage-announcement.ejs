@@ -169,7 +169,7 @@
       );
 
       if (response.ok) {
-        alert("Anúncio eliminado com sucesso!");
+        sessionStorage.setItem('mostrarNotificacaoRemocao', 'true');
         window.location.href = "/company-my-announcements";
       } else {
         const errorText = await response.text();
@@ -182,6 +182,7 @@
       closeModal();
     }
   }
+
 </script>
 
 
