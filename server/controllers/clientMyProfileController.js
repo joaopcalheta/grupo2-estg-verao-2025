@@ -15,16 +15,8 @@ const getClientMyProfile = async (req, res) => {
 
 const postClientMyProfile = async (req, res) => {
   try {
-    const {
-      name,
-      username,
-      phone,
-      nif,
-      email,
-      password,
-      newPassword,
-
-    } = req.body;
+    const { name, username, phone, nif, email, password, newPassword } =
+      req.body;
 
     await User.findByIdAndUpdate(req.user._id, {
       name,
