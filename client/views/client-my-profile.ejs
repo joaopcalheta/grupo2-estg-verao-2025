@@ -3,11 +3,17 @@
   <link href="/css/client-my-profile.css" rel="stylesheet" />
 </head>
 <div id="menu-container">
-  <div onclick="clientProfile()" class="client-profile">
-    <p id="perfil">Meu perfil</p>
+  <div onclick="clientProfile()" class="pointer">
+    <h6 id="perfil">Meu perfil</h6>
   </div>
-  <div onclick="clientCand()" class="client-cand">
-    <p id="cand">Candidaturas</p>
+  <div onclick="profData()" class="pointer">
+    <h6 id="prof-data">Dados profissionais</h6>
+  </div>
+  <div onclick="clientCand()" class="pointer">
+    <h6 id="cand">Candidaturas</h6>
+  </div>
+  <div onclick="myComp()" class="pointer">
+    <h6 id="my-comp">Minhas empresas</h6>
   </div>
 </div>
 <hr id="linha" />
@@ -95,23 +101,24 @@
     />
   </div>
 
-<br />
-<br />
-<div class="actions-btn d-flex">
-  <div class="d-flex justify-content-between gap-3 buttonWidth">
-    <button
-      type="button"
-      class="buttonWidth btn btn-black"
-      onclick="window.location.href='/'"
-    >
-      Voltar
-    </button>
-    <button type="submit" class="buttonWidth btn btn-blue">Guardar</button>
+  <br />
+  <br />
+  <div class="actions-btn d-flex">
+    <div class="d-flex justify-content-between gap-3 buttonWidth">
+      <button
+        type="button"
+        class="buttonWidth btn btn-black"
+        onclick="window.location.href='/'"
+      >
+        Voltar
+      </button>
+      <button type="submit" class="buttonWidth btn btn-blue">Guardar</button>
+    </div>
   </div>
-</div>
-<br>
-<div class="actions-btn d-grid buttonWidth">
-  <button class="btn btn-delete">Eliminar Conta</button>
-</div>
+  <br />
+  <div class="actions-btn d-grid buttonWidth">
+    <button class="btn btn-delete">Eliminar Conta</button>
+  </div>
 
-<script src="/js/client-my-profile.js"></script>
+  <script src="/js/client-my-profile.js"></script>
+</form>
