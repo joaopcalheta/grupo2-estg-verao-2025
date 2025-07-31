@@ -15,7 +15,7 @@ body {
   overflow: auto;
   -ms-overflow-style: none; /* IE 10+ */
   scrollbar-width: none; /* firefox */
-  width: 430px;
+  width: 410px;
   height: 932px;
 
 }

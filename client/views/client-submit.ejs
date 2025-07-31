@@ -7,25 +7,25 @@
 <div class="container">
   <p><b>Candidatura</b></p>
   <div class="dados">
-    <input type="nome" name="name" placeholder="Nome completo" />
+    <input type="nome" name="name" value="<%= user.name %>" placeholder="Nome completo" />
     <br />
-    <input type="idade" name="age" placeholder="Idade" />
+    <input type="idade" name="age" value="<%= candidate.age %>"  placeholder="Idade" />
     <br />
-    <input type="numero" name="phone" placeholder="Nº de Telefone" />
+    <input type="numero" name="phone" value="<%= candidate.phone %>" placeholder="Nº de Telefone" />
     <br />
-    <input type="nif" name="nif" placeholder="NIF" />
+    <input type="nif" name="nif" value="<%= candidate.nif %>" placeholder="NIF" />
     <br />
-    <input type="email" name="email" placeholder="E-mail" />
+    <input type="email" name="email" value="<%= user.email %>" placeholder="E-mail" />
     <br />
-    <input type="morada" name="address"  placeholder="Morada" />
+    <input type="morada" name="address" value="<%= candidate.address %>" placeholder="Morada" />
     <br />
-    <input type="localidade" name="municipality" placeholder="Localidade" />
+    <input type="localidade" name="municipality" value="<%= candidate.municipality %>" placeholder="Localidade" />
     <br />
-    <input type="postcode" name="postcode" placeholder="Código Postal" />
+    <input type="postcode" name="postcode" value="<%= candidate.postcode %>" placeholder="Código Postal" />
     <br>
     <!-- Escolaridade -->
     <div class="escolaridade">
-      <select id="escolaridade" name="education_level">
+      <select id="escolaridade" name="education_level" value="<%= candidate.education_level %>">
         <option value="selecione">Selecione o nível de escolaridade</option>
         <option value="basico">Ensino Básico</option>
         <option value="secundario">Ensino Secundário</option>
@@ -70,13 +70,13 @@
 </div>
     <br />
     <div class="sobre">
-      <input type="sobre" name="about_me" placeholder="Sobre mim"/>
+      <input type="sobre" name="about_me" value="<%= candidate.about_me %>" placeholder="Sobre mim"/>
     </div>
     <br />
     <div>
       <h5 id="cv">Anexar CV:</h5>
       <br />
-      <input type="file" name="cv" class="d-none" id="fileInput" />
+      <input type="file" name="cv" value="<%= candidate.cv %>" class="d-none" id="fileInput" />
       <label for="fileInput" class="btn btn-primary">
         <i class="bi bi-upload"></i> Enviar arquivo
       </label>

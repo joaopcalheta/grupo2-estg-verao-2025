@@ -1,13 +1,18 @@
 // controllers/clientSubmitController.js
 
-const Application = require("../models/application")
+const Application = require("../models/application");
+const Candidate = require("../models/candidate");
 
 const getClientSubmitApplication = async (req, res) => {
   try {
     const { id } = req.query;
+    const candidate = await Candidate.findOne({ user_id: req.user._id });
+
     res.render("client-submit", {
       title: "Página submeter candidatura",
       announcementId: id,
+      candidate,
+      user: req.user,
     });
   } catch (err) {
     console.error("Erro ao carregar a página:", err);
