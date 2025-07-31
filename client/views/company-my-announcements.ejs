@@ -63,7 +63,7 @@
   <div class="alert">!</div>
   <div class="content">
     <div class="title">Notificação</div>
-    <div class="message">Anúncio criado</div>
+    <div class="message">Anúncio criado com sucesso</div>
   </div>
 </div>
 
@@ -71,7 +71,15 @@
   <div class="alert">!</div>
   <div class="content">
     <div class="title">Notificação</div>
-    <div class="message">Anúncio eliminado</div>
+    <div class="message">Anúncio eliminado com sucesso</div>
+  </div>
+</div>
+
+<div id="notification-edit" class="notificationedit" style="display: none">
+  <div class="alert">!</div>
+  <div class="content">
+    <div class="title">Notificação</div>
+    <div class="message">Anúncio editado com sucesso</div>
   </div>
 </div>
 
@@ -108,6 +116,25 @@
       notificationDelete.classList.add("hide");
       setTimeout(() => {
         notificationDelete.remove();
+      }, 500);
+    }, 5000);
+  }
+</script>
+
+<script>
+  // Verifica se há notificação de remoção a ser exibida
+  if (sessionStorage.getItem("mostrarNotificacaoEdit") === "true") {
+    const notificationEdit = document.getElementById("notification-edit");
+    notificationEdit.style.display = "flex";
+
+    // Remove o gatilho da sessão para não repetir
+    sessionStorage.removeItem("mostrarNotificacaoEdit");
+
+    // Esconde após x segundos
+    setTimeout(() => {
+      notificationEdit.classList.add("hide");
+      setTimeout(() => {
+        notificationEdit.remove();
       }, 500);
     }, 5000);
   }
