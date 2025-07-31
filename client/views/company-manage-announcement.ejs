@@ -43,8 +43,89 @@
 
     </label>
     <label
-      >Local do emprego
-      <input type="text" name="municipality" id="municipality" value="<%=announcement.municipality%>"/>
+      >Concelho
+      <select name="municipality" id="municipality">
+        <option value="">-- Selecione uma opção --</option>
+    <option value="Ponta do Sol" <%= announcement.municipality === 'Ponta do Sol' ? 'selected' : '' %>>Ponta do Sol</option>
+  <option value="Calheta" <%= announcement.municipality === 'Calheta' ? 'selected' : '' %>>Calheta</option>
+<option value="Ribeira Brava" <%= announcement.municipality === 'Ribeira Brava' ? 'selected' : '' %>>Ribeira Brava</option>
+<option value="Câmara de Lobos" <%= announcement.municipality === 'Câmara de Lobos' ? 'selected' : '' %>>Câmara de Lobos</option>
+<option value="Funchal" <%= announcement.municipality === 'Funchal' ? 'selected' : '' %>>Funchal</option>
+<option value="Santa Cruz" <%= announcement.municipality === 'Santa Cruz' ? 'selected' : '' %>>Santa Cruz</option>
+<option value="Machico" <%= announcement.municipality === 'Machico' ? 'selected' : '' %>>Machico</option>
+<option value="Santana" <%= announcement.municipality === 'Santana' ? 'selected' : '' %>>Santana</option>
+<option value="São Vicente" <%= announcement.municipality === 'São Vicente' ? 'selected' : '' %>>São Vicente</option>
+<option value="Porto Moniz" <%= announcement.municipality === 'Porto Moniz' ? 'selected' : '' %>>Porto Moniz</option>
+<option value="Porto Santo" <%= announcement.municipality === 'Porto Santo' ? 'selected' : '' %>>Porto Santo</option>
+</select>
+  </label>
+  <label>Freguesia
+    <select name="freg" id="freg">
+    <option value="">-- Selecione uma opção --</option>
+    <option value="Achadas da Cruz" <%= announcement.freg === 'Achadas da Cruz' ? 'selected' : '' %>>Achadas da Cruz</option>
+    <option value="Água de Pena" <%= announcement.freg === 'Água de Pena' ? 'selected' : '' %>>Água de Pena</option>
+<option value="Arco da Calheta" <%= announcement.freg === 'Arco da Calheta' ? 'selected' : '' %>>Arco da Calheta</option>
+<option value="Arco de São Jorge" <%= announcement.freg === 'Arco de São Jorge' ? 'selected' : '' %>>Arco de São Jorge</option>
+<option value="Boaventura" <%= announcement.freg === 'Boaventura' ? 'selected' : '' %>>Boaventura</option>
+<option value="Calheta" <%= announcement.freg === 'Calheta' ? 'selected' : '' %>>Calheta</option>
+<option value="Câmara de Lobos" <%= announcement.freg === 'Câmara de Lobos' ? 'selected' : '' %>>Câmara de Lobos</option>
+<option value="Campanário" <%= announcement.freg === 'Campanário' ? 'selected' : '' %>>Campanário</option>
+<option value="Canhas" <%= announcement.freg === 'Canhas' ? 'selected' : '' %>>Canhas</option>
+<option value="Caniçal" <%= announcement.freg === 'Caniçal' ? 'selected' : '' %>>Caniçal</option>
+<option value="Caniço" <%= announcement.freg === 'Caniço' ? 'selected' : '' %>>Caniço</option>
+<option value="Camacha" <%= announcement.freg === 'Camacha' ? 'selected' : '' %>>Camacha</option>
+<option value="Curral das Freiras" <%= announcement.freg === 'Curral das Freiras' ? 'selected' : '' %>>Curral das Freiras</option>
+<option value="Estreito da Calheta" <%= announcement.freg === 'Estreito da Calheta' ? 'selected' : '' %>>Estreito da Calheta</option>
+<option value="Estreito de Câmara de Lobos" <%= announcement.freg === 'Estreito de Câmara de Lobos' ? 'selected' : '' %>>Estreito de Câmara de Lobos</option>
+<option value="Faial" <%= announcement.freg === 'Faial' ? 'selected' : '' %>>Faial</option>
+<option value="Fajã da Ovelha" <%= announcement.freg === 'Fajã da Ovelha' ? 'selected' : '' %>>Fajã da Ovelha</option>
+<option value="Gaula" <%= announcement.freg === 'Gaula' ? 'selected' : '' %>>Gaula</option>
+<option value="Ilha" <%= announcement.freg === 'Ilha' ? 'selected' : '' %>>Ilha</option>
+<option value="Imaculado Coração de Maria" <%= announcement.freg === 'Imaculado Coração de Maria' ? 'selected' : '' %>>Imaculado Coração de Maria</option>
+<option value="Jardim da Serra" <%= announcement.freg === 'Jardim da Serra' ? 'selected' : '' %>>Jardim da Serra</option>
+<option value="Jardim do Mar" <%= announcement.freg === 'Jardim do Mar' ? 'selected' : '' %>>Jardim do Mar</option>
+<option value="Machico" <%= announcement.freg === 'Machico' ? 'selected' : '' %>>Machico</option>
+<option value="Madalena do Mar" <%= announcement.freg === 'Madalena do Mar' ? 'selected' : '' %>>Madalena do Mar</option>
+<option value="Monte" <%= announcement.freg === 'Monte' ? 'selected' : '' %>>Monte</option>
+<option value="Paúl do Mar" <%= announcement.freg === 'Paúl do Mar' ? 'selected' : '' %>>Paúl do Mar</option>
+<option value="Ponta Delgada" <%= announcement.freg === 'Ponta Delgada' ? 'selected' : '' %>>Ponta Delgada</option>
+<option value="Ponta do Pargo" <%= announcement.freg === 'Ponta do Pargo' ? 'selected' : '' %>>Ponta do Pargo</option>
+<option value="Ponta do Sol" <%= announcement.freg === 'Ponta do Sol' ? 'selected' : '' %>>Ponta do Sol</option>
+<option value="Porto da Cruz" <%= announcement.freg === 'Porto da Cruz' ? 'selected' : '' %>>Porto da Cruz</option>
+<option value="Porto Moniz" <%= announcement.freg === 'Porto Moniz' ? 'selected' : '' %>>Porto Moniz</option>
+<option value="Porto Santo" <%= announcement.freg === 'Porto Santo' ? 'selected' : '' %>>Porto Santo</option>
+<option value="Prazeres" <%= announcement.freg === 'Prazeres' ? 'selected' : '' %>>Prazeres</option>
+<option value="Quinta Grande" <%= announcement.freg === 'Quinta Grande' ? 'selected' : '' %>>Quinta Grande</option>
+<option value="Ribeira Brava" <%= announcement.freg === 'Ribeira Brava' ? 'selected' : '' %>>Ribeira Brava</option>
+<option value="Ribeira da Janela" <%= announcement.freg === 'Ribeira da Janela' ? 'selected' : '' %>>Ribeira da Janela</option>
+<option value="Santa Cruz" <%= announcement.freg === 'Santa Cruz' ? 'selected' : '' %>>Santa Cruz</option>
+<option value="Santa Luzia" <%= announcement.freg === 'Santa Luzia' ? 'selected' : '' %>>Santa Luzia</option>
+<option value="Santa Maria Maior" <%= announcement.freg === 'Santa Maria Maior' ? 'selected' : '' %>>Santa Maria Maior</option>
+<option value="Santana" <%= announcement.freg === 'Santana' ? 'selected' : '' %>>Santana</option>
+<option value="Santo António" <%= announcement.freg === 'Santo António' ? 'selected' : '' %>>Santo António</option>
+<option value="Santo António da Serra (Machico)" <%= announcement.freg === 'Santo António da Serra (Machico)' ? 'selected' : '' %>>Santo António da Serra (Machico)</option>
+<option value="Santo António da Serra (Santa Cruz)" <%= announcement.freg === 'Santo António da Serra (Santa Cruz)' ? 'selected' : '' %>>Santo António da Serra (Santa Cruz)</option>
+<option value="São Gonçalo" <%= announcement.freg === 'São Gonçalo' ? 'selected' : '' %>>São Gonçalo</option>
+<option value="São Jorge" <%= announcement.freg === 'São Jorge' ? 'selected' : '' %>>São Jorge</option>
+<option value="São Martinho" <%= announcement.freg === 'São Martinho' ? 'selected' : '' %>>São Martinho</option>
+<option value="São Pedro" <%= announcement.freg === 'São Pedro' ? 'selected' : '' %>>São Pedro</option>
+<option value="São Roque" <%= announcement.freg === 'São Roque' ? 'selected' : '' %>>São Roque</option>
+<option value="São Roque do Faial" <%= announcement.freg === 'São Roque do Faial' ? 'selected' : '' %>>São Roque do Faial</option>
+<option value="São Vicente" <%= announcement.freg === 'São Vicente' ? 'selected' : '' %>>São Vicente</option>
+<option value="Seixal" <%= announcement.freg === 'Seixal' ? 'selected' : '' %>>Seixal</option>
+<option value="Serra de Água" <%= announcement.freg === 'Serra de Água' ? 'selected' : '' %>>Serra de Água</option>
+<option value="Sé" <%= announcement.freg === 'Sé' ? 'selected' : '' %>>Sé</option>
+<option value="Tabua" <%= announcement.freg === 'Tabua' ? 'selected' : '' %>>Tabua</option>
+
+  </select>
+  </label>
+  <label
+      >Morada
+      <input type="text" name="address" id="address" value="<%=announcement.address%>"/>
+    </label>
+    <label
+      >Código postal
+      <input type="text" name="postcode" id="postcode" value="<%=announcement.postcode%>"/>
     </label>
     <label>
   Regime

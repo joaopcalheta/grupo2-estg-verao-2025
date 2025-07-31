@@ -86,7 +86,8 @@ const routes = [
   "clientDetailsAnnouncementRoute",
   "companyDetailsAnnouncementRoute",
   "companyDetailsCandidateRoute",
-  "clientProfessionalDataRoute",
+  "my-profile-professional",
+  "my-companies",
 ];
 
 routes.forEach((route) => {

@@ -63,16 +63,28 @@
   <div class="alert">!</div>
   <div class="content">
     <div class="title">Notificação</div>
-    <div class="message">Anúncio criado</div>
+    <div class="message">Anúncio criado com sucesso</div>
   </div>
+  <div class="progress-bar-add"></div>
 </div>
 
 <div id="notification-delete" class="notificationdel" style="display: none">
   <div class="alert">!</div>
   <div class="content">
     <div class="title">Notificação</div>
-    <div class="message">Anúncio eliminado</div>
+    <div class="message">Anúncio eliminado com sucesso</div>
   </div>
+  <div class="progress-bar-del"></div>
+  <!-- Barra de progresso -->
+</div>
+
+<div id="notification-edit" class="notificationedit" style="display: none">
+  <div class="alert">!</div>
+  <div class="content">
+    <div class="title">Notificação</div>
+    <div class="message">Anúncio editado com sucesso</div>
+  </div>
+  <div class="progress-bar-edit"></div>
 </div>
 
 <script>
@@ -83,6 +95,12 @@
 
     // Remove o gatilho da sessão para não repetir
     sessionStorage.removeItem("mostrarNotificacao");
+
+    // Reinicia a animação da progress bar (necessário para casos de reuso)
+    const progressBar = notification.querySelector(".progress-bar-add");
+    progressBar.style.animation = "none";
+    progressBar.offsetHeight; // forçar reflow
+    progressBar.style.animation = null;
 
     // Esconde após x segundos
     setTimeout(() => {
@@ -103,11 +121,42 @@
     // Remove o gatilho da sessão para não repetir
     sessionStorage.removeItem("mostrarNotificacaoRemocao");
 
+    // Reinicia a animação da progress bar (necessário para casos de reuso)
+    const progressBar = notificationDelete.querySelector(".progress-bar-del");
+    progressBar.style.animation = "none";
+    progressBar.offsetHeight; // forçar reflow
+    progressBar.style.animation = null;
+
     // Esconde após x segundos
     setTimeout(() => {
       notificationDelete.classList.add("hide");
       setTimeout(() => {
         notificationDelete.remove();
+      }, 500); // tempo da transição de opacidade
+    }, 5000); // tempo do alerta
+  }
+</script>
+
+<script>
+  // Verifica se há notificação de remoção a ser exibida
+  if (sessionStorage.getItem("mostrarNotificacaoEdit") === "true") {
+    const notificationEdit = document.getElementById("notification-edit");
+    notificationEdit.style.display = "flex";
+
+    // Remove o gatilho da sessão para não repetir
+    sessionStorage.removeItem("mostrarNotificacaoEdit");
+
+    // Reinicia a animação da progress bar (necessário para casos de reuso)
+    const progressBar = notificationEdit.querySelector(".progress-bar-edit");
+    progressBar.style.animation = "none";
+    progressBar.offsetHeight; // forçar reflow
+    progressBar.style.animation = null;
+
+    // Esconde após x segundos
+    setTimeout(() => {
+      notificationEdit.classList.add("hide");
+      setTimeout(() => {
+        notificationEdit.remove();
       }, 500);
     }, 5000);
   }
