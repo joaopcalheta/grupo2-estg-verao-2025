@@ -66,6 +66,15 @@
     <div class="message">Anúncio criado</div>
   </div>
 </div>
+
+<div id="notification-delete" class="notificationdel" style="display: none">
+  <div class="alert">!</div>
+  <div class="content">
+    <div class="title">Notificação</div>
+    <div class="message">Anúncio eliminado</div>
+  </div>
+</div>
+
 <script>
   // Verifica se há notificação a ser exibida
   if (sessionStorage.getItem("mostrarNotificacao") === "true") {
@@ -80,6 +89,25 @@
       notification.classList.add("hide");
       setTimeout(() => {
         notification.remove();
+      }, 500);
+    }, 5000);
+  }
+</script>
+
+<script>
+  // Verifica se há notificação de remoção a ser exibida
+  if (sessionStorage.getItem("mostrarNotificacaoRemocao") === "true") {
+    const notificationDelete = document.getElementById("notification-delete");
+    notificationDelete.style.display = "flex";
+
+    // Remove o gatilho da sessão para não repetir
+    sessionStorage.removeItem("mostrarNotificacaoRemocao");
+
+    // Esconde após x segundos
+    setTimeout(() => {
+      notificationDelete.classList.add("hide");
+      setTimeout(() => {
+        notificationDelete.remove();
       }, 500);
     }, 5000);
   }

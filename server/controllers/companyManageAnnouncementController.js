@@ -3,18 +3,18 @@ const Announcement = require("../models/announcement");
 const getCompanyManageAnnouncement = async (req, res) => {
   try {
     const announcementId = req.query.id;
-    if(!announcementId) {
+    if (!announcementId) {
       return res.status(400).send("ID do anúncio não foi fornecido");
     }
 
     const announcement = await Announcement.findById(announcementId);
-    if(!announcement) {
+    if (!announcement) {
       return res.status(404).send("Anúncio não foi encontrado");
     }
 
     res.render("company-manage-announcement", {
       title: "Página Gerir Anúncio",
-      announcement
+      announcement,
     });
   } catch (err) {
     console.error("Erro ao carregar a página Gerir Anúncio:", err);
@@ -56,23 +56,29 @@ const deleteCompanyAnnouncement = async (req, res) => {
       return res.status(400).send("ID do anúncio não foi fornecido");
     }
 
-    const deletedAnnouncement = await Announcement.findByIdAndDelete(announcementId);
+    const deletedAnnouncement = await Announcement.findByIdAndDelete(
+      announcementId
+    );
 
     if (!deletedAnnouncement) {
       return res.status(404).send("Anúncio não foi encontrado");
     }
 
     // ✅ Retorna um sucesso simples
-    return res.status(200).json({ message: "Anúncio eliminado com sucesso" });
+    return res.send(`
+      <script>
+        sessionStorage.setItem('mostrarNotificacaoRemocao', 'true');
+        window.location.href = '/company-my-announcements';
+      </script>
+    `);
   } catch (err) {
     console.error("Erro ao excluir anúncio:", err);
     return res.status(500).send("Erro interno no servidor");
   }
 };
 
-
 module.exports = {
-   getCompanyManageAnnouncement, 
+  getCompanyManageAnnouncement,
   updateCompanyAnnouncement,
-  deleteCompanyAnnouncement 
+  deleteCompanyAnnouncement,
 };
