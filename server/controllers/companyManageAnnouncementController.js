@@ -49,7 +49,7 @@ const updateCompanyAnnouncement = async (req, res) => {
 };
 
 const deleteCompanyAnnouncement = async (req, res) => {
-  console.log("Deleting announcement...",req.query);
+  console.log("Deleting announcement...", req.query);
   try {
     const announcementId = req.query.id;
     if (!announcementId) {
@@ -62,10 +62,11 @@ const deleteCompanyAnnouncement = async (req, res) => {
       return res.status(404).send("Anúncio não foi encontrado");
     }
 
-    res.redirect("/company-my-announcements"); // Redireciona para a lista de anúncios
+    // ✅ Retorna um sucesso simples
+    return res.status(200).json({ message: "Anúncio eliminado com sucesso" });
   } catch (err) {
     console.error("Erro ao excluir anúncio:", err);
-    res.status(500).send("Erro interno no servidor");
+    return res.status(500).send("Erro interno no servidor");
   }
 };
 
