@@ -156,13 +156,13 @@
   function closeModal() {
     document.getElementById("confirmModal").style.display = "none";
   }
-
   // Confirma eliminação
   async function confirmDelete() {
     try {
       const response = await fetch(`/company-manage-announcement?id=${announcementId}`, {
         method: "DELETE"
-      });
+      }
+      );
 
       if (response.ok) {
         alert("Anúncio eliminado com sucesso!");
