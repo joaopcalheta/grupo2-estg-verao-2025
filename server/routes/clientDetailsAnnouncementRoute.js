@@ -5,6 +5,6 @@ const clientDetailsAnnouncementController = require("../controllers/clientDetail
 router.get(
   "/client-details-announcement",
   clientDetailsAnnouncementController.getClientDetailsAnnouncement
-);
+); // renderiza a página 
 
 module.exports = router;

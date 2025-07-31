@@ -5,7 +5,7 @@ const companyManageAnnouncementController = require("../controllers/companyManag
 router.get(
   "/company-manage-announcement",
   companyManageAnnouncementController.getCompanyManageAnnouncement
-);
+); // renderiza a página 
 
 router.post(
   "/company-manage-announcement",

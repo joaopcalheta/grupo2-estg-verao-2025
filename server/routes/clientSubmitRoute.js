@@ -6,7 +6,7 @@ const clientSubmitController = require("../controllers/clientSubmitController");
 
 router.get("/client-submit", 
     clientSubmitController.getClientSubmitApplication
-);
+); // renderiza a página 
 
 router.post("/client-submit", 
     clientSubmitController.postClientSubmitApplication

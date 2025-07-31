@@ -73,6 +73,11 @@ const announcementSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
   },
   {
     timestamps: true,

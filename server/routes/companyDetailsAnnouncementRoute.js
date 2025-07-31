@@ -5,6 +5,6 @@ const companyDetailsAnnouncementController = require("../controllers/companyDeta
 router.get(
   "/company-details-announcement",
   companyDetailsAnnouncementController.getCompanyDetailsAnnouncement
-);
+); // renderiza a página 
 
 module.exports = router;
