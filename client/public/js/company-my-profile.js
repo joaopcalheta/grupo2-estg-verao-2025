@@ -6,3 +6,4 @@ function myCompanyProfile() {
 function myAdd() {
   location.href = "/company-my-announcements";
 }
+

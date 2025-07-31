@@ -1,9 +1,9 @@
 const Candidate = require("../models/candidate");
 
-const getClientProfessionalData = async (req, res) => {
+const getMyProfileProfessional = async (req, res) => {
   try {
     const candidate = await Candidate.findOne({ user_id: req.user._id });
-    res.render("client-professional-data", {
+    res.render("my-profile-professional", {
       title: "Dados Profissionais",
       candidate,
     });
@@ -13,19 +13,18 @@ const getClientProfessionalData = async (req, res) => {
   }
 };
 
-const postClientProfessionalData = async (req, res) => {
+const postMyProfileProfessional = async (req, res) => {
   const data = { ...req.body, user_id: req.user._id };
 
-  await CandidateProfile.findOneAndUpdate(
-    { user_id: req.user._id },
-    data,
-    { upsert: true, new: true }
-  );
+  await CandidateProfile.findOneAndUpdate({ user_id: req.user._id }, data, {
+    upsert: true,
+    new: true,
+  });
 
-  res.redirect("/client-professional-data");
+  res.redirect("/my-profile-professional");
 };
 
 module.exports = {
-  getClientProfessionalData,
-  postClientProfessionalData,
+  getMyProfileProfessional,
+  postMyProfileProfessional,
 };

@@ -38,6 +38,10 @@ button {
   width: 100% !important;
 }
 
+.pointer{
+  cursor: pointer;
+}
+
 /* Matilde  
 
 h2 {
