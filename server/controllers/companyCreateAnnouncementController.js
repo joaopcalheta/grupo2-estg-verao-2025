@@ -36,7 +36,7 @@ const postCompanyCreateAnnouncement = async (req, res) => {
     console.log("Dados recebidos:", req.body);
 
     const newAnnouncement = new Announcement({
-      user_id: req.user._id,
+      //user_id: req.user._id,
       job_name,
       category,
       type,
