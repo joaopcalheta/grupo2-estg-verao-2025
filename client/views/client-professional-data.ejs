@@ -1,0 +1,87 @@
+<head>
+  <link href="/css/general.css" rel="stylesheet" />
+  <link href="/css/client-my-profile.css" rel="stylesheet" />
+</head>
+
+<form id="professional-form">
+  <h2 class="fw-bold mb-4" id="personalData">Dados Profissionais</h2>
+  <div>
+    <style>
+  /* Força o estilo padrão de checkbox */
+  .form-check-input[type="checkbox"] {
+    appearance: checkbox;
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    width: auto;
+    height: auto;
+    margin-top: 0.3em;
+  }
+</style>
+
+<div class="mb-3">
+  <h5 class="mb-3 fw-bold">Línguas</h5>
+  <div class="d-flex flex-wrap gap-3">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="linguas[]" value="Inglês" id="lingua-ingles">
+      <label class="form-check-label" for="lingua-ingles">Inglês</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="linguas[]" value="Francês" id="lingua-frances">
+      <label class="form-check-label" for="lingua-frances">Francês</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="linguas[]" value="Espanhol" id="lingua-espanhol">
+      <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="linguas[]" value="Alemão" id="lingua-alemao">
+      <label class="form-check-label" for="lingua-alemao">Alemão</label>
+    </div>
+  </div>
+</div>
+  </div>
+  <!-- Escolaridade -->
+  <div class="escolaridade">
+    <select id="escolaridade" name="escolaridade">
+      <option value="selecione">Selecione o nível de escolaridade</option>
+      <option value="basico">Ensino Básico</option>
+      <option value="secundario">Ensino Secundário</option>
+      <option value="licenciatura">Licenciatura</option>
+      <option value="mestrado">Mestrado</option>
+      <option value="doutoramento">Doutoramento</option>
+    </select>
+  </div>
+  <div>
+    <input
+      class="form-group"
+      type="tel"
+      name="phone"
+      placeholder="Competências"
+    />
+  </div>
+  <div class="sobre">
+    <input type="sobre" placeholder="Sobre mim" />
+  </div>
+
+  <div>
+    <h5 class="mb-3 mt-2 fw-bold" id="cv">Anexar CV:</h5>
+    <input type="file" class="d-none" id="fileInput" />
+    <label for="fileInput" class="btn btn-primary">
+      <i class="bi bi-upload"></i> Enviar arquivo
+    </label>
+  </div>
+</form>
+<br />
+<br />
+<div class="actions-btn d-flex">
+  <div class="d-flex justify-content-between gap-3 buttonWidth">
+    <button
+      type="button"
+      class="buttonWidth btn btn-black"
+      onclick="window.location.href='/'"
+    >
+      Voltar
+    </button>
+    <button type="submit" class="buttonWidth btn btn-blue">Guardar</button>
+  </div>
+</div>
