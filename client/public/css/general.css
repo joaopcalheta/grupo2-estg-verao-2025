@@ -150,6 +150,13 @@ select {
   padding-right: clamp(25px, 5vw, 30px) !important;
   cursor: pointer;
 }
+
+input {
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid #333;
+  width: 100%;
+}
 /*
 .toggle-password {
   position: absolute;
