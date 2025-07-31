@@ -1,11 +1,13 @@
+
+const bcrypt = require("bcrypt");
 const User = require("../models/user");
 
 const getClientMyProfile = async (req, res) => {
   try {
-    const user = await User.findById(req.user._id);
+    // req.user vem do passport
     res.render("client-my-profile", {
       title: "Meu Perfil",
-      user,
+      user: req.user,
     });
   } catch (err) {
     console.error("Erro ao carregar a página Meu Perfil:", err);
@@ -13,36 +15,49 @@ const getClientMyProfile = async (req, res) => {
   }
 };
 
-const postClientMyProfile = async (req, res) => {
+const updatePersonalData = async (req, res) => {
   try {
-    const {
-      name,
-      username,
-      phone,
-      nif,
-      email,
-      password,
-      newPassword,
+    const { name, username, email, phone, nif } = req.body;
+    const user = await User.findById(req.user._id);
 
-    } = req.body;
+    if (!user) return res.status(404).send("Utilizador não encontrado");
 
-    await User.findByIdAndUpdate(req.user._id, {
-      name,
-      username,
-      phone,
-      nif,
-      email,
-      ...(newPassword && { password: newPassword }),
-    });
+    user.name = name || user.name;
+    user.username = username || user.username;
+    user.email = email || user.email;
+    user.phone = phone || user.phone;
+    user.nif = nif || user.nif;
 
-    res.redirect("/client-my-profile");
+    await user.save();
+    res.json({ success: true, user });
   } catch (err) {
-    console.error("Erro ao atualizar perfil:", err);
-    res.status(500).send("Erro interno ao atualizar");
+    console.error("Erro ao atualizar dados pessoais:", err);
+    res.status(500).send("Erro ao atualizar dados pessoais");
+  }
+};
+
+const updatePassword = async (req, res) => {
+  try {
+    const { currentPassword, newPassword } = req.body;
+    const user = await User.findById(req.user._id);
+    if (!user) return res.status(404).send("Utilizador não encontrado");
+
+    const match = await bcrypt.compare(currentPassword, user.password);
+    if (!match) {
+      return res.status(400).json({ error: "Password atual incorreta" });
+    }
+
+    user.password = await bcrypt.hash(newPassword, 10);
+    await user.save();
+    res.json({ success: true, message: "Password alterada" });
+  } catch (err) {
+    console.error("Erro ao atualizar password:", err);
+    res.status(500).send("Erro ao atualizar password");
   }
 };
 
 module.exports = {
   getClientMyProfile,
-  postClientMyProfile,
+  updatePersonalData,
+  updatePassword,
 };

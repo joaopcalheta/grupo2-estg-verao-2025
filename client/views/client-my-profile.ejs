@@ -11,7 +11,7 @@
   </div>
 </div>
 <hr id="linha" />
-<form id="profile-form">
+<form id="profile-form" method="POST">
   <input type="file" id="uploadFoto" accept="image/*" style="display: none" />
   <div id="pfp-container" style="cursor: pointer; text-align: center">
     <img id="pfpImg" src="/images/my-account.png" alt="pfp" />
@@ -46,6 +46,7 @@
       type="text"
       name="name"
       placeholder="Nome e apelido"
+      value="<%= user?.name || '' %>"
     />
   </div>
   <div>
@@ -54,6 +55,7 @@
       type="text"
       name="username"
       placeholder="Nome de Utilizador"
+      value="<%= user?.username || '' %>"
     />
   </div>
   <div>
@@ -62,13 +64,14 @@
       type="tel"
       name="phone"
       placeholder="Nº Telemóvel"
+      value="<%= user?.phone || '' %>"
     />
   </div>
   <div>
-    <input class="form-group" type="text" name="nif" placeholder="NIF" />
+    <input class="form-group" type="text" name="nif" placeholder="NIF" value="<%= user?.nif || '' %>" />
   </div>
   <div>
-    <input class="form-group" type="text" name="email" placeholder="E-mail" />
+    <input class="form-group" type="text" name="email" placeholder="E-mail" value="<%= user?.email || '' %>"/>
   </div>
   <div>
     <input
@@ -94,6 +97,7 @@
       placeholder=" Nova Palavra-passe"
     />
   </div>
+</form>
 
 <br />
 <br />
@@ -115,3 +119,5 @@
 </div>
 
 <script src="/js/client-my-profile.js"></script>
+
+

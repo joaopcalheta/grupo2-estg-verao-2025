@@ -3,11 +3,11 @@ const router = express.Router();
 const clientProfessionalDataController = require("../controllers/clientProfessionalDataController");
 
 router.get("/client-professional-data",
-  clientProfessionalDataController.getClientProfessionalData
+  clientProfessionalDataController.getProfessionalDataPage
 ); // renderiza a página 
 
-router.post("/client-professional-data",
-  clientProfessionalDataController.postClientProfessionalData
+router.put("/client-professional-data",
+  clientProfessionalDataController.updateProfessionalData
 );
 
 module.exports = router;

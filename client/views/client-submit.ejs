@@ -7,31 +7,31 @@
 <div class="container">
   <p><b>Candidatura</b></p>
   <div class="dados">
-    <input type="nome" name="name" value="<%= user.name %>" placeholder="Nome completo" />
+    <input type="nome" name="name" placeholder="Nome completo" value="<%= user ? user.name : '' %>" />
     <br />
-    <input type="idade" name="age" value="<%= candidate.age %>"  placeholder="Idade" />
+    <input type="idade" name="age" placeholder="Idade" value="<%= user ? profile.age : '' %>" />
     <br />
-    <input type="numero" name="phone" value="<%= candidate.phone %>" placeholder="Nº de Telefone" />
+    <input type="numero" name="phone" placeholder="Nº de Telefone" value="<%= user ? user.phone : '' %>" />
     <br />
-    <input type="nif" name="nif" value="<%= candidate.nif %>" placeholder="NIF" />
+    <input type="nif" name="nif" placeholder="NIF" value="<%= user ? user.nif : '' %>" />
     <br />
-    <input type="email" name="email" value="<%= user.email %>" placeholder="E-mail" />
+    <input type="email" name="email" placeholder="E-mail" value="<%= user ? user.email : '' %>" />
     <br />
-    <input type="morada" name="address" value="<%= candidate.address %>" placeholder="Morada" />
+    <input type="morada" name="address" placeholder="Morada" value="<%= user ? user.address : '' %>" />
     <br />
-    <input type="localidade" name="municipality" value="<%= candidate.municipality %>" placeholder="Localidade" />
+    <input type="localidade" name="municipality" placeholder="Localidade" value="<%= user ? user.municipality : '' %>" />
     <br />
-    <input type="postcode" name="postcode" value="<%= candidate.postcode %>" placeholder="Código Postal" />
+    <input type="postcode" name="postcode" placeholder="Código Postal" value="<%= user ? user.postcode : '' %>" />
     <br>
     <!-- Escolaridade -->
     <div class="escolaridade">
-      <select id="escolaridade" name="education_level" value="<%= candidate.education_level %>">
-        <option value="selecione">Selecione o nível de escolaridade</option>
-        <option value="basico">Ensino Básico</option>
-        <option value="secundario">Ensino Secundário</option>
-        <option value="licenciatura">Licenciatura</option>
-        <option value="mestrado">Mestrado</option>
-        <option value="doutoramento">Doutoramento</option>
+      <select id="escolaridade" name="education_level" >
+        <option value="selecione" <%= (!profile || !profile.education_level) ? 'selected' : '' %> >Selecione o nível de escolaridade</option>
+        <option value="basico" <%= profile && profile.education_level === 'basico' ? 'selected' : '' %> >Ensino Básico</option>
+        <option value="secundario" <%= profile && profile.education_level === 'secundario' ? 'selected' : '' %> >Ensino Secundário</option>
+        <option value="licenciatura" <%= profile && profile.education_level === 'licenciatura' ? 'selected' : '' %>>Licenciatura</option>
+        <option value="mestrado" <%= profile && profile.education_level === 'mestrado' ? 'selected' : '' %>>Mestrado</option>
+        <option value="doutoramento" <%= profile && profile.education_level === 'doutoramento' ? 'selected' : '' %>>Doutoramento</option>
       </select>
     </div>
     <br />
@@ -52,31 +52,35 @@
   <div class="d-flex flex-wrap gap-3">
     <div class="form-check">
       <input class="form-check-input" type="checkbox" name="languages[]" value="Inglês" id="lingua-ingles">
+      <%= profile && profile.languages?.includes("Inglês") ? 'checked' : '' %>
       <label class="form-check-label" for="lingua-ingles">Inglês</label>
     </div>
     <div class="form-check">
       <input class="form-check-input" type="checkbox" name="languages[]" value="Francês" id="lingua-frances">
+      <%= profile && profile.languages?.includes("Francês") ? 'checked' : '' %>
       <label class="form-check-label" for="lingua-frances">Francês</label>
     </div>
     <div class="form-check">
       <input class="form-check-input" type="checkbox" name="languages[]" value="Espanhol" id="lingua-espanhol">
+      <%= profile && profile.languages?.includes("Espanhol") ? 'checked' : '' %>
       <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
     </div>
     <div class="form-check">
       <input class="form-check-input" type="checkbox" name="languages[]" value="Alemão" id="lingua-alemao">
+      <%= profile && profile.languages?.includes("Alemão") ? 'checked' : '' %>
       <label class="form-check-label" for="lingua-alemao">Alemão</label>
     </div>
   </div>
 </div>
     <br />
     <div class="sobre">
-      <input type="sobre" name="about_me" value="<%= candidate.about_me %>" placeholder="Sobre mim"/>
+      <input type="sobre" name="about_me" placeholder="Sobre mim"/>
     </div>
     <br />
     <div>
       <h5 id="cv">Anexar CV:</h5>
       <br />
-      <input type="file" name="cv" value="<%= candidate.cv %>" class="d-none" id="fileInput" />
+      <input type="file" name="cv" class="d-none" id="fileInput" />
       <label for="fileInput" class="btn btn-primary">
         <i class="bi bi-upload"></i> Enviar arquivo
       </label>

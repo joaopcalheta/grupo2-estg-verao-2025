@@ -32,6 +32,37 @@ const userSchema = new mongoose.Schema(
       default: "",
       trim: true,
     },
+    phone: {
+      type: String,
+      trim: true,
+      default: ""
+    },
+    nif: {
+      type: String,
+      trim: true,
+      default: ""
+    },
+    address: {
+      type: String,
+      required: true,
+      default: "",
+      trim: true,
+    },
+    postcode: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    municipality: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    age: {
+      type: String,
+      required: true,
+      trim: true,
+    },
   },
   {
     timestamps: true,
