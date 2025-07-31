@@ -11,7 +11,7 @@ const getProfessionalDataPage = async (req, res) => {
       await profile.save();
     }
 
-    res.render("client-professional-data", {
+    res.render("my-profile-professional", {
       title: "Dados Profissionais",
       profile,
     });

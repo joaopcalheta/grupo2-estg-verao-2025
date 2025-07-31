@@ -5,7 +5,7 @@ const User = require("../models/user");
 const getClientMyProfile = async (req, res) => {
   try {
     // req.user vem do passport
-    res.render("client-my-profile", {
+    res.render("my-profile-personal", {
       title: "Meu Perfil",
       user: req.user,
     });
