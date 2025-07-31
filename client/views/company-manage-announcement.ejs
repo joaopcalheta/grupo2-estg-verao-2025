@@ -17,7 +17,19 @@
         <option value="Restauração" <%= announcement.category === 'Restauração' ? 'selected' : '' %>>Restauração</option>
         <option value="Limpeza" <%= announcement.category === 'Limpeza' ? 'selected' : '' %>>Limpeza</option>
         <option value="Construção" <%= announcement.category === 'Construção' ? 'selected' : '' %>>Construção</option>
-        <option value="Vendedor" <%= announcement.category === 'Vendedor' ? 'selected' : '' %>>Vendedor</option>
+<option value="Vendedor" <%= announcement.category === 'Vendedor' ? 'selected' : '' %>>Vendedor</option>
+<option value="Saúde" <%= announcement.category === 'Saúde' ? 'selected' : '' %>>Saúde</option>
+<option value="Educação" <%= announcement.category === 'Educação' ? 'selected' : '' %>>Educação</option>
+<option value="IT" <%= announcement.category === 'IT' ? 'selected' : '' %>>IT</option>
+<option value="Administração" <%= announcement.category === 'Administração' ? 'selected' : '' %>>Administração</option>
+<option value="Transporte" <%= announcement.category === 'Transporte' ? 'selected' : '' %>>Transporte</option>
+<option value="Atendimento ao Cliente" <%= announcement.category === 'Atendimento ao Cliente' ? 'selected' : '' %>>Atendimento ao Cliente</option>
+<option value="Marketing" <%= announcement.category === 'Marketing' ? 'selected' : '' %>>Marketing</option>
+<option value="Financeiro" <%= announcement.category === 'Financeiro' ? 'selected' : '' %>>Financeiro</option>
+<option value="Logística" <%= announcement.category === 'Logística' ? 'selected' : '' %>>Logística</option>
+<option value="Segurança" <%= announcement.category === 'Segurança' ? 'selected' : '' %>>Segurança</option>
+<option value="Serviços Gerais" <%= announcement.category === 'Serviços Gerais' ? 'selected' : '' %>>Serviços Gerais</option>
+
       </select>
     </label>
     <label
@@ -56,23 +68,23 @@
   <label>Línguas</label>
   <div class="d-flex flex-wrap gap-3">
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Inglês" id="lingua-ingles"
-        <%= announcement.languages && announcement.languages.includes('Inglês') ? 'checked' : '' %>>
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Eng" id="lingua-ingles"
+        <%= announcement.languages && announcement.languages.includes('Eng') ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-ingles">Inglês</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Francês" id="lingua-frances"
-        <%= announcement.languages && announcement.languages.includes('Francês') ? 'checked' : '' %>>
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Fr" id="lingua-frances"
+        <%= announcement.languages && announcement.languages.includes('Fr') ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-frances">Francês</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Espanhol" id="lingua-espanhol"
-        <%= announcement.languages && announcement.languages.includes('Espanhol') ? 'checked' : '' %>>
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Esp" id="lingua-espanhol"
+        <%= announcement.languages && announcement.languages.includes('Esp') ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Alemão" id="lingua-alemao"
-        <%= announcement.languages && announcement.languages.includes('Alemão') ? 'checked' : '' %>>
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Ger" id="lingua-alemao"
+        <%= announcement.languages && announcement.languages.includes('Ger') ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-alemao">Alemão</label>
     </div>
   </div>
@@ -105,18 +117,10 @@
 </label>
 
     <label
-      >Foto Atual
-      <img src="" id="currentPhoto" />
-    </label>
-    <label
-      >Atualizar Foto
-    <div>
-      <br />
-      <input type="file" name="pic" class="d-none" id="fileInput" />
-      <label for="fileInput" class="btn btn-primary">
-        <i class="bi bi-upload"></i> Enviar
+      >Alterar foto
+      <label>
+        <input type="text" name="pic" value="<%= announcement.pic %>" />
       </label>
-    </div>
     </label>
     <div class="actions-btn">
       <button type="button" class="btn btn-blue" onclick="history.back()">
