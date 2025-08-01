@@ -86,7 +86,7 @@
       <div>
         <a
           class="text-muted"
-          href="/client-details-announcement?id=<%= announcement._id %>"
+          href="/home-details-announcement?id=<%= announcement._id %>"
         >
           <h6 class="fw-normal">Saber mais</h6>
         </a>
@@ -95,19 +95,62 @@
   </div>
 </div>
 <% }); %>
+<!-----------------Alertas------------------------------------->
+
+<div
+  id="notification-cand-env"
+  class="notificationcandenv"
+  style="display: none"
+>
+  <div class="alert">!</div>
+  <div class="content">
+    <div class="title">Notificação</div>
+    <div class="message">Candidatura enviada com sucesso</div>
+  </div>
+  <div class="progress-bar-cand-env"></div>
+  <!-- Barra de progresso -->
+</div>
+<script>
+  // Verifica se há notificação a ser exibida
+  if (sessionStorage.getItem("mostrarNotificacaoCandEnv") === "true") {
+    const notificationCandEnv = document.getElementById(
+      "notification-cand-env"
+    );
+    notificationCandEnv.style.display = "flex";
+
+    // Remove o gatilho da sessão para não repetir
+    sessionStorage.removeItem("mostrarNotificacaoCandEnv");
+
+    // Reinicia a animação da progress bar (necessário para casos de reuso)
+    const progressBar = notificationCandEnv.querySelector(
+      ".progress-bar-cand-env"
+    );
+    progressBar.style.animation = "none";
+    progressBar.offsetHeight; // forçar reflow
+    progressBar.style.animation = null;
+
+    // Esconde após x segundos
+    setTimeout(() => {
+      notificationCandEnv.classList.add("hide");
+      setTimeout(() => {
+        notificationCandEnv.remove();
+      }, 500);
+    }, 5000);
+  }
+</script>
 
 <!-----------------temporario------------------------------------->
 <div class="my-4">
   <h3>temporario</h3>
-  <a href="/client-my-applications">Cliente - Candidaturas</a><br />
-  <a href="/client-my-profile">Cliente - Meu Perfil</a><br />
+  <a href="/login">Login</a><br />
+  <a href="/my-profile-personal-data">Meu Perfil</a><br />
+  <a href="/my-profile-professional-data">Dados profissionais</a><br />
+  <a href="/my-profile-my-applications">Candidaturas</a><br />
   <a href="/client-submit">Cliente - Submeter candidatura</a><br />
-  <a href="/company-candidates">Empresa - Candidatos</a><br />
+  <a href="/company-details-candidate">Empresa - Candidatos</a><br />
   <a href="/company-create-announcement">Empresa - Criar anúncio</a><br />
   <a href="/company-my-announcements">Empresa - Meus anúncios</a><br />
-  <a href="/company-my-profile">Empresa - Meu Perfil</a><br />
-  <a href="/login">Login</a><br />
   <a href="/search-filter">Home - pesquisar por filtro</a><br />
-  <a href="/my-profile-professional-data">Cliente - Dados Profissionais</a>
+  <a href="/my-profile-professional-data">Home - pesquisar por filtro</a><br />
 </div>
 <!-----------------temporario------------------------------------->
