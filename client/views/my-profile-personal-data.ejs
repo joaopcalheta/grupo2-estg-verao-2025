@@ -171,6 +171,28 @@
 </div>
 
 <script>
+  // opcional: se quiseres AJAX em vez de submit normal, descomenta e adapta
+  
+  document.getElementById("profile-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = Object.fromEntries(new FormData(form));
+    const res = await fetch("/my-profile-personal-data/data", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    if (res.ok) {
+      sessionStorage.setItem("mostrarNotificacaoPerfilAtt", "true");
+      location.reload();
+    } else {
+      alert("Erro ao guardar perfil");
+    }
+  });
+  
+</script>
+
+<script>
   // Verifica se há notificação de remoção a ser exibida     onclick="mostrarNotificacaoPerfilAtt()"
   if (sessionStorage.getItem("mostrarNotificacaoPerfilAtt") === "true") {
     const notificationPerfilAtt = document.getElementById(
@@ -198,28 +220,10 @@
     }, 5000); // tempo do alerta
   }
 </script>
+
 <script>
   function mostrarNotificacaoPerfilAtt() {
     sessionStorage.setItem("mostrarNotificacaoPerfilAtt", "true");
     location.reload(); // ou enviar o formulário e redirecionar de volta
   }
-</script>
-
-<script>
-  document.getElementById("profile-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const form = e.target;
-  const data = Object.fromEntries(new FormData(form));
-  const res = await fetch("/my-profile-personal-data/data", {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
-  if (res.ok) {
-    sessionStorage.setItem("mostrarNotificacaoPerfilAtt", "true");
-    location.reload();
-  } else {
-    alert("Erro ao guardar perfil");
-  }
-});
 </script>
