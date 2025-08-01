@@ -38,11 +38,14 @@ const companySchema = new mongoose.Schema(
       default: "",
       trim: true,
     },
+    pic: {
+      type: String,
+      trim: true,
+    },
     user_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
-      unique: true,
     },
   },
   {
