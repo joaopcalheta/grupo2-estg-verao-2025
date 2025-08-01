@@ -1,48 +1,50 @@
-<h1>EM CONSTRUCAO vai tar formulario criaca o emporesa........</h1>
+<h2 class="text-center my-4 fw-bold">Criar empresa</h2>
 
-<div class="container-ad">
-  <h2 class="text-center my-4">Criar Empresa</h2>
-  <form method="POST" action="/create-company/">
-    <label
-      >Nome da empresa
-      <input type="text" name="name" required />
-    </label>
-    <label
-      >Telefone
-      <input type="text" name="phone" required />
-    </label>
-    <label
-      >NIF
-      <input type="text" name="nif" required />
-    </label>
-    <label
-      >Morada
-      <input type="text" name="address" required />
-    </label>
-    <label
-      >Código Postal
-      <input type="text" name="postcode" required />
-    </label>
-    <label
-      >Concelho
-      <input type="text" name="municipality" required />
-    </label>
-    <label
-      >Sobre nós
-      <input type="text" name="about_us" required />
-    </label>
+<form method="POST" action="/create-company/">
+  <label class="mb-1" for="name">Nome da empresa</label>
+  <input class="mb-2" type="text" id="name" name="name" required />
 
-      <p class="fw-bold">Adicionar Foto</p>
+  <label class="mb-1" for="phone">Telefone</label>
+  <input class="mb-2" type="text" id="phone" name="phone" required />
 
-      <label>
-        <input type="text" name="pic" />
-      </label>
-    </div>
-    <div class="actions-btn">
-      <button type="button" class="btn btn-black" onclick="history.back()">
-        Voltar
+  <label class="mb-1" for="nif">NIF</label>
+  <input class="mb-2" type="text" id="nif" name="nif" required />
+
+  <label class="mb-1" for="address">Morada</label>
+  <input class="mb-2" type="text" id="address" name="address" required />
+
+  <label class="mb-1" for="postcode">Código Postal</label>
+  <input class="mb-2" type="text" id="postcode" name="postcode" required />
+
+  <label class="mb-1" for="municipality">Concelho</label>
+  <input
+    class="mb-2"
+    type="text"
+    id="municipality"
+    name="municipality"
+    required
+  />
+
+  <label class="mb-1" for="about_us">Sobre nós</label>
+  <input class="mb-2" type="text" id="about_us" name="about_us" required />
+
+  <label class="mb-1" for="pic">Adicionar imagem</label>
+  <input class="mb-2" type="text" id="pic" name="pic" />
+
+  <div class="d-flex gap-3 mt-4">
+    <div class="w-50">
+      <button
+        type="button"
+        class="btn btn-black w-100"
+        onclick="history.back()"
+      >
+        <h6 class="fw-bold">Voltar</h6>
       </button>
-      <button type="submit" class="btn btn-blue">Criar empresa</button>
     </div>
-  </form>
-</div>
+    <div class="w-50">
+      <button type="submit" class="btn btn-blue w-100">
+        <h6 class="fw-bold">Criar empresa</h6>
+      </button>
+    </div>
+  </div>
+</form>
