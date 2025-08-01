@@ -7,9 +7,5 @@ router.get(
   myProfileProfessionalDataController.getMyProfileProfessionalData
 ); // renderiza a página
 
-router.post(
-  "/my-profile-professional-data",
-  myProfileProfessionalDataController.updateProfessionalData
-);
 
 module.exports = router;
