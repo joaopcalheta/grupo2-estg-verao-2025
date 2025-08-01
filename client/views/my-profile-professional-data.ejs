@@ -20,6 +20,8 @@
 </div>
 <hr id="linha" />
 
+<% const langs = Array.isArray(profile.languages) ? profile.languages : []; %>
+
 <form id="professional-form" method="POST" action="/my-profile-professional-data">
   <h2 class="fw-bold mb-4" id="personalData">Dados Profissionais</h2>
   <div>
@@ -45,7 +47,7 @@
             name="linguas[]"
             value="Inglês"
             id="lingua-ingles"
-            value="Inglês" <%= profile.languages.includes("Inglês") ? "checked" : "" %>
+            <%= langs.includes("Inglês") ? "checked" : "" %>
           />
           <label class="form-check-label" for="lingua-ingles">Inglês</label>
         </div>
@@ -56,7 +58,7 @@
             name="linguas[]"
             value="Francês"
             id="lingua-frances"
-            value="Francês" <%= profile.languages.includes("Francês") ? "checked" : "" %>
+            <%= langs.includes("Francês") ? "checked" : "" %>
           />
           <label class="form-check-label" for="lingua-frances">Francês</label>
         </div>
@@ -67,7 +69,7 @@
             name="linguas[]"
             value="Espanhol"
             id="lingua-espanhol"
-            value="Espanhol" <%= profile.languages.includes("Espanhol") ? "checked" : "" %>
+            <%= langs.includes("Espanhol") ? "checked" : "" %>
           />
           <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
         </div>
@@ -78,7 +80,7 @@
             name="linguas[]"
             value="Alemão"
             id="lingua-alemao"
-            value="Alemão" <%= profile.languages.includes("Alemão") ? "checked" : "" %>
+            <%= langs.includes("Alemão") ? "checked" : "" %>
           />
           <label class="form-check-label" for="lingua-alemao">Alemão</label>
         </div>

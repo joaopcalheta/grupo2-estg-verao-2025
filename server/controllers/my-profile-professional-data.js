@@ -30,16 +30,27 @@ const postUpdateProfessionalData = async (req, res) => {
     const { languages = [], education_level, skills = [], about_me } = req.body;
 
     const langArray = Array.isArray(languages) ? languages : [languages];
-    const skillsArray = Array.isArray(skills) ? skills : [skills];
+    // skills pode vir como string separada por vírgulas
+    let skillsArray;
+    if (Array.isArray(skills)) {
+      skillsArray = skills;
+    } else if (typeof skills === "string") {
+      skillsArray = skills
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean);
+    } else {
+      skillsArray = [];
+    }
 
     const update = {
       languages: langArray.filter(Boolean),
       education_level: education_level || "",
-      skills: skillsArray.filter(Boolean),
+      skills: skillsArray,
       about_me: about_me || "",
     };
 
-    const profile = await ProfessionalProfile.findOneAndUpdate(
+    await ProfessionalProfile.findOneAndUpdate(
       { user_id: req.user._id },
       update,
       { upsert: true, new: true, setDefaultsOnInsert: true }
