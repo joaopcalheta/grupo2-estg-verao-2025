@@ -7,12 +7,8 @@ router.get("/my-profile-personal-data", ensureAuthenticated,
   myProfilePersonalDataController.getMyProfilePersonalData
 ); // renderiza a página 
 
-router.put("/my-profile-personal-data/data", ensureAuthenticated,
-  myProfilePersonalDataController.updatePersonalData
-);
-
-router.put("/my-profile-personal-data/password", ensureAuthenticated,
-  myProfilePersonalDataController.updatePassword
+router.post("/my-profile-personal-data",  ensureAuthenticated,
+  myProfilePersonalDataController.postUpdatePersonalData
 );
 
 
