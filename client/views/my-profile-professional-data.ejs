@@ -20,7 +20,7 @@
 </div>
 <hr id="linha" />
 
-<form id="professional-form" >
+<form id="professional-form" method="POST" action="/my-profile-professional-data">
   <h2 class="fw-bold mb-4" id="personalData">Dados Profissionais</h2>
   <div>
     <style>
@@ -45,6 +45,7 @@
             name="linguas[]"
             value="Inglês"
             id="lingua-ingles"
+            value="Inglês" <%= profile.languages.includes("Inglês") ? "checked" : "" %>
           />
           <label class="form-check-label" for="lingua-ingles">Inglês</label>
         </div>
@@ -55,6 +56,7 @@
             name="linguas[]"
             value="Francês"
             id="lingua-frances"
+            value="Francês" <%= profile.languages.includes("Francês") ? "checked" : "" %>
           />
           <label class="form-check-label" for="lingua-frances">Francês</label>
         </div>
@@ -65,6 +67,7 @@
             name="linguas[]"
             value="Espanhol"
             id="lingua-espanhol"
+            value="Espanhol" <%= profile.languages.includes("Espanhol") ? "checked" : "" %>
           />
           <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
         </div>
@@ -75,6 +78,7 @@
             name="linguas[]"
             value="Alemão"
             id="lingua-alemao"
+            value="Alemão" <%= profile.languages.includes("Alemão") ? "checked" : "" %>
           />
           <label class="form-check-label" for="lingua-alemao">Alemão</label>
         </div>
@@ -85,11 +89,11 @@
   <div class="escolaridade">
     <select id="escolaridade" name="escolaridade">
       <option value="selecione">Selecione o nível de escolaridade</option>
-      <option value="basico">Ensino Básico</option>
-      <option value="secundario">Ensino Secundário</option>
-      <option value="licenciatura">Licenciatura</option>
-      <option value="mestrado">Mestrado</option>
-      <option value="doutoramento">Doutoramento</option>
+      <option value="basico" <%= profile.education_level === "basico" ? "selected" : "" %>>Ensino Básico</option>
+      <option value="secundario" <%= profile.education_level === "secundario" ? "selected" : "" %>>Ensino Secundário</option>
+      <option value="licenciatura" <%= profile.education_level === "licenciatura" ? "selected" : "" %>>Licenciatura</option>
+      <option value="mestrado" <%= profile.education_level === "mestrado" ? "selected" : "" %>>Mestrado</option>
+      <option value="doutoramento" <%= profile.education_level === "doutoramento" ? "selected" : "" %>>Doutoramento</option>
     </select>
   </div>
   <div>
@@ -98,10 +102,11 @@
       type="tel"
       name="phone"
       placeholder="Competências"
+      value="<%= Array.isArray(profile.skills) ? profile.skills.join(', ') : profile.skills %>"
     />
   </div>
   <div class="sobre">
-    <input type="sobre" placeholder="Sobre mim" />
+    <input type="text" placeholder="Sobre mim" <%= profile.about_me %> />
   </div>
 
   <div>
@@ -111,7 +116,6 @@
       <i class="bi bi-upload"></i> Enviar arquivo
     </label>
   </div>
-</form>
 <br />
 <br />
 <div class="actions-btn d-flex">
@@ -126,5 +130,6 @@
     <button type="submit" class="buttonWidth btn btn-blue">Guardar</button>
   </div>
 </div>
+</form>
 <script src="/js/client-my-profile.js"></script>
-<script src="/js/client-professional-data.js"></script>
+
