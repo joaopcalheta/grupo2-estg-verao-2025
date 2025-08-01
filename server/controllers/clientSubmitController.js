@@ -1,18 +1,25 @@
 // controllers/clientSubmitController.js
 
 const Application = require("../models/application");
-const Candidate = require("../models/candidate");
+const ProfessionalProfile = require("../models/professionalProfile");
+const User = require("../models/user");
 
 const getClientSubmitApplication = async (req, res) => {
   try {
     const { id } = req.query;
-    const candidate = await Candidate.findOne({ user_id: req.user._id });
+    let user = null;
+    let profile = null;
+
+    if (req.isAuthenticated()) {
+      user = await User.findById(req.user._id);
+      profile = await ProfessionalProfile.findOne({ user_id: req.user._id });
+    }
 
     res.render("client-submit", {
       title: "Página submeter candidatura",
       announcementId: id,
-      candidate,
-      user: req.user,
+      user,
+      profile,
     });
   } catch (err) {
     console.error("Erro ao carregar a página:", err);
@@ -63,7 +70,7 @@ const postClientSubmitApplication = async (req, res) => {
     console.error("Erro ao enviar candidatura:", err);
     res.status(500).send("Erro ao enviar candidatura");
   }
-};
+};  
 
 module.exports = { 
   getClientSubmitApplication,
