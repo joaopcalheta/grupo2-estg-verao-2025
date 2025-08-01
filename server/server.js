@@ -78,6 +78,7 @@ const routes = [
   "company-details-candidate",
   "company-manage-announcement",
   "company-my-announcements",
+  "create-company",
   "home-details-announcement",
   "home",
   "login",
