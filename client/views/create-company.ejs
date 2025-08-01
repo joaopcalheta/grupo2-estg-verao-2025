@@ -1,1 +1,48 @@
 <h1>EM CONSTRUCAO vai tar formulario criaca o emporesa........</h1>
+
+<div class="container-ad">
+  <h2 class="text-center my-4">Criar Empresa</h2>
+  <form method="POST" action="/create-company/">
+    <label
+      >Nome da empresa
+      <input type="text" name="name" required />
+    </label>
+    <label
+      >Telefone
+      <input type="text" name="phone" required />
+    </label>
+    <label
+      >NIF
+      <input type="text" name="nif" required />
+    </label>
+    <label
+      >Morada
+      <input type="text" name="address" required />
+    </label>
+    <label
+      >Código Postal
+      <input type="text" name="postcode" required />
+    </label>
+    <label
+      >Concelho
+      <input type="text" name="municipality" required />
+    </label>
+    <label
+      >Sobre nós
+      <input type="text" name="about_us" required />
+    </label>
+
+      <p class="fw-bold">Adicionar Foto</p>
+
+      <label>
+        <input type="text" name="pic" />
+      </label>
+    </div>
+    <div class="actions-btn">
+      <button type="button" class="btn btn-black" onclick="history.back()">
+        Voltar
+      </button>
+      <button type="submit" class="btn btn-blue">Criar empresa</button>
+    </div>
+  </form>
+</div>
