@@ -41,7 +41,6 @@ const postSubmitApplication = async (req, res) => {
       age,
       cv,
       about_me,
-
     } = req.body;
 
     console.log("Dados recebidos:", req.body);
@@ -64,14 +63,20 @@ const postSubmitApplication = async (req, res) => {
 
     await newApplication.save();
 
-    res.send("Candidatura enviada com sucesso!");
+    res.send(`
+  <script>
+  sessionStorage.setItem('mostrarNotificacaoCandEnv', 'true');
+      // Redireciona para a página de destino
+      window.location.href = '/';
+  </script>
+`);
   } catch (err) {
     console.error("Erro ao enviar candidatura:", err);
     res.status(500).send("Erro ao enviar candidatura");
   }
-};  
+};
 
-module.exports = { 
+module.exports = {
   getSubmitApplication,
   postSubmitApplication,
 };
