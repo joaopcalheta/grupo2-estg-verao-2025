@@ -38,6 +38,7 @@ initializePassport(passport);
 // middlewares
 app.use(express.static(path.join(__dirname, "..", "client", "public"))); // serve ficheiros estáticos (CSS, imagens)
 app.use(express.urlencoded({ extended: true })); // para ler dados de formulários (POST)
+app.use(express.json());
 app.use(expressLayouts); // usa layouts com EJS
 // middleware que permite que formulários HTML simulem requisições PUT e DELETE (útil porque o HTML padrão só suporta GET e POST: input type="hidden" name="_method" value="DELETE"> fará um DELETE em vez de POST)
 // mais info -> https://expressjs.com/en/resources/middleware/method-override.html
