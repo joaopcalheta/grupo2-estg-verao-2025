@@ -17,11 +17,11 @@ const professionalProfileSchema = new mongoose.Schema(
       trim: true,
       default: ""
     },
-    skills: {
+    skills: [{
       type: String,
       trim: true,
       default: "" 
-    },
+    }],
     about_me: {
       type: String,
       trim: true, 
