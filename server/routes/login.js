@@ -1,6 +1,6 @@
 // server/routes/loginRoute.js
 
-const loginController = require("../controllers/loginController");
+const loginController = require("../controllers/login");
 const express = require("express");
 const router = express.Router();
 
