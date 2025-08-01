@@ -13,11 +13,10 @@ const getCompanyDetailsCandidate = async (req, res) => {
     }
 
     res.render("company-details-candidate", {
-      title: "Página dos detalhes do candidato",
       application,
     });
   } catch (err) {
-    console.error("Erro ao carregar a página:", err);
+    console.error(err);
     res.status(500).send("Erro interno no servidor");
   }
 };

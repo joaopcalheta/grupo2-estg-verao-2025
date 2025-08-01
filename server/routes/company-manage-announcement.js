@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const companyManageAnnouncementController = require("../controllers/companyManageAnnouncementController");
+const companyManageAnnouncementController = require("../controllers/company-manage-announcement");
 
 router.get(
   "/company-manage-announcement",

@@ -3,7 +3,6 @@
 const getSearchFilter = async (req, res) => {
   try {
     res.render("search-filter", {
-      title: "",
       query: req.query,
     });
   } catch (err) {

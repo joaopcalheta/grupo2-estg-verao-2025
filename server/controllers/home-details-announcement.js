@@ -2,7 +2,7 @@ const Announcement = require("../models/announcement");
 //const User = require("../models/user");
 //const Company = require("../models/company");
 
-const getClientDetailsAnnouncement = async (req, res) => {
+const getHomeDetailsAnnouncement = async (req, res) => {
   try {
     const announcementId = req.query.id;
     if (!announcementId) {
@@ -16,17 +16,16 @@ const getClientDetailsAnnouncement = async (req, res) => {
 
     //const company = await Company.findOne({ user_id: announcement.user_id._id });
 
-    res.render("client-details-announcement", {
-      title: "Detalhes do Anúncio",
+    res.render("home-details-announcement", {
       announcement
       //company,
     });
   } catch (err) {
-    console.error("Erro ao carregar a página Detalhes do Anúncio:", err);
+    console.error(err);
     res.status(500).send("Erro interno no servidor");
   }
 };
 
 
 
-module.exports = { getClientDetailsAnnouncement };
+module.exports = { getHomeDetailsAnnouncement };

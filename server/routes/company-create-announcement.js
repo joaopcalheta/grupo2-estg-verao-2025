@@ -2,7 +2,7 @@
 
 const express = require("express");
 const router = express.Router();
-const companyCreateAnnouncementController = require("../controllers/companyCreateAnnouncementController");
+const companyCreateAnnouncementController = require("../controllers/company-create-announcement");
 
 router.get(
   "/company-create-announcement",

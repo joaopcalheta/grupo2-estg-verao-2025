@@ -13,11 +13,10 @@ const getCompanyManageAnnouncement = async (req, res) => {
     }
 
     res.render("company-manage-announcement", {
-      title: "Página Gerir Anúncio",
       announcement,
     });
   } catch (err) {
-    console.error("Erro ao carregar a página Gerir Anúncio:", err);
+    console.error(err);
     res.status(500).send("Erro interno no servidor");
   }
 };

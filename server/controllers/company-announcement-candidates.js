@@ -1,18 +1,17 @@
 const Application = require("../models/application");
 
-const getCompanyCandidates = async (req, res) => {
+const getCompanyAnnouncementCandidates = async (req, res) => {
   try {
     const { id } = req.query; //id do announcement
     const applications = await Application.find({ announcement_id: id });
 
-    res.render("company-candidates", {
-      title: "Página Candidatos",
+    res.render("company-announcement-candidates", {
       applications,
     });
   } catch (err) {
-    console.error("Erro ao carregar a página Candidatos:", err);
+    console.error(err);
     res.status(500).send("Erro interno no servidor");
   }
 };
 
-module.exports = { getCompanyCandidates };
+module.exports = { getCompanyAnnouncementCandidates };

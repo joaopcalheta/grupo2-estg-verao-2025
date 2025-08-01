@@ -4,7 +4,7 @@ const Application = require("../models/application");
 const ProfessionalProfile = require("../models/professionalProfile");
 const User = require("../models/user");
 
-const getClientSubmitApplication = async (req, res) => {
+const getSubmitApplication = async (req, res) => {
   try {
     const { id } = req.query;
     let user = null;
@@ -15,8 +15,7 @@ const getClientSubmitApplication = async (req, res) => {
       profile = await ProfessionalProfile.findOne({ user_id: req.user._id });
     }
 
-    res.render("client-submit", {
-      title: "Página submeter candidatura",
+    res.render("submit-application", {
       announcementId: id,
       user,
       profile,
@@ -27,7 +26,7 @@ const getClientSubmitApplication = async (req, res) => {
   }
 };
 
-const postClientSubmitApplication = async (req, res) => {
+const postSubmitApplication = async (req, res) => {
   try {
     const {
       name,
@@ -73,6 +72,6 @@ const postClientSubmitApplication = async (req, res) => {
 };  
 
 module.exports = { 
-  getClientSubmitApplication,
-  postClientSubmitApplication,
+  getSubmitApplication,
+  postSubmitApplication,
 };

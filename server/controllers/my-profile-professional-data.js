@@ -1,6 +1,6 @@
 const ProfessionalProfile = require("../models/professionalProfile");
 
-const getProfessionalDataPage = async (req, res) => {
+const getMyProfileProfessionalData = async (req, res) => {
   try {
     let profile = await ProfessionalProfile.findOne({
       user_id: req.user._id,
@@ -11,7 +11,7 @@ const getProfessionalDataPage = async (req, res) => {
       await profile.save();
     }
 
-    res.render("my-profile-professional", {
+    res.render("my-profile-professional-data", {
       title: "Dados Profissionais",
       profile,
     });
@@ -57,6 +57,6 @@ const updateProfessionalData = async (req, res) => {
 };
 
 module.exports = {
-  getProfessionalDataPage,
+  getMyProfileProfessionalData,
   updateProfessionalData,
 };

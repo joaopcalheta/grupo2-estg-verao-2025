@@ -5,10 +5,9 @@ const Announcement = require("../models/announcement");
 const getCompanyCreateAnnouncement = async (req, res) => {
   try {
     res.render("company-create-announcement", {
-      title: "Página Criar Anúncio",
     });
   } catch (err) {
-    console.error("Erro ao carregar a página Criar Anúncio:", err);
+    console.error(err);
     res.status(500).send("Erro interno no servidor");
   }
 };

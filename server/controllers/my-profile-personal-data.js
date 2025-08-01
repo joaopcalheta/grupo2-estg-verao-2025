@@ -2,15 +2,14 @@
 const bcrypt = require("bcrypt");
 const User = require("../models/user");
 
-const getClientMyProfile = async (req, res) => {
+const getMyProfilePersonalData = async (req, res) => {
   try {
     // req.user vem do passport
-    res.render("my-profile-personal", {
-      title: "Meu Perfil",
+    res.render("my-profile-personal-data", {
       user: req.user,
     });
   } catch (err) {
-    console.error("Erro ao carregar a página Meu Perfil:", err);
+    console.error(err);
     res.status(500).send("Erro interno no servidor");
   }
 };
@@ -57,7 +56,7 @@ const updatePassword = async (req, res) => {
 };
 
 module.exports = {
-  getClientMyProfile,
+  getMyProfilePersonalData,
   updatePersonalData,
   updatePassword,
 };
