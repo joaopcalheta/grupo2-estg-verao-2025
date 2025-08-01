@@ -43,7 +43,7 @@ const companySchema = new mongoose.Schema(
       ref: "User",
       required: true,
       unique: true,
-    }
+    },
   },
   {
     timestamps: true,
