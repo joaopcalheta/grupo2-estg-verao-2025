@@ -16,9 +16,18 @@ const getMyProfilePersonalData = async (req, res) => {
 
 const updatePersonalData = async (req, res) => {
   try {
-    const { name, username, email, phone, nif } = req.body;
+    const {
+      name,
+      username,
+      email,
+      phone,
+      nif,
+      age,
+      address,
+      municipality,
+      postcode,
+    } = req.body;
     const user = await User.findById(req.user._id);
-
     if (!user) return res.status(404).send("Utilizador não encontrado");
 
     user.name = name || user.name;
@@ -26,6 +35,10 @@ const updatePersonalData = async (req, res) => {
     user.email = email || user.email;
     user.phone = phone || user.phone;
     user.nif = nif || user.nif;
+    user.age = age || user.age;
+    user.address = address || user.address;
+    user.municipality = municipality || user.municipality;
+    user.postcode = postcode || user.postcode;
 
     await user.save();
     res.json({ success: true, user });
@@ -34,6 +47,7 @@ const updatePersonalData = async (req, res) => {
     res.status(500).send("Erro ao atualizar dados pessoais");
   }
 };
+
 
 const updatePassword = async (req, res) => {
   try {

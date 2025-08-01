@@ -16,7 +16,7 @@ document.getElementById("professional-form").addEventListener("submit", async (e
   };
 
   try {
-    const res = await fetch("/routes/clientProfessionalDataRoute", {
+    const res = await fetch("/routes/my-profile-professional-data", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
