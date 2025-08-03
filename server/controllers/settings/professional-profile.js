@@ -1,8 +1,8 @@
-// controllers/my-profile-professional-data.js
+// ../controllers/settings/professional-profile.js
 
-const ProfessionalProfile = require("../models/professionalProfile");
+const ProfessionalProfile = require("../../models/professionalProfile");
 
-const getMyProfileProfessionalData = async (req, res) => {
+const getProfessionalProfilePage = async (req, res) => {
   try {
     let profile = await ProfessionalProfile.findOne({ user_id: req.user._id });
     if (!profile) {
@@ -15,7 +15,7 @@ const getMyProfileProfessionalData = async (req, res) => {
       };
     }
 
-    res.render("my-profile-professional-data", {
+    res.render("partials/settings/professional-profile", {
       title: "Dados Profissionais",
       profile,
     });
@@ -25,7 +25,7 @@ const getMyProfileProfessionalData = async (req, res) => {
   }
 };
 
-const postUpdateProfessionalData = async (req, res) => {
+const postProfessionalProfileData = async (req, res) => {
   try {
     const { languages = [], education_level, skills = [], about_me } = req.body;
 
@@ -68,8 +68,7 @@ const postUpdateProfessionalData = async (req, res) => {
   }
 };
 
-
 module.exports = {
-  getMyProfileProfessionalData,
-  postUpdateProfessionalData,
+  getProfessionalProfilePage,
+  postProfessionalProfileData,
 };

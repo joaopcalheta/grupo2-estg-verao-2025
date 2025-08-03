@@ -1,0 +1,23 @@
+/* ../css/settings/settings-menu.css */
+
+#menu-container {
+  display: flex;
+  overflow-x: auto;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch; /* smooth scroll no iOS */
+  scrollbar-width: none; /* firefox */
+}
+
+#menu-container::-webkit-scrollbar {
+  display: none; /* chrome, safari e edge */
+}
+
+#menu-container.dragging {
+  cursor: grabbing;
+}
+
+#menu-container > div {
+  flex: 0 0 auto; /* para o texto não ficar em duas linhas */
+  padding: 10px 20px;
+  user-select: none; /* não seleciona texto ao arrastar */
+}

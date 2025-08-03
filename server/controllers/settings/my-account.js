@@ -1,21 +1,22 @@
-const User = require("../models/user");
+// ../controllers/settings/my-account.js
+
+const User = require("../../models/user");
 const bcrypt = require("bcrypt");
 
-const getMyProfilePersonalData = async (req, res) => {
+const getMyAccountPage = async (req, res) => {
   try {
     // req.user vem do passport
-    res.render("my-profile-personal-data", {
+    res.render("partials/settings/my-account", {
       user: req.user,
+      layout: false, // desativa layout do express-ejs-layout (header,head e footer) porque é inserida via ajax na settings.ejs
     });
   } catch (err) {
     console.error(err);
-    res.status(500).send("Erro interno no servidor");
   }
 };
 
-const postUpdatePersonalData = async (req, res) => {
+const postMyAccountData = async (req, res) => {
   try {
-
     if (!req.body) {
       console.error("REQ.BODY undefined. Headers:", req.headers);
       return res.status(400).send("Dados do formulário não foram recebidos.");
@@ -41,7 +42,9 @@ const postUpdatePersonalData = async (req, res) => {
     // Se estiver a mudar password, verifica a actual
     if (newPassword) {
       if (!currentPassword) {
-        return res.status(400).send("É necessária a palavra-passe actual para alterar.");
+        return res
+          .status(400)
+          .send("É necessária a palavra-passe actual para alterar.");
       }
       const match = await bcrypt.compare(currentPassword, user.password);
       if (!match) {
@@ -62,7 +65,6 @@ const postUpdatePersonalData = async (req, res) => {
     user.nif = nif || user.nif;
     user.email = email || user.email;
 
-
     await user.save();
 
     return res.send(`
@@ -78,6 +80,6 @@ const postUpdatePersonalData = async (req, res) => {
 };
 
 module.exports = {
-  getMyProfilePersonalData,
-  postUpdatePersonalData,
+  getMyAccountPage,
+  postMyAccountData,
 };
