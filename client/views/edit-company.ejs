@@ -1,0 +1,99 @@
+<h2 class="text-center my-5 fw-bold">Criar empresa</h2>
+
+<form method="POST" action="/edit-company/<%= company._id %>"">
+  <label class="mb-1" for="name">Nome da empresa</label>
+  <input
+    class="mb-2"
+    type="text"
+    id="name"
+    name="name"
+    value="<%= company.name %>"
+    required
+  />
+
+  <label class="mb-1" for="phone">Telefone</label>
+  <input
+    class="mb-2"
+    type="text"
+    id="phone"
+    name="phone"
+    value="<%= company.phone %>"
+    required
+  />
+
+  <label class="mb-1" for="nif">NIF</label>
+  <input
+    class="mb-2"
+    type="text"
+    id="nif"
+    name="nif"
+    value="<%= company.nif %>"
+    required
+  />
+
+  <label class="mb-1" for="address">Morada</label>
+  <input
+    class="mb-2"
+    type="text"
+    id="address"
+    name="address"
+    value="<%= company.address %>"
+    required
+  />
+
+  <label class="mb-1" for="postcode">Código Postal</label>
+  <input
+    class="mb-2"
+    type="text"
+    id="postcode"
+    name="postcode"
+    value="<%= company.postcode %>"
+    required
+  />
+
+  <label class="mb-1" for="municipality">Concelho</label>
+  <input
+    class="mb-2"
+    type="text"
+    id="municipality"
+    name="municipality"
+    value="<%= company.municipality %>"
+    required
+  />
+
+  <label class="mb-1" for="about_us">Sobre nós</label>
+  <input
+    class="mb-2"
+    type="text"
+    id="about_us"
+    name="about_us"
+    value="<%= company.about_us %>"
+    required
+  />
+
+  <label class="mb-1" for="pic">Adicionar imagem</label>
+  <input
+    class="mb-2"
+    type="text"
+    id="pic"
+    name="pic"
+    value="<%= company.pic %>"
+  />
+
+  <div class="d-flex gap-2 mt-4">
+    <div class="w-50">
+      <button
+        type="button"
+        class="btn btn-black w-100"
+        onclick="history.back()"
+      >
+        <h6 class="fw-bold">Voltar</h6>
+      </button>
+    </div>
+    <div class="w-50">
+      <button type="submit" class="btn btn-blue w-100">
+        <h6 class="fw-bold">Guardar</h6>
+      </button>
+    </div>
+  </div>
+</form>

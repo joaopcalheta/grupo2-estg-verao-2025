@@ -32,7 +32,12 @@ const postCreateCompany = async (req, res) => {
     });
 
     await newCompany.save();
-    res.redirect("/settings?section=my-companies");
+    res.send(`
+      <script>
+        sessionStorage.setItem('mostrarNotificacaoCreateCompany', 'true');
+        window.location.href = '/settings?section=my-companies';
+      </script>
+    `);
   } catch (err) {
     console.error("Erro ao criar empresa: ", err);
     res.status(500).send("Erro ao criar anúncio");
