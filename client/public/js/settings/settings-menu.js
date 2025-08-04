@@ -23,10 +23,17 @@ function loadSection(section) {
 }
 
 /**
- * Carrega a secção "my-account" por padrão
+ * Carrega a secção "my-account" por padrão se não tiver nenhuma secção selecionada no url
  */
 window.addEventListener("DOMContentLoaded", () => {
-  loadSection("my-account");
+  const params = new URLSearchParams(window.location.search);
+  const section = params.get("section");
+
+  if (section) {
+    loadSection(section);
+  } else {
+    loadSection("my-account"); // secção por defeito
+  }
 });
 
 // --------- para o scroll horizontal do menu ---------

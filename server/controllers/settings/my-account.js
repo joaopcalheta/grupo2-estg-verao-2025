@@ -24,7 +24,7 @@ const postMyAccountData = async (req, res) => {
 
     const {
       name,
-      age,
+      birthdate,
       username,
       phone,
       address,
@@ -56,7 +56,7 @@ const postMyAccountData = async (req, res) => {
 
     // Atualiza campos simples
     user.name = name || user.name;
-    user.age = age || user.age;
+    user.birthdate = birthdate || user.birthdate;
     user.username = username || user.username;
     user.phone = phone || user.phone;
     user.address = address || user.address;
@@ -66,11 +66,10 @@ const postMyAccountData = async (req, res) => {
     user.email = email || user.email;
 
     await user.save();
-
     return res.send(`
       <script>
         sessionStorage.setItem('mostrarNotificacaoPerfilAtt', 'true');
-        window.location.href = '/my-account';
+        window.location.href = '/settings?section=my-account';
       </script>
     `);
   } catch (err) {

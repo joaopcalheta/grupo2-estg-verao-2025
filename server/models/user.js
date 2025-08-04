@@ -58,8 +58,8 @@ const userSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    age: {
-      type: Number,
+    birthdate: {
+      type: String, // ou Date
       required: true,
       trim: true,
     },
