@@ -27,6 +27,7 @@ const postCompanyCreateAnnouncement = async (req, res) => {
       languages,
       salary,
       end_date,
+      numberOfPositions,
       description,
       pic,
     } = req.body;
@@ -48,6 +49,7 @@ const postCompanyCreateAnnouncement = async (req, res) => {
       languages,
       salary,
       end_date,
+      numberOfPositions,
       description,
       pic,
     });

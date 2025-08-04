@@ -92,7 +92,7 @@
     />
   </div>
   <div class="sobre">
-    <input type="text" name="about_me" placeholder="Sobre mim" value="<%= profile.about_me %>" />
+    <textarea class="form-control" rows="5" name="about_me" placeholder="Sobre mim" style="white-space: pre-wrap;"><%= profile.about_me || '' %></textarea>
   </div>
 
   <div>
