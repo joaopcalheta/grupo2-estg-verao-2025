@@ -17,7 +17,6 @@ const companySchema = new mongoose.Schema(
     nif: {
       type: Number,
       required: true,
-      unique: true,
     },
     address: {
       type: String,
@@ -48,7 +47,6 @@ const companySchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
-      unique: false,
     },
   },
   {
