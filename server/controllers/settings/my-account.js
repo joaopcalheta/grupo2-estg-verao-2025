@@ -54,7 +54,7 @@ const postMyAccountData = async (req, res) => {
       user.password = await bcrypt.hash(newPassword, salt);
     }
 
-    // Atualiza campos simples (poderias fazer checagens de unicidade para username/email)
+    // Atualiza campos simples
     user.name = name || user.name;
     user.birthdate = birthdate || user.birthdate;
     user.username = username || user.username;
