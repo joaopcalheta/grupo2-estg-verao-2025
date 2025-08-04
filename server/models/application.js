@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 
 const applicationSchema = new mongoose.Schema(
   {
-    state: {
+    /*state: {
       type: String,
       required: true,
       trim: true,
       enum: ["pending", "approved", "rejected", "under_review"],
       default: "pending",
-    },
+    },*/
     name: {
       type: String,
       required: true,
@@ -68,6 +68,11 @@ const applicationSchema = new mongoose.Schema(
       ref: "Announcement",
       required: true,
     },
+    user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    }
   },
   {
     timestamps: true,

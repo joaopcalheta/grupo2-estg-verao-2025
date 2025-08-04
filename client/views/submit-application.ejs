@@ -6,38 +6,38 @@
 </head>
 <form action="/submit-application/" method="POST">
 <div class="container-ad">
-  <h2 class="text-center fw-bold my-4">Candidatura</h2>
+  <h2 class="text-center fw-bold my-5">Candidatura</h2>
   <div class="dados">
     <label class="fw-bold">Nome completo
-      <input type="nome" name="name" value="<%= user ? user.name : '' %>" />
+      <input type="text" name="name" value="<%= user ? user.name : '' %>" required/>
     </label>
     <br />
     <label class="fw-bold">Data de Nascimento
-      <input type="idade" name="birthdate" value="<%= user ? user.birthdate : '' %>" />
+      <input type="date" name="birthdate" value="<%= user ? user.birthdate : '' %>" required/>
     </label>
     <br />
     <label class="fw-bold">Nº de Telefone
-      <input type="numero" name="phone" value="<%= user ? user.phone : '' %>" />
+      <input type="tel" name="phone" value="<%= user ? user.phone : '' %>"required/>
     </label>
     <br />
     <label class="fw-bold">NIF
-      <input type="nif" name="nif" value="<%= user ? user.nif : '' %>" />
+      <input type="text" name="nif" value="<%= user ? user.nif : '' %>" required/>
     </label>
     <br />
     <label class="fw-bold">E-mail
-      <input type="email" name="email" value="<%= user ? user.email : '' %>" />
+      <input type="text" name="email" value="<%= user ? user.email : '' %>" required/>
     </label>
     <br />
     <label class="fw-bold">Morada
-      <input type="morada" name="address" value="<%= user ? user.address : '' %>" />
+      <input type="text" name="address" value="<%= user ? user.address : '' %>" required/>
     </label>
     <br />
     <label class="fw-bold">Localidade
-      <input type="localidade" name="municipality" value="<%= user ? user.municipality : '' %>" />
+      <input type="text" name="municipality" value="<%= user ? user.municipality : '' %>" required/>
     </label>
     <br />
     <label class="fw-bold">Código Postal
-      <input type="postcode" name="postcode" value="<%= user ? user.postcode : '' %>" />
+      <input type="text" name="postcode" value="<%= user ? user.postcode : '' %>" required/>
     </label>
     <br>
     <!-- Escolaridade -->
@@ -94,14 +94,14 @@
   <br />
 <div>
   <label class="fw-bold">Competências
-    <input class="form-group" type="text" name="skills"
+    <input type="text" name="skills"
       value="<%= Array.isArray(profile?.skills) ? profile.skills.join(', ') : '' %>" />
   </label> 
 </div>    
   <br />
 <div class="sobre">
   <label class="fw-bold">Sobre mim 
-    <input type="sobre" name="about_me" value="<%= profile?.about_me || '' %>" />
+    <textarea rows="5" name="about_me" style="white-space: pre-wrap;"><%= profile?.about_me || '' %></textarea>
   </label>  
 </div>
   <br />

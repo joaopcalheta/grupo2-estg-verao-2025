@@ -59,7 +59,7 @@ const userSchema = new mongoose.Schema(
       trim: true,
     },
     birthdate: {
-      type: String, // ou Date
+      type: Date,
       required: true,
       trim: true,
     },
