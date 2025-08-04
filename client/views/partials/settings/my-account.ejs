@@ -63,7 +63,13 @@
     />
   </div>
   <div>
-    <input class="form-group" type="text" name="address" placeholder="Morada" value="<%= user.address %>" />
+    <input
+      class="form-group"
+      type="text"
+      name="address"
+      placeholder="Morada"
+      value="<%= user.address %>"
+    />
   </div>
   <div>
     <input
@@ -84,10 +90,22 @@
     />
   </div>
   <div>
-    <input class="form-group" type="text" name="nif" placeholder="NIF"  value="<%= user.nif %>" />
+    <input
+      class="form-group"
+      type="text"
+      name="nif"
+      placeholder="NIF"
+      value="<%= user.nif %>"
+    />
   </div>
   <div>
-    <input class="form-group" type="text" name="email" placeholder="E-mail" value="<%= user.email %>" />
+    <input
+      class="form-group"
+      type="text"
+      name="email"
+      placeholder="E-mail"
+      value="<%= user.email %>"
+    />
   </div>
   <div>
     <input
@@ -125,12 +143,7 @@
       >
         Voltar
       </button>
-      <button
-        type="submit"
-        class="buttonWidth btn btn-blue"
-      >
-        Guardar
-      </button>
+      <button type="submit" class="buttonWidth btn btn-blue">Guardar</button>
     </div>
   </div>
   <br />
@@ -155,7 +168,7 @@
 </div>
 
 <script>
-  // Verifica se há notificação de remoção a ser exibida    
+  // Verifica se há notificação de remoção a ser exibida
   if (sessionStorage.getItem("mostrarNotificacaoPerfilAtt") === "true") {
     const notificationPerfilAtt = document.getElementById(
       "notification-perfil-att"
@@ -183,12 +196,12 @@
   }
 </script>
 
-<script>
+<!--<script>
   function mostrarNotificacaoPerfilAtt() {
     sessionStorage.setItem("mostrarNotificacaoPerfilAtt", "true");
     location.reload(); // ou enviar o formulário e redirecionar de volta
   }
-</script>
+</script>-->
 
 <script>
   // upload preview

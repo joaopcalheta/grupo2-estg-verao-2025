@@ -8,7 +8,7 @@
 
 <% const langs = Array.isArray(profile.languages) ? profile.languages : []; %>
 
-<form id="professional-form" method="POST" action="/my-profile-professional-data">
+<form id="professional-form" method="POST" action="/professional-profile">
   <h2 class="fw-bold mb-4" id="personalData">Dados Profissionais</h2>
   <div>
     <style>
@@ -30,8 +30,8 @@
           <input
             class="form-check-input"
             type="checkbox"
-            name="linguas[]"
-            value="Inglês"
+            name="languages[]"
+            value="Eng"
             id="lingua-ingles"
             <%= langs.includes("Inglês") ? "checked" : "" %>
           />
@@ -41,8 +41,8 @@
           <input
             class="form-check-input"
             type="checkbox"
-            name="linguas[]"
-            value="Francês"
+            name="languages[]"
+            value="Fr"
             id="lingua-frances"
             <%= langs.includes("Francês") ? "checked" : "" %>
           />
@@ -52,8 +52,8 @@
           <input
             class="form-check-input"
             type="checkbox"
-            name="linguas[]"
-            value="Espanhol"
+            name="languages[]"
+            value="Esp"
             id="lingua-espanhol"
             <%= langs.includes("Espanhol") ? "checked" : "" %>
           />
@@ -63,8 +63,8 @@
           <input
             class="form-check-input"
             type="checkbox"
-            name="linguas[]"
-            value="Alemão"
+            name="languages[]"
+            value="Ger"
             id="lingua-alemao"
             <%= langs.includes("Alemão") ? "checked" : "" %>
           />
@@ -75,13 +75,11 @@
   </div>
   <!-- Escolaridade -->
   <div class="escolaridade">
-    <select id="escolaridade" name="escolaridade">
+    <select id="escolaridade" name="education_level">
       <option value="selecione">Selecione o nível de escolaridade</option>
-      <option value="basico" <%= profile.education_level === "basico" ? "selected" : "" %>>Ensino Básico</option>
-      <option value="secundario" <%= profile.education_level === "secundario" ? "selected" : "" %>>Ensino Secundário</option>
-      <option value="licenciatura" <%= profile.education_level === "licenciatura" ? "selected" : "" %>>Licenciatura</option>
-      <option value="mestrado" <%= profile.education_level === "mestrado" ? "selected" : "" %>>Mestrado</option>
-      <option value="doutoramento" <%= profile.education_level === "doutoramento" ? "selected" : "" %>>Doutoramento</option>
+      <option value="ensino basico" <%= profile.education_level === "ensino básico" ? "selected" : "" %>>Ensino básico</option>
+      <option value="ensino secundario" <%= profile.education_level === "ensino secundário" ? "selected" : "" %>>Ensino secundário</option>
+      <option value="ensino superior" <%= profile.education_level === "ensino superior" ? "selected" : "" %>>Ensino superior</option>
     </select>
   </div>
   <div>
