@@ -70,30 +70,32 @@
 <% if (announcements.length === 0) { %>
 <p class="text-center">Nenhum anúncio disponível no momento.</p>
 <% } %> <% announcements.forEach((announcement) => { %>
-<div class="white-card d-flex p-0">
-  <div class="d-flex justify-content-start">
-    <!-- imagem -->
-    <div class="image-wrapper">
-      <img class="announcement-img" src="<%= announcement.pic %>" />
-    </div>
-    <!-- texto -->
-    <div class="d-flex flex-column justify-content-between ps-2 pt-1 pb-2">
-      <div class="mb-2">
-        <h5><%= announcement.job_name %></h5>
-        <h6 class="mb-0 fw-normal"><%= announcement.municipality %></h6>
-        <h6 class="fw-normal"><%= announcement.regime %></h6>
+<a
+  href="/home-details-announcement?id=<%= announcement._id %>"
+  class="text-decoration-none text-dark"
+  style="display: block"
+>
+  <div class="white-card d-flex p-0 hover-shadow" style="cursor: pointer;">
+    <div class="d-flex justify-content-start">
+      <!-- imagem -->
+      <div class="image-wrapper">
+        <img class="announcement-img" src="<%= announcement.pic %>" />
       </div>
-      <div>
-        <a
-          class="text-muted"
-          href="/home-details-announcement?id=<%= announcement._id %>"
-        >
-          <h6 class="fw-normal">Saber mais</h6>
-        </a>
+      <!-- texto -->
+      <div class="d-flex flex-column justify-content-between ps-2 pt-1 pb-2">
+        <div class="mb-2">
+          <h5><%= announcement.job_name %></h5>
+          <h6 class="mb-0 fw-normal"><%= announcement.municipality %></h6>
+          <h6 class="fw-normal"><%= announcement.regime %></h6>
+        </div>
+        <div>
+          <h6 class="fw-normal text-muted text-decoration-underline">Saber mais</h6>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+
 <% }); %>
 <!-----------------Alertas------------------------------------->
 
