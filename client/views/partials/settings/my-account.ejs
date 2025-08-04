@@ -42,7 +42,13 @@
     />
   </div>
   <div>
-    <input class="form-group" type="text" name="birthdate" placeholder="Data de Nascimento(AAAA/MM/DD)" value="<%= user.birthdate %>" />
+    <input
+      class="form-group"
+      type="text"
+      name="birthdate"
+      placeholder="Data de Nascimento(AAAA/MM/DD)"
+      value="<%= user.birthdate %>"
+    />
   </div>
   <div>
     <input
@@ -153,48 +159,6 @@
 
   <script src="/js/client-my-profile.js"></script>
 </form>
-
-<div
-  id="notification-perfil-att"
-  class="notificationperfilatt"
-  style="display: none"
->
-  <div class="alert">!</div>
-  <div class="content">
-    <div class="title">Notificação</div>
-    <div class="message">Perfil editado com sucesso</div>
-  </div>
-  <div class="progress-bar-perfil-att"></div>
-</div>
-
-<script>
-  // Verifica se há notificação de remoção a ser exibida
-  if (sessionStorage.getItem("mostrarNotificacaoPerfilAtt") === "true") {
-    const notificationPerfilAtt = document.getElementById(
-      "notification-perfil-att"
-    );
-    notificationPerfilAtt.style.display = "flex";
-
-    // Remove o gatilho da sessão para não repetir
-    sessionStorage.removeItem("mostrarNotificacaoPerfilAtt");
-
-    // Reinicia a animação da progress bar (necessário para casos de reuso)
-    const progressBar = notificationPerfilAtt.querySelector(
-      ".progress-bar-perfil-att"
-    );
-    progressBar.style.animation = "none";
-    progressBar.offsetHeight; // forçar reflow
-    progressBar.style.animation = null;
-
-    // Esconde após x segundos
-    setTimeout(() => {
-      notificationPerfilAtt.classList.add("hide");
-      setTimeout(() => {
-        notificationPerfilAtt.remove();
-      }, 500); // tempo da transição de opacidade
-    }, 5000); // tempo do alerta
-  }
-</script>
 
 <!--<script>
   function mostrarNotificacaoPerfilAtt() {
