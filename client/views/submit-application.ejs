@@ -1,38 +1,57 @@
 <head>
   <link href="/css/client-submit.css" rel="stylesheet" />
   <link href="/css/general.css" rel="stylesheet" />
+  <link href="/css/form.css" rel="stylesheet" />
 
 </head>
 <form action="/submit-application/" method="POST">
-<div class="container">
-  <p><b>Candidatura</b></p>
+<div class="container-ad">
+  <h2 class="text-center fw-bold my-4">Candidatura</h2>
   <div class="dados">
-    <input type="nome" name="name" placeholder="Nome completo" value="<%= user ? user.name : '' %>" />
+    <label class="fw-bold">Nome completo
+      <input type="nome" name="name" value="<%= user ? user.name : '' %>" />
+    </label>
     <br />
-    <input type="idade" name="birthdate" placeholder="Data de Nascimento" value="<%= user ? user.birthdate : '' %>" />
+    <label class="fw-bold">Data de Nascimento
+      <input type="idade" name="birthdate" value="<%= user ? user.birthdate : '' %>" />
+    </label>
     <br />
-    <input type="numero" name="phone" placeholder="Nº de Telefone" value="<%= user ? user.phone : '' %>" />
+    <label class="fw-bold">Nº de Telefone
+      <input type="numero" name="phone" value="<%= user ? user.phone : '' %>" />
+    </label>
     <br />
-    <input type="nif" name="nif" placeholder="NIF" value="<%= user ? user.nif : '' %>" />
+    <label class="fw-bold">NIF
+      <input type="nif" name="nif" value="<%= user ? user.nif : '' %>" />
+    </label>
     <br />
-    <input type="email" name="email" placeholder="E-mail" value="<%= user ? user.email : '' %>" />
+    <label class="fw-bold">E-mail
+      <input type="email" name="email" value="<%= user ? user.email : '' %>" />
+    </label>
     <br />
-    <input type="morada" name="address" placeholder="Morada" value="<%= user ? user.address : '' %>" />
+    <label class="fw-bold">Morada
+      <input type="morada" name="address" value="<%= user ? user.address : '' %>" />
+    </label>
     <br />
-    <input type="localidade" name="municipality" placeholder="Localidade" value="<%= user ? user.municipality : '' %>" />
+    <label class="fw-bold">Localidade
+      <input type="localidade" name="municipality" value="<%= user ? user.municipality : '' %>" />
+    </label>
     <br />
-    <input type="postcode" name="postcode" placeholder="Código Postal" value="<%= user ? user.postcode : '' %>" />
+    <label class="fw-bold">Código Postal
+      <input type="postcode" name="postcode" value="<%= user ? user.postcode : '' %>" />
+    </label>
     <br>
     <!-- Escolaridade -->
     <div class="escolaridade">
-      <select id="escolaridade" name="education_level" >
-        <option value="selecione" <%= (!profile || !profile.education_level) ? 'selected' : '' %> >Selecione o nível de escolaridade</option>
-        <option value="basico" <%= profile && profile.education_level === 'basico' ? 'selected' : '' %> >Ensino Básico</option>
-        <option value="secundario" <%= profile && profile.education_level === 'secundario' ? 'selected' : '' %> >Ensino Secundário</option>
-        <option value="licenciatura" <%= profile && profile.education_level === 'licenciatura' ? 'selected' : '' %>>Licenciatura</option>
-        <option value="mestrado" <%= profile && profile.education_level === 'mestrado' ? 'selected' : '' %>>Mestrado</option>
-        <option value="doutoramento" <%= profile && profile.education_level === 'doutoramento' ? 'selected' : '' %>>Doutoramento</option>
-      </select>
+      <label class="fw-bold">Escolaridade
+        <select id="escolaridade" name="education_level" >
+          <option value="selecione" <%= (!profile || !profile.education_level) ? 'selected' : '' %> >Selecione o nível de escolaridade</option>
+          <option value="basico" <%= profile && profile.education_level === 'basico' ? 'selected' : '' %> >Ensino Básico</option>
+          <option value="secundario" <%= profile && profile.education_level === 'secundario' ? 'selected' : '' %> >Ensino Secundário</option>
+          <option value="licenciatura" <%= profile && profile.education_level === 'licenciatura' ? 'selected' : '' %>>Licenciatura</option>
+          <option value="mestrado" <%= profile && profile.education_level === 'mestrado' ? 'selected' : '' %>>Mestrado</option>
+          <option value="doutoramento" <%= profile && profile.education_level === 'doutoramento' ? 'selected' : '' %>>Doutoramento</option>
+        </select>
+      </label>
     </div>
     <br />
 <style>
@@ -48,7 +67,7 @@
 </style>
 
 <div class="mb-3">
-  <h5 class="mb-2">Línguas</h5>
+  <h6 class=" fw-bold mb-2">Línguas</h6>
   <div class="d-flex flex-wrap gap-3"> 
     <div class="form-check">
       <input class="form-check-input" type="checkbox" name="languages[]" value="Inglês" id="lingua-ingles"
@@ -72,33 +91,36 @@
     </div>
   </div>
 </div>
-    <br />
+  <br />
 <div>
-  <input class="form-group" type="text" name="skills" placeholder="Competências"
-    value="<%= Array.isArray(profile?.skills) ? profile.skills.join(', ') : '' %>" />
+  <label class="fw-bold">Competências
+    <input class="form-group" type="text" name="skills"
+      value="<%= Array.isArray(profile?.skills) ? profile.skills.join(', ') : '' %>" />
+  </label> 
 </div>    
-    <br />
-    <div class="sobre">
-      <input type="sobre" name="about_me" placeholder="Sobre mim" value="<%= profile?.about_me || '' %>" />
-    </div>
-    <br />
-    <div>
-      <h5 id="cv">Anexar CV:</h5>
-      <br />
-      <input type="file" name="cv" class="d-none" id="fileInput" />
-      <label for="fileInput" class="btn btn-primary">
-        <i class="bi bi-upload"></i> Enviar arquivo
-      </label>
-    </div>
-    <!-- Passar announcementId escondido no formulario-->
-    <input type="hidden" name="announcement_id" value="<%= announcementId %>">
+  <br />
+<div class="sobre">
+  <label class="fw-bold">Sobre mim 
+    <input type="sobre" name="about_me" value="<%= profile?.about_me || '' %>" />
+  </label>  
+</div>
+  <br />
+<div>
+  <h6 class="fw-bold mb-2" id="cv">Anexar CV:</h6>   
+    <input type="file" name="cv" class="d-none" id="fileInput" />
+    <label for="fileInput" class="btn btn-primary">
+      <i class="bi bi-upload"></i> Enviar arquivo
+    </label>
+</div>
+<!-- Passar announcementId escondido no formulario-->
+<input type="hidden" name="announcement_id" value="<%= announcementId %>">
 
-    <div class="actions-btn">
-      <button type="button" class="btn btn-blue" onclick="window.location.href='/'">
-        Voltar
-      </button>
-      <button type="submit" class="btn btn-blue">Enviar</button>
-    </div>
+<div class="actions-btn">
+  <button type="button" class="btn btn-blue" onclick="window.location.href='/'">
+    Voltar
+  </button>
+  <button type="submit" class="btn btn-blue">Enviar</button>
+  </div>
   </div>
 </div>
 </form>
