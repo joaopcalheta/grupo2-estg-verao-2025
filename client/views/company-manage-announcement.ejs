@@ -193,6 +193,12 @@
       >Prazo de candidatura
       <input type="text" name="end_date" value="<%=announcement.end_date%>" required />
     </label>
+    <label
+    >Número de vagas
+      <input type="number" 
+      name="numberOfPositions" 
+      min="1" value="<%= announcement.numberOfPositions %>">
+    </label>
     <label>
   Descrição
   <textarea name="description" id="description"><%= announcement.description %></textarea>

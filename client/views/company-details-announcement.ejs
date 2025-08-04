@@ -41,6 +41,9 @@
       <%= announcement.end_date ?
       announcement.end_date.toLocaleDateString("pt-PT") : "Indefinido" %>
     </h5>
+    <h5 class="mb-1 fw-normal">
+      <span class="fw-semibold">Número de vagas:</span>
+      <%= announcement.numberOfPositions %>
     <img src="<%= announcement.pic %>" class="mt-2" />
     <h6 class="fw-normal">
       <span class="bfw-semibold">Descrição:</span> <%= announcement.description
