@@ -2,18 +2,11 @@
   <link href="/css/general.css" rel="stylesheet" />
   <link href="/css/company-my-announcements.css" rel="stylesheet" />
 </head>
-<div id="menu-container">
-  <div onclick="myCompanyProfile()" class="company-profile">
-    <p id="perfil">Meu Perfil</p>
-  </div>
-  <div onclick="myAdd()" class="company-add">
-    <p id="cand">Anúncios</p>
-  </div>
-</div>
-<hr id="linha" />
+
+<h2 class="text-center my-5 fw-bold">Anúncios de company.name</h2>
 
 <% if (announcements.length === 0) { %>
-<p class="text-center">Nenhum anúncio disponível no momento.</p>
+<p class="text-center">A sua empresa ainda não tem anúncios.</p>
 <% } %> <% announcements.forEach((announcement) => { %>
 <div class="white-card d-flex p-0">
   <div class="d-flex justify-content-start">
@@ -25,18 +18,26 @@
     <div class="d-flex flex-column justify-content-between ps-2 pt-1 pb-2">
       <div class="mb-2">
         <h5><%= announcement.job_name %></h5>
-        <h6 class="mb-0 fw-normal"><%= announcement.municipality %></h6>
-        <h6 class="fw-normal"><%= announcement.regime %></h6>
+        <h6 class="mb-0 fw-normal">announcement.state</h6>
       </div>
       <div>
         <a
           class="text-muted"
           href="/company-details-announcement?id=<%= announcement._id %>"
         >
-          <h6 class="fw-normal">Saber mais</h6>
+          <h6 class="fw-normal">Ver anúncio</h6>
         </a>
       </div>
     </div>
+  </div>
+  <!-- Lado direito: botões -->
+  <div class="d-flex flex-column gap-1 justify-content-center pe-4 pb-2 pt-2">
+    <button type="button" class="btn btn-blue btn-small w-100" onclick="">
+      <h6 class="fw-bold mb-0">Editar</h6>
+    </button>
+    <button type="button" class="btn btn-blue btn-small w-100" onclick="">
+      <h6 class="fw-bold mb-0">Candidatos</h6>
+    </button>
   </div>
 </div>
 <% }); %>
