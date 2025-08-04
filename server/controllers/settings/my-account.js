@@ -70,7 +70,7 @@ const postMyAccountData = async (req, res) => {
     return res.send(`
       <script>
         sessionStorage.setItem('mostrarNotificacaoPerfilAtt', 'true');
-        window.location.href = '/my-profile-personal-data';
+        window.location.href = '/my-account';
       </script>
     `);
   } catch (err) {

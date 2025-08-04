@@ -20,17 +20,6 @@
   font-weight: bold;
 }
 
-#menu-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px; /* Espaço entre os itens */
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-
-    margin-bottom: 20px;
-}
-
-
 
 
 

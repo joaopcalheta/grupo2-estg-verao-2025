@@ -18,6 +18,7 @@ const getProfessionalProfilePage = async (req, res) => {
     res.render("partials/settings/professional-profile", {
       title: "Dados Profissionais",
       profile,
+      layout: false, // desativa layout do express-ejs-layout (header,head e footer) porque é inserida via ajax na settings.ejs
     });
   } catch (err) {
     console.error("Erro ao carregar a página Dados Profissionais:", err);
