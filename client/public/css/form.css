@@ -14,15 +14,17 @@ form {
 
 /* Estilo dos inputs, selects e textarea */
 form input[type="text"],
+form input[type="date"],
+form input[type="tel"],
 form textarea,
 form select,
 form input[type="file"] {
-  padding: 0.4rem;
-  border: 1px solid #ccc;
+  padding: 0.6rem;
+  border: 1px solid black;
   border-radius: 6px;
   width: 100%;
   box-sizing: border-box;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 form label {
