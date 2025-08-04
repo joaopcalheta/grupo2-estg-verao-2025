@@ -73,6 +73,11 @@ const announcementSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    numberOfPositions: {
+      type: String, // or Number
+      required: true,
+    }
+
     /* user_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
