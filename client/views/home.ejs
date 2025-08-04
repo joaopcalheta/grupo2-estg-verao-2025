@@ -70,6 +70,7 @@
 <% if (announcements.length === 0) { %>
 <p class="text-center">Nenhum anúncio disponível no momento.</p>
 <% } %> <% announcements.forEach((announcement) => { %>
+<<<<<<< HEAD
 <a
   href="/home-details-announcement?id=<%= announcement._id %>"
   class="text-decoration-none text-dark"
@@ -80,6 +81,20 @@
       <!-- imagem -->
       <div class="image-wrapper">
         <img class="announcement-img" src="<%= announcement.pic %>" />
+=======
+<div class="white-card d-flex p-0">
+  <div class="d-flex justify-content-start">
+    <!-- imagem -->
+    <div class="mini-card-image-wrapper">
+      <img class="structure-img" src="<%= announcement.pic %>" />
+    </div>
+    <!-- texto -->
+    <div class="d-flex flex-column justify-content-between ps-2 pt-1 pb-2">
+      <div class="mb-2">
+        <h5><%= announcement.job_name %></h5>
+        <h6 class="mb-0 fw-normal"><%= announcement.municipality %></h6>
+        <h6 class="fw-normal"><%= announcement.regime %></h6>
+>>>>>>> e4fce41030468fcd21bae5311b66ffdadbb59a5f
       </div>
       <!-- texto -->
       <div class="d-flex flex-column justify-content-between ps-2 pt-1 pb-2">

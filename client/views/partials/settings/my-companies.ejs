@@ -1,11 +1,12 @@
 <% if (companies.length === 0) { %>
 <p class="text-center">Não está associado a nenhuma empresa.</p>
 <% } %> <% companies.forEach((company) => { %>
-<div class="white-card d-flex p-0">
-  <div class="d-flex justify-content-start">
+<div class="white-card d-flex p-0 justify-content-between">
+  <!-- Lado esquerdo: imagem + texto -->
+  <div class="d-flex">
     <!-- imagem -->
-    <div class="image-wrapper">
-      <img class="announcement-img" src="<%= companies.pic %>" />
+    <div class="mini-card-image-wrapper">
+      <img class="structure-img" src="<%= company.pic %>" />
     </div>
     <!-- texto -->
     <div class="d-flex flex-column justify-content-between ps-2 pt-1 pb-2">
@@ -15,10 +16,25 @@
       </div>
     </div>
   </div>
+  <!-- Lado direito: botões -->
+  <div class="d-flex flex-column gap-1 justify-content-center pe-4 pb-2 pt-2">
+    <button
+      type="button"
+      class="btn btn-blue btn-small w-100"
+      onclick="history.back()"
+    >
+      <h6 class="fw-bold mb-0">Editar</h6>
+    </button>
+    <button type="submit" class="btn btn-blue btn-small w-100">
+      <h6 class="fw-bold mb-0">Anúncios</h6>
+    </button>
+  </div>
 </div>
+
 <% }); %>
+
 <div class="text-center">
-  <button class="btn btn-blue" onclick="location.href='/create-company'">
+  <button class="btn btn-blue w-100" onclick="location.href='/create-company'">
     + Criar empresa
   </button>
 </div>
