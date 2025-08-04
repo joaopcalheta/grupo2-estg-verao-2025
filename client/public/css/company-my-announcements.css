@@ -34,6 +34,7 @@
   margin-bottom: 0.6rem;
   box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.1);
 }
+
 /* calheta meteu isto provisoriamente */
 .full-announcement img {
   width: 100%;
@@ -83,10 +84,9 @@
   box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.1);
 }
 .image-wrapper {
-  width: 100px;
-  height: 100%;
+  width: 100px !important;
+  height: 105px !important;
   flex-shrink: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,9 +97,9 @@
 .announcement-img {
   border-top-left-radius: 13px;
   border-bottom-left-radius: 13px;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
   display: block;
 }
 
