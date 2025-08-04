@@ -9,7 +9,7 @@
   <div class="dados">
     <input type="nome" name="name" placeholder="Nome completo" value="<%= user ? user.name : '' %>" />
     <br />
-    <input type="idade" name="age" placeholder="Idade" value="<%= user ? profile.age : '' %>" />
+    <input type="idade" name="age" placeholder="Idade" value="<%= user ? user.age : '' %>" />
     <br />
     <input type="numero" name="phone" placeholder="Nº de Telefone" value="<%= user ? user.phone : '' %>" />
     <br />
@@ -49,32 +49,37 @@
 
 <div class="mb-3">
   <h5 class="mb-2">Línguas</h5>
-  <div class="d-flex flex-wrap gap-3">
+  <div class="d-flex flex-wrap gap-3"> 
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Inglês" id="lingua-ingles">
-      <%= profile && profile.languages?.includes("Inglês") ? 'checked' : '' %>
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Inglês" id="lingua-ingles"
+        <%= profile && profile.languages?.includes("Inglês") ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-ingles">Inglês</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Francês" id="lingua-frances">
-      <%= profile && profile.languages?.includes("Francês") ? 'checked' : '' %>
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Francês" id="lingua-frances"
+        <%= profile && profile.languages?.includes("Francês") ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-frances">Francês</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Espanhol" id="lingua-espanhol">
-      <%= profile && profile.languages?.includes("Espanhol") ? 'checked' : '' %>
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Espanhol" id="lingua-espanhol"
+        <%= profile && profile.languages?.includes("Espanhol") ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Alemão" id="lingua-alemao">
-      <%= profile && profile.languages?.includes("Alemão") ? 'checked' : '' %>
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Alemão" id="lingua-alemao"
+        <%= profile && profile.languages?.includes("Alemão") ? 'checked' : '' %>>
       <label class="form-check-label" for="lingua-alemao">Alemão</label>
     </div>
   </div>
 </div>
     <br />
+<div>
+  <input class="form-group" type="text" name="skills" placeholder="Competências"
+    value="<%= Array.isArray(profile?.skills) ? profile.skills.join(', ') : '' %>" />
+</div>    
+    <br />
     <div class="sobre">
-      <input type="sobre" name="about_me" placeholder="Sobre mim"/>
+      <input type="sobre" name="about_me" placeholder="Sobre mim" value="<%= profile?.about_me || '' %>" />
     </div>
     <br />
     <div>
@@ -87,7 +92,6 @@
     </div>
     <!-- Passar announcementId escondido no formulario-->
     <input type="hidden" name="announcement_id" value="<%= announcementId %>">
-  </form>
 
     <div class="actions-btn">
       <button type="button" class="btn btn-blue" onclick="window.location.href='/'">
@@ -97,3 +101,4 @@
     </div>
   </div>
 </div>
+</form>

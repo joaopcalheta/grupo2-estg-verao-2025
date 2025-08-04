@@ -4,11 +4,9 @@
 </head>
 
 
-
-
 <% const langs = Array.isArray(profile.languages) ? profile.languages : []; %>
 
-<form id="professional-form" method="POST" action="/my-profile-professional-data">
+<form id="professional-form" method="POST" action="/professional-profile">
   <h2 class="fw-bold mb-4" id="personalData">Dados Profissionais</h2>
   <div>
     <style>
@@ -30,7 +28,7 @@
           <input
             class="form-check-input"
             type="checkbox"
-            name="linguas[]"
+            name="languages"
             value="Inglês"
             id="lingua-ingles"
             <%= langs.includes("Inglês") ? "checked" : "" %>
@@ -41,7 +39,7 @@
           <input
             class="form-check-input"
             type="checkbox"
-            name="linguas[]"
+            name="languages"
             value="Francês"
             id="lingua-frances"
             <%= langs.includes("Francês") ? "checked" : "" %>
@@ -52,7 +50,7 @@
           <input
             class="form-check-input"
             type="checkbox"
-            name="linguas[]"
+            name="languages"
             value="Espanhol"
             id="lingua-espanhol"
             <%= langs.includes("Espanhol") ? "checked" : "" %>
@@ -63,7 +61,7 @@
           <input
             class="form-check-input"
             type="checkbox"
-            name="linguas[]"
+            name="languages"
             value="Alemão"
             id="lingua-alemao"
             <%= langs.includes("Alemão") ? "checked" : "" %>
@@ -75,31 +73,31 @@
   </div>
   <!-- Escolaridade -->
   <div class="escolaridade">
-    <select id="escolaridade" name="escolaridade">
+    <select id="escolaridade" name="education_level">
       <option value="selecione">Selecione o nível de escolaridade</option>
-      <option value="basico" <%= profile.education_level === "basico" ? "selected" : "" %>>Ensino Básico</option>
-      <option value="secundario" <%= profile.education_level === "secundario" ? "selected" : "" %>>Ensino Secundário</option>
-      <option value="licenciatura" <%= profile.education_level === "licenciatura" ? "selected" : "" %>>Licenciatura</option>
-      <option value="mestrado" <%= profile.education_level === "mestrado" ? "selected" : "" %>>Mestrado</option>
-      <option value="doutoramento" <%= profile.education_level === "doutoramento" ? "selected" : "" %>>Doutoramento</option>
+      <option value="basico" <%= profile.education_level === "basico" ? "selected" : "" %> >Ensino Básico</option>
+      <option value="secundario" <%= profile.education_level === "secundario" ? "selected" : "" %> >Ensino Secundário</option>
+      <option value="licenciatura" <%= profile.education_level === "licenciatura" ? "selected" : "" %> >Licenciatura</option>
+      <option value="mestrado" <%= profile.education_level === "mestrado" ? "selected" : "" %> >Mestrado</option>
+      <option value="doutoramento" <%= profile.education_level === "doutoramento" ? "selected" : "" %> >Doutoramento</option>
     </select>
   </div>
   <div>
     <input
       class="form-group"
-      type="tel"
-      name="phone"
+      type="text"
+      name="skills"
       placeholder="Competências"
       value="<%= Array.isArray(profile.skills) ? profile.skills.join(', ') : profile.skills %>"
     />
   </div>
   <div class="sobre">
-    <input type="text" placeholder="Sobre mim" <%= profile.about_me %> />
+    <input type="text" name="about_me" placeholder="Sobre mim" value="<%= profile.about_me %>" />
   </div>
 
   <div>
     <h5 class="mb-3 mt-2 fw-bold" id="cv">Anexar CV:</h5>
-    <input type="file" class="d-none" id="fileInput" />
+    <input type="file" name="cv" class="d-none" id="fileInput" />
     <label for="fileInput" class="btn btn-primary">
       <i class="bi bi-upload"></i> Enviar arquivo
     </label>
