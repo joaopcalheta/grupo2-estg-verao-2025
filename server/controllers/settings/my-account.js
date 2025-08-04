@@ -24,7 +24,7 @@ const postMyAccountData = async (req, res) => {
 
     const {
       name,
-      age,
+      birthdate,
       username,
       phone,
       address,
@@ -56,7 +56,7 @@ const postMyAccountData = async (req, res) => {
 
     // Atualiza campos simples (poderias fazer checagens de unicidade para username/email)
     user.name = name || user.name;
-    user.age = age || user.age;
+    user.birthdate = birthdate || user.birthdate;
     user.username = username || user.username;
     user.phone = phone || user.phone;
     user.address = address || user.address;
