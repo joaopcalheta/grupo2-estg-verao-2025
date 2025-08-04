@@ -60,7 +60,7 @@ const postProfessionalProfileData = async (req, res) => {
     return res.send(`
       <script>
         sessionStorage.setItem('mostrarNotificacaoPerfilAtt', 'true');
-        window.location.href = '/settings';
+        window.location.href = '/settings?section=professional-profile';
       </script>
     `);
   } catch (err) {

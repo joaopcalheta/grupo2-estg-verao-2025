@@ -66,11 +66,10 @@ const postMyAccountData = async (req, res) => {
     user.email = email || user.email;
 
     await user.save();
-
     return res.send(`
       <script>
         sessionStorage.setItem('mostrarNotificacaoPerfilAtt', 'true');
-        window.location.href = '/my-account';
+        window.location.href = '/settings?section=my-account';
       </script>
     `);
   } catch (err) {
