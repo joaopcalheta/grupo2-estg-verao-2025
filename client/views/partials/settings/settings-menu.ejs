@@ -59,6 +59,19 @@
   <div class="progress-bar-manage-company"></div>
 </div>
 
+<div
+  id="notification-delete-company"
+  class="notificationdeletecompany"
+  style="display: none"
+>
+  <div class="alert">!</div>
+  <div class="content">
+    <div class="title">Notificação</div>
+    <div class="message">Empresa eliminada com sucesso</div>
+  </div>
+  <div class="progress-bar-delete-company"></div>
+</div>
+
 <script>
   // Verifica se há notificação de remoção a ser exibida
   if (sessionStorage.getItem("mostrarNotificacaoPerfilAtt") === "true") {
@@ -141,6 +154,35 @@
       notificationManageCompany.classList.add("hide");
       setTimeout(() => {
         notificationManageCompany.remove();
+      }, 50); // tempo da transição de opacidade
+    }, 5000); // tempo do alerta
+  }
+</script>
+
+<script>
+  // Verifica se há notificação de remoção a ser exibida
+  if (sessionStorage.getItem("mostrarNotificacaoDeleteCompany") === "true") {
+    const notificationDeleteCompany = document.getElementById(
+      "notification-delete-company"
+    );
+    notificationDeleteCompany.style.display = "flex";
+
+    // Remove o gatilho da sessão para não repetir
+    sessionStorage.removeItem("mostrarNotificacaoDeleteCompany");
+
+    // Reinicia a animação da progress bar (necessário para casos de reuso)
+    const progressBar = notificationDeleteCompany.querySelector(
+      ".progress-bar-delete-company"
+    );
+    progressBar.style.animation = "none";
+    progressBar.offsetHeight; // forçar reflow
+    progressBar.style.animation = null;
+
+    // Esconde após x segundos
+    setTimeout(() => {
+      notificationDeleteCompany.classList.add("hide");
+      setTimeout(() => {
+        notificationDeleteCompany.remove();
       }, 50); // tempo da transição de opacidade
     }, 5000); // tempo do alerta
   }

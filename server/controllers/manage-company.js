@@ -81,7 +81,7 @@ const deleteCompany = async (req, res) => {
     // ✅ Retorna um sucesso simples
     return res.send(`
       <script>
-        sessionStorage.setItem('mostrarNotificacaoRemocao', 'true');
+        sessionStorage.setItem('mostrarNotificacaoDeleteCompany', 'true');
         window.location.href = '/settings?section=my-companies';
       </script>
     `);
