@@ -19,25 +19,23 @@ const getMyApplicationsPage = async (req, res) => {
 
 const deleteApplication = async (req, res) => {
   try {
-    const applicationId = req.query.id;
-    const userId = req.user._id;
-
-    const result = await Application.findOneAndDelete({
-      _id: applicationId,
-      user_id: userId
+    // 1. Buscar a candidatura antes de apagar
+    const application = await Application.findOneAndDelete({
+      _id: req.params.id,
+      user_id: req.user._id,
     });
 
-    if (!result) {
-      return res.status(404).send("Candidatura não encontrada");
+    if (!application) {
+      return res.status(404).json({ message: "Candidatura não encontrada" });
     }
 
-    return res.send(`
-      <script>
-        sessionStorage.setItem('mostrarNotificacaoRemocao', 'true');
-        window.location.href = '/settings?section=my-applications';
-      </script>
-    `);
+    // 2. Se existir, decrementar o número de candidaturas no anúncio
+    await Announcement.findByIdAndUpdate(
+      application.announcement_id,
+      { $inc: { numberOfApplications: -1 } }
+    );
 
+    res.redirect("/settings?section=my-applications");
   } catch (err) {
     console.error("Erro ao eliminar candidatura:", err);
     res.status(500).send("Erro interno no servidor");
