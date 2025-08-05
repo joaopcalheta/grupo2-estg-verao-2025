@@ -113,7 +113,7 @@ button {
 .btn-small {
   padding: 7px 6px !important;
   font-weight: 500 !important;
-  border-radius: 15px;
+  border-radius: 15px !important;
 }
 
 .btn-blue {
@@ -149,7 +149,10 @@ button {
   color: #fff;
 }
 
-
+.btn-cancel {
+  background-color: #f2f2f2;
+  color: black;
+}
 
 
 
