@@ -11,7 +11,9 @@
     <!-- texto -->
     <div class="d-flex flex-column justify-content-between ps-2 pt-2 pb-2">
       <div class="mb-2">
-        <h5><%= company.name %></h5>
+        <h5 class="text-truncate" style="max-width: 135px">
+          <%= company.name %>
+        </h5>
         <h6 class="mb-0 fw-normal"><%= company.municipality %></h6>
       </div>
     </div>
@@ -19,7 +21,11 @@
   <!-- Lado direito: botões -->
   <span class="pe-2 align-content-center">
     <div class="d-flex flex-column gap-2 justify-content-center pe-3 pb-2 pt-2">
-      <button type="button" class="btn btn-black btn-small w-100" onclick="">
+      <button
+        type="button"
+        class="btn btn-black btn-small w-100"
+        onclick="location.href='/manage-company/<%= company._id %>'"
+      >
         <h6 class="mb-0" style="font-weight: 600">Gerir</h6>
       </button>
       <button type="button" class="btn btn-blue btn-small w-100" onclick="">

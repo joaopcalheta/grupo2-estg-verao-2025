@@ -1,3 +1,5 @@
+// ../controllers/manage-company.js
+
 const Company = require("../models/company");
 
 // GET: Mostrar formulário com dados atuais
@@ -14,7 +16,7 @@ const getEditCompany = async (req, res) => {
       return res.status(404).send("Empresa não encontrada");
     }
 
-    res.render("edit-company", { company });
+    res.render("manage-company", { company });
   } catch (err) {
     console.error("Erro ao encontrar empresa para edição:", err);
     res.status(500).send("Erro interno no servidor");
@@ -52,7 +54,7 @@ const postEditCompany = async (req, res) => {
 
     res.send(`
       <script>
-        sessionStorage.setItem('mostrarNotificacaoEditCompany', 'true');
+        sessionStorage.setItem('mostrarNotificacaoManageCompany', 'true');
         window.location.href = '/settings?section=my-companies';
       </script>
     `);

@@ -79,7 +79,7 @@ const routes = [
   "company-manage-announcement",
   "company-my-announcements",
   "create-company",
-  "edit-company",
+  "manage-company",
   "home-details-announcement",
   "home",
   "login",
