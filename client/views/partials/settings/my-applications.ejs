@@ -9,27 +9,27 @@
 <% } %>
 
 <% applications.forEach(app => { %>
-  <div class="white-card pointer d-flex p-0">
-    <div class="d-flex justify-content-start">
+  <div class="white-card d-flex p-0">
+    <div class="d-flex p-0 justify-content-between">
       <!-- imagem -->
     <div class="mini-card-image-wrapper">
       <img class="structure-img" src="<%= app.announcement_id?.pic %>" />
     </div>
     <!-- texto -->
-      <div class="d-flex flex-column justify-content-between ps-2 pt-1 pb-2">
-        <h4 class="mt-2"><%= app.announcement_id?.job_name || 'Anuncio' %></h4>
-        <p class=""><%= new Date(app.submittedAt).toLocaleString('pt-PT') %></p>
+      <div class="d-flex flex-column justify-content-between ps-2 pt-1">
+        <h4 class="mb-1"><%= app.announcement_id?.job_name || 'Anuncio' %></h4>
+        <p><%= new Date(app.submittedAt).toLocaleString('pt-PT') %></p>
       </div>
     </div>
 
-    <span class="pe-2 align-content-center ml-1">
+    <span class="pe-2 align-content-center">
       <div class="d-flex flex-column gap-2 justify-content-center pe-3 pb-2 pt-2">  
-      <!-- Botão Editar -->
-      <form method="GET" action="/my-applications/edit/<%= app._id %>">
-        <button type="submit" class="btn btn-black btn-small w-100">
-          <h6 class="mb-0" style="font-weight: 600">Editar</h6>
+      <!-- Botão Detalhes -->
+        <button 
+          class="btn btn-blue btn-small w-100" 
+          onclick="window.location.href='/company-details-candidate?id=<%= app._id %>'">
+          <h6 class="mb-0" style="font-weight: 600">Detalhes</h6>
         </button>
-      </form>
       <!-- Botão Eliminar -->
       <form method="POST" action="/my-applications/delete/<%= app._id %>" onsubmit="return confirm('Desejas eliminar esta candidatura?')">
         <button type="submit" class="btn btn-delete btn-small w-100">
@@ -43,8 +43,11 @@
   </div>
 <% }); %>
 
-<button type="button" class="voltar" onclick="window.location.href='/'">
-  Voltar
-</button>
+<div class="text-center">
+  <button class="btn btn-black w-100" onclick="history.back()">
+    <h6 class="fw-bold">Voltar</h6>
+  </button>
+</div>
+
 
 <script src="/js/client-my-profile.js"></script>
