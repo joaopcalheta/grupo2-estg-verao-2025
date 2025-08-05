@@ -41,11 +41,13 @@ const postSubmitApplication = async (req, res) => {
       age,
       cv,
       about_me,
+      announcement_id,
     } = req.body;
 
     console.log("Dados recebidos:", req.body);
 
     const newApplication = new Application({
+      user_id: req.user._id,
       announcement_id: req.body.announcement_id,
       name,
       email,
@@ -59,6 +61,7 @@ const postSubmitApplication = async (req, res) => {
       age,
       cv,
       about_me,
+      submittedAt: new Date(),
     });
 
     await newApplication.save();

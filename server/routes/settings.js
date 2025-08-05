@@ -26,6 +26,7 @@ router.post(
 
 // my applications
 router.get("/my-applications", myApplicationsController.getMyApplicationsPage);
+router.post("/my-applications/delete/:id", myApplicationsController.deleteApplication);
 
 // my companies
 router.get("/my-companies", myCompaniesController.getMyCompaniesPage);

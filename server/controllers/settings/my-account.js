@@ -74,7 +74,7 @@ const postMyAccountData = async (req, res) => {
     `);
   } catch (err) {
     console.error("Erro ao atualizar perfil pessoal:", err);
-    res.status(500).send("Erro ao atualizar perfil");
+    res.status(500).send("Erro interno no servidor");
   }
 };
 

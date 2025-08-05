@@ -68,7 +68,7 @@
 </div>
 
 <% if (announcements.length === 0) { %>
-<p class="text-center">Nenhum anúncio disponível no momento.</p>
+<p class="text-center fw-bold">Nenhum anúncio disponível no momento.</p>
 <% } %> <% announcements.forEach((announcement) => { %>
 <a
   href="/home-details-announcement?id=<%= announcement._id %>"
