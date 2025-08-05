@@ -64,7 +64,35 @@ const postEditCompany = async (req, res) => {
   }
 };
 
+const deleteCompany = async (req, res) => {
+  console.log("Deleting Company...", req.query);
+  try {
+    const companyId = req.query.id;
+    if (!companyId) {
+      return res.status(400).send("ID da empresa não foi fornecido");
+    }
+
+    const deletedCompany = await Company.findByIdAndDelete(companyId);
+
+    if (!deletedCompany) {
+      return res.status(404).send("Empresa não foi encontrada");
+    }
+
+    // ✅ Retorna um sucesso simples
+    return res.send(`
+      <script>
+        sessionStorage.setItem('mostrarNotificacaoDeleteCompany', 'true');
+        window.location.href = '/settings?section=my-companies';
+      </script>
+    `);
+  } catch (err) {
+    console.error("Erro ao excluir empresa:", err);
+    return res.status(500).send("Erro interno no servidor");
+  }
+};
+
 module.exports = {
   getEditCompany,
   postEditCompany,
+  deleteCompany,
 };

@@ -3,6 +3,7 @@
 const Application = require("../models/application");
 const ProfessionalProfile = require("../models/professionalProfile");
 const User = require("../models/user");
+const Announcement = require("../models/announcement");
 
 const getSubmitApplication = async (req, res) => {
   try {
@@ -38,14 +39,17 @@ const postSubmitApplication = async (req, res) => {
       postcode,
       languages,
       education_level,
-      age,
+      birthdate,
       cv,
       about_me,
+      skills,
+      announcement_id,
     } = req.body;
 
     console.log("Dados recebidos:", req.body);
 
     const newApplication = new Application({
+      user_id: req.user._id,
       announcement_id: req.body.announcement_id,
       name,
       email,
@@ -56,12 +60,20 @@ const postSubmitApplication = async (req, res) => {
       postcode,
       languages,
       education_level,
-      age,
+      birthdate,
       cv,
       about_me,
+      skills,
+      submittedAt: new Date(),
     });
 
     await newApplication.save();
+
+    // Incrementar o número de candidaturas na coleção Announcement
+    await Announcement.findByIdAndUpdate(
+      req.body.announcement_id,
+      { $inc: { numberOfApplications: 1 } }
+    );
 
     res.send(`
   <script>

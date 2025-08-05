@@ -19,13 +19,21 @@ const getMyApplicationsPage = async (req, res) => {
 
 const deleteApplication = async (req, res) => {
   try {
-    await Application.findOneAndDelete({
+    // 1. Buscar a candidatura antes de apagar
+    const application = await Application.findOneAndDelete({
       _id: req.params.id,
       user_id: req.user._id,
     });
 
-    res.redirect("/my-applications");
+    // 2. Se existir, decrementar o número de candidaturas no anúncio
+    if (application) {
+      await Announcement.findByIdAndUpdate(
+        application.announcement_id,
+        { $inc: { numberOfApplications: -1 } }
+      );
+    }
 
+    res.redirect("/settings?section=my-applications");
   } catch (err) {
     console.error("Erro ao eliminar candidatura:", err);
     res.status(500).send("Erro interno no servidor");

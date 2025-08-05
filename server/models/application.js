@@ -51,7 +51,7 @@ const applicationSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
-    age: {
+    birthdate: {
       type: String,
       trim: true,
     },
@@ -63,6 +63,10 @@ const applicationSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    skills: [{
+      type: String,
+      trim: true,
+    }],
     announcement_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Announcement",
@@ -72,7 +76,11 @@ const applicationSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
-    }
+    },
+    submittedAt: {
+      type: Date,
+      default: Date.now,
+    },
   },
   {
     timestamps: true,

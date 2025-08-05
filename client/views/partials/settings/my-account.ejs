@@ -42,12 +42,12 @@
     />
   </div>
   <div>
-    <input
-      class="form-group"
-      type="date"
-      name="birthdate"
-      value="<%= user.birthdate %>"
-    />
+<input
+  class="form-group"
+  type="date"
+  name="birthdate"
+  value="<%= user.birthdate ? user.birthdate.toISOString().substring(0, 10) : '' %>"
+/>
   </div>
   <div>
     <input

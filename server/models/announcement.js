@@ -73,6 +73,10 @@ const announcementSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    numberOfApplications: {
+      type: Number,
+      default: 0,
+    },
     numberOfPositions: {
       type: String, // or Number
       required: true,
