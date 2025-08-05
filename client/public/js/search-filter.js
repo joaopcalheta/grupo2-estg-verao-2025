@@ -1,30 +1,27 @@
-// search-filter.js
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".filter-option");
 
-document.addEventListener("DOMContentLoaded", function () {
-  const dropdownButtons = document.querySelectorAll(".dropdown-btn");
+  buttons.forEach((button) => {
+    const targetId = button.getAttribute("data-bs-target")?.replace("#", "");
+    const target = document.getElementById(targetId);
+    const icon = button.querySelector(".rotate-icon");
 
-  dropdownButtons.forEach(button => {
-    button.addEventListener("click", () => {
+    if (!target || !icon) return;
 
-      button.classList.toggle("active");
-
-      // Inverter icons ▾ / ▴
-      if (button.textContent.includes("▾")) {
-        button.textContent = button.textContent.replace("▾", "▴");
-      } else if (button.textContent.includes("▴")) {
-        button.textContent = button.textContent.replace("▴", "▾");
-      }
-
-      const next = button.nextElementSibling;
-      if (next && next.classList.contains("checkbox-group")) {
-        next.style.display = next.style.display === "block" ? "none" : "block";
-      }
+    target.addEventListener("show.bs.collapse", () => {
+      icon.classList.add("rotated");
+      button.classList.add("active-bold");
     });
-  });
 
-  // Fecha o painel (simulado)
-  const closeBtn = document.querySelector(".close-btn");
-  closeBtn.addEventListener("click", () => {
-    document.querySelector(".filtro-container").style.display = "none";
+    target.addEventListener("hide.bs.collapse", () => {
+      icon.classList.remove("rotated");
+      button.classList.remove("active-bold");
+    });
+
+    // Set initial state
+    if (target.classList.contains("show")) {
+      icon.classList.add("rotated");
+      button.classList.add("active-bold");
+    }
   });
 });

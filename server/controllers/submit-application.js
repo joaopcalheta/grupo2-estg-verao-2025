@@ -3,6 +3,7 @@
 const Application = require("../models/application");
 const ProfessionalProfile = require("../models/professionalProfile");
 const User = require("../models/user");
+const Announcement = require("../models/announcement");
 
 const getSubmitApplication = async (req, res) => {
   try {
@@ -65,6 +66,12 @@ const postSubmitApplication = async (req, res) => {
     });
 
     await newApplication.save();
+
+    // Incrementar o número de candidaturas na coleção Announcement
+    await Announcement.findByIdAndUpdate(
+      req.body.announcement_id,
+      { $inc: { numberOfApplications: 1 } }
+    );
 
     res.send(`
   <script>
