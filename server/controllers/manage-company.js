@@ -54,7 +54,7 @@ const postEditCompany = async (req, res) => {
 
     res.send(`
       <script>
-        sessionStorage.setItem('mostrarNotificacaoEditCompany', 'true');
+        sessionStorage.setItem('mostrarNotificacaoManageCompany', 'true');
         window.location.href = '/settings?section=my-companies';
       </script>
     `);
