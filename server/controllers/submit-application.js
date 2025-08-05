@@ -39,9 +39,10 @@ const postSubmitApplication = async (req, res) => {
       postcode,
       languages,
       education_level,
-      age,
+      birthdate,
       cv,
       about_me,
+      skills,
       announcement_id,
     } = req.body;
 
@@ -59,9 +60,10 @@ const postSubmitApplication = async (req, res) => {
       postcode,
       languages,
       education_level,
-      age,
+      birthdate,
       cv,
       about_me,
+      skills,
       submittedAt: new Date(),
     });
 
