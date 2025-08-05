@@ -13,7 +13,12 @@
     </label>
     <br />
     <label class="fw-bold">Data de Nascimento
-      <input type="date" name="birthdate" value="<%= user ? user.birthdate : '' %>" required/>
+      <input
+        class="form-group"
+        type="date"
+        name="birthdate"
+        value="<%= user && user.birthdate ? user.birthdate.toISOString().substring(0, 10) : '' %>"
+      />
     </label>
     <br />
     <label class="fw-bold">Nº de Telefone
