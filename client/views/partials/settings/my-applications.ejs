@@ -2,6 +2,7 @@
   <link href="/css/general.css" rel="stylesheet" />
   <link href="/css/client-my-applications.css" rel="stylesheet" />
   <link href="/css/company-my-announcements.css" rel="stylesheet" />
+  <link href="/css/manage-company.css" rel="stylesheet" />
 </head>
 
 <% if (applications.length === 0) { %>
@@ -17,7 +18,7 @@
     </div>
     <!-- texto -->
       <div class="d-flex flex-column justify-content-between ps-2 pt-1">
-        <h4 class="mb-1"><%= app.announcement_id?.job_name || 'Anuncio' %></h4>
+        <h5 class="mb-1"><%= app.announcement_id?.job_name || 'Anuncio' %></h5>
         <p><%= new Date(app.submittedAt).toLocaleString('pt-PT') %></p>
       </div>
     </div>
@@ -31,11 +32,18 @@
           <h6 class="mb-0" style="font-weight: 600">Detalhes</h6>
         </button>
       <!-- Botão Eliminar -->
-      <form method="POST" action="/my-applications/delete/<%= app._id %>" >
+      <!--<form method="POST" action="/my-applications/delete/<%= app._id %>" >
         <button class="btn btn-delete btn-small w-100">
           <h6 class="mb-0" style="font-weight: 600">Eliminar</h6>
         </button>
-      </form>
+      </form>-->
+      
+        <button
+          id="deletebtn" type="button"
+          class="btn btn-delete btn-small w-100">
+          <h6 class="mb-0" style="font-weight: 600">Eliminar</h6>
+        </button>
+      
 
     </div>
   </span>
@@ -49,5 +57,53 @@
   </button>
 </div>
 
+<div class="modal" id="confirmModal" style="display: none;">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="icon">!</div>
+  <h2>Tem certeza?</h2>
+  <p>Você está prestes a excluir seu anúncio. Esta ação não pode ser desfeita.</p>
+  <div class="buttons">
+    <button class="btn-black btn-small" onclick="confirmDelete()">Sim, excluir</button>
+    <button class="btn-cancel btn-small" onclick="closeModal()">Cancelar</button>
+  </div>
+</div>
 
-<script src="/js/client-my-profile.js"></script>
+<!-- Script -->
+<script>
+  // ID da application (passado do EJS para JS)
+  const applicationId = "<%= applications._id %>";
+
+  // Botão "Eliminar"
+  document.getElementById("deletebtn").addEventListener("click", () => {
+    document.getElementById("confirmModal").style.display = "block";
+  });
+
+  // Fecha o modal
+  function closeModal() {
+    document.getElementById("confirmModal").style.display = "none";
+  }
+  // Confirma eliminação
+  async function confirmDelete() {
+    try {
+      const response = await fetch(`/settings?section=my-applications?id=${applicationId}`, {
+        method: "DELETE"
+      }
+      );
+
+      if (response.ok) {
+        sessionStorage.setItem('mostrarNotificacaoRemocao', 'true');
+        window.location.href = "/settings?section=my-applications";
+      } else {
+        const errorText = await response.text();
+        alert("Erro ao eliminar candidatura: " + errorText);
+      }
+    } catch (err) {
+      console.error("Erro ao eliminar:", err);
+      alert("Erro interno ao tentar eliminar a candidatura.");
+    } finally {
+      closeModal();
+    }
+  }
+
+</script>
+
