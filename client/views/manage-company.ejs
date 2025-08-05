@@ -1,3 +1,5 @@
+<link href="/css/manage-company.css" rel="stylesheet" />
+
 <h2 class="text-center my-5 fw-bold">Gerir empresa</h2>
 
 <form method="POST" action="/manage-company/<%= company._id %>">
@@ -80,7 +82,7 @@
     value="<%= company.pic %>"
   />
 
-  <div class="d-flex gap-2 mt-4">
+  <div class="d-flex gap-3 mb-4 mt-4">
     <div class="w-50">
       <button
         type="button"
@@ -96,4 +98,60 @@
       </button>
     </div>
   </div>
+
+  <div class="actions-btn d-grid buttonWidth">
+    <button id="deletebtn" type="button" class="btn btn-delete">
+      Apagar empresa 🗑️
+    </button>
+  </div>
 </form>
+
+<div class="modal" id="confirmModal" style="display: none">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="icon">!</div>
+  <h2>Tem certeza?</h2>
+  <p>
+    Você está prestes a excluir a sua empresa. Esta ação não pode ser desfeita.
+  </p>
+  <div class="buttons">
+    <button class="delete-btn" onclick="confirmDelete()">Sim, excluir</button>
+    <button class="cancel-btn" onclick="closeModal()">Cancelar</button>
+  </div>
+</div>
+
+<!-- Script -->
+<script>
+  // ID do anúncio (passado do EJS para JS)
+  const companytId = "<%= company._id %>";
+
+  // Botão "Eliminar"
+  document.getElementById("deletebtn").addEventListener("click", () => {
+    document.getElementById("confirmModal").style.display = "block";
+  });
+
+  // Fecha o modal
+  function closeModal() {
+    document.getElementById("confirmModal").style.display = "none";
+  }
+  // Confirma eliminação
+  async function confirmDelete() {
+    try {
+      const response = await fetch(`/manage-company?id=${companyId}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        sessionStorage.setItem("mostrarNotificacaoRemocao", "true");
+        window.location.href = "/settings?=my-companies";
+      } else {
+        const errorText = await response.text();
+        alert("Erro ao excluir empresa: " + errorText);
+      }
+    } catch (err) {
+      console.error("Erro ao eliminar:", err);
+      alert("Erro interno ao tentar excluir empresa.");
+    } finally {
+      closeModal();
+    }
+  }
+</script>
