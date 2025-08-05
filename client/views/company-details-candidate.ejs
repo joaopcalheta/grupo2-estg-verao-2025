@@ -4,9 +4,9 @@
 
 <div class="container">
   <div class="white-card">
-    <h4 class="text-center fw-bold mt-3">Detalhes do Candidato</h4>
+    <h4 class="text-center fw-bold mt-3">Detalhes do Candidatura</h4>
     <p class="mt-4"><b>Nome: </b><%= application.name %></p>
-    <p><b>Idade: </b><%= application.age %></p>
+    <p><b>Data de nascimento: </b><%= application.birthdate %></p>
     <p><b>Nº de Telefone: </b><%= application.phone %></p>
     <p><b>NIF: </b><%= application.nif %></p>
     <p><b>E-mail: </b><%= application.email %></p>
@@ -15,6 +15,7 @@
     <p><b>Código Postal: </b><%= application.postcode %></p>
     <p><b>Escolaridade</b>: </b><%= application.education_level %></p>
     <p><b>Línguas: </b><%= application.languages && application.languages.length > 0 ? application.languages.join(" ; ") : "Não especificado" %></p>
+    <p><b>Competências: </b><%= application.skills %></p>
     <p><b>Sobre: </b><%= application.about_me %></p>
     <% if (application.cv) { %>
       <p><b>CV: </b> <a href="<%= application.cv %>" target="_blank">Ver CV</a></p>

@@ -24,7 +24,8 @@ const deleteApplication = async (req, res) => {
       user_id: req.user._id,
     });
 
-    res.redirect("/my-applications");
+    res.redirect("/settings?section=my-applications");
+    
 
   } catch (err) {
     console.error("Erro ao eliminar candidatura:", err);
