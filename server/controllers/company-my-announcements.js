@@ -1,10 +1,28 @@
+// ../controllers/company-my-announcements.js
+
 const Announcement = require("../models/announcement");
+const Company = require("../models/company");
 
 const getCompanyMyAnnouncements = async (req, res) => {
   try {
-    const announcements = await Announcement.find().sort({ createdAt: -1 });
+    const companyID = req.params.companyID;
+
+    if (!companyID) {
+      return res.status(400).send("ID da empresa não encontrado");
+    }
+
+    const company = await Company.findById(companyID);
+
+    if (!company) {
+      return res.status(404).send("Empresa não encontrada");
+    }
+    const announcements = await Announcement.find({
+      company_id: companyID,
+    }).sort({ createdAt: -1 }); // ordena por data de criação, do mais recente para o mais antigo
+
     res.render("company-my-announcements", {
-      announcements, // passa os dados
+      announcements,
+      company,
     });
   } catch (err) {
     console.error(err);

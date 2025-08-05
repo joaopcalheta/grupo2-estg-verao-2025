@@ -5,7 +5,7 @@
 
 <div class="container-ad">
   <h2 class="text-center my-4">Criar Anúncio</h2>
-  <form method="POST" action="/company-create-announcement/">
+  <form method="POST" action="/company-create-announcement/<%= companyID %>">
     <label
       >Nome da profissão
       <input type="text" name="job_name" required />
@@ -225,10 +225,8 @@
       <input type="text" name="end_date" />
     </label>
     <label
-    >Número de vagas
-      <input type="number" 
-      name="numberOfPositions" 
-      value="1">
+      >Número de vagas
+      <input type="number" name="numberOfPositions" value="1" />
     </label>
     <label
       >Descrição

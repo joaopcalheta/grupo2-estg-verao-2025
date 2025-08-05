@@ -1,24 +1,28 @@
+<!-- ../views/company-my-announcements.ejs -->
+
 <head>
   <link href="/css/general.css" rel="stylesheet" />
   <link href="/css/company-my-announcements.css" rel="stylesheet" />
 </head>
 
-<h2 class="text-center my-5 fw-bold">Anúncios de company.name</h2>
+<h2 class="text-center my-5 fw-bold">Anúncios de <%= company.name %></h2>
 
 <% if (announcements.length === 0) { %>
 <p class="text-center">A sua empresa ainda não tem anúncios.</p>
 <% } %> <% announcements.forEach((announcement) => { %>
-<div class="white-card d-flex p-0">
-  <div class="d-flex justify-content-start">
+<div class="white-card d-flex p-0 justify-content-between">
+  <div class="d-flex">
     <!-- imagem -->
-    <div class="image-wrapper">
-      <img class="announcement-img" src="<%= announcement.pic %>" />
+    <div class="mini-card-image-wrapper">
+      <img class="structure-img" src="<%= announcement.pic %>" />
     </div>
     <!-- texto -->
-    <div class="d-flex flex-column justify-content-between ps-2 pt-1 pb-2">
+    <div class="d-flex flex-column justify-content-between ps-2 pt-2 pb-2">
       <div class="mb-2">
-        <h5><%= announcement.job_name %></h5>
-        <h6 class="mb-0 fw-normal">announcement.state</h6>
+        <h5 class="text-truncate" style="max-width: 120px">
+          <%= announcement.job_name %>
+        </h5>
+        <h6 class="mb-0 fw-normal"><%=announcement.state%></h6>
       </div>
       <div>
         <a
@@ -31,30 +35,35 @@
     </div>
   </div>
   <!-- Lado direito: botões -->
-  <div class="d-flex flex-column gap-1 justify-content-center pe-4 pb-2 pt-2">
-    <button type="button" class="btn btn-blue btn-small w-100" onclick="">
-      <h6 class="fw-bold mb-0">Editar</h6>
-    </button>
-    <button type="button" class="btn btn-blue btn-small w-100" onclick="">
-      <h6 class="fw-bold mb-0">Candidatos</h6>
-    </button>
-  </div>
+  <span class="pe-2 align-content-center">
+    <div class="d-flex flex-column gap-2 justify-content-center pe-3 pb-2 pt-2">
+      <button
+        type="button"
+        class="btn btn-black btn-small w-100"
+        onclick="location.href='/manage-company/'"
+      >
+        <h6 class="mb-0" style="font-weight: 600">Editar</h6>
+      </button>
+      <button type="button" class="btn btn-blue btn-small w-100" onclick="">
+        <h6 class="mb-0" style="font-weight: 600">Candidatos</h6>
+      </button>
+    </div>
+  </span>
 </div>
 <% }); %>
 
-<div class="d-flex justify-content-center gap-2">
+<div class="text-center mt-4">
   <button
-    type="button"
-    class="buttonWidth btn btn-black"
-    onclick="window.location.href='/'"
+    class="btn btn-blue w-100"
+    onclick="location.href='/company-create-announcement/<%= company._id %>'"
   >
-    Voltar
+    <h6 class="fw-bold">+ Criar anúncio</h6>
   </button>
-  <button
-    class="btn btn-blue"
-    onclick="location.href='/company-create-announcement'"
-  >
-    + Adicionar anúncio
+</div>
+
+<div class="text-center mt-4">
+  <button class="btn btn-black w-100" onclick="history.back()">
+    <h6 class="fw-bold">Voltar</h6>
   </button>
 </div>
 

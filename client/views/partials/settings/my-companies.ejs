@@ -1,3 +1,5 @@
+<!-- ../views/partials/settings/my-companies.ejs -->
+
 <% if (companies.length === 0) { %>
 <p class="text-center">Não está associado a nenhuma empresa.</p>
 <% } %> <% companies.forEach((company) => { %>
@@ -28,7 +30,11 @@
       >
         <h6 class="mb-0" style="font-weight: 600">Gerir</h6>
       </button>
-      <button type="button" class="btn btn-blue btn-small w-100" onclick="">
+      <button
+        type="button"
+        class="btn btn-blue btn-small w-100"
+        onclick="location.href='/company-my-announcements/<%= company._id %>'"
+      >
         <h6 class="mb-0" style="font-weight: 600">Anúncios</h6>
       </button>
     </div>
