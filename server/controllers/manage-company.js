@@ -14,7 +14,7 @@ const getEditCompany = async (req, res) => {
       return res.status(404).send("Empresa não encontrada");
     }
 
-    res.render("edit-company", { company });
+    res.render("manage-company", { company });
   } catch (err) {
     console.error("Erro ao encontrar empresa para edição:", err);
     res.status(500).send("Erro interno no servidor");
