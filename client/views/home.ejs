@@ -71,9 +71,9 @@
 <p class="text-center">Nenhum anúncio disponível no momento.</p>
 <% } %> <% announcements.forEach((announcement) => { %>
 <a
-    href="/home-details-announcement?id=<%= announcement._id %>"
-    class="text-decoration-none text-dark"
-  >
+  href="/home-details-announcement?id=<%= announcement._id %>"
+  class="text-decoration-none text-dark"
+>
   <div class="white-card pointer d-flex p-0">
     <div class="d-flex justify-content-start">
       <!-- imagem -->
@@ -82,18 +82,20 @@
       </div>
       <!-- texto -->
       <div class="d-flex flex-column justify-content-between ps-2 pt-1 pb-2">
-        <div class="mb-2">
+        <div class="mb-0">
           <h5><%= announcement.job_name %></h5>
           <h6 class="mb-0 fw-normal"><%= announcement.municipality %></h6>
           <h6 class="fw-normal"><%= announcement.regime %></h6>
         </div>
         <div>
-          <h6 class="fw-normal text-muted pointer text-decoration-underline">Saber mais</h6>
+          <h6 class="fw-normal text-muted pointer text-decoration-underline">
+            Saber mais
+          </h6>
         </div>
       </div>
     </div>
   </div>
-  </a>
+</a>
 <% }); %>
 <!-----------------Alertas------------------------------------->
 
