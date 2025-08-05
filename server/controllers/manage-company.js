@@ -1,3 +1,5 @@
+// ../controllers/manage-company.js
+
 const Company = require("../models/company");
 
 // GET: Mostrar formulário com dados atuais
