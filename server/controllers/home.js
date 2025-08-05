@@ -5,7 +5,6 @@ const Announcement = require("../models/announcement");
 const getHome = async (req, res) => {
   try {
     const order = req.query.order || "recent";
-
     const { category, type, regime, municipality, education_level } = req.query;
 
     let sortOptions = {};
@@ -13,32 +12,30 @@ const getHome = async (req, res) => {
 
     switch (order) {
       case "recent":
-        sortOptions = { createdAt: -1 }; // mais recente
+        sortOptions = { createdAt: -1 };
         break;
       case "old":
-        sortOptions = { createdAt: 1 }; // mais antigo
+        sortOptions = { createdAt: 1 };
         break;
       case "featured":
-        sortOptions = { isFeatured: -1, createdAt: -1 }; // ??????? REVER ISTO FUTURO
+        sortOptions = { isFeatured: -1, createdAt: -1 };
         break;
       case "a-z":
-        sortOptions = { job_name: 1 }; // A - Z
+        sortOptions = { job_name: 1 };
         useCollation = true;
         break;
       case "z-a":
-        sortOptions = { job_name: -1 }; // Z - A
+        sortOptions = { job_name: -1 };
         useCollation = true;
         break;
       default:
-        sortOptions = { createdAt: -1 }; // por padrão fica os mais recentes
+        sortOptions = { createdAt: -1 };
     }
 
     const filter = {};
 
     if (category) {
-      filter.category = {
-        $in: Array.isArray(category) ? category : [category],
-      };
+      filter.category = { $in: Array.isArray(category) ? category : [category] };
     }
     if (type) {
       filter.type = { $in: Array.isArray(type) ? type : [type] };
@@ -47,24 +44,16 @@ const getHome = async (req, res) => {
       filter.regime = { $in: Array.isArray(regime) ? regime : [regime] };
     }
     if (municipality) {
-      filter.municipality = {
-        $in: Array.isArray(municipality) ? municipality : [municipality],
-      };
+      filter.municipality = { $in: Array.isArray(municipality) ? municipality : [municipality] };
     }
     if (education_level) {
       filter.education_level = {
-        $in: Array.isArray(education_level)
-          ? education_level
-          : [education_level],
+        $in: Array.isArray(education_level) ? education_level : [education_level],
       };
     }
 
     let query = Announcement.find(filter);
 
-    // nota: .collation() vem do moongo e define como as strings sao comparadas e ordenas - ver documentacao
-    // nota2: foi usado porque o mongo na ordenação afabetica estava a dar prioridade a maisuculas
-    // e a collation resolve isso, tornando a ordenação case-insensitive
-    // https://www.mongodb.com/docs/manual/reference/collation/
     if (useCollation) {
       query = query.collation({ locale: "pt", strength: 1 });
     }
