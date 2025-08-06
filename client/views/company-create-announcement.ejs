@@ -181,6 +181,9 @@
         <i class="bi bi-upload"></i> Enviar
       </label>-->
     </div>
+    <% if (typeof announcement !== "undefined" && announcement.pic) { %>
+      <img src="<%= announcement.pic %>" alt="Imagem do anúncio" />
+    <% } %>
     <div class="actions-btn">
       <button type="button" class="btn btn-black" onclick="history.back()">
         Voltar
