@@ -48,6 +48,7 @@
             type="checkbox"
             name="category"
             value="Restauração"
+            <%= query.category.includes('Restauração') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="categoria-restauracao"
             >Restauração</label
@@ -60,6 +61,7 @@
             type="checkbox"
             name="category"
             value="Limpeza"
+            <%= query.category.includes('Limpeza') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="categoria-limpeza"
             >Limpeza</label
@@ -71,6 +73,7 @@
             type="checkbox"
             name="category"
             value="Construção"
+            <%= query.category.includes('Construção') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="categoria-construcao"
             >Construção</label
@@ -82,6 +85,7 @@
             type="checkbox"
             name="category"
             value="Vendedor"
+            <%= query.category.includes('Vendedor') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="categoria-vendedor"
             >Vendedor</label
@@ -93,6 +97,7 @@
             type="checkbox"
             name="category"
             value="Saúde"
+            <%= query.category.includes('Saúde') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="categoria-saude">Saúde</label>
         </div>
@@ -102,6 +107,7 @@
             type="checkbox"
             name="category"
             value="Educação"
+            <%= query.category.includes('Educação') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="categoria-educacao"
             >Educação</label
@@ -113,6 +119,7 @@
             type="checkbox"
             name="category"
             value="IT"
+            <%= query.category.includes('IT') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="categoria-tecnologia">IT</label>
         </div>
@@ -122,6 +129,7 @@
             type="checkbox"
             name="category"
             value="Administração"
+            <%= query.category.includes('Administração') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="categoria-administracao"
             >Administração</label
@@ -133,6 +141,7 @@
             type="checkbox"
             name="category"
             value="Transporte"
+            <%= query.category.includes('Transporte') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="categoria-transporte"
             >Transporte</label
@@ -144,6 +153,7 @@
             type="checkbox"
             name="category"
             value="Atendimento ao Cliente"
+            <%= query.category.includes('Atendimento ao Cliente') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="categoria-atendimento"
             >Atendimento ao Cliente</label
@@ -155,6 +165,7 @@
             type="checkbox"
             name="category"
             value="Marketing"
+            <%= query.category.includes('Marketing') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="categoria-marketing"
             >Marketing</label
@@ -166,6 +177,7 @@
             type="checkbox"
             name="category"
             value="Financeiro"
+            <%= query.category.includes('Financeiro') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="categoria-financeiro"
             >Financeiro</label
@@ -177,6 +189,7 @@
             type="checkbox"
             name="category"
             value="Logística"
+            <%= query.category.includes('Logística') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="categoria-logistica"
             >Logística</label
@@ -188,6 +201,7 @@
             type="checkbox"
             name="category"
             value="Segurança"
+            <%= query.category.includes('Segurança') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="categoria-seguranca"
             >Segurança</label
@@ -199,6 +213,7 @@
             type="checkbox"
             name="category"
             value="Serviços Gerais"
+            <%= query.category.includes('Serviços Gerais') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="categoria-servicos"
             >Serviços Gerais</label
@@ -231,6 +246,7 @@
             type="checkbox"
             name="type"
             value="Emprego"
+            <%= query.type.includes('Emprego') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="tipo1">Emprego</label>
         </div>
@@ -240,6 +256,7 @@
             type="checkbox"
             name="type"
             value="Estágio"
+            <%= query.type.includes('Estágio') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="tipo2">Estágio</label>
         </div>
@@ -270,6 +287,7 @@
             type="checkbox"
             name="regime"
             value="Full-time"
+            <%= query.regime.includes('Full-time') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="regime1">Full-time</label>
         </div>
@@ -279,6 +297,7 @@
             type="checkbox"
             name="regime"
             value="Part-time"
+            <%= query.regime.includes('Part-time') ? 'checked' : '' %>
           />
           <label class="form-check-label" for="regime2">Part-time</label>
         </div>
@@ -308,7 +327,8 @@
             class="form-check-input"
             name="municipality"
             type="checkbox"
-            value="Ponto do Sol"
+            value="Ponta do Sol"
+            <%= query.municipality.includes('Ponta do Sol') ? 'checked' : '' %>
           /><label class="form-check-label" for="pds">Ponta do Sol</label>
         </div>
         <div class="form-check">
@@ -317,6 +337,7 @@
             name="municipality"
             type="checkbox"
             value="Calheta"
+            <%= query.municipality.includes('Calheta') ? 'checked' : '' %>
           /><label class="form-check-label" for="calheta">Calheta</label>
         </div>
         <div class="form-check">
@@ -325,6 +346,7 @@
             name="municipality"
             type="checkbox"
             value="Ribeira Brava"
+            <%= query.municipality.includes('Ribeira Brava') ? 'checked' : '' %>
           /><label class="form-check-label" for="rb">Ribeira Brava</label>
         </div>
         <div class="form-check">
@@ -333,6 +355,7 @@
             name="municipality"
             type="checkbox"
             value="Câmara de Lobos"
+            <%= query.municipality.includes('Câmara de Lobos') ? 'checked' : '' %>
           /><label class="form-check-label" for="cl">Câmara de Lobos</label>
         </div>
         <div class="form-check">
@@ -341,6 +364,7 @@
             name="municipality"
             type="checkbox"
             value="Funchal"
+            <%= query.municipality.includes('Funchal') ? 'checked' : '' %>
           /><label class="form-check-label" for="funchal">Funchal</label>
         </div>
         <div class="form-check">
@@ -349,6 +373,7 @@
             name="municipality"
             type="checkbox"
             value="Santa Cruz"
+            <%= query.municipality.includes('Santa Cruz') ? 'checked' : '' %>
           /><label class="form-check-label" for="sc">Santa Cruz</label>
         </div>
         <div class="form-check">
@@ -357,6 +382,7 @@
             name="municipality"
             type="checkbox"
             value="Machico"
+            <%= query.municipality.includes('Machico') ? 'checked' : '' %>
           /><label class="form-check-label" for="machico">Machico</label>
         </div>
         <div class="form-check">
@@ -365,6 +391,7 @@
             name="municipality"
             type="checkbox"
             value="Santa Cruz"
+            <%= query.municipality.includes('Santa Cruz') ? 'checked' : '' %>
           /><label class="form-check-label" for="santana">Santana</label>
         </div>
         <div class="form-check">
@@ -373,6 +400,7 @@
             name="municipality"
             type="checkbox"
             value="São Vicente"
+            <%= query.municipality.includes('São Vicente') ? 'checked' : '' %>
           /><label class="form-check-label" for="sv">São Vicente</label>
         </div>
         <div class="form-check">
@@ -381,6 +409,7 @@
             name="municipality"
             type="checkbox"
             value="Porto Moniz"
+            <%= query.municipality.includes('Porto Moniz') ? 'checked' : '' %>
           /><label class="form-check-label" for="pm">Porto Moniz</label>
         </div>
         <div class="form-check">
@@ -389,6 +418,7 @@
             name="municipality"
             type="checkbox"
             value="Porto Santo"
+            <%= query.municipality.includes('Porto Santo') ? 'checked' : '' %>
           /><label class="form-check-label" for="ps">Porto Santo</label>
         </div>
       </div>
@@ -418,7 +448,8 @@
             name="education_level"
             type="checkbox"
             value="ensino básico"
-          /><label class="form-check-label" for="3c">Ensino básico</label>
+            <%= query.education_level.includes('ensino básico') ? 'checked' : '' %>
+          /><label class="form-check-label" for="3c">Ensino Básico</label>
         </div>
         <div class="form-check">
           <input
@@ -426,7 +457,8 @@
             name="education_level"
             type="checkbox"
             value="ensino secundário"
-          /><label class="form-check-label" for="sec">Ensino secundário</label>
+            <%= query.education_level.includes('ensino secundário') ? 'checked' : '' %>
+          /><label class="form-check-label" for="sec">Ensino Secundário</label>
         </div>
         <div class="form-check">
           <input
@@ -434,6 +466,7 @@
             name="education_level"
             type="checkbox"
             value="ensino superior"
+            <%= query.education_level.includes('ensino superior') ? 'checked' : '' %>
           /><label class="form-check-label" for="es">Ensino Superior</label>
         </div>
       </div>
