@@ -44,29 +44,28 @@ const userSchema = new mongoose.Schema(
     },
     address: {
       type: String,
-      required: true,
+
       default: "",
       trim: true,
     },
     postcode: {
       type: String,
-      required: true,
+
       trim: true,
     },
     municipality: {
       type: String,
-      required: true,
+
       trim: true,
     },
     birthdate: {
       type: Date,
-      required: true,
+
       trim: true,
     },
     company_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Company",
-      required: true,
     },
   },
   {
