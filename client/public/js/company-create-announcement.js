@@ -61,33 +61,38 @@ const freguesiasPorConcelho = {
   "Porto Santo": ["Porto Santo"],
 };
 
-const municipioSelect = document.getElementById("municipality");
-const freguesiaSelect = document.getElementById("freguesia");
+document.addEventListener("DOMContentLoaded", function () {
+  const municipioSelect = document.getElementById("municipality");
+  const freguesiaSelect = document.getElementById("freguesia");
 
-municipioSelect.addEventListener("change", function () {
-  const concelho = this.value;
-  const freguesias = freguesiasPorConcelho[concelho] || [];
+  municipioSelect.addEventListener("change", function () {
+    const concelho = this.value;
+    const freguesias = freguesiasPorConcelho[concelho] || [];
 
-  // Limpa as opções atuais
-  freguesiaSelect.innerHTML = "";
+    // Limpa as opções atuais
+    freguesiaSelect.innerHTML = "";
 
-  if (freguesias.length === 0) {
-    const opt = document.createElement("option");
-    opt.text = "Sem freguesias disponíveis";
-    opt.disabled = true;
-    freguesiaSelect.add(opt);
-  } else {
-    const placeholder = document.createElement("option");
-    placeholder.text = "Selecione uma freguesia";
-    placeholder.disabled = true;
-    placeholder.selected = true;
-    freguesiaSelect.add(placeholder);
+    if (freguesias.length === 0) {
+      freguesiaSelect.disabled = true;
+      const opt = document.createElement("option");
+      opt.text = "Sem freguesias disponíveis";
+      opt.disabled = true;
+      opt.selected = true;
+      freguesiaSelect.add(opt);
+    } else {
+      freguesiaSelect.disabled = false;
+      const placeholder = document.createElement("option");
+      placeholder.text = "Selecione uma freguesia";
+      placeholder.disabled = true;
+      placeholder.selected = true;
+      freguesiaSelect.add(placeholder);
 
-    freguesias.forEach(function (freg) {
-      const option = document.createElement("option");
-      option.value = freg;
-      option.text = freg;
-      freguesiaSelect.add(option);
-    });
-  }
+      freguesias.forEach(function (freg) {
+        const option = document.createElement("option");
+        option.value = freg;
+        option.text = freg;
+        freguesiaSelect.add(option);
+      });
+    }
+  });
 });
