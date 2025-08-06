@@ -63,27 +63,19 @@
       </div>
     </div>
     <!-- filtrar (pagina) -->
-    <%
-      const buildQueryString = (queryObj) => {
-        const params = new URLSearchParams();
-        for (const key in queryObj) {
-          const value = queryObj[key];
-          if (Array.isArray(value)) {
-            value.forEach((v) => params.append(key, v));
-          } else {
-             params.append(key, value);
-          }
-        }
-        return params.toString();
-      };
-    %>
+    <% const buildQueryString = (queryObj) => { const params = new
+    URLSearchParams(); for (const key in queryObj) { const value =
+    queryObj[key]; if (Array.isArray(value)) { value.forEach((v) =>
+    params.append(key, v)); } else { params.append(key, value); } } return
+    params.toString(); }; %>
     <div class="d-flex main-card-filter-left justify-content-center">
-    <button
-      type="button"
-      onclick="window.location.href='/search-filter?<%= buildQueryString(query) %>'"
-    >
-      <i class="bi bi-funnel-fill me-2"></i> <b>FILTRAR</b>
-    </button> </div>
+      <button
+        type="button"
+        onclick="window.location.href='/search-filter?<%= buildQueryString(query) %>'"
+      >
+        <i class="bi bi-funnel-fill me-2"></i> <b>FILTRAR</b>
+      </button>
+    </div>
   </div>
 </div>
 
@@ -172,17 +164,3 @@
     }, 5000);
   }
 </script>
-
-<!-----------------temporario------------------------------------->
-<div class="my-4">
-  <h3>temporario</h3>
-  <a href="/login">Login</a><br />
-  <a href="/settings">Settings</a><br />
-  <a href="/my-profile-my-companies">Minhas empresas</a><br />
-  <a href="/company-create-announcement">Empresa - Criar anúncio</a><br />
-  <a href="/company-my-announcements">Empresa - Meus anúncios</a><br />
-  <a href="/my-profile-my-companies">minhas empresas</a><br />
-  <a href="/create-company">criar empresa</a><br />
-  <a href="/edit-company">editar empresa</a><br />
-</div>
-<!-----------------temporario------------------------------------->

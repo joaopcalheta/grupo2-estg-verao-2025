@@ -5,8 +5,9 @@ const Announcement = require("../../models/announcement");
 
 const getMyApplicationsPage = async (req, res) => {
   try {
-    const applications = await Application.find({ user_id: req.user._id })
-      .populate("announcement_id");
+    const applications = await Application.find({
+      user_id: req.user._id,
+    }).populate("announcement_id");
 
     res.render("partials/settings/my-applications", {
       applications,
@@ -30,18 +31,16 @@ const deleteApplication = async (req, res) => {
     }
 
     // 2. Se existir, decrementar o número de candidaturas no anúncio
-    await Announcement.findByIdAndUpdate(
-      application.announcement_id,
-      { $inc: { numberOfApplications: -1 } }
-    );
+    await Announcement.findByIdAndUpdate(application.announcement_id, {
+      $inc: { numberOfApplications: -1 },
+    });
 
     res.redirect("/settings?section=my-applications");
-  
   } catch (err) {
     console.error("Erro ao eliminar candidatura:", err);
     res.status(500).send("Erro interno no servidor");
   }
-}
+};
 
 module.exports = {
   getMyApplicationsPage,
