@@ -63,6 +63,7 @@ const getHome = async (req, res) => {
     res.render("home", {
       announcements,
       order,
+      query: req.query,
     });
   } catch (err) {
     console.error(err);

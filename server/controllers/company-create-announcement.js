@@ -1,6 +1,26 @@
 // ../controllers/company-create-announcement.js
 
 const Announcement = require("../models/announcement");
+const path = require("path");
+
+// Exemplo de mapeamento categoria -> imagem default
+const categoryToImage = {
+  Restauração: "/images/restauracao.jpg",
+  Limpeza: "/images/limpeza.jpg",
+  Construção: "/images/construcao.jpg",
+  Vendedor: "/images/vendedor.jpg",
+  Saúde: "/images/saude.jpg",
+  Educação: "/images/educacao.jpg",
+  IT: "/images/it.jpg",
+  Administração: "/images/administracao.jpg",
+  Transporte: "/images/transporte.jpg",
+  "Atendimento ao Cliente": "/images/atendimento.jpg",
+  Marketing: "/images/marketing.jpg",
+  Financeiro: "/images/financeiro.jpg",
+  Logística: "/images/logistica.jpg",
+  Segurança: "/images/seguranca.jpg",
+  "Serviços Gerais": "/images/servicos.jpg",
+};
 
 const getCompanyCreateAnnouncement = async (req, res) => {
   try {
@@ -30,11 +50,15 @@ const postCompanyCreateAnnouncement = async (req, res) => {
       end_date,
       numberOfPositions,
       description,
-      pic,
       state,
     } = req.body;
 
     console.log("Dados recebidos:", req.body);
+
+    const picPath =
+      req.body.pic && req.body.pic.trim() !== ""
+        ? req.body.pic
+        : categoryToImage[req.body.category] || "/css/images/defaults/default.png";
 
     const newAnnouncement = new Announcement({
       job_name,
@@ -52,7 +76,7 @@ const postCompanyCreateAnnouncement = async (req, res) => {
       end_date,
       numberOfPositions,
       description,
-      pic,
+      pic: picPath,
       state,
       company_id: req.params.companyID,
       user_id: req.user._id,
