@@ -5,7 +5,7 @@ const companyManageAnnouncementController = require("../controllers/company-mana
 router.get(
   "/company-manage-announcement",
   companyManageAnnouncementController.getCompanyManageAnnouncement
-); // renderiza a página 
+); // renderiza a página
 
 router.post(
   "/company-manage-announcement",
@@ -16,6 +16,4 @@ router.delete(
   companyManageAnnouncementController.deleteCompanyAnnouncement
 );
 
-
 module.exports = router;
-

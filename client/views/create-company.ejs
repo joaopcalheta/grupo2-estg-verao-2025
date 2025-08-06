@@ -1,40 +1,38 @@
+<head>
+  <link href="/css/form.css" rel="stylesheet" />
+</head>
+
 <h2 class="text-center my-5 fw-bold">Criar empresa</h2>
 
 <form method="POST" action="/create-company/">
-  <label class="mb-1" for="name">Nome da empresa</label>
-  <input class="mb-2" type="text" id="name" name="name" required />
+  <label for="name">Nome da empresa</label>
+  <input type="text" id="name" name="name" required />
 
   <label class="mb-1" for="extra_admins"
     >Outros administradores (usernames, separados por vírgula)</label
   >
   <input class="mb-2" type="text" id="extra_admins" name="extra_admins" />
 
-  <label class="mb-1" for="phone">Telefone</label>
-  <input class="mb-2" type="text" id="phone" name="phone" required />
+  <label for="phone">Telefone</label>
+  <input type="text" id="phone" name="phone" required />
 
-  <label class="mb-1" for="nif">NIF</label>
-  <input class="mb-2" type="text" id="nif" name="nif" required />
+  <label for="nif">NIF</label>
+  <input type="text" id="nif" name="nif" required />
 
-  <label class="mb-1" for="address">Morada</label>
-  <input class="mb-2" type="text" id="address" name="address" required />
+  <label for="address">Morada</label>
+  <input type="text" id="address" name="address" required />
 
-  <label class="mb-1" for="postcode">Código Postal</label>
-  <input class="mb-2" type="text" id="postcode" name="postcode" required />
+  <label for="postcode">Código Postal</label>
+  <input type="text" id="postcode" name="postcode" required />
 
-  <label class="mb-1" for="municipality">Concelho</label>
-  <input
-    class="mb-2"
-    type="text"
-    id="municipality"
-    name="municipality"
-    required
-  />
+  <label for="municipality">Concelho</label>
+  <input type="text" id="municipality" name="municipality" required />
 
-  <label class="mb-1" for="about_us">Sobre nós</label>
-  <input class="mb-2" type="text" id="about_us" name="about_us" required />
+  <label for="about_us">Sobre nós</label>
+  <input type="text" id="about_us" name="about_us" required />
 
-  <label class="mb-1" for="pic">Adicionar imagem</label>
-  <input class="mb-2" type="text" id="pic" name="pic" />
+  <label for="pic">Adicionar imagem</label>
+  <input type="text" id="pic" name="pic" />
 
   <div class="d-flex gap-3 mt-4">
     <div class="w-50">

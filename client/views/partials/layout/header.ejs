@@ -20,20 +20,27 @@
         </a>
       </div>
     </div>
-    <!-- lado direito: myaccount + logout-->
+    <!-- lado direito: settings + logout-->
     <div class="d-flex align-items-center">
-      <!-- my account-->
+      <!-- settings  (sempre visivel): link muda conforme autenticação-->
       <div class="me-2">
+        <% if (currentUser) { %>
         <a href="/settings">
+        <% } else { %>
+        <a href="/login">
+        <% } %>     
           <img class="icon" src="/images/my-account.png" />
         </a>
       </div>
+
       <!-- logout-->
+      <% if (currentUser) { %>
       <div class="">
-        <a href="/login">
+        <a href="/logout">
           <img class="icon" src="/images/logout.png" />
         </a>
       </div>
+      <% } %>
     </div>
   </div>
 </div>

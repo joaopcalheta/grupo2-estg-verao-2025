@@ -70,7 +70,7 @@ const announcementSchema = new mongoose.Schema(
       required: true,
     },
     pic: {
-      type: String,
+      type: String, // Caminho para a imagem (ex: "/css/images/defaults/restauração.png")
       trim: true,
     },
     numberOfApplications: {

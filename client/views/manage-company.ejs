@@ -1,11 +1,13 @@
-<link href="/css/manage-company.css" rel="stylesheet" />
+<head>
+  <link href="/css/manage-company.css" rel="stylesheet" />
+  <link href="/css/form.css" rel="stylesheet" />
+</head>
 
 <h2 class="text-center my-5 fw-bold">Gerir empresa</h2>
 
 <form method="POST" action="/manage-company/<%= company._id %>">
-  <label class="mb-1" for="name">Nome da empresa</label>
+  <label for="name">Nome da empresa</label>
   <input
-    class="mb-2"
     type="text"
     id="name"
     name="name"
@@ -22,9 +24,8 @@
     value="<%= company.extra_admins %>"
   />
 
-  <label class="mb-1" for="phone">Telefone</label>
+  <label for="phone">Telefone</label>
   <input
-    class="mb-2"
     type="text"
     id="phone"
     name="phone"
@@ -32,19 +33,11 @@
     required
   />
 
-  <label class="mb-1" for="nif">NIF</label>
-  <input
-    class="mb-2"
-    type="text"
-    id="nif"
-    name="nif"
-    value="<%= company.nif %>"
-    required
-  />
+  <label for="nif">NIF</label>
+  <input type="text" id="nif" name="nif" value="<%= company.nif %>" required />
 
-  <label class="mb-1" for="address">Morada</label>
+  <label for="address">Morada</label>
   <input
-    class="mb-2"
     type="text"
     id="address"
     name="address"
@@ -52,9 +45,8 @@
     required
   />
 
-  <label class="mb-1" for="postcode">Código Postal</label>
+  <label for="postcode">Código Postal</label>
   <input
-    class="mb-2"
     type="text"
     id="postcode"
     name="postcode"
@@ -62,9 +54,8 @@
     required
   />
 
-  <label class="mb-1" for="municipality">Concelho</label>
+  <label for="municipality">Concelho</label>
   <input
-    class="mb-2"
     type="text"
     id="municipality"
     name="municipality"
@@ -72,9 +63,8 @@
     required
   />
 
-  <label class="mb-1" for="about_us">Sobre nós</label>
+  <label for="about_us">Sobre nós</label>
   <input
-    class="mb-2"
     type="text"
     id="about_us"
     name="about_us"
@@ -82,14 +72,8 @@
     required
   />
 
-  <label class="mb-1" for="pic">Adicionar imagem</label>
-  <input
-    class="mb-2"
-    type="text"
-    id="pic"
-    name="pic"
-    value="<%= company.pic %>"
-  />
+  <label for="pic">Adicionar imagem</label>
+  <input type="text" id="pic" name="pic" value="<%= company.pic %>" />
 
   <div class="d-flex gap-3 mt-4">
     <div class="w-50">
@@ -108,7 +92,7 @@
     </div>
   </div>
 
-  <div class="actions-btn d-grid buttonWidth">
+  <div class="mt-1 d-grid buttonWidth">
     <button id="deletebtn" type="button" class="btn btn-delete">
       Apagar empresa 🗑️
     </button>

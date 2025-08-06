@@ -135,5 +135,13 @@ form .actions-btn .btn {
     .modal .close:hover {
       color: #000;
     }
+    img.classe-default {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  max-width: 100%;
+  height: auto;
+}
 
     
