@@ -41,7 +41,7 @@
     </label>
     <label
       >Concelho
-      <select name="municipality" required>
+      <select name="municipality" id="munipality" required>
         <option disabled selected>Selecione um concelho</option>
         <option value="Ponta do Sol">Ponta do Sol</option>
         <option value="Calheta">Calheta</option>
@@ -58,7 +58,9 @@
     </label>
     <label
       >Freguesia
-      <select name="freg" required>
+      <select name="freg" id="freguesia" required>
+        <option disabled selected>Seleciome um concelho primeiro</option>
+        <!--<select name="freg" required>
         <option>Selecione uma freguesia</option>
         <option value="Achadas da Cruz">Achadas da Cruz</option>
         <option value="Água de Pena">Água de Pena</option>
@@ -122,6 +124,7 @@
         <option value="Serra de Água">Serra de Água</option>
         <option value="Sé">Sé</option>
         <option value="Tabua">Tabua</option>
+      </select>-->
       </select>
     </label>
 
@@ -251,3 +254,5 @@
     </div>
   </form>
 </div>
+
+<script src="/js/company-create-announcement.js"></script>
