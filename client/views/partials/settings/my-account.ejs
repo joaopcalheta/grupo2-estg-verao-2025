@@ -10,28 +10,8 @@
     <p id="pfpChange">Alterar Imagem</p>
   </div>
   <h2 class="fw-bold mb-4" id="personalData">Dados Pessoais</h2>
-  <script>
-    // Quando clica no container, abre o seletor de ficheiros
-    document
-      .getElementById("pfp-container")
-      .addEventListener("click", function () {
-        document.getElementById("uploadFoto").click();
-      });
 
-    // Quando seleciona uma imagem, atualiza a imagem visível
-    document
-      .getElementById("uploadFoto")
-      .addEventListener("change", function (event) {
-        const file = event.target.files[0];
-        if (file) {
-          const reader = new FileReader();
-          reader.onload = function (e) {
-            document.getElementById("pfpImg").src = e.target.result;
-          };
-          reader.readAsDataURL(file);
-        }
-      });
-  </script>
+  <!-- name -->
   <div>
     <input
       class="form-group"
@@ -39,16 +19,23 @@
       name="name"
       placeholder="Nome e apelido"
       value="<%= user.name %>"
+      minlength="2"
+      maxlength="100"
+      required
     />
   </div>
+
+  <!-- birthdate -->
   <div>
-<input
-  class="form-group"
-  type="date"
-  name="birthdate"
-  value="<%= user.birthdate ? user.birthdate.toISOString().substring(0, 10) : '' %>"
-/>
+    <input
+      class="form-group"
+      type="date"
+      name="birthdate"
+      value="<%= user.birthdate ? user.birthdate.toISOString().substring(0, 10) : '' %>"
+      max="<%= new Date().toISOString().substring(0, 10) %>"  <!-- previne datas futuras -->
   </div>
+
+  <!-- username -->
   <div>
     <input
       class="form-group"
@@ -56,8 +43,15 @@
       name="username"
       placeholder="Nome de Utilizador"
       value="<%= user.username %>"
+      minlength="3"
+      maxlength="30"
+      pattern="^[a-z0-9_.-]+$"
+      title="Apenas letras minúsculas, números, '.', '-' e '_' são permitidos"
+      required
     />
   </div>
+
+  <!-- phone -->
   <div>
     <input
       class="form-group"
@@ -65,8 +59,12 @@
       name="phone"
       placeholder="Nº Telemóvel"
       value="<%= user.phone %>"
+      pattern="^\+?[0-9]{9,15}$"
+      title="Número de telefone inválido. Deve conter 9 a 15 dígitos, opcional '+' no início."
     />
   </div>
+
+  <!-- address -->
   <div>
     <input
       class="form-group"
@@ -74,8 +72,11 @@
       name="address"
       placeholder="Morada"
       value="<%= user.address %>"
+      maxlength="200"
     />
   </div>
+
+  <!-- municipality -->
   <div>
     <input
       class="form-group"
@@ -83,8 +84,11 @@
       name="municipality"
       placeholder="Localidade"
       value="<%= user.municipality %>"
+      maxlength="100"
     />
   </div>
+
+  <!-- postcode -->
   <div>
     <input
       class="form-group"
@@ -92,8 +96,12 @@
       name="postcode"
       placeholder="Código Postal"
       value="<%= user.postcode %>"
+      pattern="^\d{4}-\d{3}$"
+      title="Código postal deve estar no formato 1234-567."
     />
   </div>
+
+  <!-- nif -->
   <div>
     <input
       class="form-group"
@@ -101,42 +109,57 @@
       name="nif"
       placeholder="NIF"
       value="<%= user.nif %>"
+      pattern="^\d{9}$"
+      title="NIF deve conter exatamente 9 dígitos."
     />
   </div>
+
+  <!-- email -->
   <div>
     <input
       class="form-group"
-      type="text"
+      type="email"
       name="email"
       placeholder="E-mail"
       value="<%= user.email %>"
+      maxlength="100"
+      required
     />
   </div>
+
+  <!-- confirmEmail -->
   <div>
     <input
       class="form-group"
-      type="text"
+      type="email"
       name="confirmEmail"
       placeholder="Confirmar E-mail"
+      required
     />
   </div>
+
+  <!-- currentPassword -->
   <div>
     <input
       class="form-group"
-      type="text"
+      type="password"
       name="currentPassword"
       placeholder="Palavra-passe Atual"
     />
   </div>
+
+  <!-- newPassword -->
   <div>
     <input
       class="form-group"
-      type="text"
+      type="password"
       name="newPassword"
-      placeholder=" Nova Palavra-passe"
+      placeholder="Nova Palavra-passe"
+      minlength="6"
     />
   </div>
 
+  <!-- resto do form segue igual -->
   <br />
   <br />
   <div class="actions-btn d-flex">
@@ -144,8 +167,7 @@
       <button
         type="button"
         class="buttonWidth btn btn-black"
-        onclick="window.location.href='/'"
-      >
+        onclick="window.location.href='/'">
         Voltar
       </button>
       <button type="submit" class="buttonWidth btn btn-blue">Guardar</button>

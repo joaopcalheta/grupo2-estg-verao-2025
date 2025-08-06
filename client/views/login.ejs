@@ -52,6 +52,7 @@
 
   <button type="submit" class="lgn">Login</button>
 </form>
+
 <form id="register-form" class="form" method="POST" action="/register">
   <div class="mailpass">
     <div class="candidato-f">
@@ -60,22 +61,29 @@
         name="name"
         type="text"
         placeholder="Escreva o seu nome"
+        minlength="2"
+        maxlength="50"
         required
       /><br />
 
       <label>Username</label><br />
-      <input
-        name="username"
-        type="text"
-        placeholder="Escreva o seu nome de utilizador"
-        required
-      /><br />
+<input
+  name="username"
+  type="text"
+  placeholder="Escreva o seu nome de utilizador"
+  minlength="3"
+  maxlength="30"
+  pattern="^[a-z0-9_.-]+$"
+  title="Apenas letras minúsculas, números, '.', '-' e '_' são permitidos"
+  required
+/>>
 
       <label>Email</label><br />
       <input
         name="email"
         type="email"
         placeholder="Escreva o seu email"
+        maxlength="100"
         required
       /><br />
 
@@ -84,6 +92,7 @@
         name="password"
         type="password"
         placeholder="Escreva a sua password"
+        minlength="6"
         required
       /><br />
 
@@ -92,6 +101,7 @@
         name="confirmpassword"
         type="password"
         placeholder="Confirme a sua password"
+        minlength="6"
         required
       />
       <br />
