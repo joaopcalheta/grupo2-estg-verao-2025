@@ -35,12 +35,12 @@ const userSchema = new mongoose.Schema(
     phone: {
       type: String,
       trim: true,
-      default: ""
+      default: "",
     },
     nif: {
       type: String,
       trim: true,
-      default: ""
+      default: "",
     },
     address: {
       type: String,
@@ -62,6 +62,11 @@ const userSchema = new mongoose.Schema(
       type: Date,
       required: true,
       trim: true,
+    },
+    company_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Company",
+      required: true,
     },
   },
   {

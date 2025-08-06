@@ -80,13 +80,22 @@ const announcementSchema = new mongoose.Schema(
     numberOfPositions: {
       type: String, // or Number
       required: true,
-    }
-
-    /* user_id: {
+    },
+    company_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Company",
+      required: true,
+    },
+    user_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
-    },*/
+    },
+    state: {
+      type: String,
+      enum: ["Ativo", "Desativado", "Expirado"],
+      default: "Ativo",
+    },
   },
   {
     timestamps: true,

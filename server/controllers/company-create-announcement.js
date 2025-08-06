@@ -1,10 +1,11 @@
-// controllers/createCompanyCreateAnnouncementController.js
+// ../controllers/company-create-announcement.js
 
 const Announcement = require("../models/announcement");
 
 const getCompanyCreateAnnouncement = async (req, res) => {
   try {
-    res.render("company-create-announcement", {});
+    const companyID = req.params.companyID;
+    res.render("company-create-announcement", { companyID });
   } catch (err) {
     console.error(err);
     res.status(500).send("Erro interno no servidor");
@@ -30,12 +31,12 @@ const postCompanyCreateAnnouncement = async (req, res) => {
       numberOfPositions,
       description,
       pic,
+      state,
     } = req.body;
 
     console.log("Dados recebidos:", req.body);
 
     const newAnnouncement = new Announcement({
-      //user_id: req.user._id,
       job_name,
       category,
       type,
@@ -52,6 +53,9 @@ const postCompanyCreateAnnouncement = async (req, res) => {
       numberOfPositions,
       description,
       pic,
+      state,
+      company_id: req.params.companyID,
+      user_id: req.user._id,
     });
 
     await newAnnouncement.save();
@@ -60,7 +64,7 @@ const postCompanyCreateAnnouncement = async (req, res) => {
   <script>
   sessionStorage.setItem('mostrarNotificacao', 'true');
       // Redireciona para a página de destino
-      window.location.href = '/company-my-announcements';
+      window.location.href = '/company-my-announcements/${req.params.companyID}';
   </script>
 `);
   } catch (err) {
