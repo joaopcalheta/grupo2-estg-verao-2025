@@ -1,3 +1,4 @@
+// ../routes/create-company.js
 const express = require("express");
 const router = express.Router();
 const createCompanyController = require("../controllers/create-company");

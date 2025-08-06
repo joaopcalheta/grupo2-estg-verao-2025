@@ -1,3 +1,5 @@
+// ../controllers/create-company.js
+
 const Company = require("../models/company");
 
 const getCreateCompany = async (req, res) => {
