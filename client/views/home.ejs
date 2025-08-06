@@ -77,12 +77,13 @@
         return params.toString();
       };
     %>
+    <div class="d-flex main-card-filter-left justify-content-center">
     <button
+      type="button"
       onclick="window.location.href='/search-filter?<%= buildQueryString(query) %>'"
-      class="d-flex main-card-filter-left justify-content-center"
     >
       <i class="bi bi-funnel-fill me-2"></i> <b>FILTRAR</b>
-    </button>
+    </button> </div>
   </div>
 </div>
 
