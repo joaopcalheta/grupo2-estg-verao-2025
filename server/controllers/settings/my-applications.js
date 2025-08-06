@@ -36,6 +36,7 @@ const deleteApplication = async (req, res) => {
     );
 
     res.redirect("/settings?section=my-applications");
+  
   } catch (err) {
     console.error("Erro ao eliminar candidatura:", err);
     res.status(500).send("Erro interno no servidor");
