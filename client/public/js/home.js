@@ -28,3 +28,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// Verifica se há notificação a ser exibida
+if (sessionStorage.getItem("mostrarNotificacaoCandEnv") === "true") {
+  const notificationCandEnv = document.getElementById("notification-cand-env");
+  notificationCandEnv.style.display = "flex";
+
+  // Remove o gatilho da sessão para não repetir
+  sessionStorage.removeItem("mostrarNotificacaoCandEnv");
+
+  // Reinicia a animação da progress bar (necessário para casos de reuso)
+  const progressBar = notificationCandEnv.querySelector(
+    ".progress-bar-cand-env"
+  );
+  progressBar.style.animation = "none";
+  progressBar.offsetHeight; // forçar reflow
+  progressBar.style.animation = null;
+
+  // Esconde após x segundos
+  setTimeout(() => {
+    notificationCandEnv.classList.add("hide");
+    setTimeout(() => {
+      notificationCandEnv.remove();
+    }, 500);
+  }, 5000);
+}

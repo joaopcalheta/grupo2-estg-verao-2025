@@ -3,16 +3,16 @@ const router = express.Router();
 const companyManageAnnouncementController = require("../controllers/company-manage-announcement");
 
 router.get(
-  "/company-manage-announcement",
+  "/company-manage-announcement/:announcementID",
   companyManageAnnouncementController.getCompanyManageAnnouncement
 ); // renderiza a página
 
 router.post(
-  "/company-manage-announcement",
+  "/company-manage-announcement/:announcementID",
   companyManageAnnouncementController.updateCompanyAnnouncement
 );
 router.delete(
-  "/company-manage-announcement",
+  "/company-manage-announcement/:announcementID",
   companyManageAnnouncementController.deleteCompanyAnnouncement
 );
 
