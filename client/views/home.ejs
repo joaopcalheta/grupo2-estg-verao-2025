@@ -74,38 +74,40 @@
 
 <div id="joblist">
   <% if (announcements.length === 0) { %>
-  <p class="text-center fw-bold">Nenhum anúncio disponível no momento.</p>
+  <p class="text-center my-5 fw-bold">Nenhum anúncio disponível no momento.</p>
   <% } %> <% announcements.forEach((announcement) => { %>
-  <a href="/home-details-announcement?id=<%= announcement._id %>" class="job-card text-decoration-none text-dark">
-<div class="white-card pointer d-flex p-0 position-relative">
-  <!-- Número de candidaturas -->
-  <div class="application-count">
-    <span>Candidaturas: <%= announcement.numberOfApplications || 0 %></span>
-  </div>
-
-  <!-- restante do conteúdo do card -->
-  <div class="d-flex justify-content-start">
-    <!-- imagem -->
-    <div class="mini-card-image-wrapper">
-      <img class="structure-img" src="<%= announcement.pic %>" />
-    </div>
-
-    <!-- texto -->
-    <div class="d-flex flex-column justify-content-between ps-2 pt-1 pb-2">
-      <div class="mb-0">
-        <h5><%= announcement.job_name %></h5>
-        <h6 class="mb-0 fw-normal"><%= announcement.municipality %></h6>
-        <h6 class="fw-normal"><%= announcement.regime %></h6>
+  <a
+    href="/home-details-announcement?id=<%= announcement._id %>"
+    class="job-card text-decoration-none text-dark"
+  >
+    <div class="white-card pointer d-flex p-0 position-relative">
+      <!-- Número de candidaturas -->
+      <div class="application-count">
+        <span>Candidaturas: <%= announcement.numberOfApplications || 0 %></span>
       </div>
-      <div>
-        <h6 class="fw-normal text-muted pointer text-decoration-underline">
-          Saber mais
-        </h6>
+
+      <!-- restante do conteúdo do card -->
+      <div class="d-flex justify-content-start">
+        <!-- imagem -->
+        <div class="mini-card-image-wrapper">
+          <img class="structure-img" src="<%= announcement.pic %>" />
+        </div>
+
+        <!-- texto -->
+        <div class="d-flex flex-column justify-content-between ps-2 pt-1 pb-2">
+          <div class="mb-0">
+            <h5><%= announcement.job_name %></h5>
+            <h6 class="mb-0 fw-normal"><%= announcement.municipality %></h6>
+            <h6 class="fw-normal"><%= announcement.regime %></h6>
+          </div>
+          <div>
+            <h6 class="fw-normal text-muted pointer text-decoration-underline">
+              Saber mais
+            </h6>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
   </a>
   <% }); %>
 </div>
@@ -159,7 +161,6 @@
 <!-----------------temporario------------------------------------->
 <div class="my-4">
   <h3>temporario</h3>
-  <a href="/search-filter">Home - pesquisar por filtro</a><br />
   <a href="/login">Login</a><br />
   <a href="/settings">Settings</a><br />
   <a href="/my-profile-my-companies">Minhas empresas</a><br />
