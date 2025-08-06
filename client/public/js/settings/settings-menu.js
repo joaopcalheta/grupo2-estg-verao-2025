@@ -84,3 +84,113 @@ slider.addEventListener("touchmove", (e) => {
 });
 
 // --------- para o scroll horizontal do menu ---------
+
+// --------- NOTIFICAÇÕES ---------
+
+// Verifica se há notificação de remoção a ser exibida
+if (sessionStorage.getItem("mostrarNotificacaoPerfilAtt") === "true") {
+  const notificationPerfilAtt = document.getElementById(
+    "notification-perfil-att"
+  );
+  notificationPerfilAtt.style.display = "flex";
+
+  // Remove o gatilho da sessão para não repetir
+  sessionStorage.removeItem("mostrarNotificacaoPerfilAtt");
+
+  // Reinicia a animação da progress bar (necessário para casos de reuso)
+  const progressBar = notificationPerfilAtt.querySelector(
+    ".progress-bar-perfil-att"
+  );
+  progressBar.style.animation = "none";
+  progressBar.offsetHeight; // forçar reflow
+  progressBar.style.animation = null;
+
+  // Esconde após x segundos
+  setTimeout(() => {
+    notificationPerfilAtt.classList.add("hide");
+    setTimeout(() => {
+      notificationPerfilAtt.remove();
+    }, 50); // tempo da transição de opacidade
+  }, 5000); // tempo do alerta
+}
+
+// Verifica se há notificação de remoção a ser exibida
+if (sessionStorage.getItem("mostrarNotificacaoCreateCompany") === "true") {
+  const notificationCreateCompany = document.getElementById(
+    "notification-create-company"
+  );
+  notificationCreateCompany.style.display = "flex";
+
+  // Remove o gatilho da sessão para não repetir
+  sessionStorage.removeItem("mostrarNotificacaoCreateCompany");
+
+  // Reinicia a animação da progress bar (necessário para casos de reuso)
+  const progressBar = notificationCreateCompany.querySelector(
+    ".progress-bar-create-company"
+  );
+  progressBar.style.animation = "none";
+  progressBar.offsetHeight; // forçar reflow
+  progressBar.style.animation = null;
+
+  // Esconde após x segundos
+  setTimeout(() => {
+    notificationCreateCompany.classList.add("hide");
+    setTimeout(() => {
+      notificationCreateCompany.remove();
+    }, 50); // tempo da transição de opacidade
+  }, 5000); // tempo do alerta
+}
+
+// Verifica se há notificação de remoção a ser exibida
+if (sessionStorage.getItem("mostrarNotificacaoManageCompany") === "true") {
+  const notificationManageCompany = document.getElementById(
+    "notification-manage-company"
+  );
+  notificationManageCompany.style.display = "flex";
+
+  // Remove o gatilho da sessão para não repetir
+  sessionStorage.removeItem("mostrarNotificacaoManageCompany");
+
+  // Reinicia a animação da progress bar (necessário para casos de reuso)
+  const progressBar = notificationManageCompany.querySelector(
+    ".progress-bar-manage-company"
+  );
+  progressBar.style.animation = "none";
+  progressBar.offsetHeight; // forçar reflow
+  progressBar.style.animation = null;
+
+  // Esconde após x segundos
+  setTimeout(() => {
+    notificationManageCompany.classList.add("hide");
+    setTimeout(() => {
+      notificationManageCompany.remove();
+    }, 50); // tempo da transição de opacidade
+  }, 5000); // tempo do alerta
+}
+
+// Verifica se há notificação de remoção a ser exibida
+if (sessionStorage.getItem("mostrarNotificacaoDeleteCompany") === "true") {
+  const notificationDeleteCompany = document.getElementById(
+    "notification-delete-company"
+  );
+  notificationDeleteCompany.style.display = "flex";
+
+  // Remove o gatilho da sessão para não repetir
+  sessionStorage.removeItem("mostrarNotificacaoDeleteCompany");
+
+  // Reinicia a animação da progress bar (necessário para casos de reuso)
+  const progressBar = notificationDeleteCompany.querySelector(
+    ".progress-bar-delete-company"
+  );
+  progressBar.style.animation = "none";
+  progressBar.offsetHeight; // forçar reflow
+  progressBar.style.animation = null;
+
+  // Esconde após x segundos
+  setTimeout(() => {
+    notificationDeleteCompany.classList.add("hide");
+    setTimeout(() => {
+      notificationDeleteCompany.remove();
+    }, 50); // tempo da transição de opacidade
+  }, 5000); // tempo do alerta
+}
