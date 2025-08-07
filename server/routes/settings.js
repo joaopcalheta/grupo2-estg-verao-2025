@@ -28,6 +28,7 @@ router.post(
 // my applications
 router.get("/my-applications", ensureAuthenticated, myApplicationsController.getMyApplicationsPage);
 router.delete("/my-applications/:id", ensureAuthenticated, myApplicationsController.deleteApplication);
+router.delete("/my-applications/delete/:id", ensureAuthenticated, myApplicationsController.deleteApplication);
 
 // my companies
 router.get("/my-companies", ensureAuthenticated, myCompaniesController.getMyCompaniesPage);
