@@ -7,16 +7,17 @@ const myAccountController = require("../controllers/settings/my-account");
 const professionalProfileController = require("../controllers/settings/professional-profile");
 const myApplicationsController = require("../controllers/settings/my-applications");
 const myCompaniesController = require("../controllers/settings/my-companies");
+const { ensureAuthenticated } = require("../middlewares/authMiddleware");
 
-router.get("/settings", settingsController.getSettingsPage);
+router.get("/settings", ensureAuthenticated, settingsController.getSettingsPage);
 
 // my account
-router.get("/my-account", myAccountController.getMyAccountPage);
-router.post("/my-account", myAccountController.postMyAccountData);
+router.get("/my-account", ensureAuthenticated, myAccountController.getMyAccountPage);
+router.post("/my-account", ensureAuthenticated, myAccountController.postMyAccountData);
 
 // professional profile
 router.get(
-  "/professional-profile",
+  "/professional-profile", ensureAuthenticated, 
   professionalProfileController.getProfessionalProfilePage
 );
 router.post(

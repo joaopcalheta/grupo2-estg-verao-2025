@@ -4,6 +4,18 @@
   <link href="/css/login.css" rel="stylesheet" />
 </head>
 
+<!--Mensagem de erro caso o utilizador não esteja autenticado-->
+<% if (error && error.length) { %>
+  <% error.forEach(msg => { %>
+    <div class="alert alert-danger"><%= msg %></div>
+  <% }) %>
+<% } %>
+<% if (success && success.length) { %>
+  <% success.forEach(msg => { %>
+    <div class="alert alert-success"><%= msg %></div>
+  <% }) %>
+<% } %>
+
 <h1 class="fw-bold mt-4 mb-4">Bem-vindo!</h1>
 
 <div class="d-flex justify-content-center pt-2 mb-4">
