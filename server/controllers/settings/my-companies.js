@@ -6,7 +6,7 @@ const getMyCompaniesPage = async (req, res) => {
   try {
     // nota: usei lean porque evita carregar os metodos do mongo e como só quero apresentar informacao, faz todo o sentido e é mais eficiente
     const companies = await Company.find(
-      { user_id: req.user._id }, // filtra empresas do utilizador atual
+      { admin_usernames: req.user.username }, // filtra empresas para os utilizadores administradores atraves do username
       { name: 1, municipality: 1, pic: 1 } // só inclui os campos necessários
     ).lean();
     console.log(companies);

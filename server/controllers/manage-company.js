@@ -9,7 +9,7 @@ const getEditCompany = async (req, res) => {
 
     const company = await Company.findOne({
       _id: companyId,
-      user_id: req.user._id, // Garante que o user só edita empresas dele
+      admin_usernames: req.user.username, // Garante que os admins editem / giram as empresas deles
     });
 
     if (!company) {
@@ -27,14 +27,53 @@ const getEditCompany = async (req, res) => {
 const postEditCompany = async (req, res) => {
   try {
     const companyId = req.params.id;
-    const { name, phone, nif, address, postcode, municipality, about_us, pic } =
-      req.body;
+    const {
+      name,
+      admin_usernames,
+      phone,
+      nif,
+      address,
+      postcode,
+      municipality,
+      about_us,
+      pic,
+    } = req.body;
 
-    const company = await Company.findOneAndUpdate(
-      {
-        _id: companyId,
-        user_id: req.user._id, // Evita que outro user edite
-      },
+    const currentUsername = req.user.username;
+    const submittedUsernames = (admin_usernames || "")
+      .split(",")
+      .map((u) => u.trim().toLowerCase())
+      .filter(Boolean);
+
+    // Remove duplicados
+    const uniqueUsernames = [...new Set(submittedUsernames)];
+
+    // Impede remoção do único admin
+    if (!uniqueUsernames.includes(currentUsername)) {
+      return res
+        .status(400)
+        .send("Não pode remover-se a si próprio se for o único administrador.");
+    }
+
+    if (uniqueUsernames.length === 0) {
+      return res.status(400).send("É necessário pelo menos um administrador.");
+    }
+
+    // Valida usernames
+    const users = await User.find({
+      username: { $in: uniqueUsernames },
+    })
+      .select("username")
+      .lean();
+
+    const validUsernames = users.map((u) => u.username);
+
+    if (validUsernames.length !== uniqueUsernames.length) {
+      return res.status(400).send("Alguns usernames são inválidos.");
+    }
+
+    const updatedCompany = await Company.findOneAndUpdate(
+      { _id: companyId, admin_usernames: currentUsername },
       {
         name,
         phone,
@@ -44,11 +83,12 @@ const postEditCompany = async (req, res) => {
         municipality,
         about_us,
         pic,
+        admin_usernames: validUsernames,
       },
       { new: true }
     );
 
-    if (!company) {
+    if (!updatedCompany) {
       return res.status(404).send("Empresa não encontrada");
     }
 

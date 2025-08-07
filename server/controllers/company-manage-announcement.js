@@ -1,3 +1,5 @@
+// ../controllers/company-manage-announcement.js
+
 const Announcement = require("../models/announcement");
 
 const getCompanyManageAnnouncement = async (req, res) => {

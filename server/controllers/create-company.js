@@ -13,8 +13,35 @@ const getCreateCompany = async (req, res) => {
 
 const postCreateCompany = async (req, res) => {
   try {
-    const { name, phone, nif, address, postcode, municipality, about_us, pic } =
-      req.body;
+    const {
+      name,
+      extra_admins,
+      phone,
+      nif,
+      address,
+      postcode,
+      municipality,
+      about_us,
+      pic,
+    } = req.body;
+
+    // usernames do criador e dos administradores adicionais
+    const currentUsername = req.user.username;
+    const extraAdminUsernames = (extra_admins || "")
+      .split(",")
+      .map((name) => name.trim().toLowerCase())
+      .filter((name) => name && name !== currentUsername);
+
+    // verifica se osusernames adicionis sao validos
+    const validUsers = await User.find({
+      username: { $in: extraAdminUsernames },
+    })
+      .select("username")
+      .lean();
+    const validUsernames = validUsers.map((u) => u.username);
+
+    // junta o username do criador com o dos administradores adicionais
+    const allAdmins = [...new Set([currentUsername, ...validUsernames])];
 
     const user_id = req.user._id;
 
@@ -23,6 +50,7 @@ const postCreateCompany = async (req, res) => {
 
     const newCompany = new Company({
       name,
+      admin_usernames: allAdmins,
       phone,
       nif,
       address,
@@ -30,7 +58,7 @@ const postCreateCompany = async (req, res) => {
       municipality,
       about_us,
       pic,
-      user_id,
+      //user_id,
     });
 
     await newCompany.save();

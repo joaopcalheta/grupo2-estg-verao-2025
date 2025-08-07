@@ -9,6 +9,14 @@ const companySchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    admin_usernames: [
+      {
+        type: String,
+        required: true,
+        lowercase: true,
+        trim: true,
+      },
+    ],
     phone: {
       type: String,
       required: true,
@@ -43,6 +51,8 @@ const companySchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+
+    // isto ja nem deve ser preciso
     user_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
