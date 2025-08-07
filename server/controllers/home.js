@@ -1,10 +1,16 @@
 // server/controllers/homeController.js
 
+const { Cursor } = require("mongoose");
 const Announcement = require("../models/announcement");
 
 const getHome = async (req, res) => {
   try {
     const order = req.query.order || "recent";
+
+    const page = parseInt(req.query.page) || 1; // Página atual
+    const limit = 10; // Número de anúncios por página
+    const skip = (page -1) * limit;
+    
     const { category, type, regime, municipality, education_level } = req.query;
 
     let sortOptions = {};
@@ -52,18 +58,25 @@ const getHome = async (req, res) => {
       };
     }
 
-    let query = Announcement.find(filter);
+    let query = Announcement.find(filter).sort(sortOptions).skip(skip).limit(limit);
 
     if (useCollation) {
       query = query.collation({ locale: "pt", strength: 1 });
     }
 
-    const announcements = await query.sort(sortOptions);
+    const [announcements, total] = await Promise.all([
+      query.exec(),
+      Announcement.countDocuments(filter),
+    ]);
+
+    const totalPages = Math.ceil(total / limit);
 
     res.render("home", {
       announcements,
       order,
       query: req.query,
+      currentPage: page,
+      totalPages,
     });
   } catch (err) {
     console.error(err);
