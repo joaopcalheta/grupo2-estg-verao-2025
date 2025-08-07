@@ -15,6 +15,8 @@
     name="name"
     value="<%= company.name %>"
     required
+    maxlength="100"
+    placeholder="Ex: Tech Solutions Lda"
   />
 
   <label for="admin_usernames">
@@ -26,6 +28,7 @@
     name="admin_usernames"
     value="<%= company.admin_usernames.join(', ') %>"
     required
+    placeholder="ex: user1, user2"
   />
 
   <label for="phone">Telefone</label>
@@ -35,10 +38,22 @@
     name="phone"
     value="<%= company.phone %>"
     required
+    pattern="^\+?[0-9\s\-().]{6,20}$"
+    placeholder="+351 912 345 678"
+    title="Número de telefone inválido (ex: +351 912 345 678)"
   />
 
   <label for="nif">NIF</label>
-  <input type="text" id="nif" name="nif" value="<%= company.nif %>" required />
+  <input
+    type="text"
+    id="nif"
+    name="nif"
+    value="<%= company.nif %>"
+    required
+    pattern="^\d{9}$"
+    title="O NIF deve conter exatamente 9 dígitos"
+    placeholder="123456789"
+  />
 
   <label for="address">Morada</label>
   <input
@@ -47,6 +62,7 @@
     name="address"
     value="<%= company.address %>"
     required
+    placeholder="Rua Exemplo, 123"
   />
 
   <label for="postcode">Código Postal</label>
@@ -56,6 +72,9 @@
     name="postcode"
     value="<%= company.postcode %>"
     required
+    pattern="^\d{4}-\d{3}$"
+    title="Formato esperado: 1234-567"
+    placeholder="1234-567"
   />
 
   <label for="municipality">Concelho</label>
@@ -65,6 +84,7 @@
     name="municipality"
     value="<%= company.municipality %>"
     required
+    placeholder="Lisboa"
   />
 
   <label for="about_us">Sobre nós</label>
@@ -73,11 +93,19 @@
     id="about_us"
     name="about_us"
     value="<%= company.about_us %>"
-    required
+    maxlength="1000"
+    placeholder="Descrição da empresa"
   />
 
   <label for="pic">Adicionar imagem</label>
-  <input type="text" id="pic" name="pic" value="<%= company.pic %>" />
+  <input
+    type="url"
+    id="pic"
+    name="pic"
+    value="<%= company.pic %>"
+    placeholder="https://example.com/logo.jpg"
+    title="Insira uma URL válida (começando com http ou https)"
+  />
 
   <div class="d-flex gap-3 mt-4">
     <div class="w-50">
@@ -118,19 +146,16 @@
 
 <!-- Script -->
 <script>
-  // ID do anúncio (passado do EJS para JS)
   const companyId = "<%= company._id %>";
 
-  // Botão "Eliminar"
   document.getElementById("deletebtn").addEventListener("click", () => {
     document.getElementById("confirmModal").style.display = "block";
   });
 
-  // Fecha o modal
   function closeModal() {
     document.getElementById("confirmModal").style.display = "none";
   }
-  // Confirma eliminação
+
   async function confirmDelete() {
     try {
       const response = await fetch(`/manage-company?id=${companyId}`, {
