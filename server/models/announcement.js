@@ -5,16 +5,24 @@ const announcementSchema = new mongoose.Schema(
   {
     job_name: {
       type: String,
-      required: true,
+      required: [true, "O nome do trabalho é obrigatório."],
       trim: true,
+      minlength: 3,
+      maxlength: 100,
     },
     end_date: {
-      type: Date, // ou Date
-      required: true,
+      type: Date,
+      required: [true, "A data de término é obrigatória."],
+      validate: {
+        validator: function (value) {
+          return value > new Date();
+        },
+        message: "A data de término deve ser futura.",
+      },
     },
     category: {
       type: String,
-      required: true,
+      required: [true, "A categoria é obrigatória."],
       trim: true,
     },
     schedule: {
@@ -37,6 +45,7 @@ const announcementSchema = new mongoose.Schema(
     },
     salary: {
       type: Number,
+      min: [0, "O salário não pode ser negativo."],
     },
     municipality: {
       type: String,
@@ -53,6 +62,7 @@ const announcementSchema = new mongoose.Schema(
     postcode: {
       type: String,
       trim: true,
+      match: /^[0-9]{4}-[0-9]{3}$/, // Formato português: 1234-567
     },
     languages: [
       {
@@ -67,7 +77,8 @@ const announcementSchema = new mongoose.Schema(
     description: {
       type: String,
       trim: true,
-      required: true,
+      required: [true, "A descrição é obrigatória."],
+      minlength: 10,
     },
     pic: {
       type: String, // Caminho para a imagem (ex: "/css/images/defaults/restauração.png")
@@ -78,8 +89,9 @@ const announcementSchema = new mongoose.Schema(
       default: 0,
     },
     numberOfPositions: {
-      type: String, // or Number
-      required: true,
+      type: Number,
+      required: [true, "O número de vagas é obrigatório."],
+      min: [1, "Deve haver pelo menos uma vaga."],
     },
     company_id: {
       type: mongoose.Schema.Types.ObjectId,

@@ -6,12 +6,19 @@
 <div class="container-ad">
   <h2 class="text-center my-4">Criar Anúncio</h2>
   <form method="POST" action="/company-create-announcement/<%= companyID %>">
-    <label
-      >Nome da profissão
-      <input type="text" name="job_name" required />
+    <label>
+      Nome da profissão
+      <input
+        type="text"
+        name="job_name"
+        required
+        minlength="3"
+        maxlength="100"
+      />
     </label>
-    <label
-      >Categoria
+
+    <label>
+      Categoria
       <select name="category" required>
         <option disabled selected>Selecione uma categoria</option>
         <option value="Restauração">Restauração</option>
@@ -31,16 +38,18 @@
         <option value="Serviços Gerais">Serviços Gerais</option>
       </select>
     </label>
-    <label
-      >Tipo de contrato
+
+    <label>
+      Tipo de contrato
       <select name="type" required>
-        <option>Selecione uma opção</option>
+        <option disabled selected>Selecione uma opção</option>
         <option value="Emprego">Emprego</option>
         <option value="Estágio">Estágio</option>
       </select>
     </label>
-    <label
-      >Concelho
+
+    <label>
+      Concelho
       <select name="municipality" id="municipality" required>
         <option disabled selected>Selecione um concelho</option>
         <option value="Ponta do Sol">Ponta do Sol</option>
@@ -56,38 +65,49 @@
         <option value="Porto Santo">Porto Santo</option>
       </select>
     </label>
-    <label
-      >Freguesia
+
+    <label>
+      Freguesia
       <select name="freg" id="freguesia" disabled required>
-        <option selected>Seleciome um concelho primeiro</option>
+        <option selected>Selecione um concelho primeiro</option>
       </select>
     </label>
 
-    <label
-      >Morada
+    <label>
+      Morada
       <input type="text" name="address" required />
     </label>
-    <label
-      >Código postal
-      <input type="text" name="postcode" required />
+
+    <label>
+      Código postal
+      <input
+        type="text"
+        name="postcode"
+        required
+        pattern="[0-9]{4}-[0-9]{3}"
+        title="Formato: 1234-567"
+      />
     </label>
-    <label
-      >Regime
+
+    <label>
+      Regime
       <select name="regime" required>
-        <option>Selecione uma opção</option>
+        <option disabled selected>Selecione uma opção</option>
         <option value="Full-Time">Full-Time</option>
         <option value="Part-Time">Part-Time</option>
       </select>
     </label>
-    <label
-      >Escolaridade
+
+    <label>
+      Escolaridade
       <select name="education_level" required>
-        <option>Selecione uma opção</option>
+        <option disabled selected>Selecione uma opção</option>
         <option value="ensino básico">Ensino básico</option>
         <option value="ensino secundário">Ensino secundário</option>
         <option value="ensino superior">Ensino superior</option>
       </select>
     </label>
+
     <div class="mb-3">
       <p class="mb-3 fw-bold">Línguas</p>
       <div class="d-flex flex-wrap gap-3">
@@ -137,42 +157,48 @@
         </div>
       </div>
     </div>
-    <label
-      >Salário
-      <input type="text" name="salary" />
+
+    <label>
+      Salário
+      <input type="number" name="salary" min="0" step="0.01" />
     </label>
-    <label>Horário de trabalho </label>
+
+    <label>Horário de trabalho</label>
     <div class="d-inline-flex p-2 gap-5">
       <div class="form-group">
         <label for="inicio">Início</label>
-        <input
-          value="start"
-          type="time"
-          id="inicio"
-          name="schedule[startTime]"
-        />
+        <input type="time" id="inicio" name="schedule[startTime]" />
       </div>
 
       <div class="form-group">
         <label for="fim">Fim</label>
-        <input value="end" type="time" id="fim" name="schedule[endTime]" />
+        <input type="time" id="fim" name="schedule[endTime]" />
       </div>
     </div>
-    <label
-      >Prazo de candidatura
-      <input type="text" name="end_date" />
+
+    <label>
+      Prazo de candidatura
+      <input type="date" name="end_date" id="end_date" required />
     </label>
-    <label
-      >Número de vagas
-      <input type="number" name="numberOfPositions" value="1" />
+
+    <label>
+      Número de vagas
+      <input
+        type="number"
+        name="numberOfPositions"
+        value="1"
+        min="1"
+        required
+      />
     </label>
-    <label
-      >Descrição
-      <textarea name="description" rows="4"></textarea>
+
+    <label>
+      Descrição
+      <textarea name="description" rows="4" required minlength="10"></textarea>
     </label>
+
     <div>
       <p class="fw-bold">Adicionar Foto</p>
-
       <label>
         <input type="text" name="pic" />
       </label>
@@ -181,13 +207,15 @@
         <i class="bi bi-upload"></i> Enviar
       </label>-->
     </div>
-<% if (typeof announcement !== "undefined" && announcement.pic) { %>
-  <img 
-    src="<%= announcement.pic %>" 
-    alt="Imagem do anúncio"
-    class="<%= announcement.pic === '/img/default.jpg' ? 'classe-default' : 'classe-custom' %>"
-  />
-<% } %>
+
+    <% if (typeof announcement !== "undefined" && announcement.pic) { %>
+    <img
+      src="<%= announcement.pic %>"
+      alt="Imagem do anúncio"
+      class="<%= announcement.pic === '/img/default.jpg' ? 'classe-default' : 'classe-custom' %>"
+    />
+    <% } %>
+
     <div class="actions-btn">
       <button type="button" class="btn btn-black" onclick="history.back()">
         Voltar
@@ -198,3 +226,19 @@
 </div>
 
 <script src="/js/company-create-announcement.js"></script>
+
+<!-- ✅ Validação extra para data de término (precisa ser futura) -->
+<script>
+  document.querySelector("form").addEventListener("submit", function (e) {
+    const endDateInput = document.getElementById("end_date");
+    const endDate = new Date(endDateInput.value);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (endDate <= today) {
+      e.preventDefault();
+      alert("A data de término deve ser futura.");
+      endDateInput.focus();
+    }
+  });
+</script>
