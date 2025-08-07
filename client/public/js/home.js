@@ -7,8 +7,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchTerm = searchInput.value.toLowerCase();
 
     jobCards.forEach((card) => {
-      const text = card.textContent.toLowerCase();
-      card.style.display = text.includes(searchTerm) ? "block" : "none";
+      const title =
+        card.querySelector(".job-title")?.textContent.toLowerCase() || "";
+      const category =
+        card.querySelector(".job-category")?.textContent.toLowerCase() || "";
+      const location =
+        card.querySelector(".job-location")?.textContent.toLowerCase() || "";
+      const type =
+        card.querySelector(".job-type")?.textContent.toLowerCase() || "";
+      // add mais se quisermos que apareça quando pesquisamos
+      const combined = `${title} ${category} ${location} ${type}`;
+      card.style.display = combined.includes(searchTerm) ? "block" : "none";
     });
   }
 
