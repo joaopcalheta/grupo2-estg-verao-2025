@@ -85,16 +85,36 @@
       </select>
     </label>
 
-    <div class="mb-3">
-      <label>Línguas</label>
-      <div class="d-flex flex-wrap gap-3">
-        <!-- os checkboxes já estão corretos e funcionam -->
-      </div>
+<div class="mb-3">
+  <label>Línguas</label>
+  <div class="d-flex flex-wrap gap-3">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Eng" id="lingua-ingles"
+        <%= announcement.languages && announcement.languages.includes('Eng') ? 'checked' : '' %>>
+      <label class="form-check-label" for="lingua-ingles">Inglês</label>
     </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Fr" id="lingua-frances"
+        <%= announcement.languages && announcement.languages.includes('Fr') ? 'checked' : '' %>>
+      <label class="form-check-label" for="lingua-frances">Francês</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Esp" id="lingua-espanhol"
+        <%= announcement.languages && announcement.languages.includes('Esp') ? 'checked' : '' %>>
+      <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="languages[]" value="Ger" id="lingua-alemao"
+        <%= announcement.languages && announcement.languages.includes('Ger') ? 'checked' : '' %>>
+      <label class="form-check-label" for="lingua-alemao">Alemão</label>
+    </div>
+  </div>
+  
+</div>
 
-    <label>
-      Salário
-      <input type="number" name="salary" min="0" step="0.01" required value="<%= announcement.salary %>" />
+    <label
+      >Salário
+      <input type="text" name="salary" value="<%= announcement.salary%>" />
     </label>
 
     <label>Horário de trabalho</label>

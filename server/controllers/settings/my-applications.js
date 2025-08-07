@@ -26,6 +26,8 @@ const deleteApplication = async (req, res) => {
       user_id: req.user._id,
     });
 
+    console.log("Entrou na rota de delete com ID:", req.params.id);
+
     if (!application) {
       return res.status(404).json({ message: "Candidatura não encontrada" });
     }
