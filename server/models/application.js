@@ -19,15 +19,18 @@ const applicationSchema = new mongoose.Schema(
       required: true,
       lowercase: true,
       trim: true,
+      match: [/^\S+@\S+\.\S+$/, 'Email inválido'],
     },
     phone: {
       type: String,
       required: true,
       trim: true,
+      match: [/^\+?[0-9\s\-()]{7,20}$/, 'Número de telefone inválido'],
     },
     nif: {
       type: String,
       trim: true,
+      match: [/^\d{9}$/, 'NIF inválido (deve ter 9 dígitos)'],
     },
     address: {
       type: String,
@@ -40,6 +43,7 @@ const applicationSchema = new mongoose.Schema(
     postcode: {
       type: String,
       trim: true,
+      match: [/^\d{4}-\d{3}$/, 'Código postal inválido (ex: 1234-567)'],
     },
     languages: [
       {
@@ -54,6 +58,15 @@ const applicationSchema = new mongoose.Schema(
     birthdate: {
       type: String,
       trim: true,
+      match: [/^\d{4}-\d{2}-\d{2}$/, 'Data de nascimento inválida (formato YYYY-MM-DD)'],
+      validate: {
+        validator: function (value) {
+          const date = new Date(value);
+          const now = new Date();
+          return date < now;
+        },
+        message: 'A data de nascimento deve estar no passado',
+      },
     },
     cv: {
       type: String, // pode ser o caminho de um arquivo ou uma URL
@@ -62,10 +75,12 @@ const applicationSchema = new mongoose.Schema(
     about_me: {
       type: String,
       trim: true,
+      maxlength: 1000,
     },
     skills: [{
       type: String,
       trim: true,
+      minlength: 1,
     }],
     announcement_id: {
       type: mongoose.Schema.Types.ObjectId,
@@ -75,7 +90,6 @@ const applicationSchema = new mongoose.Schema(
     user_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true,
     },
     submittedAt: {
       type: Date,

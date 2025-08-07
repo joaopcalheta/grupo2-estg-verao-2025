@@ -49,7 +49,7 @@ const postSubmitApplication = async (req, res) => {
     console.log("Dados recebidos:", req.body);
 
     const newApplication = new Application({
-      user_id: req.user._id,
+      user_id: req.user ? req.user._id : undefined,
       announcement_id: req.body.announcement_id,
       name,
       email,
@@ -70,10 +70,9 @@ const postSubmitApplication = async (req, res) => {
     await newApplication.save();
 
     // Incrementar o número de candidaturas na coleção Announcement
-    await Announcement.findByIdAndUpdate(
-      req.body.announcement_id,
-      { $inc: { numberOfApplications: 1 } }
-    );
+    await Announcement.findByIdAndUpdate(req.body.announcement_id, {
+      $inc: { numberOfApplications: 1 },
+    });
 
     res.send(`
   <script>
