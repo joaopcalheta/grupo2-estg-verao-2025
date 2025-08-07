@@ -1,3 +1,5 @@
+<!-- ../views/manage-company.ejs -->
+
 <head>
   <link href="/css/manage-company.css" rel="stylesheet" />
   <link href="/css/form.css" rel="stylesheet" />
@@ -15,13 +17,15 @@
     required
   />
 
-  <label class="mb-1" for="extra_admins">Outros administradores</label>
+  <label for="admin_usernames">
+    Administradores (usernames, separados por vírgula)
+  </label>
   <input
-    class="mb-2"
     type="text"
-    id="extra_admins"
-    name="extra_admins"
-    value="<%= company.extra_admins %>"
+    id="admin_usernames"
+    name="admin_usernames"
+    value="<%= company.admin_usernames.join(', ') %>"
+    required
   />
 
   <label for="phone">Telefone</label>

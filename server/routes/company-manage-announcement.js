@@ -1,3 +1,5 @@
+// ../routes/company-manage-announcement.js
+
 const express = require("express");
 const router = express.Router();
 const companyManageAnnouncementController = require("../controllers/company-manage-announcement");
