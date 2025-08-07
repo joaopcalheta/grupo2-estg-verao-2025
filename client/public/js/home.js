@@ -50,6 +50,6 @@ if (sessionStorage.getItem("mostrarNotificacaoCandEnv") === "true") {
     notificationCandEnv.classList.add("hide");
     setTimeout(() => {
       notificationCandEnv.remove();
-    }, 500);
+    }, 50);
   }, 5000);
 }
