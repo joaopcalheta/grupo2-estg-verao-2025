@@ -205,3 +205,30 @@ if (sessionStorage.getItem("mostrarNotificacaoCandEnv") === "true") {
     }, 50);
   }, 5000);
 }
+
+// NOTIFICAÇÕES DE my-applications------------------------------------
+
+// Verifica se há notificação de remoção a ser exibida
+if (sessionStorage.getItem("mostrarNotificacaoDelCand") === "true") {
+  const notificationDelCand = document.getElementById("notification-del-cand");
+  notificationDelCand.style.display = "flex";
+
+  // Remove o gatilho da sessão para não repetir
+  sessionStorage.removeItem("mostrarNotificacaoDelCand");
+
+  // Reinicia a animação da progress bar
+  const progressBar = notificationDelCand.querySelector(
+    ".progress-bar-del-cand"
+  );
+  progressBar.style.animation = "none";
+  progressBar.offsetHeight; // forçar reflow
+  progressBar.style.animation = null;
+
+  // Esconde após x segundos
+  setTimeout(() => {
+    notificationDelCand.classList.add("hide");
+    setTimeout(() => {
+      notificationDelCand.remove();
+    }, 50); // tempo da transição de opacidade
+  }, 5000); // tempo do alerta
+}

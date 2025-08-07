@@ -35,7 +35,13 @@ const deleteApplication = async (req, res) => {
       $inc: { numberOfApplications: -1 },
     });
 
-    res.redirect("/settings?section=my-applications");
+    //res.redirect("/settings?section=my-applications");
+    return res.send(`
+      <script>
+        sessionStorage.setItem('mostrarNotificacaoDelCand', 'true');
+        window.location.href = '/settings?section=my-applications';
+      </script>
+    `);
   } catch (err) {
     console.error("Erro ao eliminar candidatura:", err);
     res.status(500).send("Erro interno no servidor");
