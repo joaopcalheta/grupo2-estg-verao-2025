@@ -3,18 +3,19 @@
 const express = require("express");
 const router = express.Router();
 const companyManageAnnouncementController = require("../controllers/company-manage-announcement");
+const { ensureAuthenticated } = require("../middlewares/authMiddleware");
 
 router.get(
-  "/company-manage-announcement/:announcementID",
+  "/company-manage-announcement/:announcementID", ensureAuthenticated,
   companyManageAnnouncementController.getCompanyManageAnnouncement
 ); // renderiza a página
 
 router.post(
-  "/company-manage-announcement/:announcementID",
+  "/company-manage-announcement/:announcementID", ensureAuthenticated,
   companyManageAnnouncementController.updateCompanyAnnouncement
 );
 router.delete(
-  "/company-manage-announcement/:announcementID",
+  "/company-manage-announcement/:announcementID", ensureAuthenticated,
   companyManageAnnouncementController.deleteCompanyAnnouncement
 );
 
