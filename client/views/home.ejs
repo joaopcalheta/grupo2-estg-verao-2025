@@ -110,9 +110,14 @@
         <!-- texto -->
         <div class="d-flex flex-column justify-content-between ps-2 pt-1 pb-2">
           <div class="mb-0">
-            <h5><%= announcement.job_name %></h5>
-            <h6 class="mb-0 fw-normal"><%= announcement.municipality %></h6>
-            <h6 class="fw-normal"><%= announcement.regime %></h6>
+            <h5 class="job-title"><%= announcement.job_name %></h5>
+            <h6 class="job-category mb-0 fw-normal visually-hidden">
+              <%= announcement.category %>
+            </h6>
+            <h6 class="job-location mb-0 fw-normal">
+              <%= announcement.municipality %>
+            </h6>
+            <h6 class="job-type fw-normal"><%= announcement.regime %></h6>
           </div>
           <div>
             <h6 class="fw-normal text-muted pointer text-decoration-underline">
