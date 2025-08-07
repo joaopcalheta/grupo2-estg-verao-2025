@@ -2,14 +2,14 @@
   <link href="/css/client-submit.css" rel="stylesheet" />
   <link href="/css/general.css" rel="stylesheet" />
   <link href="/css/form.css" rel="stylesheet" />
-
 </head>
+
 <form action="/submit-application/" method="POST">
 <div class="container-ad">
   <h2 class="text-center fw-bold my-5">Candidatura</h2>
   <div class="dados">
     <label class="fw-bold">Nome completo
-      <input type="text" name="name" value="<%= user ? user.name : '' %>" required/>
+      <input type="text" name="name" value="<%= user ? user.name : '' %>" required />
     </label>
     <br />
     <label class="fw-bold">Data de Nascimento
@@ -18,40 +18,69 @@
         type="date"
         name="birthdate"
         value="<%= user && user.birthdate ? user.birthdate.toISOString().substring(0, 10) : '' %>"
+        max="<%= new Date().toISOString().substring(0, 10) %>"
+        required
       />
     </label>
     <br />
     <label class="fw-bold">Nº de Telefone
-      <input type="tel" name="phone" value="<%= user ? user.phone : '' %>"required/>
+      <input
+        type="tel"
+        name="phone"
+        pattern="^\+?[0-9\s\-()]{7,20}$"
+        title="Insira um número de telefone válido"
+        value="<%= user ? user.phone : '' %>"
+        required
+      />
     </label>
     <br />
     <label class="fw-bold">NIF
-      <input type="text" name="nif" value="<%= user ? user.nif : '' %>" required/>
+      <input
+        type="text"
+        name="nif"
+        pattern="^\d{9}$"
+        title="O NIF deve conter exatamente 9 dígitos"
+        value="<%= user ? user.nif : '' %>"
+        required
+      />
     </label>
     <br />
     <label class="fw-bold">E-mail
-      <input type="text" name="email" value="<%= user ? user.email : '' %>" required/>
+      <input
+        type="email"
+        name="email"
+        value="<%= user ? user.email : '' %>"
+        required
+      />
     </label>
     <br />
     <label class="fw-bold">Morada
-      <input type="text" name="address" value="<%= user ? user.address : '' %>" required/>
+      <input type="text" name="address" value="<%= user ? user.address : '' %>" required />
     </label>
     <br />
     <label class="fw-bold">Localidade
-      <input type="text" name="municipality" value="<%= user ? user.municipality : '' %>" required/>
+      <input type="text" name="municipality" value="<%= user ? user.municipality : '' %>" required />
     </label>
     <br />
     <label class="fw-bold">Código Postal
-      <input type="text" name="postcode" value="<%= user ? user.postcode : '' %>" required/>
+      <input
+        type="text"
+        name="postcode"
+        pattern="^\d{4}-\d{3}$"
+        title="Formato esperado: 1234-567"
+        value="<%= user ? user.postcode : '' %>"
+        required
+      />
     </label>
     <br>
+
     <!-- Escolaridade -->
     <div class="escolaridade">
       <label class="fw-bold">Escolaridade
-        <select id="escolaridade" name="education_level" >
-          <option value="selecione" <%= (!profile || !profile.education_level) ? 'selected' : '' %> >Selecione o nível de escolaridade</option>
-          <option value="basico" <%= profile && profile.education_level === 'basico' ? 'selected' : '' %> >Ensino Básico</option>
-          <option value="secundario" <%= profile && profile.education_level === 'secundario' ? 'selected' : '' %> >Ensino Secundário</option>
+        <select id="escolaridade" name="education_level">
+          <option value="selecione" <%= (!profile || !profile.education_level) ? 'selected' : '' %>>Selecione o nível de escolaridade</option>
+          <option value="basico" <%= profile && profile.education_level === 'basico' ? 'selected' : '' %>>Ensino Básico</option>
+          <option value="secundario" <%= profile && profile.education_level === 'secundario' ? 'selected' : '' %>>Ensino Secundário</option>
           <option value="licenciatura" <%= profile && profile.education_level === 'licenciatura' ? 'selected' : '' %>>Licenciatura</option>
           <option value="mestrado" <%= profile && profile.education_level === 'mestrado' ? 'selected' : '' %>>Mestrado</option>
           <option value="doutoramento" <%= profile && profile.education_level === 'doutoramento' ? 'selected' : '' %>>Doutoramento</option>
@@ -59,8 +88,8 @@
       </label>
     </div>
     <br />
+
 <style>
-  /* Força o estilo padrão de checkbox */
   .form-check-input[type="checkbox"] {
     appearance: checkbox;
     -webkit-appearance: checkbox;
@@ -72,7 +101,7 @@
 </style>
 
 <div class="mb-3">
-  <h6 class=" fw-bold mb-2">Línguas</h6>
+  <h6 class="fw-bold mb-2">Línguas</h6>
   <div class="d-flex flex-wrap gap-3"> 
     <div class="form-check">
       <input class="form-check-input" type="checkbox" name="languages[]" value="Inglês" id="lingua-ingles"
@@ -96,28 +125,43 @@
     </div>
   </div>
 </div>
-  <br />
+<br />
+
 <div>
   <label class="fw-bold">Competências
-    <input type="text" name="skills"
-      value="<%= Array.isArray(profile?.skills) ? profile.skills.join(', ') : '' %>" />
+    <input
+      type="text"
+      name="skills"
+      pattern="^[\w\s,.-]{2,500}$"
+      title="Insira uma ou mais competências separadas por vírgulas"
+      value="<%= Array.isArray(profile?.skills) ? profile.skills.join(', ') : '' %>"
+    />
   </label> 
 </div>    
-  <br />
+<br />
+
 <div class="sobre">
   <label class="fw-bold">Sobre mim 
-    <textarea rows="5" name="about_me" style="white-space: pre-wrap;"><%= profile?.about_me || '' %></textarea>
+    <textarea
+      rows="5"
+      name="about_me"
+      style="white-space: pre-wrap;"
+      maxlength="1000"
+      required
+    ><%= profile?.about_me || '' %></textarea>
   </label>  
 </div>
-  <br />
+<br />
+
 <div>
   <h6 class="fw-bold mb-2" id="cv">Anexar CV:</h6>   
-    <input type="file" name="cv" class="d-none" id="fileInput" />
-    <label for="fileInput" class="btn btn-primary">
-      <i class="bi bi-upload"></i> Enviar arquivo
-    </label>
+  <input type="file" name="cv" class="d-none" id="fileInput" />
+  <label for="fileInput" class="btn btn-primary">
+    <i class="bi bi-upload"></i> Enviar arquivo
+  </label>
 </div>
-<!-- Passar announcementId escondido no formulario-->
+
+<!-- Passar announcementId escondido no formulário -->
 <input type="hidden" name="announcement_id" value="<%= announcementId %>">
 
 <div class="actions-btn">
@@ -125,7 +169,7 @@
     Voltar
   </button>
   <button type="submit" class="btn btn-blue">Enviar</button>
-  </div>
-  </div>
+</div>
+</div>
 </div>
 </form>
