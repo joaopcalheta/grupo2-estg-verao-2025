@@ -32,7 +32,13 @@
       type="date"
       name="birthdate"
       value="<%= user.birthdate ? user.birthdate.toISOString().substring(0, 10) : '' %>"
-      max="<%= new Date().toISOString().substring(0, 10) %>"  <!-- previne datas futuras -->
+      max="<%= new Date().toISOString().substring(0, 10) %>"
+      <!--
+      previne
+      datas
+      futuras
+      --
+    />
   </div>
 
   <!-- username -->
@@ -134,7 +140,6 @@
       type="email"
       name="confirmEmail"
       placeholder="Confirmar E-mail"
-      required
     />
   </div>
 
@@ -167,7 +172,8 @@
       <button
         type="button"
         class="buttonWidth btn btn-black"
-        onclick="window.location.href='/'">
+        onclick="window.location.href='/'"
+      >
         Voltar
       </button>
       <button type="submit" class="buttonWidth btn btn-blue">Guardar</button>
