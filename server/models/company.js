@@ -53,11 +53,13 @@ const companySchema = new mongoose.Schema(
     },
 
     // isto ja nem deve ser preciso
+
+    /*
     user_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
-    },
+    },*/
   },
   {
     timestamps: true,
