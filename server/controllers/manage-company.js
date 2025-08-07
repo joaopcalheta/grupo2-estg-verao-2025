@@ -1,6 +1,7 @@
 // ../controllers/manage-company.js
 
 const Company = require("../models/company");
+const User = require("../models/user");
 
 // GET: Mostrar formulário com dados atuais
 const getEditCompany = async (req, res) => {
