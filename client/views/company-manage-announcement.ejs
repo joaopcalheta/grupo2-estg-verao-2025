@@ -212,6 +212,16 @@
         <input type="text" name="pic" value="<%= announcement.pic %>" />
       </label>
     </label>
+    
+    
+    
+    <label>
+  Estado do anúncio
+  <select name="state" id="state">
+    <option value="Ativo" <%= announcement.state === 'Ativo' ? 'selected' : '' %>>Ativo</option>
+    <option value="Desativado" <%= announcement.state === 'Desativado' ? 'selected' : '' %>>Desativado</option>
+  </select>
+</label>
     <div class="actions-btn">
       <button type="button" class="btn btn-black" onclick="history.back()">
         Voltar

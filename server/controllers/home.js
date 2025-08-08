@@ -1,9 +1,13 @@
-// server/controllers/homeController.js
+// server/controllers/home.js
 
 const Announcement = require("../models/announcement");
 
+const expireAnnouncements = require("../utils/expireAnnouncements");
+
 const getHome = async (req, res) => {
   try {
+    await expireAnnouncements(); // Expira anúncios antes de carregar a página inicial - verifica se data de fim ja passou e altera o estado para "Expirado"
+
     const order = req.query.order || "recent";
     const { category, type, regime, municipality, education_level } = req.query;
 
@@ -32,10 +36,12 @@ const getHome = async (req, res) => {
         sortOptions = { createdAt: -1 };
     }
 
-    const filter = {};
+    const filter = { state: "Ativo" };
 
     if (category) {
-      filter.category = { $in: Array.isArray(category) ? category : [category] };
+      filter.category = {
+        $in: Array.isArray(category) ? category : [category],
+      };
     }
     if (type) {
       filter.type = { $in: Array.isArray(type) ? type : [type] };
@@ -44,11 +50,15 @@ const getHome = async (req, res) => {
       filter.regime = { $in: Array.isArray(regime) ? regime : [regime] };
     }
     if (municipality) {
-      filter.municipality = { $in: Array.isArray(municipality) ? municipality : [municipality] };
+      filter.municipality = {
+        $in: Array.isArray(municipality) ? municipality : [municipality],
+      };
     }
     if (education_level) {
       filter.education_level = {
-        $in: Array.isArray(education_level) ? education_level : [education_level],
+        $in: Array.isArray(education_level)
+          ? education_level
+          : [education_level],
       };
     }
 

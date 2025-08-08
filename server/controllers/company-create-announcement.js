@@ -2,7 +2,7 @@
 
 const Announcement = require("../models/announcement");
 const path = require("path");
-
+const expireAnnouncements = require("../utils/expireAnnouncements");
 // Exemplo de mapeamento categoria -> imagem default
 const categoryToImage = {
   Restauração: "/images/restauracao.jpg",
@@ -24,6 +24,7 @@ const categoryToImage = {
 
 const getCompanyCreateAnnouncement = async (req, res) => {
   try {
+    await expireAnnouncements(); // Expira anúncios antes de carregar a página - verifica se data de fim ja passou e altera o estado para "Expirado"
     const companyID = req.params.companyID;
     res.render("company-create-announcement", { companyID });
   } catch (err) {
@@ -58,7 +59,8 @@ const postCompanyCreateAnnouncement = async (req, res) => {
     const picPath =
       req.body.pic && req.body.pic.trim() !== ""
         ? req.body.pic
-        : categoryToImage[req.body.category] || "/css/images/defaults/default.png";
+        : categoryToImage[req.body.category] ||
+          "/css/images/defaults/default.png";
 
     const newAnnouncement = new Announcement({
       job_name,
