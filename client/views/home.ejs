@@ -1,6 +1,8 @@
 <!-- home.ejs -->
 <head>
   <link href="/css/home.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/top-button.css" />
+  <link href="/css/notifications.css" rel="stylesheet" />
 </head>
 
 <!-- pesquisar, ordenar e filtrar -->
@@ -103,9 +105,14 @@
         <!-- texto -->
         <div class="d-flex flex-column justify-content-between ps-2 pt-1 pb-2">
           <div class="mb-0">
-            <h5><%= announcement.job_name %></h5>
-            <h6 class="mb-0 fw-normal"><%= announcement.municipality %></h6>
-            <h6 class="fw-normal"><%= announcement.regime %></h6>
+            <h5 class="job-title"><%= announcement.job_name %></h5>
+            <h6 class="job-category mb-0 fw-normal visually-hidden">
+              <%= announcement.category %>
+            </h6>
+            <h6 class="job-location mb-0 fw-normal">
+              <%= announcement.municipality %>
+            </h6>
+            <h6 class="job-type fw-normal"><%= announcement.regime %></h6>
           </div>
           <div>
             <h6 class="fw-normal text-muted pointer text-decoration-underline">
@@ -119,7 +126,43 @@
   <% }); %>
 </div>
 
-<!-----------------Alertas------------------------------------->
+<!-- Navegação por páginas -->
+<div id="pagination" class="d-flex justify-content-center mt-4">
+  <nav aria-label="Navegação de páginas">
+    <ul class="pagination pagination-bordered">
+      <% if (currentPage > 1) { %>
+      <li class="page-item">
+        <a
+          class="page-link"
+          href="?<%= buildQueryString({ ...query, page: currentPage - 1 }) %>"
+          >Anterior</a
+        >
+      </li>
+      <% } %> <% for (let i = 1; i <= totalPages; i++) { %>
+      <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+        <a
+          class="page-link"
+          href="?<%= buildQueryString({ ...query, page: i }) %>"
+          ><%= i %></a
+        >
+      </li>
+      <% } %> <% if (currentPage < totalPages) { %>
+      <li class="page-item">
+        <a
+          class="page-link"
+          href="?<%= buildQueryString({ ...query, page: currentPage + 1 }) %>"
+          >Próxima</a
+        >
+      </li>
+      <% } %>
+    </ul>
+  </nav>
+</div>
+
+<!-------Botão flutuante para voltar ao topo da página------>
+<button onclick="scrollToTop()" id="btnTop">↑</button>
+
+<!----------------------Alertas------------------------------->
 
 <div
   id="notification-cand-env"
@@ -135,4 +178,6 @@
   <!-- Barra de progresso -->
 </div>
 
+<script src="/js/top-button.js"></script>
 <script src="/js/home.js"></script>
+<script src="/js/notifications.js"></script>

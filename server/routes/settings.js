@@ -21,15 +21,15 @@ router.get(
   professionalProfileController.getProfessionalProfilePage
 );
 router.post(
-  "/professional-profile",
+  "/professional-profile", ensureAuthenticated,
   professionalProfileController.postProfessionalProfileData
 );
 
 // my applications
-router.get("/my-applications", myApplicationsController.getMyApplicationsPage);
-router.post("/my-applications/delete/:id", myApplicationsController.deleteApplication);
+router.get("/my-applications", ensureAuthenticated, myApplicationsController.getMyApplicationsPage);
+router.delete("/my-applications/:id", ensureAuthenticated, myApplicationsController.deleteApplication);
 
 // my companies
-router.get("/my-companies", myCompaniesController.getMyCompaniesPage);
+router.get("/my-companies", ensureAuthenticated, myCompaniesController.getMyCompaniesPage);
 
 module.exports = router;

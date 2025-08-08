@@ -62,7 +62,7 @@
 </select>
   </label>
   <label>Freguesia
-    <select name="freg" id="freg">
+    <select name="freg" id="freguesia">
     <option value="">-- Selecione uma opção --</option>
     <option value="Achadas da Cruz" <%= announcement.freg === 'Achadas da Cruz' ? 'selected' : '' %>>Achadas da Cruz</option>
     <option value="Água de Pena" <%= announcement.freg === 'Água de Pena' ? 'selected' : '' %>>Água de Pena</option>
@@ -147,9 +147,21 @@
     <option value="ensino superior" <%= announcement.education_level === 'ensino superior' ? 'selected' : '' %>>Ensino superior</option>
   </select>
 </label>
+<div>
+  <style>
+    /* Força o estilo padrão de checkbox */
+      .form-check-input[type="checkbox"] {
+        appearance: checkbox;
+        -webkit-appearance: checkbox;
+        -moz-appearance: checkbox;
+        width: auto;
+        height: auto;
+        margin-top: 0.3em;
+      }
+  </style>
 
 <div class="mb-3">
-  <label>Línguas</label>
+  <h5 class="mb-3 fw-bold">Línguas</h5>
   <div class="d-flex flex-wrap gap-3">
     <div class="form-check">
       <input class="form-check-input" type="checkbox" name="languages[]" value="Eng" id="lingua-ingles"
@@ -174,26 +186,28 @@
   </div>
   
 </div>
-
+</div>
     <label
       >Salário
       <input type="text" name="salary" required value="<%= announcement.salary%>" />
     </label>
-      <label>Horário de trabalho
-      <div class="d-inline-flex p-2 gap-5">
-    <div class="form-group">
-      <label for="inicio">Horário de Início:</label>
-      <input type="time" id="inicio" name="schedule[startTime]" value="<%= announcement.schedule['startTime']%>">
+
+    <label>Horário de trabalho</label>
+    <div class="d-inline-flex p-2 gap-5">
+      <div class="form-group">
+        <label for="inicio">Horário de Início:</label>
+        <input type="time" id="inicio" name="schedule[startTime]" value="<%= announcement.schedule['startTime'] %>" />
+      </div>
+
+      <div class="form-group">
+        <label for="fim">Horário de Término:</label>
+        <input type="time" id="fim" name="schedule[endTime]" value="<%= announcement.schedule['endTime'] %>" />
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="fim">Horário de Término:</label>
-      <input type="time" id="fim" name="schedule[endTime]" value="<%= announcement.schedule['endTime']%>">
-    </div>
-</div>
-    <label
-      >Prazo de candidatura
-      <input type="text" name="end_date" value="<%=announcement.end_date%>" required />
+    <label>
+      Prazo de candidatura
+      <input type="date" name="end_date" value="<%= announcement.end_date %>" id="end_date" required/>
     </label>
     <label
     >Número de vagas
@@ -228,61 +242,38 @@
       </button>
       <button type="submit" class="btn btn-blue">Guardar</button>
     </div>
+
+  </form>
+  </br>  
+    <!-- O form para eliminar necessita estar fora do form principal para funcionar-->
+    <form id="deleteForm" method="POST" action="/company-manage-announcement/<%= announcement._id %>?_method=DELETE">
     <div class="actions-btn">
       <button id="deletebtn" type="button" class="btn btn-delete">
         Eliminar 🗑️
       </button>
     </div>
-  </form>
+    </form>
+
 </div>
+
 <div class="modal" id="confirmModal" style="display: none;">
   <span class="close" onclick="closeModal()">&times;</span>
   <div class="icon">!</div>
   <h2>Tem certeza?</h2>
   <p>Você está prestes a excluir seu anúncio. Esta ação não pode ser desfeita.</p>
   <div class="buttons">
-    <button class="btn-black btn-small" onclick="confirmDelete()">Sim, excluir</button>
+    <button class="btn-black btn-small" onclick="document.getElementById('deleteForm').submit()">Sim, excluir</button>
     <button class="btn-cancel btn-small" onclick="closeModal()">Cancelar</button>
   </div>
 </div>
 
 <!-- Script -->
 <script>
-  // ID do anúncio (passado do EJS para JS)
-  const announcementId = "<%= announcement._id %>";
-
-  // Botão "Eliminar"
   document.getElementById("deletebtn").addEventListener("click", () => {
     document.getElementById("confirmModal").style.display = "block";
   });
-
-  // Fecha o modal
   function closeModal() {
     document.getElementById("confirmModal").style.display = "none";
   }
-  // Confirma eliminação
-  async function confirmDelete() {
-    try {
-      const response = await fetch(`/company-manage-announcement/${announcementId}`, {
-        method: "DELETE"
-      }
-      );
-
-      if (response.ok) {
-        sessionStorage.setItem('mostrarNotificacaoRemocao', 'true');
-        window.location.href = "/settings?section=my-companies";
-      } else {
-        const errorText = await response.text();
-        alert("Erro ao eliminar anúncio: " + errorText);
-      }
-    } catch (err) {
-      console.error("Erro ao eliminar:", err);
-      alert("Erro interno ao tentar eliminar o anúncio.");
-    } finally {
-      closeModal();
-    }
-  }
-
 </script>
-
 

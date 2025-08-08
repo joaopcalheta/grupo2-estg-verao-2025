@@ -7,8 +7,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchTerm = searchInput.value.toLowerCase();
 
     jobCards.forEach((card) => {
-      const text = card.textContent.toLowerCase();
-      card.style.display = text.includes(searchTerm) ? "block" : "none";
+      const title =
+        card.querySelector(".job-title")?.textContent.toLowerCase() || "";
+      const category =
+        card.querySelector(".job-category")?.textContent.toLowerCase() || "";
+      const location =
+        card.querySelector(".job-location")?.textContent.toLowerCase() || "";
+      const type =
+        card.querySelector(".job-type")?.textContent.toLowerCase() || "";
+      // add mais se quisermos que apareça quando pesquisamos
+      const combined = `${title} ${category} ${location} ${type}`;
+      card.style.display = combined.includes(searchTerm) ? "block" : "none";
     });
   }
 
@@ -28,28 +37,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
-// Verifica se há notificação a ser exibida
-if (sessionStorage.getItem("mostrarNotificacaoCandEnv") === "true") {
-  const notificationCandEnv = document.getElementById("notification-cand-env");
-  notificationCandEnv.style.display = "flex";
-
-  // Remove o gatilho da sessão para não repetir
-  sessionStorage.removeItem("mostrarNotificacaoCandEnv");
-
-  // Reinicia a animação da progress bar (necessário para casos de reuso)
-  const progressBar = notificationCandEnv.querySelector(
-    ".progress-bar-cand-env"
-  );
-  progressBar.style.animation = "none";
-  progressBar.offsetHeight; // forçar reflow
-  progressBar.style.animation = null;
-
-  // Esconde após x segundos
-  setTimeout(() => {
-    notificationCandEnv.classList.add("hide");
-    setTimeout(() => {
-      notificationCandEnv.remove();
-    }, 50);
-  }, 5000);
-}

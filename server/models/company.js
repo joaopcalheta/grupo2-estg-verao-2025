@@ -1,5 +1,3 @@
-// ../models/company.js
-
 const mongoose = require("mongoose");
 
 const companySchema = new mongoose.Schema(
@@ -8,6 +6,7 @@ const companySchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
+      maxlength: 100,
     },
     admin_usernames: [
       {
@@ -15,16 +14,32 @@ const companySchema = new mongoose.Schema(
         required: true,
         lowercase: true,
         trim: true,
+        minlength: 3,
       },
     ],
     phone: {
       type: String,
       required: true,
       trim: true,
+      validate: {
+        validator: function (v) {
+          // Aceita formatos com dígitos, espaços, parênteses ou traços
+          return /^\+?[0-9\s\-().]{6,20}$/.test(v);
+        },
+        message: (props) =>
+          `${props.value} não é um número de telefone válido.`,
+      },
     },
     nif: {
       type: Number,
       required: true,
+      validate: {
+        validator: function (v) {
+          return Number.isInteger(v) && v.toString().length === 9;
+        },
+        message: (props) =>
+          `${props.value} não é um NIF válido (deve ter 9 dígitos).`,
+      },
     },
     address: {
       type: String,
@@ -36,6 +51,13 @@ const companySchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
+      validate: {
+        validator: function (v) {
+          return /^\d{4}-\d{3}$/.test(v); // formato português
+        },
+        message: (props) =>
+          `${props.value} não é um código postal válido (ex: 1234-567).`,
+      },
     },
     municipality: {
       type: String,
@@ -46,25 +68,28 @@ const companySchema = new mongoose.Schema(
       type: String,
       default: "",
       trim: true,
+      maxlength: 1000,
     },
     pic: {
       type: String,
       trim: true,
+      validate: {
+        validator: function (v) {
+          return !v || /^(http|https):\/\/[^ "]+$/.test(v);
+        },
+        message: (props) => `${props.value} não é uma URL válida.`,
+      },
     },
-
-    // isto ja nem deve ser preciso
-
-    /*
-    user_id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },*/
   },
   {
     timestamps: true,
   }
 );
+
+// Adicional: validação personalizada no array de admin_usernames
+companySchema.path("admin_usernames").validate(function (value) {
+  return Array.isArray(value) && value.length > 0;
+}, "Deve haver pelo menos um administrador associado.");
 
 const Company = mongoose.model("Company", companySchema);
 

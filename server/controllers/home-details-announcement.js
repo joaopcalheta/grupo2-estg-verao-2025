@@ -1,5 +1,4 @@
 const Announcement = require("../models/announcement");
-//const User = require("../models/user");
 //const Company = require("../models/company");
 const expireAnnouncements = require("../utils/expireAnnouncements");
 const getHomeDetailsAnnouncement = async (req, res) => {
@@ -10,12 +9,16 @@ const getHomeDetailsAnnouncement = async (req, res) => {
       return res.status(400).send("ID do anúncio não foi fornecido.");
     }
 
-    const announcement = await Announcement.findById(announcementId); //.populate("user_id");
+    const announcement = await Announcement.findById(announcementId)
+    .populate({
+      path: "company_id",
+      select: "name phone nif address postcode municipality about_us pic",
+    })
+    .lean();
+
     if (!announcement) {
       return res.status(404).send("Anúncio não encontrado.");
     }
-
-    //const company = await Company.findOne({ user_id: announcement.user_id._id });
 
     res.render("home-details-announcement", {
       announcement,

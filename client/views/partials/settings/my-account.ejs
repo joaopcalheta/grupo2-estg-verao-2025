@@ -9,7 +9,6 @@
     <img id="pfpImg" src="/images/my-account.png" alt="pfp" />
     <p id="pfpChange">Alterar Imagem</p>
   </div>
-  <h2 class="fw-bold mb-4" id="personalData">Dados Pessoais</h2>
 
   <!-- name -->
   <div>
@@ -32,7 +31,13 @@
       type="date"
       name="birthdate"
       value="<%= user.birthdate ? user.birthdate.toISOString().substring(0, 10) : '' %>"
-      max="<%= new Date().toISOString().substring(0, 10) %>"  <!-- previne datas futuras -->
+      max="<%= new Date().toISOString().substring(0, 10) %>"
+      <!--
+      previne
+      datas
+      futuras
+      --
+    />
   </div>
 
   <!-- username -->
@@ -164,12 +169,6 @@
   <br />
   <div class="actions-btn d-flex">
     <div class="d-flex justify-content-between gap-3 buttonWidth">
-      <button
-        type="button"
-        class="buttonWidth btn btn-black"
-        onclick="window.location.href='/'">
-        Voltar
-      </button>
       <button type="submit" class="buttonWidth btn btn-blue">Guardar</button>
     </div>
   </div>
@@ -181,13 +180,7 @@
   <script src="/js/client-my-profile.js"></script>
 </form>
 
-<!--<script>
-  function mostrarNotificacaoPerfilAtt() {
-    sessionStorage.setItem("mostrarNotificacaoPerfilAtt", "true");
-    location.reload(); // ou enviar o formulário e redirecionar de volta
-  }
-</script>-->
-
+<!--COISAS DO AFONSO-->
 <script>
   // upload preview
   document.getElementById("pfp-container").addEventListener("click", () => {

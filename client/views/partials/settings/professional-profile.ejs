@@ -7,7 +7,7 @@
 <% const langs = Array.isArray(profile.languages) ? profile.languages : []; %>
 
 <form id="professional-form" method="POST" action="/professional-profile">
-  <h2 class="fw-bold mb-4" id="personalData">Dados Profissionais</h2>
+  
   <div>
     <style>
       /* Força o estilo padrão de checkbox */
@@ -92,8 +92,15 @@
     />
   </div>
   <div class="sobre">
-    <textarea class="form-control" rows="5" name="about_me" placeholder="Sobre mim" style="white-space: pre-wrap;"><%= profile.about_me || '' %></textarea>
-  </div>
+  <textarea
+    class="form-control"
+    rows="5"
+    name="about_me"
+    placeholder="Sobre mim"
+    style="white-space: pre-wrap;"
+    maxlength="1000"
+  ><%= profile.about_me || '' %></textarea>
+</div>
 
   <div>
     <h5 class="mb-3 mt-2 fw-bold" id="cv">Anexar CV:</h5>
@@ -106,13 +113,7 @@
 <br />
 <div class="actions-btn d-flex">
   <div class="d-flex justify-content-between gap-3 buttonWidth">
-    <button
-      type="button"
-      class="buttonWidth btn btn-black"
-      onclick="window.location.href='/'"
-    >
-      Voltar
-    </button>
+    
     <button type="submit" class="buttonWidth btn btn-blue">Guardar</button>
   </div>
 </div>
