@@ -58,10 +58,9 @@
   <div class="d-grid gap-2 mt-3">
     <div class="d-flex gap-2">
       <a
-        href="/company-manage-announcement?id=<%= announcement._id %>"
         class="d-grid gap-2 text-reset text-decoration-none w-100"
       >
-        <button class="btn btn-blue">Editar</button>
+        <button onclick="location.href='/company-manage-announcement/<%= announcement._id %>'" class="btn btn-blue">Editar</button>
       </a>
       <a
         href="/company-announcement-candidates?id=<%= announcement._id %>"
