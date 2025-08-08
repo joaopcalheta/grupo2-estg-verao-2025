@@ -1,6 +1,8 @@
 <!-- home.ejs -->
 <head>
   <link href="/css/home.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/top-button.css" />
+  <link href="/css/notifications.css" rel="stylesheet" />
 </head>
 
 <!-- pesquisar, ordenar e filtrar -->
@@ -63,18 +65,11 @@
       </div>
     </div>
     <!-- filtrar (pagina) -->
-    <% const buildQueryString = (queryObj) => {
-      const params = new URLSearchParams();
-      for (const key in queryObj) {
-        const value = queryObj[key];
-        if (Array.isArray(value)) {
-          value.forEach((v) => params.append(key, v));
-        } else {
-          params.append(key, value);
-        }
-      }
-      return params.toString();
-    }; %>
+    <% const buildQueryString = (queryObj) => { const params = new
+    URLSearchParams(); for (const key in queryObj) { const value =
+    queryObj[key]; if (Array.isArray(value)) { value.forEach((v) =>
+    params.append(key, v)); } else { params.append(key, value); } } return
+    params.toString(); }; %>
     <div class="d-flex main-card-filter-left justify-content-center">
       <button
         type="button"
@@ -87,7 +82,7 @@
 </div>
 
 <div id="joblist">
-  <% if (announcements.length === 0) { %>
+  %> <% if (announcements.length === 0) { %>
   <p class="text-center my-5 fw-bold">Nenhum anúncio disponível no momento.</p>
   <% } %> <% announcements.forEach((announcement) => { %>
   <a
@@ -136,25 +131,36 @@
   <nav aria-label="Navegação de páginas">
     <ul class="pagination pagination-bordered">
       <% if (currentPage > 1) { %>
-        <li class="page-item">
-          <a class="page-link" href="?<%= buildQueryString({ ...query, page: currentPage - 1 }) %>">Anterior</a>
-        </li>
-      <% } %>
-
-      <% for (let i = 1; i <= totalPages; i++) { %>
-        <li class="page-item <%= i === currentPage ? 'active' : '' %>">
-          <a class="page-link" href="?<%= buildQueryString({ ...query, page: i }) %>"><%= i %></a>
-        </li>
-      <% } %>
-
-      <% if (currentPage < totalPages) { %>
-        <li class="page-item">
-          <a class="page-link" href="?<%= buildQueryString({ ...query, page: currentPage + 1 }) %>">Próxima</a>
-        </li>
+      <li class="page-item">
+        <a
+          class="page-link"
+          href="?<%= buildQueryString({ ...query, page: currentPage - 1 }) %>"
+          >Anterior</a
+        >
+      </li>
+      <% } %> <% for (let i = 1; i <= totalPages; i++) { %>
+      <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+        <a
+          class="page-link"
+          href="?<%= buildQueryString({ ...query, page: i }) %>"
+          ><%= i %></a
+        >
+      </li>
+      <% } %> <% if (currentPage < totalPages) { %>
+      <li class="page-item">
+        <a
+          class="page-link"
+          href="?<%= buildQueryString({ ...query, page: currentPage + 1 }) %>"
+          >Próxima</a
+        >
+      </li>
       <% } %>
     </ul>
   </nav>
 </div>
+
+<!-------Botão flutuante para voltar ao topo da página------>
+<button onclick="scrollToTop()" id="btnTop">↑</button>
 
 <!----------------------Alertas------------------------------->
 
@@ -172,5 +178,6 @@
   <!-- Barra de progresso -->
 </div>
 
+<script src="/js/top-button.js"></script>
 <script src="/js/home.js"></script>
 <script src="/js/notifications.js"></script>

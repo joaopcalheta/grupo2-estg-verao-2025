@@ -147,9 +147,21 @@
     <option value="ensino superior" <%= announcement.education_level === 'ensino superior' ? 'selected' : '' %>>Ensino superior</option>
   </select>
 </label>
+<div>
+  <style>
+    /* Força o estilo padrão de checkbox */
+      .form-check-input[type="checkbox"] {
+        appearance: checkbox;
+        -webkit-appearance: checkbox;
+        -moz-appearance: checkbox;
+        width: auto;
+        height: auto;
+        margin-top: 0.3em;
+      }
+  </style>
 
 <div class="mb-3">
-  <label>Línguas</label>
+  <h5 class="mb-3 fw-bold">Línguas</h5>
   <div class="d-flex flex-wrap gap-3">
     <div class="form-check">
       <input class="form-check-input" type="checkbox" name="languages[]" value="Eng" id="lingua-ingles"
@@ -174,7 +186,7 @@
   </div>
   
 </div>
-
+</div>
     <label
       >Salário
       <input type="text" name="salary" required value="<%= announcement.salary%>" />
@@ -214,8 +226,16 @@
         <input type="text" name="pic" value="<%= announcement.pic %>" />
       </label>
     </label>
-
-
+    
+    
+    
+    <label>
+  Estado do anúncio
+  <select name="state" id="state">
+    <option value="Ativo" <%= announcement.state === 'Ativo' ? 'selected' : '' %>>Ativo</option>
+    <option value="Desativado" <%= announcement.state === 'Desativado' ? 'selected' : '' %>>Desativado</option>
+  </select>
+</label>
     <div class="actions-btn">
       <button type="button" class="btn btn-black" onclick="history.back()">
         Voltar

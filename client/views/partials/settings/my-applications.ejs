@@ -32,18 +32,15 @@
         <h6 class="mb-0" style="font-weight: 600">Detalhes</h6>
       </button>
       <!-- Botão Eliminar -->
-      <form method="POST" action="/my-applications/<%= app._id %>?_method=DELETE">
-      <button type="submit" class="btn btn-delete btn-small w-100">
-        <h6 class="mb-0" style="font-weight: 600">Eliminar</h6>
-      </button>
+      <form
+        method="POST"
+        action="/my-applications/<%= app._id %>?_method=DELETE"
+      >
+        <button type="submit" class="btn btn-delete btn-small w-100">
+          <h6 class="mb-0" style="font-weight: 600">Eliminar</h6>
+        </button>
       </form>
     </div>
   </span>
 </div>
 <% }); %>
-
-<div class="text-center">
-  <button class="btn btn-black w-100" onclick="window.location.href='/'">
-    <h6 class="fw-bold">Voltar</h6>
-  </button>
-</div>

@@ -91,6 +91,7 @@ const routes = [
   "reset-password",
   "search-filter",
   "submit-application",
+  "print-announcement",
 ];
 
 routes.forEach((route) => {

@@ -84,3 +84,48 @@ slider.addEventListener("touchmove", (e) => {
 });
 
 // --------- para o scroll horizontal do menu ---------
+
+//----------background do botão selecionado-------------
+/*const menuItems = document.querySelectorAll("#menu-container > div");
+
+menuItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    // Remove a classe 'selected' de todos
+    menuItems.forEach((i) => i.classList.remove("selected"));
+    // Adiciona a classe 'selected' no item clicado
+    item.classList.add("selected");
+  });
+});
+// quando vamos para as settings, "Minha conta" fica selecionado por default
+if (menuItems.length > 0) {
+  menuItems[0].classList.add("selected");
+}*/
+
+const menuItems = document.querySelectorAll("#menu-container > div");
+
+// Recupera a aba ativa do localStorage
+const activeTab = localStorage.getItem("activeTab");
+
+// Aplica a aba ativa salva (se houver)
+if (activeTab) {
+  menuItems.forEach((item) => {
+    item.classList.remove("selected");
+    if (item.textContent.trim() === activeTab) {
+      item.classList.add("selected");
+    }
+  });
+} else if (menuItems.length > 0) {
+  // Se não houver aba salva, seleciona a primeira (default)
+  menuItems[0].classList.add("selected");
+}
+
+// Quando clica numa aba, guarda no localStorage e aplica a classe
+menuItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    menuItems.forEach((i) => i.classList.remove("selected"));
+    item.classList.add("selected");
+
+    // Salva o nome da aba clicada
+    localStorage.setItem("activeTab", item.textContent.trim());
+  });
+});

@@ -1,10 +1,12 @@
 // ../controllers/company-manage-announcement.js
 
 const Announcement = require("../models/announcement");
+const expireAnnouncements = require("../utils/expireAnnouncements");
 const Application = require("../models/application");
 
 const getCompanyManageAnnouncement = async (req, res) => {
   try {
+    await expireAnnouncements(); // Expira anúncios antes de carregar a página - verifica se data de fim ja passou e altera o estado para "Expirado"
     const announcementId = req.params.announcementID;
     if (!announcementId) {
       return res.status(400).send("ID do anúncio não foi fornecido");
@@ -14,6 +16,9 @@ const getCompanyManageAnnouncement = async (req, res) => {
     if (!announcement) {
       return res.status(404).send("Anúncio não foi encontrado");
     }
+
+    const now = new Date();
+    console.log("Data atual:", now);
 
     res.render("company-manage-announcement", {
       announcement,

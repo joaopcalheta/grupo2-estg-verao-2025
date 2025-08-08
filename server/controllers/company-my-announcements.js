@@ -3,8 +3,12 @@
 const Announcement = require("../models/announcement");
 const Company = require("../models/company");
 
+const expireAnnouncements = require("../utils/expireAnnouncements");
+
 const getCompanyMyAnnouncements = async (req, res) => {
   try {
+    await expireAnnouncements(); // Expira anúncios antes de carregar a página - verifica se data de fim ja passou e altera o estado para "Expirado"
+
     const companyID = req.params.companyID;
 
     if (!companyID) {
