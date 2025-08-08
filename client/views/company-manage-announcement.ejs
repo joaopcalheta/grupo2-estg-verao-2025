@@ -180,70 +180,6 @@
       <input type="text" name="salary" required value="<%= announcement.salary%>" />
     </label>
 
-    <label>
-      Código postal
-      <input
-        type="text"
-        name="postcode"
-        id="postcode"
-        value="<%= announcement.postcode %>"
-        required
-        pattern="[0-9]{4}-[0-9]{3}"
-        title="Formato: 1234-567"
-      />
-    </label>
-
-    <label>
-      Regime
-      <select name="regime" id="regime" required>
-        <option value="">-- Selecione uma opção --</option>
-        <option value="Full-Time" <%= announcement.regime === 'Full-Time' ? 'selected' : '' %>>Full-Time</option>
-        <option value="Part-Time" <%= announcement.regime === 'Part-Time' ? 'selected' : '' %>>Part-Time</option>
-      </select>
-    </label>
-
-    <label>
-      Escolaridade
-      <select name="education_level" required>
-        <option value="">Selecione uma opção</option>
-        <option value="ensino básico" <%= announcement.education_level === 'ensino básico' ? 'selected' : '' %>>Ensino básico</option>
-        <option value="ensino secundário" <%= announcement.education_level === 'ensino secundário' ? 'selected' : '' %>>Ensino secundário</option>
-        <option value="ensino superior" <%= announcement.education_level === 'ensino superior' ? 'selected' : '' %>>Ensino superior</option>
-      </select>
-    </label>
-
-<div class="mb-3">
-  <label>Línguas</label>
-  <div class="d-flex flex-wrap gap-3">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Eng" id="lingua-ingles"
-        <%= announcement.languages && announcement.languages.includes('Eng') ? 'checked' : '' %>>
-      <label class="form-check-label" for="lingua-ingles">Inglês</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Fr" id="lingua-frances"
-        <%= announcement.languages && announcement.languages.includes('Fr') ? 'checked' : '' %>>
-      <label class="form-check-label" for="lingua-frances">Francês</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Esp" id="lingua-espanhol"
-        <%= announcement.languages && announcement.languages.includes('Esp') ? 'checked' : '' %>>
-      <label class="form-check-label" for="lingua-espanhol">Espanhol</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="languages[]" value="Ger" id="lingua-alemao"
-        <%= announcement.languages && announcement.languages.includes('Ger') ? 'checked' : '' %>>
-      <label class="form-check-label" for="lingua-alemao">Alemão</label>
-    </div>
-  </div>
-  
-</div>
-
-    <label
-      >Salário
-      <input type="text" name="salary" value="<%= announcement.salary%>" />
-    </label>
-
     <label>Horário de trabalho</label>
     <div class="d-inline-flex p-2 gap-5">
       <div class="form-group">
@@ -256,7 +192,7 @@
         <input type="time" id="fim" name="schedule[endTime]" value="<%= announcement.schedule['endTime'] %>" />
       </div>
     </div>
-</div>
+
     <label
       >Prazo de candidatura
       <input type="text" name="end_date" value="<%=announcement.end_date%>" required />
