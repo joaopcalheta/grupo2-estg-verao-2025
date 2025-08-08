@@ -84,3 +84,19 @@ slider.addEventListener("touchmove", (e) => {
 });
 
 // --------- para o scroll horizontal do menu ---------
+
+//----------background do botão selecionado-------------
+const menuItems = document.querySelectorAll("#menu-container > div");
+
+menuItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    // Remove a classe 'selected' de todos
+    menuItems.forEach((i) => i.classList.remove("selected"));
+    // Adiciona a classe 'selected' no item clicado
+    item.classList.add("selected");
+  });
+});
+// quando vamos para as settings, "Minha conta" fica selecionado por default
+if (menuItems.length > 0) {
+  menuItems[0].classList.add("selected");
+}

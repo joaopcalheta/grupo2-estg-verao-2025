@@ -3,14 +3,26 @@
 <head>
   <link href="/css/client-my-applications.css" rel="stylesheet" />
   <link href="/css/settings/settings-menu.css" rel="stylesheet" />
+  <link href="/css/settings/notifications.css" rel="stylesheet" />
 </head>
 
-<div id="menu-container">
-  <div class="pointer" onclick="loadSection('my-account')">Minha conta</div>
-  <div class="pointer" onclick="loadSection('professional-profile')">
+<div id="menu-container" class="mb-4">
+  <div
+    class="pointer menu-container-section"
+    onclick="loadSection('my-account')"
+  >
+    Minha conta
+  </div>
+  <div
+    class="pointer menu-container-section"
+    onclick="loadSection('professional-profile')"
+  >
     Perfil profissional
   </div>
-  <div class="pointer" onclick="loadSection('my-applications')">
+  <div
+    class="pointer menu-container-section"
+    onclick="loadSection('my-applications')"
+  >
     Minhas candidaturas
   </div>
   <div class="pointer" onclick="loadSection('my-companies')">
