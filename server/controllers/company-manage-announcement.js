@@ -1,6 +1,7 @@
 // ../controllers/company-manage-announcement.js
 
 const Announcement = require("../models/announcement");
+const Application = require("../models/application");
 
 const getCompanyManageAnnouncement = async (req, res) => {
   try {
@@ -72,9 +73,11 @@ const deleteCompanyAnnouncement = async (req, res) => {
     if (!announcement) {
       return res.status(404).send("Anúncio não foi encontrado");
     }
-
     const companyID = announcement.company_id;
     const tempCompanyID = companyID;
+
+    // apagar as candidaturas associadas ao anúncio
+    await Application.deleteMany({ announcement_id: announcementId });
 
     // apagar o anúncio
     await Announcement.findByIdAndDelete(announcementId);
