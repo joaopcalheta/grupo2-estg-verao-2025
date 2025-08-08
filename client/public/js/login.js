@@ -29,31 +29,3 @@ btnRegister.addEventListener("click", () => {
   candidatoFields.style.display = "none";
   empresaFields.style.display = "block";
 });
-
-const radioCandidato = document.getElementById("btn-candidato");
-const radioEmpresa = document.getElementById("btn-empresa");
-
-const camposCandidato = document.querySelector(".candidato-f");
-const camposEmpresa = document.querySelector(".empresa-f");
-
-function mostrarCampos(tipo) {
-  if (tipo === "candidato") {
-    camposCandidato.style.display = "block";
-    camposEmpresa.style.display = "none";
-  } else if (tipo === "empresa") {
-    camposCandidato.style.display = "none";
-    camposEmpresa.style.display = "block";
-  }
-}
-
-// Evento para cada rádio
-radioCandidato.addEventListener("change", () => {
-  mostrarCampos("candidato");
-});
-
-radioEmpresa.addEventListener("change", () => {
-  mostrarCampos("empresa");
-});
-
-// Garantir que ao entrar na aba "Registar", o default é "Candidato"
-mostrarCampos("candidato");
