@@ -5,8 +5,8 @@
 
 <div class="white-card full-announcement p-3">
   <div class="gap-2">
-    <h3 class="mb-3"><b><%= announcement.job_name %></b></h3>
-
+    <h3 class="mb-3 text-center"><b><%= announcement.job_name %></b></h3>
+    <hr class="mb-4">
     <h5 class="mb-1 fw-normal">
       <span class="fw-semibold">Concelho:</span> <%= announcement.municipality%>
     </h5>
@@ -55,12 +55,52 @@
     <h5 class="mb-1 fw-normal">
       <span class="fw-semibold">Número de vagas:</span>
       <%= announcement.numberOfPositions %>
+    </h5>
+    </br>  
     <img src="<%= announcement.pic %>" class="mt-2" />
-    <h6 class="fw-normal">
-      <span class="bfw-semibold">Descrição:</span> <%= announcement.description
-      %>
+    <h6 class="fw-normal mt-4"> 
+      <span class="fw-semibold">Descrição:</span> <%= announcement.description %>
     </h6>
+
+  </br>
+
+  <% if (announcement.company_id) {  
+     const c = announcement.company_id; %>
+
+  <div class="card p-3 mt-4 mb-2">
+    <!-- Botão de toggle -->
+    <div class="d-flex justify-content-between align-items-center pointer" 
+         onclick="toggleCompanyDetails()" style="cursor:pointer;">
+      <h5 class="mb-0"><b>Dados da empresa</b></h5>
+      <i id="company-arrow" class="bi bi-chevron-down"></i>
+    </div>
+
+    <!-- Conteúdo que vai ficar escondido -->
+    <div id="company-details" style="display: none;" class="mt-3">
+      <div class="d-flex gap-3">
+        <div style="width:100px; height:100px; overflow:hidden; border-radius:8px;">
+          <img src="<%= c.pic %>" 
+               alt="Logo da empresa" 
+               style="width:100%; height:100%; object-fit:cover;" />
+        </div>
+        <div class="flex-grow-1">
+          <h5 class="mb-2"><b><%= c.name %></b></h5>
+          <p class="mb-1"><span class="fw-semibold">Concelho:</span> <%= c.municipality || '—' %></p>
+          <p class="mb-1"><span class="fw-semibold">Morada:</span> <%= c.address || '—' %></p>
+          <p class="mb-1"><span class="fw-semibold">Código postal:</span> <%= c.postcode || '—' %></p>
+          <p class="mb-1"><span class="fw-semibold">Telefone:</span> <%= c.phone || '—' %></p>
+          <p class="mb-1"><span class="fw-semibold">NIF:</span> <%= c.nif || '—' %></p>
+        </div>
+      </div>
+
+      <% if (c.about_us) { %>
+        <hr />
+        <p class="mb-0"><%= c.about_us %></p>
+      <% } %>
+    </div>
   </div>
+
+  <% } %>
 
   <div class="d-grid gap-2 mt-3">
     <a
@@ -72,3 +112,5 @@
     <button class="btn btn-black" onclick="history.back()">Voltar</button>
   </div>
 </div>
+
+<script src="/js/home-details-announcement.js"></script>
