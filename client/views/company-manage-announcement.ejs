@@ -179,18 +179,20 @@
       >Salário
       <input type="text" name="salary" required value="<%= announcement.salary%>" />
     </label>
-      <label>Horário de trabalho
-      <div class="d-inline-flex p-2 gap-5">
-    <div class="form-group">
-      <label for="inicio">Horário de Início:</label>
-      <input type="time" id="inicio" name="schedule[startTime]" value="<%= announcement.schedule['startTime']%>">
+
+    <label>Horário de trabalho</label>
+    <div class="d-inline-flex p-2 gap-5">
+      <div class="form-group">
+        <label for="inicio">Horário de Início:</label>
+        <input type="time" id="inicio" name="schedule[startTime]" value="<%= announcement.schedule['startTime'] %>" />
+      </div>
+
+      <div class="form-group">
+        <label for="fim">Horário de Término:</label>
+        <input type="time" id="fim" name="schedule[endTime]" value="<%= announcement.schedule['endTime'] %>" />
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="fim">Horário de Término:</label>
-      <input type="time" id="fim" name="schedule[endTime]" value="<%= announcement.schedule['endTime']%>">
-    </div>
-</div>
     <label
       >Prazo de candidatura
       <input type="text" name="end_date" value="<%=announcement.end_date%>" required />
