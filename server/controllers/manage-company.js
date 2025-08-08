@@ -119,7 +119,7 @@ const deleteCompany = async (req, res) => {
       return res.status(404).send("Empresa não foi encontrada");
     }
 
-    // ✅ Retorna um sucesso simples
+    // Manda de volta para a página das empresas e envia notificação
     return res.send(`
       <script>
         sessionStorage.setItem('mostrarNotificacaoDeleteCompany', 'true');

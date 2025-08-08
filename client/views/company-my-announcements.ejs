@@ -6,10 +6,27 @@
 </head>
 
 <h2 class="text-center my-5 fw-bold">Anúncios de <%= company.name %></h2>
+<div>
+  <div class="text-center mt-3 mb-2">
+    <button
+      class="btn btn-blue w-100"
+      onclick="location.href='/company-create-announcement/<%= company._id %>'"
+    >
+      <h6 class="fw-bold">+ Criar anúncio</h6>
+    </button>
+  </div>
+  <div class="text-center">
+    <button
+      class="btn btn-black w-100 mb-3"
+      onclick="window.location.href='/settings?section=my-companies'"
+    >
+      <h6 class="fw-bold">Voltar</h6>
+    </button>
+  </div>
+</div>
 
-<% if (announcements.length === 0) { %>
-<p class="text-center fw-bold">A sua empresa ainda não tem anúncios.</p>
-<% } %> <% announcements.forEach((announcement) => { %>
+<% if (announcements.length === 0) { %> <% } %> <%
+announcements.forEach((announcement) => { %>
 <div class="white-card d-flex p-0 justify-content-between">
   <div class="d-flex">
     <!-- imagem -->
@@ -55,24 +72,6 @@
   </span>
 </div>
 <% }); %>
-
-<div class="text-center mt-4">
-  <button
-    class="btn btn-blue w-100"
-    onclick="location.href='/company-create-announcement/<%= company._id %>'"
-  >
-    <h6 class="fw-bold">+ Criar anúncio</h6>
-  </button>
-</div>
-
-<div class="text-center mt-4">
-  <button
-    class="btn btn-black w-100"
-    onclick="window.location.href='/settings?section=my-companies'"
-  >
-    <h6 class="fw-bold">Voltar</h6>
-  </button>
-</div>
 
 <!--ALERTAS-->
 

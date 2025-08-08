@@ -8,29 +8,37 @@ const professionalProfileSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    languages: [{
-      type: String,
-      trim: true
-    }],
+    languages: [
+      {
+        type: String,
+        trim: true,
+      },
+    ],
     education_level: {
       type: String,
       trim: true,
-      default: ""
+      default: "",
     },
-    skills: [{
-      type: String,
-      trim: true,
-      default: "" 
-    }],
+    skills: [
+      {
+        type: String,
+        trim: true,
+        default: "",
+      },
+    ],
     about_me: {
       type: String,
-      trim: true, 
-      default: "" 
+      trim: true,
+      maxlength: [
+        1000,
+        "O campo 'sobre mim' não pode exceder 1000 caracteres.",
+      ],
+      default: "",
     },
     cv: {
       type: String,
       trim: true,
-      default: ""
+      default: "",
     },
   },
   {
@@ -38,6 +46,9 @@ const professionalProfileSchema = new mongoose.Schema(
   }
 );
 
-const ProfessionalProfile = mongoose.model("ProfessionalProfile", professionalProfileSchema);
+const ProfessionalProfile = mongoose.model(
+  "ProfessionalProfile",
+  professionalProfileSchema
+);
 
 module.exports = ProfessionalProfile;

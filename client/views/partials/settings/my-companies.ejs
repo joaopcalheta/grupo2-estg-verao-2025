@@ -1,5 +1,11 @@
 <!-- ../views/partials/settings/my-companies.ejs -->
 
+<div class="text-center my-3">
+  <button class="btn btn-blue w-100" onclick="location.href='/create-company'">
+    <h6 class="fw-bold">+ Criar empresa</h6>
+  </button>
+</div>
+
 <% if (companies.length === 0) { %>
 <p class="text-center fw-bold">Não está associado a nenhuma empresa.</p>
 <% } %> <% companies.forEach((company) => { %>
@@ -42,9 +48,3 @@
 </div>
 
 <% }); %>
-
-<div class="text-center">
-  <button class="btn btn-blue w-100" onclick="location.href='/create-company'">
-    <h6 class="fw-bold">+ Criar empresa</h6>
-  </button>
-</div>
