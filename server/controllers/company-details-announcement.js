@@ -1,7 +1,8 @@
 const Announcement = require("../models/announcement");
-
+const expireAnnouncements = require("../utils/expireAnnouncements");
 const getCompanyDetailsAnnouncement = async (req, res) => {
   try {
+    await expireAnnouncements(); // Expira anúncios antes de carregar a página - verifica se data de fim ja passou e altera o estado para "Expirado"
     const announcementId = req.query.id;
     if (!announcementId) {
       return res.status(400).send("ID do anúncio não foi fornecido.");
