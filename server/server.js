@@ -69,6 +69,9 @@ app.use((req, res, next) => {
   next();
 });
 
+// servir ficheiros enviados pelo utilizador (ex.: /uploads/abc.jpg)
+app.use("/uploads", express.static(path.join(__dirname, 'uploads')));
+
 // importa as rotas
 const routes = [
   "apagar_company-my-profile",

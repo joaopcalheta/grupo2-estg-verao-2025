@@ -26,3 +26,10 @@ header {
 .icon {
   width: 30px;
 }
+
+.icon-profile {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}

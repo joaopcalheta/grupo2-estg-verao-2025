@@ -29,7 +29,7 @@
         <% } else { %>
         <a href="/login">
         <% } %>     
-          <img class="icon" src="/images/my-account.png" />
+          <img class="icon-profile" src="<%= currentUser && currentUser.avatar ? currentUser.avatar : '/images/my-account.png' %>" />
         </a>
       </div>
 

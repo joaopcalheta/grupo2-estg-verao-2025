@@ -55,10 +55,13 @@ const postCompanyCreateAnnouncement = async (req, res) => {
 
     console.log("Dados recebidos:", req.body);
 
+    // caminho final que será salvo no Mongo e usado no <img src="...">
+    const uploadedPath = req.file ? `/uploads/${req.file.filename}` : null;
+
     const picPath =
-      req.body.pic && req.body.pic.trim() !== ""
-        ? req.body.pic
-        : categoryToImage[req.body.category] || "/css/images/defaults/default.png";
+      uploadedPath
+      || (categoryToImage[req.body.category])
+      || "/css/images/defaults/default.png";
 
     const newAnnouncement = new Announcement({
       job_name,

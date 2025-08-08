@@ -5,8 +5,8 @@
 
 <div class="white-card full-announcement p-3">
   <div class="gap-2">
-    <h3 class="mb-3"><b><%= announcement.job_name %></b></h3>
-
+    <h3 class="mb-3 text-center"><b><%= announcement.job_name %></b></h3>
+    <hr class="mb-4">
     <h5 class="mb-1 fw-normal">
       <span class="fw-semibold">Local:</span> <%= announcement.municipality %>
     </h5>
@@ -48,12 +48,16 @@
     <h5 class="mb-1 fw-normal">
       <span class="fw-semibold">Número de candidaturas:</span>
       <%= announcement.numberOfApplications || 0 %>
+    </h5>
+    </br>   
     <img src="<%= announcement.pic %>" class="mt-2" />
-    <h6 class="fw-normal">
+    <h6 class="fw-normal mt-4">
       <span class="bfw-semibold">Descrição:</span> <%= announcement.description
       %>
     </h6>
   </div>
+
+  </br>
 
   <div class="d-grid gap-2 mt-3">
     <div class="d-flex gap-2">

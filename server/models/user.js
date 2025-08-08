@@ -82,6 +82,11 @@ const userSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Company",
     },
+    avatar: {
+      type: String,
+      default: "/images/my-account.png",
+      trim: true,
+    },
   },
   {
     timestamps: true,

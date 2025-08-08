@@ -54,6 +54,10 @@ const postMyAccountData = async (req, res) => {
       user.password = await bcrypt.hash(newPassword, salt);
     }
 
+    if (req.file) {
+      user.avatar = `/uploads/${req.file.filename}`;
+    }
+
     // Atualiza campos simples
     user.name = name || user.name;
     user.birthdate = birthdate || user.birthdate;
@@ -66,12 +70,19 @@ const postMyAccountData = async (req, res) => {
     user.email = email || user.email;
 
     await user.save();
-    return res.send(`
-      <script>
-        sessionStorage.setItem('mostrarNotificacaoPerfilAtt', 'true');
-        window.location.href = '/settings?section=my-account';
-      </script>
-    `);
+
+    req.login(user, (err) => {
+      if (err) {
+        console.error("Erro ao reautenticar após update:", err);
+      }
+      return res.send(`
+        <script>
+          sessionStorage.setItem('mostrarNotificacaoPerfilAtt', 'true');
+          // reload para que o header mostre o novo avatar
+          window.location.href = '/settings?section=my-account';
+        </script>
+      `);
+    });
   } catch (err) {
     console.error("Erro ao atualizar perfil pessoal:", err);
     res.status(500).send("Erro interno no servidor");

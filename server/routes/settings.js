@@ -8,12 +8,14 @@ const professionalProfileController = require("../controllers/settings/professio
 const myApplicationsController = require("../controllers/settings/my-applications");
 const myCompaniesController = require("../controllers/settings/my-companies");
 const { ensureAuthenticated } = require("../middlewares/authMiddleware");
+const upload = require("../middlewares/upload");
 
 router.get("/settings", ensureAuthenticated, settingsController.getSettingsPage);
 
 // my account
 router.get("/my-account", ensureAuthenticated, myAccountController.getMyAccountPage);
-router.post("/my-account", ensureAuthenticated, myAccountController.postMyAccountData);
+router.post("/my-account", upload.single("avatar"),
+   ensureAuthenticated, myAccountController.postMyAccountData);
 
 // professional profile
 router.get(
