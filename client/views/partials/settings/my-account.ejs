@@ -3,10 +3,29 @@
   <link href="/css/client-my-profile.css" rel="stylesheet" />
 </head>
 
-<form id="profile-form" method="POST" action="/my-account" enctype="multipart/form-data">
-  <input type="file" id="uploadFoto" name="avatar" accept="image/*" style="display: none" />
-  <div id="pfp-container" class="candidate-img" style="cursor: pointer; text-align: center">
-    <img id="pfpImg" src="<%= user.avatar || '/images/my-account.png' %>" alt="pfp" />
+<form
+  id="profile-form"
+  method="POST"
+  action="/my-account"
+  enctype="multipart/form-data"
+>
+  <input
+    type="file"
+    id="uploadFoto"
+    name="avatar"
+    accept="image/*"
+    style="display: none"
+  />
+  <div
+    id="pfp-container"
+    class="candidate-img"
+    style="cursor: pointer; text-align: center"
+  >
+    <img
+      id="pfpImg"
+      src="<%= user.avatar || '/images/my-account.png' %>"
+      alt="pfp"
+    />
     <p id="pfpChange">Alterar Imagem</p>
   </div>
 
@@ -173,11 +192,14 @@
     </div>
   </div>
   <br />
-  <div class="actions-btn d-grid buttonWidth">
-    <button class="btn btn-delete">Eliminar Conta</button>
-  </div>
+</form>
 
-  <script src="/js/client-my-profile.js"></script>
+<form id="deleteForm" method="POST" action="/my-account?_method=DELETE">
+  <div class="actions-btn d-grid buttonWidth">
+    <button id="deletebtn" type="submit" class="btn btn-delete">
+      Apagar conta
+    </button>
+  </div>
 </form>
 
 <!--COISAS DO AFONSO-->

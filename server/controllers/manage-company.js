@@ -2,6 +2,8 @@
 
 const Company = require("../models/company");
 const User = require("../models/user");
+const Application = require("../models/application");
+const Announcement = require("../models/announcement");
 
 // GET: Mostrar formulário com dados atuais
 const getEditCompany = async (req, res) => {
@@ -108,11 +110,25 @@ const postEditCompany = async (req, res) => {
 const deleteCompany = async (req, res) => {
   console.log("Deleting Company...", req.query);
   try {
-    const companyId = req.query.id;
+    const companyId = req.params.companyId;
     if (!companyId) {
       return res.status(400).send("ID da empresa não foi fornecido");
     }
+    // procurar todos os anúncios da empresa
+    const announcements = await Announcement.find({
+      company_id: companyId,
+    }).select("_id");
 
+    // Extrair IDs dos anúncios
+    const announcementIds = announcements.map((a) => a._id);
+
+    // Apagar todas as candidaturas associadas a esses anúncios
+    await Application.deleteMany({ announcement_id: { $in: announcementIds } });
+
+    // Apagar os anúncios da empresa
+    await Announcement.deleteMany({ company_id: companyId });
+
+    // Apagar a empresa
     const deletedCompany = await Company.findByIdAndDelete(companyId);
 
     if (!deletedCompany) {

@@ -10,28 +10,59 @@ const myCompaniesController = require("../controllers/settings/my-companies");
 const { ensureAuthenticated } = require("../middlewares/authMiddleware");
 const upload = require("../middlewares/upload");
 
-router.get("/settings", ensureAuthenticated, settingsController.getSettingsPage);
+router.get(
+  "/settings",
+  ensureAuthenticated,
+  settingsController.getSettingsPage
+);
 
 // my account
-router.get("/my-account", ensureAuthenticated, myAccountController.getMyAccountPage);
-router.post("/my-account", upload.single("avatar"),
-   ensureAuthenticated, myAccountController.postMyAccountData);
-
+router.get(
+  "/my-account",
+  ensureAuthenticated,
+  myAccountController.getMyAccountPage
+);
+router.post(
+  "/my-account",
+  upload.single("avatar"),
+  ensureAuthenticated,
+  myAccountController.postMyAccountData
+);
+// delete my account
+router.delete(
+  "/my-account",
+  ensureAuthenticated,
+  myAccountController.deleteMyAccount
+);
 // professional profile
 router.get(
-  "/professional-profile", ensureAuthenticated, 
+  "/professional-profile",
+  ensureAuthenticated,
   professionalProfileController.getProfessionalProfilePage
 );
 router.post(
-  "/professional-profile", ensureAuthenticated,
+  "/professional-profile",
+  ensureAuthenticated,
   professionalProfileController.postProfessionalProfileData
 );
 
 // my applications
-router.get("/my-applications", ensureAuthenticated, myApplicationsController.getMyApplicationsPage);
-router.delete("/my-applications/:id", ensureAuthenticated, myApplicationsController.deleteApplication);
+router.get(
+  "/my-applications",
+  ensureAuthenticated,
+  myApplicationsController.getMyApplicationsPage
+);
+router.delete(
+  "/my-applications/:id",
+  ensureAuthenticated,
+  myApplicationsController.deleteApplication
+);
 
 // my companies
-router.get("/my-companies", ensureAuthenticated, myCompaniesController.getMyCompaniesPage);
+router.get(
+  "/my-companies",
+  ensureAuthenticated,
+  myCompaniesController.getMyCompaniesPage
+);
 
 module.exports = router;

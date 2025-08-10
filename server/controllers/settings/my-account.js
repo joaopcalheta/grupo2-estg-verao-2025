@@ -1,6 +1,13 @@
 // ../controllers/settings/my-account.js
 
+// modelos
+const Company = require("../../models/company");
+const Announcement = require("../../models/announcement");
+const Application = require("../../models/application");
+const ProfessionalProfile = require("../../models/professionalProfile");
 const User = require("../../models/user");
+
+//
 const bcrypt = require("bcrypt");
 
 const getMyAccountPage = async (req, res) => {
@@ -89,7 +96,63 @@ const postMyAccountData = async (req, res) => {
   }
 };
 
+const deleteMyAccount = async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const username = req.user.username;
+
+    // Todas as empresas em que o utilizador é administrador
+    const companies = await Company.find({ admin_usernames: username }).select(
+      "_id"
+    );
+    const companyIds = companies.map((c) => c._id);
+
+    if (companyIds.length > 0) {
+      // Vai buscar todos os anúncios dessas empresas
+      const announcements = await Announcement.find({
+        company_id: { $in: companyIds },
+      }).select("_id");
+      const announcementIds = announcements.map((a) => a._id);
+
+      // Apaga todas as candidaturas desses anúncios
+      await Application.deleteMany({
+        announcement_id: { $in: announcementIds },
+      });
+
+      // Apaga os anúncios
+      await Announcement.deleteMany({ company_id: { $in: companyIds } });
+
+      // Apaga as empresas
+      await Company.deleteMany({ _id: { $in: companyIds } });
+    }
+
+    // Apaga as candidaturas feitas pelo proprio utilizador (como candidato)
+    await Application.deleteMany({ user_id: userId });
+
+    // Apaga o perfil profissional do utilizador
+    await ProfessionalProfile.deleteOne({ user_id: userId });
+
+    // Apaga o utilizador
+    await User.findByIdAndDelete(userId);
+
+    // Termina a sessão e redireciona para a página home
+    req.logout((err) => {
+      if (err) console.error("Erro ao terminar sessão após apagar conta:", err);
+      return res.send(`
+        <script>
+          sessionStorage.setItem('mostrarNotificacaoContaApagada', 'true');
+          window.location.href = '/';
+        </script>
+      `);
+    });
+  } catch (err) {
+    console.error("Erro ao apagar conta:", err);
+    return res.status(500).send("Erro interno no servidor");
+  }
+};
+
 module.exports = {
   getMyAccountPage,
   postMyAccountData,
+  deleteMyAccount,
 };
