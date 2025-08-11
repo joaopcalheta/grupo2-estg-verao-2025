@@ -22,7 +22,7 @@
     </style>
 
     <div class="mb-3">
-      <h5 class="mb-3 fw-bold">Línguas</h5>
+      <label class="mb-1 fw-bolder" for="languages">Línguas</label>
       <div class="d-flex flex-wrap gap-3">
         <div class="form-check">
           <input
@@ -73,6 +73,7 @@
   </div>
   <!-- Escolaridade -->
   <div class="escolaridade">
+    <label class="mb-2 fw-bolder" for="escolaridade">Escolaridade</label>
     <select id="escolaridade" name="education_level">
       <option value="selecione">Selecione o nível de escolaridade</option>
       <option value="basico" <%= profile.education_level === "basico" ? "selected" : "" %> >Ensino Básico</option>
@@ -83,8 +84,8 @@
     </select>
   </div>
   <div>
+    <label class="mb-2 fw-bolder" for="skills">Competências</label>
     <input
-      class="form-group"
       type="text"
       name="skills"
       placeholder="Competências"
@@ -92,18 +93,19 @@
     />
   </div>
   <div class="sobre">
-  <textarea
-    class="form-control"
-    rows="5"
-    name="about_me"
-    placeholder="Sobre mim"
-    style="white-space: pre-wrap;"
-    maxlength="1000"
-  ><%= profile.about_me || '' %></textarea>
+    <label class="mb-2 mt-2 fw-bolder" for="about_me">Sobre Mim</label>
+    <textarea
+      class="form-control"
+      rows="5"
+      name="about_me"
+      placeholder="Sobre mim"
+      style="white-space: pre-wrap;"
+      maxlength="1000"
+    ><%= profile.about_me || '' %></textarea>
 </div>
 
   <div>
-    <h5 class="mb-3 mt-2 fw-bold" id="cv">Anexar CV:</h5>
+    <h5 class="mb-2 mt-3 fw-bold" id="cv">Anexar CV</h5>
     <input type="file" name="cv" class="d-none" id="fileInput" />
     <label for="fileInput" class="btn btn-primary">
       <i class="bi bi-upload"></i> Enviar arquivo
