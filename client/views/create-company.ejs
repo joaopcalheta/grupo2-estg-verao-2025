@@ -34,6 +34,7 @@
     id="company_email"
     name="company_email"
     required
+    placeholder="ex: email.empresa@mail.com"
     title="Formato de e-mail inválido. (user@mail.com)"
   />
 
@@ -98,21 +99,10 @@
   </label>
 
   <label for="about_us">Sobre nós</label>
-  <input
-    type="text"
-    id="about_us"
-    name="about_us"
-    maxlength="1000"
-    placeholder="Descrição da empresa"
-  />
+  <textarea name="description" rows="5" id="description"></textarea>
 
   <label for="pic">Adicionar imagem</label>
-  <input
-    type="file" 
-    id="pic" 
-    name="pic" 
-    accept="image/*"
-  />
+  <input type="file" id="pic" name="pic" accept="image/*" />
 
   <div class="d-flex gap-3 mt-4">
     <div class="w-50">

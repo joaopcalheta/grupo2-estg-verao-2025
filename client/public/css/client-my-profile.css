@@ -68,6 +68,17 @@
   transition: border-color 0.3s ease;
   display: flex;
 }
+
+form select {
+  margin-bottom: 10px;
+  padding: 0.6rem;
+  border: 1px solid black;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
 #cv {
   font-family: Arial, Helvetica, sans-serif;
 }

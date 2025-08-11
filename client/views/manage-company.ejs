@@ -106,14 +106,7 @@
   </label>
 
   <label for="about_us">Sobre nós</label>
-  <input
-    type="text"
-    id="about_us"
-    name="about_us"
-    value="<%= company.about_us %>"
-    maxlength="1000"
-    placeholder="Descrição da empresa"
-  />
+  <textarea name="description" rows="5" id="description"><%= company.about_us %></textarea>
 
   <label for="pic">Adicionar imagem</label>
     <div class="d-flex align-items-center gap-3">
