@@ -34,7 +34,7 @@
     <div>
       <div class="text-start pb-1">Email</div>
       <input
-        class="mb-3"
+        class="mb-2"
         type="email"
         name="email"
         placeholder="Escreva o seu email"
@@ -51,25 +51,17 @@
     </div>
   </div>
   <br />
-  <div class="checkbox-group">
-    <div class="">
-      <label><input type="checkbox" id="checkbox" />Lembrar-me</label>
-    </div>
-    <div>
-      <a href="/reset-password" class="esqueci"
-        >Esqueceu-se da palavra-passe?</a
-      >
-    </div>
-  </div>
 
-  <button type="submit" class="lgn">Login</button>
+
+  <button type="submit" class="mt-2 btn btn-blue w-100">Login</button>
 </form>
 
 <form id="register-form" class="form" method="POST" action="/register">
   <div class="mailpass">
     <div class="candidato-f">
-      <label>Nome</label><br />
+      <div class="text-start pb-1">Nome</div>
       <input
+      class="mb-2"
         name="name"
         type="text"
         placeholder="Escreva o seu nome"
@@ -78,8 +70,9 @@
         required
       /><br />
 
-      <label>Username</label><br />
+      <div class="text-start pb-1">Username</div>
 <input
+class="mb-2"
   name="username"
   type="text"
   placeholder="Escreva o seu nome de utilizador"
@@ -88,10 +81,11 @@
   pattern="^[a-z0-9_.-]+$"
   title="Apenas letras minúsculas, números, '.', '-' e '_' são permitidos"
   required
-/>>
+/>
 
-      <label>Email</label><br />
+     <div class="text-start pb-1">Email</div>
       <input
+      class="mb-2"
         name="email"
         type="email"
         placeholder="Escreva o seu email"
@@ -99,8 +93,9 @@
         required
       /><br />
 
-      <label>Password</label><br />
+      <div class="text-start pb-1">Password</div>
       <input
+      class="mb-2"
         name="password"
         type="password"
         placeholder="Escreva a sua password"
@@ -108,7 +103,7 @@
         required
       /><br />
 
-      <label>Confirmar password</label><br />
+      <div class="text-start pb-1">Confirmar password</div>
       <input
         name="confirmpassword"
         type="password"
@@ -120,7 +115,7 @@
     </div>
   </div>
   <br />
-  <button type="submit" class="rgst">Registar</button>
+  <button type="submit" class="mt-2 btn btn-blue w-100">Registar</button>
 </form>
 
 <script src="js/login.js"></script>
