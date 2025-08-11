@@ -17,6 +17,15 @@ const companySchema = new mongoose.Schema(
         minlength: 3,
       },
     ],
+    company_email: {
+      type: String,
+      required: [true, "O e-mail é obrigatório."],
+      lowercase: true,
+      trim: true,
+      unique: true,
+      maxlength: [100, "O e-mail não pode ter mais que 100 caracteres."],
+      match: [/^\S+@\S+\.\S+$/, "Formato de e-mail inválido."],
+    },
     phone: {
       type: String,
       required: true,

@@ -18,6 +18,7 @@ const postCreateCompany = async (req, res) => {
     const {
       name,
       extra_admins,
+      company_email,
       phone,
       nif,
       address,
@@ -51,6 +52,7 @@ const postCreateCompany = async (req, res) => {
     const newCompany = new Company({
       name,
       admin_usernames: allAdmins,
+      company_email,
       phone,
       nif,
       address,

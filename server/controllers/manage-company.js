@@ -35,6 +35,7 @@ const postEditCompany = async (req, res) => {
     const {
       name,
       admin_usernames,
+      company_email,
       phone,
       nif,
       address,
@@ -87,6 +88,7 @@ const postEditCompany = async (req, res) => {
     const updateData = {
       name,
       phone,
+      company_email,
       nif,
       address,
       postcode,
@@ -100,7 +102,11 @@ const postEditCompany = async (req, res) => {
 
       //remover ficheiro antigo (em /uploads)
       try {
-        if (current.pic && current.pic.startsWith("/uploads/") && current.pic !== newPath) {
+        if (
+          current.pic &&
+          current.pic.startsWith("/uploads/") &&
+          current.pic !== newPath
+        ) {
           const absOld = path.join(__dirname, "..", current.pic);
           fs.unlink(absOld, () => {});
         }
@@ -120,7 +126,6 @@ const postEditCompany = async (req, res) => {
     if (!updatedCompany) {
       return res.status(404).send("Empresa não encontrada");
     }
-
 
     res.send(`
       <script>

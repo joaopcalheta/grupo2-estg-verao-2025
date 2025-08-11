@@ -7,11 +7,7 @@
 
 <h2 class="text-center my-5 fw-bold">Gerir empresa</h2>
 
-<form
-  method="POST"
-  action="/manage-company/<%= company._id %>"
-  enctype="multipart/form-data"
->
+<form method="POST" action="/manage-company/<%= company._id %>">
   <label for="name">Nome da empresa</label>
   <input
     type="text"
@@ -33,6 +29,16 @@
     value="<%= company.admin_usernames.join(', ') %>"
     required
     placeholder="ex: user1, user2"
+  />
+
+  <label for="company_email">E-mail da empresa</label>
+  <input
+    type="text"
+    id="company_email"
+    name="company_email"
+    value="<%= company.company_email %>"
+    required
+    title="Formato de e-mail inválido. (user@mail.com)"
   />
 
   <label for="phone">Telefone</label>
@@ -81,15 +87,23 @@
     placeholder="1234-567"
   />
 
-  <label for="municipality">Concelho</label>
-  <input
-    type="text"
-    id="municipality"
-    name="municipality"
-    value="<%= company.municipality %>"
-    required
-    placeholder="Lisboa"
-  />
+  <label
+      >Concelho
+      <select name="municipality" id="municipality">
+        <option value="">-- Selecione uma opção --</option>
+    <option value="Ponta do Sol" <%= company.municipality === 'Ponta do Sol' ? 'selected' : '' %>>Ponta do Sol</option>
+  <option value="Calheta" <%= company.municipality === 'Calheta' ? 'selected' : '' %>>Calheta</option>
+<option value="Ribeira Brava" <%= company.municipality === 'Ribeira Brava' ? 'selected' : '' %>>Ribeira Brava</option>
+<option value="Câmara de Lobos" <%= company.municipality === 'Câmara de Lobos' ? 'selected' : '' %>>Câmara de Lobos</option>
+<option value="Funchal" <%= company.municipality === 'Funchal' ? 'selected' : '' %>>Funchal</option>
+<option value="Santa Cruz" <%= company.municipality === 'Santa Cruz' ? 'selected' : '' %>>Santa Cruz</option>
+<option value="Machico" <%= company.municipality === 'Machico' ? 'selected' : '' %>>Machico</option>
+<option value="Santana" <%= company.municipality === 'Santana' ? 'selected' : '' %>>Santana</option>
+<option value="São Vicente" <%= company.municipality === 'São Vicente' ? 'selected' : '' %>>São Vicente</option>
+<option value="Porto Moniz" <%= company.municipality === 'Porto Moniz' ? 'selected' : '' %>>Porto Moniz</option>
+<option value="Porto Santo" <%= company.municipality === 'Porto Santo' ? 'selected' : '' %>>Porto Santo</option>
+</select>
+  </label>
 
   <label for="about_us">Sobre nós</label>
   <input
