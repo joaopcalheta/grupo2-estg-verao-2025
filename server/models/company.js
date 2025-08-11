@@ -83,10 +83,11 @@ const companySchema = new mongoose.Schema(
       type: String,
       trim: true,
       validate: {
-        validator: function (v) {
-          return !v || /^(http|https):\/\/[^ "]+$/.test(v);
-        },
-        message: (props) => `${props.value} não é uma URL válida.`,
+        validator: (v) => {
+          if (!v) return true; // permitir vazio
+          return /^https?:\/\//i.test(v) || v.startsWith('/uploads/');
+      },
+        message: (props) => `${props.value} não é uma imagem válida.`,
       },
     },
   },

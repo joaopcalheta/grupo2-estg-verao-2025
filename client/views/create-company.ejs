@@ -6,7 +6,7 @@
 
 <h2 class="text-center my-5 fw-bold">Criar empresa</h2>
 
-<form method="POST" action="/create-company/">
+<form method="POST" action="/create-company/" enctype="multipart/form-data">
   <label for="name">Nome da empresa</label>
   <input
     type="text"
@@ -108,11 +108,10 @@
 
   <label for="pic">Adicionar imagem</label>
   <input
-    type="url"
-    id="pic"
-    name="pic"
-    placeholder="https://example.com/logo.jpg"
-    title="Insira uma URL válida (começando com http ou https)"
+    type="file" 
+    id="pic" 
+    name="pic" 
+    accept="image/*"
   />
 
   <div class="d-flex gap-3 mt-4">

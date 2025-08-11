@@ -2,6 +2,7 @@
 
 const Company = require("../models/company");
 const User = require("../models/user");
+const path = require("path");
 
 const getCreateCompany = async (req, res) => {
   try {
@@ -45,10 +46,8 @@ const postCreateCompany = async (req, res) => {
     // junta o username do criador com o dos administradores adicionais
     const allAdmins = [...new Set([currentUsername, ...validUsernames])];
 
-    const user_id = req.user._id;
-
-    console.log("Dados recebidos:", req.body);
-    console.log("UserID:", user_id);
+    const uploadedPath = req.file ? `/uploads/${req.file.filename}` : null;
+    const finalPic = uploadedPath || "";
 
     const newCompany = new Company({
       name,
@@ -60,7 +59,7 @@ const postCreateCompany = async (req, res) => {
       postcode,
       municipality,
       about_us,
-      pic,
+      pic: finalPic,
       //user_id,
     });
 
