@@ -242,7 +242,7 @@ async function printAnnouncementPdf(req, res) {
       )}<br />
       Este é um documento informativo. Para candidatar-se, visite a plataforma.
     </div>
-    <img src="${
+    <img src="http://localhost:3000${
       announcement.qrcode_pic
     }" alt="QR do Anuncio" class="announcement-image" />
   </div>
