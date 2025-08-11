@@ -33,6 +33,7 @@ const postEditCompany = async (req, res) => {
     const {
       name,
       admin_usernames,
+      company_email,
       phone,
       nif,
       address,
@@ -80,6 +81,7 @@ const postEditCompany = async (req, res) => {
       {
         name,
         phone,
+        company_email,
         nif,
         address,
         postcode,
