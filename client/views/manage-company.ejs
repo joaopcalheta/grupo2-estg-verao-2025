@@ -102,14 +102,14 @@
   />
 
   <label for="pic">Adicionar imagem</label>
-  <input
-    type="url"
-    id="pic"
-    name="pic"
-    value="<%= company.pic %>"
-    placeholder="https://example.com/logo.jpg"
-    title="Insira uma URL válida (começando com http ou https)"
-  />
+    <div class="d-flex align-items-center gap-3">
+      <div style="width:120px;height:80px;overflow:hidden;border-radius:8px;">
+        <img src="<%= company.pic %>"
+            alt="logo atual"
+            style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <input type="file" id="pic" name="pic" accept="image/*" />
+    </div>
 
   <div class="d-flex gap-3 mt-4">
     <div class="w-50">
@@ -128,6 +128,7 @@
     </div>
   </div>
 </form>
+</br>  
 <form
   id="deleteForm"
   method="POST"

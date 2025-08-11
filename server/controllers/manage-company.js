@@ -4,6 +4,8 @@ const Company = require("../models/company");
 const User = require("../models/user");
 const Application = require("../models/application");
 const Announcement = require("../models/announcement");
+const path = require("path");
+const fs = require("fs");
 
 // GET: Mostrar formulário com dados atuais
 const getEditCompany = async (req, res) => {
@@ -75,25 +77,50 @@ const postEditCompany = async (req, res) => {
       return res.status(400).send("Alguns usernames são inválidos.");
     }
 
+    // buscar empresa atual para saber imagem antiga
+    const current = await Company.findOne({
+      _id: companyId,
+      admin_usernames: currentUsername,
+    });
+    if (!current) return res.status(404).send("Empresa não encontrada");
+
+    const updateData = {
+      name,
+      phone,
+      nif,
+      address,
+      postcode,
+      municipality,
+      about_us,
+      admin_usernames: validUsernames,
+    };
+
+    if (req.file) {
+      const newPath = `/uploads/${req.file.filename}`;
+
+      //remover ficheiro antigo (em /uploads)
+      try {
+        if (current.pic && current.pic.startsWith("/uploads/") && current.pic !== newPath) {
+          const absOld = path.join(__dirname, "..", current.pic);
+          fs.unlink(absOld, () => {});
+        }
+      } catch (e) {
+        console.warn("Falha ao remover logo antigo:", e.message);
+      }
+
+      updateData.pic = newPath;
+    }
+
     const updatedCompany = await Company.findOneAndUpdate(
       { _id: companyId, admin_usernames: currentUsername },
-      {
-        name,
-        phone,
-        nif,
-        address,
-        postcode,
-        municipality,
-        about_us,
-        pic,
-        admin_usernames: validUsernames,
-      },
+      updateData,
       { new: true }
     );
 
     if (!updatedCompany) {
       return res.status(404).send("Empresa não encontrada");
     }
+
 
     res.send(`
       <script>

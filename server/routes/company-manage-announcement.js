@@ -4,6 +4,7 @@ const express = require("express");
 const router = express.Router();
 const companyManageAnnouncementController = require("../controllers/company-manage-announcement");
 const { ensureAuthenticated } = require("../middlewares/authMiddleware");
+const upload = require("../middlewares/upload");
 
 router.get(
   "/company-manage-announcement/:announcementID", ensureAuthenticated,
@@ -11,7 +12,7 @@ router.get(
 ); // renderiza a página
 
 router.post(
-  "/company-manage-announcement/:announcementID", ensureAuthenticated,
+  "/company-manage-announcement/:announcementID", ensureAuthenticated, upload.single("pic"),
   companyManageAnnouncementController.updateCompanyAnnouncement
 );
 router.delete(
