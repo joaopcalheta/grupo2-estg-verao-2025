@@ -7,7 +7,7 @@
 
 <div class="container-ad">
   <h2 class="text-center my-4">Gerir Anúncio</h2>
-  <form id="editAnuncioForm" method="POST" action="/company-manage-announcement/<%= announcement._id %>">
+  <form id="editAnuncioForm" method="POST" action="/company-manage-announcement/<%= announcement._id %>" enctype="multipart/form-data">
     <label
       >Nome da profissão
       <input type="text" name="job_name" id="job_name" value="<%=announcement.job_name%>"/>
@@ -220,12 +220,13 @@
   <textarea name="description" rows="5" id="description"><%= announcement.description %></textarea>
 </label>
 
-    <label
-      >Alterar foto
-      <label>
-        <input type="text" name="pic" value="<%= announcement.pic %>" />
-      </label>
-    </label>
+    <label>Alterar foto</label>
+  <div class="d-flex align-items-center gap-3">
+    <div style="width:120px;height:80px;overflow:hidden;border-radius:8px;">
+      <img src="<%= announcement.pic %>" alt="foto atual" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <input type="file" name="pic" accept="image/*" />
+  </div>
     
     
     
@@ -249,7 +250,7 @@
     <form id="deleteForm" method="POST" action="/company-manage-announcement/<%= announcement._id %>?_method=DELETE">
     <div class="actions-btn">
       <button id="deletebtn" type="button" class="btn btn-delete">
-        Eliminar 🗑️
+        Eliminar
       </button>
     </div>
     </form>

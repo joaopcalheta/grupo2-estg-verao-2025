@@ -3,6 +3,8 @@
 const Announcement = require("../models/announcement");
 const expireAnnouncements = require("../utils/expireAnnouncements");
 const Application = require("../models/application");
+const path = require("path");
+const fs = require("fs");
 
 const getCompanyManageAnnouncement = async (req, res) => {
   try {
@@ -29,14 +31,87 @@ const getCompanyManageAnnouncement = async (req, res) => {
   }
 };
 
+const categoryToImage = {
+  Restauração: "/images/restauracao.jpg",
+  Limpeza: "/images/limpeza.jpg",
+  Construção: "/images/construcao.jpg",
+  Vendedor: "/images/vendedor.jpg",
+  Saúde: "/images/saude.jpg",
+  Educação: "/images/educacao.jpg",
+  IT: "/images/it.jpg",
+  Administração: "/images/administracao.jpg",
+  Transporte: "/images/transporte.jpg",
+  "Atendimento ao Cliente": "/images/atendimento.jpg",
+  Marketing: "/images/marketing.jpg",
+  Financeiro: "/images/financeiro.jpg",
+  Logística: "/images/logistica.jpg",
+  Segurança: "/images/seguranca.jpg",
+  "Serviços Gerais": "/images/servicos.jpg",
+};
+
 const updateCompanyAnnouncement = async (req, res) => {
   try {
     const announcementId = req.params.announcementID;
-    if (!announcementId) {
-      return res.status(400).send("ID do anúncio não foi fornecido");
-    }
+    if (!announcementId) return res.status(400).send("ID do anúncio não foi fornecido");
 
-    const updateData = req.body;
+    const current = await Announcement.findById(announcementId);
+    if (!current) return res.status(404).send("Anúncio não foi encontrado");
+
+    const {
+      job_name,
+      category,
+      type,
+      municipality,
+      freg,
+      address,
+      postcode,
+      regime,
+      education_level,
+      salary,
+      end_date,
+      numberOfPositions,
+      description,
+      state,
+      "schedule[startTime]": startTime,
+      "schedule[endTime]": endTime,
+    } = req.body;
+
+    const updateData = {
+      job_name,
+      category,
+      type,
+      municipality,
+      freg,
+      address,
+      postcode,
+      regime,
+      education_level,
+      salary,
+      end_date,
+      numberOfPositions,
+      description, state,
+      schedule: { startTime, endTime }
+    };
+
+    if (req.file) {
+      const newPath = `/uploads/${req.file.filename}`;
+
+      try {
+        if (current.pic && current.pic.startsWith("/uploads/")) {
+          const absOld = path.join(__dirname, "..", current.pic);
+          fs.unlink(absOld, () => {});
+        }
+      } catch (e) {
+        console.warn("Falha ao remover imagem antiga:", e.message);
+      }
+
+      updateData.pic = newPath;
+    }
+    
+    // se a categoria mudou e a imagem atual é um default antigo, pode atualizar para o novo default
+    else if (category && category !== current.category) {
+      updateData.pic = categoryToImage[category] || current.pic;
+    }
 
     const updatedAnnouncement = await Announcement.findByIdAndUpdate(
       announcementId,
@@ -44,11 +119,8 @@ const updateCompanyAnnouncement = async (req, res) => {
       { new: true, runValidators: true }
     );
 
-    if (!updatedAnnouncement) {
-      return res.status(404).send("Anúncio não foi encontrado");
-    }
+    if (!updatedAnnouncement) return res.status(404).send("Anúncio não foi encontrado");
 
-    // Sacar o company_id a partir do anúncio atualizado
     const companyID = updatedAnnouncement.company_id;
 
     // ✅ Retorna um sucesso simples

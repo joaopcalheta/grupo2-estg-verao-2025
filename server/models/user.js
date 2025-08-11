@@ -13,13 +13,13 @@ const userSchema = new mongoose.Schema(
     },
     username: {
       type: String,
-      required: [true, "O nome de usuário é obrigatório."],
+      required: [true, "O nome do utilizador é obrigatório."],
       lowercase: true,
       trim: true,
       unique: true,
-      minlength: [3, "O nome de usuário deve ter pelo menos 3 caracteres."],
-      maxlength: [30, "O nome de usuário não pode ter mais que 30 caracteres."],
-      match: [/^[a-z0-9_.-]+$/, "O nome de usuário contém caracteres inválidos."],
+      minlength: [3, "O nome do utilizador deve ter pelo menos 3 caracteres."],
+      maxlength: [30, "O nome do utilizador não pode ter mais que 30 caracteres."],
+      match: [/^[a-z0-9_.-]+$/, "O nome do utilizador contém caracteres inválidos."],
     },
     email: {
       type: String,
