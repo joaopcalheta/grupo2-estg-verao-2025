@@ -1,9 +1,9 @@
-// ../controllers/company-create-announcement.js
-
+const gerarQRCode = require("../utils/qrGenerator");
 const Announcement = require("../models/announcement");
 const path = require("path");
 const expireAnnouncements = require("../utils/expireAnnouncements");
-// Exemplo de mapeamento categoria -> imagem default
+
+// Mapeamento categoria -> imagem default
 const categoryToImage = {
   Restauração: "/images/restauracao.jpg",
   Limpeza: "/images/limpeza.jpg",
@@ -24,7 +24,7 @@ const categoryToImage = {
 
 const getCompanyCreateAnnouncement = async (req, res) => {
   try {
-    await expireAnnouncements(); // Expira anúncios antes de carregar a página - verifica se data de fim ja passou e altera o estado para "Expirado"
+    await expireAnnouncements(); // Expira anúncios antigos
     const companyID = req.params.companyID;
     res.render("company-create-announcement", { companyID });
   } catch (err) {
@@ -54,16 +54,16 @@ const postCompanyCreateAnnouncement = async (req, res) => {
       state,
     } = req.body;
 
-    console.log("Dados recebidos:", req.body);
+    console.log("Dados recebidos do front end:", req.body);
 
-    // caminho final que será salvo no Mongo e usado no <img src="...">
+    // Caminho da imagem enviada ou imagem default por categoria
     const uploadedPath = req.file ? `/uploads/${req.file.filename}` : null;
-
     const picPath =
-      uploadedPath
-      || (categoryToImage[req.body.category])
-      || "/css/images/defaults/default.png";
+      uploadedPath ||
+      categoryToImage[category] ||
+      "/css/images/defaults/default.png";
 
+    // Cria o novo anúncio
     const newAnnouncement = new Announcement({
       job_name,
       category,
@@ -84,17 +84,33 @@ const postCompanyCreateAnnouncement = async (req, res) => {
       state,
       company_id: req.params.companyID,
       user_id: req.user._id,
+      qrcode_pic: null, // fica nulo até gerar o QR Code
     });
+
+    // controi o url do anuncio e mete numa variavel
+    const urlAnuncio = `${req.protocol}://${req.get(
+      "host"
+    )}/home-details-announcement?id=${newAnnouncement._id}`;
+
+    // pega nesse url e gera o qr code
+    // e guarda o caminho do qr code na variavel caminhoQRCode
+    const caminhoQRCode = await gerarQRCode(
+      urlAnuncio,
+      `anuncio_${newAnnouncement._id}`
+    );
+
+    // guarda na base de dados esse link, no qrcode_pic, que ate agora estava null
+    newAnnouncement.qrcode_pic = caminhoQRCode;
 
     await newAnnouncement.save();
 
+    // Redireciona com notificação
     res.send(`
-  <script>
-  sessionStorage.setItem('mostrarNotificacao', 'true');
-      // Redireciona para a página de destino
-      window.location.href = '/company-my-announcements/${req.params.companyID}';
-  </script>
-`);
+      <script>
+        sessionStorage.setItem('mostrarNotificacao', 'true');
+        window.location.href = '/company-my-announcements/${req.params.companyID}';
+      </script>
+    `);
   } catch (err) {
     console.error("Erro ao criar anúncio:", err);
     res.status(500).send("Erro ao criar anúncio");

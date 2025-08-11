@@ -98,8 +98,8 @@ const announcementSchema = new mongoose.Schema(
       ref: "Company",
       required: true,
     },
-    qrcode: {
-      type: String, // Caminho para o arquivo gerado (ex: '/qrcodes/6895f2313df566907082c346.png')
+    qrcode_pic: {
+      type: String,
       trim: true,
     },
     user_id: {

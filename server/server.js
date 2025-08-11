@@ -70,7 +70,7 @@ app.use((req, res, next) => {
 });
 
 // servir ficheiros enviados pelo utilizador (ex.: /uploads/abc.jpg)
-app.use("/uploads", express.static(path.join(__dirname, 'uploads')));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // importa as rotas
 const routes = [
