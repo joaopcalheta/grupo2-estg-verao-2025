@@ -37,6 +37,8 @@ initializePassport(passport);
 
 // middlewares
 app.use(express.static(path.join(__dirname, "..", "client", "public"))); // serve ficheiros estáticos (CSS, imagens)
+// Serve os QR Codes gerados dinamicamente no servidor
+app.use("/qrcodes", express.static(path.join(__dirname, "public", "qrcodes")));
 app.use(express.urlencoded({ extended: true })); // para ler dados de formulários (POST)
 app.use(express.json());
 app.use(expressLayouts); // usa layouts com EJS
