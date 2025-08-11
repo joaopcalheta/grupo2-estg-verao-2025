@@ -36,7 +36,7 @@
   <div>
     <label class="mb-1 fw-bolder" for="name">Nome Completo</label>
     <input
-      class="form-group"
+class="mb-2"
       type="text"
       name="name"
       placeholder="Nome completo"
@@ -51,16 +51,13 @@
   <div>
     <label class="mb-1 fw-bolder" for="birthdate">Data de Nascimento</label>
     <input
-      class="form-group"
+class="mb-2"
       type="date"
       name="birthdate"
       value="<%= user.birthdate ? user.birthdate.toISOString().substring(0, 10) : '' %>"
       max="<%= new Date().toISOString().substring(0, 10) %>"
-      <!--
-      previne
-      datas
-      futuras
-      --
+ 
+    
     />
   </div>
 
@@ -68,7 +65,7 @@
   <div>
     <label class="mb-1 fw-bolder" for="username">Nome do Utilizador</label>
     <input
-      class="form-group"
+class="mb-2"
       type="text"
       name="username"
       placeholder="Nome de Utilizador"
@@ -85,7 +82,7 @@
   <div>
     <label class="mb-1 fw-bolder" for="phone">Telefone</label>
     <input
-      class="form-group"
+class="mb-2"
       type="tel"
       name="phone"
       placeholder="Nº Telemóvel"
@@ -99,7 +96,7 @@
   <div>
     <label class="mb-1 fw-bolder" for="address">Morada</label>
     <input
-      class="form-group"
+class="mb-2"
       type="text"
       name="address"
       placeholder="Morada"
@@ -112,7 +109,7 @@
   <div>
     <label class="mb-1 fw-bolder" for="municipality">Concelho</label>
     <input
-      class="form-group"
+class="mb-2"
       type="text"
       name="municipality"
       placeholder="Localidade"
@@ -125,7 +122,7 @@
   <div>
     <label class="mb-1 fw-bolder" for="postcode">Código Postal</label>
     <input
-      class="form-group"
+class="mb-2"
       type="text"
       name="postcode"
       placeholder="Código Postal"
@@ -139,7 +136,7 @@
   <div>
     <label class="mb-1 fw-bolder" for="nif">NIF</label>
     <input
-      class="form-group"
+class="mb-2"
       type="text"
       name="nif"
       placeholder="NIF"
@@ -153,7 +150,7 @@
   <div>
     <label class="mb-1 fw-bolder" for="email">E-mail</label>
     <input
-      class="form-group"
+class="mb-2"
       type="email"
       name="email"
       placeholder="E-mail"
@@ -167,7 +164,7 @@
   <div>
     <label class="mb-1 fw-bolder" for="confirmEmail">Confirmar E-mail</label>
     <input
-      class="form-group"
+class="mb-2"
       type="email"
       name="confirmEmail"
       placeholder="Confirmar E-mail"
@@ -179,7 +176,7 @@
   <div>
     <label class="mb-1 fw-bolder" for="currentPassword">Palavra-passe Atual</label>
     <input
-      class="form-group"
+class="mb-2"
       type="password"
       name="currentPassword"
       placeholder="Palavra-passe Atual"
@@ -190,7 +187,7 @@
   <div>
     <label class="mb-1 fw-bolder" for="newPassword">Nova Palavra-passe</label>
     <input
-      class="form-group"
+ class="mb-2"
       type="password"
       name="newPassword"
       placeholder="Nova Palavra-passe"
@@ -202,7 +199,7 @@
   <br />
   <br />
   <div class="actions-btn d-flex">
-    <div class="d-flex justify-content-between gap-3 buttonWidth">
+    <div class="d-flex justify-content-between buttonWidth">
       <button type="submit" class="buttonWidth btn btn-blue">Guardar</button>
     </div>
   </div>
