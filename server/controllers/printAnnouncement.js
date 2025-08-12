@@ -249,7 +249,7 @@ async function printAnnouncementPdf(req, res) {
       Gerado automaticamente por iEmpregos • ${new Date().toLocaleDateString(
         "pt-PT"
       )}<br />
-      Este é um documento informativo. Para candidatar-se, visite a plataforma.
+      Este é um documento informativo. Para candidatar-se, visite a plataforma usando o código QR.
 
       <div class="qr-code">
         <img src="http://localhost:3000${
