@@ -65,11 +65,20 @@
       </div>
     </div>
     <!-- filtrar (pagina) -->
-    <% const buildQueryString = (queryObj) => { const params = new
-    URLSearchParams(); for (const key in queryObj) { const value =
-    queryObj[key]; if (Array.isArray(value)) { value.forEach((v) =>
-    params.append(key, v)); } else { params.append(key, value); } } return
-    params.toString(); }; %>
+    <%
+      const buildQueryString = (queryObj) => {
+        const params = new URLSearchParams();
+        for (const key in queryObj) {
+          const value = queryObj[key];
+          if (Array.isArray(value)) {
+            value.forEach((v) => params.append(key, v));
+          } else {
+          params.append(key, value);
+        }
+      }
+        return params.toString();
+      };
+    %>
     <div class="d-flex main-card-filter-left justify-content-center">
       <button
         type="button"
