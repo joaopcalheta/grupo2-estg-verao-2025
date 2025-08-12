@@ -108,7 +108,6 @@ server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`); // Mostra que o servidor está ativo
 });
 
-// mongodb
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
