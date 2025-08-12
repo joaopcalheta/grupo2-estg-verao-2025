@@ -5,8 +5,20 @@
   <link href="/css/notifications.css" rel="stylesheet" />
   <link href="/css/company-my-announcements.css" rel="stylesheet" />
 </head>
+<div class="d-flex align-items-center my-5">
+  <div class="me-3">
+    <h2 class="fw-bold mb-0">Anúncios de <%= company.name %></h2>
+  </div>
+  <div>
+    <img
+      class="img-fluid"
+      src="<%= company.pic %>"
+      style="max-width: 60px"
+      alt="Logo"
+    />
+  </div>
+</div>
 
-<h2 class="text-center my-5 fw-bold">Anúncios de <%= company.name %></h2>
 <div>
   <div class="text-center mt-3 mb-2">
     <button
