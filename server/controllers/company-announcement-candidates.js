@@ -3,7 +3,10 @@ const Application = require("../models/application");
 const getCompanyAnnouncementCandidates = async (req, res) => {
   try {
     const { id } = req.query; //id do announcement
-    const applications = await Application.find({ announcement_id: id });
+    
+    const applications = await Application.find({ announcement_id: id })
+      .populate({ path: "user_id", select: "avatar name" }) // <-- puxa avatar e nome
+      .lean();
 
     res.render("company-announcement-candidates", {
       applications,

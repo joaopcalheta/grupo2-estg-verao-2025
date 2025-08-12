@@ -32,6 +32,7 @@
         <option value="Segurança" <%=announcement.category==='Segurança' ? 'selected' : '' %>>Segurança</option>
         <option value="Serviços Gerais" <%=announcement.category==='Serviços Gerais' ? 'selected' : '' %>>Serviços Gerais
         </option>
+        <option value="Outros" <%=announcement.category==='Outros' ? 'selected' : '' %>>Outros</option>
 
       </select>
     </label>
@@ -257,11 +258,13 @@
 
 </div>
 
+
+<!--- rever amanha, em principio apagar --->
 <div class="modal" id="confirmModal" style="display: none;">
   <span class="close" onclick="closeModal()">&times;</span>
   <div class="icon">!</div>
   <h2>Tem certeza?</h2>
-  <p>Você está prestes a excluir seu anúncio. Esta ação não pode ser desfeita.</p>
+  <p>Estás prestes a apagar o teu anúncio. Esta ação não pode ser desfeita.</p>
   <div class="buttons">
     <button class="btn-black btn-small" onclick="document.getElementById('deleteForm').submit()">Sim, excluir</button>
     <button class="btn-cancel btn-small" onclick="closeModal()">Cancelar</button>
@@ -277,4 +280,4 @@
     document.getElementById("confirmModal").style.display = "none";
   }
 </script>
-
+<!--- rever amanha, em principio apagar --->

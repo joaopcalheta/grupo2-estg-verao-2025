@@ -175,7 +175,7 @@ const deleteCompany = async (req, res) => {
       </script>
     `);
   } catch (err) {
-    console.error("Erro ao excluir empresa:", err);
+    console.error("Erro ao apagar empresa:", err);
     return res.status(500).send("Erro interno no servidor");
   }
 };

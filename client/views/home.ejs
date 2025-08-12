@@ -65,11 +65,20 @@
       </div>
     </div>
     <!-- filtrar (pagina) -->
-    <% const buildQueryString = (queryObj) => { const params = new
-    URLSearchParams(); for (const key in queryObj) { const value =
-    queryObj[key]; if (Array.isArray(value)) { value.forEach((v) =>
-    params.append(key, v)); } else { params.append(key, value); } } return
-    params.toString(); }; %>
+    <%
+      const buildQueryString = (queryObj) => {
+        const params = new URLSearchParams();
+        for (const key in queryObj) {
+          const value = queryObj[key];
+          if (Array.isArray(value)) {
+            value.forEach((v) => params.append(key, v));
+          } else {
+          params.append(key, value);
+        }
+      }
+        return params.toString();
+      };
+    %>
     <div class="d-flex main-card-filter-left justify-content-center">
       <button
         type="button"
@@ -105,7 +114,7 @@
         <!-- texto -->
         <div class="d-flex flex-column justify-content-between ps-2 pt-1 pb-2">
           <div class="mb-0">
-            <h5 class="job-title"><%= announcement.job_name %></h5>
+            <h5 class="text-truncate" style="max-width: 230px"><%= announcement.job_name %></h5>
             <h6 class="job-category mb-0 fw-normal visually-hidden">
               <%= announcement.category %>
             </h6>
