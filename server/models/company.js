@@ -77,7 +77,7 @@ const companySchema = new mongoose.Schema(
       type: String,
       default: "",
       trim: true,
-      maxlength: 1000,
+      maxlength: 3000,
     },
     pic: {
       type: String,
