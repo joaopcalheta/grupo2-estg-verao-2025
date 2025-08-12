@@ -56,11 +56,6 @@ async function printAnnouncementPdf(req, res) {
       margin-bottom: 20px;
     }
 
-    .company-logo {
-      max-height: 60px;
-      flex-shrink: 0;
-    }
-
     .job-title {
       font-size: 28px;
       font-weight: bold;
@@ -122,7 +117,18 @@ async function printAnnouncementPdf(req, res) {
       color: #777;
       border-top: 1px solid #ddd;
       padding-top: 15px;
-      margin-top: 30px;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .qr-code {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .qr-code img {
+      max-width: 120px;
+      height: auto;
     }
 
     @media (max-width: 600px) {
@@ -145,12 +151,13 @@ async function printAnnouncementPdf(req, res) {
 
 <body>
   <div class="container">
-    <!-- Header -->
+
+    <!-- Título do Anúncio -->
     <div class="header">
       <h1 class="job-title">${announcement.job_name}</h1>
     </div>
 
-    <!-- Main content: image + info -->
+    <!-- Anúncio: Imagem + Dados -->
     <div class="main-content">
       <img src="http://localhost:3000${
         announcement.pic
@@ -199,7 +206,7 @@ async function printAnnouncementPdf(req, res) {
       </div>
     </div>
 
-    <!-- Descrição -->
+    <!-- Descrição do Anúncio -->
     <div class="description-section">
       <h5><span class="label">Descrição:</span></h5>
       <div class="description-box">
@@ -207,15 +214,15 @@ async function printAnnouncementPdf(req, res) {
       </div>
     </div>
 
-    <!-- Secção da Empresa -->
+    <!-- Dados da Empresa -->
     <div class="header">
       <h1 class="job-title">${company.name}</h1>
     </div>
 
     <div class="main-content">
-          <img src="http://localhost:3000${
-            company.pic
-          }" alt="Logo da empresa" class="announcement-image" />
+      <img src="http://localhost:3000${
+        company.pic
+      }" alt="Logo da empresa" class="announcement-image" />
       <div class="info-grid">
         <h5><span class="label">Telefone:</span> ${company.phone}</h5>
         <h5><span class="label">Morada:</span> ${company.address}</h5>
@@ -224,27 +231,33 @@ async function printAnnouncementPdf(req, res) {
       </div>
     </div>
 
+    <!-- Sobre a Empresa -->
     ${
       company.about_us?.trim()
-        ? `<div class="description-section">
-            <h5><span class="label">Sobre a empresa:</span></h5>
-            <div class="description-box">
-              ${company.about_us}
-            </div>
-          </div>`
+        ? `
+        <div class="description-section">
+          <h5><span class="label">Sobre a empresa:</span></h5>
+          <div class="description-box">
+            ${company.about_us}
+          </div>
+        </div>`
         : ""
     }
 
-    <!-- Footer -->
+    <!-- Rodapé com QR Code -->
     <div class="footer">
       Gerado automaticamente por iEmpregos • ${new Date().toLocaleDateString(
         "pt-PT"
       )}<br />
       Este é um documento informativo. Para candidatar-se, visite a plataforma.
+
+      <div class="qr-code">
+        <img src="http://localhost:3000${
+          announcement.qrcode_pic
+        }" alt="QR do Anúncio" />
+      </div>
     </div>
-    <img src="http://localhost:3000${
-      announcement.qrcode_pic
-    }" alt="QR do Anuncio" class="announcement-image" />
+
   </div>
 </body>
 </html>
