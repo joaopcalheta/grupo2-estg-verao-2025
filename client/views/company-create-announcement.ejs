@@ -5,7 +5,11 @@
 
 <div class="container-ad">
   <h2 class="text-center my-4">Criar Anúncio</h2>
-  <form method="POST" action="/company-create-announcement/<%= companyID %>" enctype="multipart/form-data">
+  <form
+    method="POST"
+    action="/company-create-announcement/<%= companyID %>"
+    enctype="multipart/form-data"
+  >
     <label>
       Nome da profissão
       <input
@@ -36,6 +40,7 @@
         <option value="Logística">Logística</option>
         <option value="Segurança">Segurança</option>
         <option value="Serviços Gerais">Serviços Gerais</option>
+        <option value="Outros">Outros</option>
       </select>
     </label>
 
@@ -200,12 +205,8 @@
     <div>
       <p class="fw-bold">Adicionar Foto</p>
       <label>
-        <input type="file" name="pic" accept="image/*"/>
+        <input type="file" name="pic" accept="image/*" />
       </label>
-      <!--<input type="file" name="pic" class="d-none" id="fileInput" />
-      <label for="fileInput" class="btn btn-primary">
-        <i class="bi bi-upload"></i> Enviar
-      </label>-->
     </div>
 
     <% if (typeof announcement !== "undefined" && announcement.pic) { %>
