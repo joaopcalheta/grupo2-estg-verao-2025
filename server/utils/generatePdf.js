@@ -22,7 +22,7 @@ async function gerarPdf(conteudoHTML, caminhoArquivo = "relatorio.pdf") {
   });
 
   await browser.close();
-  console.log(`✅ PDF gerado em: ${caminhoArquivo}`);
+  console.log(`PDF gerado em: ${caminhoArquivo}`);
 }
 
 // Exporta a função para uso em outros arquivos
