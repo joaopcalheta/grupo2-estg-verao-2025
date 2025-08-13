@@ -1,8 +1,8 @@
 .container-ad {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* ocupa toda a altura da tela */
-  justify-content: flex-start; /* conteúdo principal no topo */
+  min-height: 100vh;
+  justify-content: flex-start;
   padding: 0.3rem;
 }
 

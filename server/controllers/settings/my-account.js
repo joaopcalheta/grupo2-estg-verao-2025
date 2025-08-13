@@ -65,7 +65,6 @@ const postMyAccountData = async (req, res) => {
       user.avatar = `/uploads/${req.file.filename}`;
     }
 
-    // Atualiza campos simples
     user.name = name || user.name;
     user.birthdate = birthdate || user.birthdate;
     user.username = username || user.username;
@@ -135,7 +134,7 @@ const deleteMyAccount = async (req, res) => {
     // Apaga o utilizador
     await User.findByIdAndDelete(userId);
 
-    // Termina a sessão e redireciona para a página home
+    // Termina a sessão e manda pa página home
     req.logout((err) => {
       if (err) console.error("Erro ao terminar sessão após apagar conta:", err);
       return res.send(`

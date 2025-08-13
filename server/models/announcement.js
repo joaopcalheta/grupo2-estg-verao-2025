@@ -27,11 +27,11 @@ const announcementSchema = new mongoose.Schema(
     },
     schedule: {
       startTime: {
-        type: String, // ou Date
+        type: String,
         trim: true,
       },
       endTime: {
-        type: String, // ou Date
+        type: String,
         trim: true,
       },
     },
@@ -62,7 +62,7 @@ const announcementSchema = new mongoose.Schema(
     postcode: {
       type: String,
       trim: true,
-      match: /^[0-9]{4}-[0-9]{3}$/, // Formato português: 1234-567
+      match: /^[0-9]{4}-[0-9]{3}$/,
     },
     languages: [
       {
@@ -81,7 +81,7 @@ const announcementSchema = new mongoose.Schema(
       minlength: 10,
     },
     pic: {
-      type: String, // Caminho para a imagem (ex: "/css/images/defaults/restauração.png")
+      type: String,
       trim: true,
     },
     numberOfApplications: {

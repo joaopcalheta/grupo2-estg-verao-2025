@@ -6,7 +6,6 @@
   cursor: pointer;
 }
 
-
 #linha {
   position: relative;
   top: -20px;
@@ -19,9 +18,6 @@
 #perfil {
   font-weight: bold;
 }
-
-
-
 
 /* ---------------------------PROFILE FORM----------------------------- */
 
@@ -53,7 +49,3 @@
 .sobre input {
   padding-bottom: 70px;
 }
-
-
-
-

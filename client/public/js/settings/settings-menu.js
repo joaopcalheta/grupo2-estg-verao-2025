@@ -30,24 +30,19 @@ function loadSection(section) {
 function initializeSettingsPage() {
   const menuItems = document.querySelectorAll("#menu-container > div");
 
-  // Limpa as classes
   menuItems.forEach((item) => item.classList.remove("selected"));
 
-  // Seleciona "Minha conta"
   menuItems.forEach((item) => {
     if (item.textContent.trim() === "Minha conta") {
       item.classList.add("selected");
     }
   });
 
-  // Carrega secção "Minha conta"
   loadSection("my-account");
 
-  // Limpa localStorage para forçar reset
   localStorage.removeItem("activeTab");
   localStorage.removeItem("activeSection");
 
-  // Adiciona listeners de clique nas abas
   menuItems.forEach((item) => {
     item.addEventListener("click", () => {
       menuItems.forEach((i) => i.classList.remove("selected"));
@@ -59,14 +54,12 @@ function initializeSettingsPage() {
 
       loadSection(sectionName);
 
-      // (Opcional: guardar aba clicada)
       localStorage.setItem("activeTab", item.textContent.trim());
       localStorage.setItem("activeSection", sectionName);
     });
   });
 }
 
-// Pageshow para cobrir o f5 + botão "voltar"
 window.addEventListener("pageshow", initializeSettingsPage);
 
 // --------- para o scroll horizontal do menu ---------

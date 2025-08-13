@@ -31,7 +31,6 @@ const postProfessionalProfileData = async (req, res) => {
     const { languages = [], education_level, skills = [], about_me } = req.body;
 
     const langArray = Array.isArray(languages) ? languages : [languages];
-    // skills pode vir como string separada por vírgulas
     let skillsArray;
     if (Array.isArray(skills)) {
       skillsArray = skills;

@@ -12,7 +12,6 @@ form {
   margin: auto;
 }
 
-/* Estilo dos inputs, selects e textarea */
 form input[type="text"],
 form input[type="date"],
 form input[type="tel"],
@@ -46,7 +45,6 @@ form .actions-btn .btn {
   flex: 1;
 }
 
-/* Estilo do pop up de eliminar */
 .modal {
   background-color: #fff;
   border-radius: 12px;
@@ -56,16 +54,14 @@ form .actions-btn .btn {
   height: 300px;
   text-align: center;
 
-  /* CENTRALIZAÇÃO NA TELA */
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  /* GARANTE QUE FICA POR CIMA DOS OUTROS ELEMENTOS */
   z-index: 1000;
 
-  display: none; /* escondido por padrão */
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;

@@ -32,7 +32,6 @@ const companySchema = new mongoose.Schema(
       trim: true,
       validate: {
         validator: function (v) {
-          // Aceita formatos com dígitos, espaços, parênteses ou traços
           return /^\+?[0-9\s\-().]{6,20}$/.test(v);
         },
         message: (props) =>
@@ -85,8 +84,8 @@ const companySchema = new mongoose.Schema(
       validate: {
         validator: (v) => {
           if (!v) return true; // permitir vazio
-          return /^https?:\/\//i.test(v) || v.startsWith('/uploads/');
-      },
+          return /^https?:\/\//i.test(v) || v.startsWith("/uploads/");
+        },
         message: (props) => `${props.value} não é uma imagem válida.`,
       },
     },
@@ -96,7 +95,6 @@ const companySchema = new mongoose.Schema(
   }
 );
 
-// Adicional: validação personalizada no array de admin_usernames
 companySchema.path("admin_usernames").validate(function (value) {
   return Array.isArray(value) && value.length > 0;
 }, "Deve haver pelo menos um administrador associado.");

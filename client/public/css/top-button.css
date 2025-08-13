@@ -3,7 +3,7 @@
   position: fixed;
   bottom: 30px;
   left: 30px;
-  z-index: 100; /* Fica acima dos outros elementos */
+  z-index: 100;
   background-color: #007bff;
   color: white;
   border: none;
@@ -11,7 +11,7 @@
   border-radius: 50%;
   font-size: 20px;
   cursor: pointer;
-  display: none; /* Esconde até que o utilizador comece a descer a página */
+  display: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s;
 }

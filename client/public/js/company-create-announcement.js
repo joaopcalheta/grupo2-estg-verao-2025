@@ -69,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const concelho = this.value;
     const freguesias = freguesiasPorConcelho[concelho] || [];
 
-    // Limpa as opções atuais
     freguesiaSelect.innerHTML = "";
 
     if (freguesias.length === 0) {
@@ -96,5 +95,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
-

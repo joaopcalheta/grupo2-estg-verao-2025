@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
       button.classList.remove("active-bold");
     });
 
-    // Definir o estado inicial
     if (target.classList.contains("show")) {
       icon.classList.add("rotated");
       button.classList.add("active-bold");

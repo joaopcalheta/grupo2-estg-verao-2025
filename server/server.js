@@ -1,23 +1,19 @@
-// server/server.js
+// ../server.js
 
-const express = require("express"); // framework web
-const http = require("http"); // módulo HTTP do Node.js
-const path = require("path"); // para lidar com caminhos de ficheiros
-const expressLayouts = require("express-ejs-layouts"); // plugin para usar um layout base com EJS
+const express = require("express"); // framework express
+const http = require("http");
+const path = require("path");
+const expressLayouts = require("express-ejs-layouts"); // para usar layout automatico com footer, head e header
 const mongoose = require("mongoose"); // ODM para MongoDB
 require("dotenv").config(); // carrega variáveis de ambiente do ficheiro .env
 const app = express(); // inicializa a aplicação Express
-const PORT = process.env.PORT || 3000; // porta do servidor (usa 3000 se não houver variável de ambiente)
+const PORT = process.env.PORT || 3000; // porta do servidor
 const methodOverride = require("method-override"); // para simular PUT e DELETE
-
-//login
 const session = require("express-session");
 const passport = require("passport");
 const flash = require("connect-flash");
 const bcrypt = require("bcrypt");
 
-//-------------------------------------------------------------
-// coiso da password segura
 const saltRounds = 10;
 const plainPassword = "password123";
 
@@ -25,23 +21,19 @@ bcrypt.hash(plainPassword, saltRounds, (err, hash) => {
   if (err) throw err;
   // guarda o hash na base de dados no campo password
 });
-//-----------------------------------------------------------
 
-// configuração do motor de templates EJS
 app.set("view engine", "ejs"); // define EJS como motor de views
-app.set("views", path.join(__dirname, "..", "client", "views")); // define a pasta onde estão as views
+app.set("views", path.join(__dirname, "..", "client", "views")); // pasta onde estão as views
 
 // configuração do passport
 const initializePassport = require("./configs/passportConfig");
 initializePassport(passport);
 
-// middlewares
-app.use(express.static(path.join(__dirname, "..", "client", "public"))); // serve ficheiros estáticos (CSS, imagens)
-// Serve os QR Codes gerados dinamicamente no servidor
-app.use("/qrcodes", express.static(path.join(__dirname, "public", "qrcodes")));
+app.use(express.static(path.join(__dirname, "..", "client", "public"))); // CSS, imagens, js
+app.use("/qrcodes", express.static(path.join(__dirname, "public", "qrcodes"))); // pasta para os QR Codes
 app.use(express.urlencoded({ extended: true })); // para ler dados de formulários (POST)
 app.use(express.json());
-app.use(expressLayouts); // usa layouts com EJS
+app.use(expressLayouts);
 // middleware que permite que formulários HTML simulem requisições PUT e DELETE (útil porque o HTML padrão só suporta GET e POST: input type="hidden" name="_method" value="DELETE"> fará um DELETE em vez de POST)
 // mais info -> https://expressjs.com/en/resources/middleware/method-override.html
 app.use(methodOverride("_method"));
@@ -49,21 +41,17 @@ app.use(methodOverride("_method"));
 // sessão
 app.use(
   session({
-    secret: "segredo_muito_seguro",
+    secret: "segredo_muito_seguro", // deveria ser algo complexo mas para desenvolvimento vai ficar assim
     resave: false,
     saveUninitialized: false,
   })
 );
 
-// Passport
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Flash
 app.use(flash());
 
-// middleware que passa o utilizador logado para todas as views - atraves do express-layouts
-// Middleware para mensagens flash e utilizador logado
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   res.locals.success = req.flash("success");
@@ -105,7 +93,7 @@ const server = http.createServer(app);
 
 // inicia o servidor
 server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`); // Mostra que o servidor está ativo
+  console.log(`Server running at http://localhost:${PORT}`);
 });
 
 mongoose

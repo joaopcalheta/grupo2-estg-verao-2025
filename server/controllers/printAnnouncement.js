@@ -6,13 +6,11 @@ async function printAnnouncementPdf(req, res) {
   try {
     const id = req.params.id;
 
-    // Buscar o anúncio
     const announcement = await Announcement.findById(id);
     if (!announcement) {
       return res.status(404).send("Anúncio não encontrado.");
     }
 
-    // Buscar a empresa associada
     if (!announcement.company_id) {
       return res
         .status(400)
@@ -24,7 +22,6 @@ async function printAnnouncementPdf(req, res) {
       return res.status(404).send("Empresa associada não encontrada.");
     }
 
-    // HTML completo com dados do anúncio e da empresa
     const html = `
 <!DOCTYPE html>
 <html lang="pt">
@@ -263,7 +260,6 @@ async function printAnnouncementPdf(req, res) {
 </html>
 `;
 
-    // Launch Puppeteer and generate PDF buffer
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.setContent(html, { waitUntil: "networkidle0" });
@@ -276,7 +272,6 @@ async function printAnnouncementPdf(req, res) {
 
     await browser.close();
 
-    // Envia o PDF para o cliente abrir no navegador
     res.set({
       "Content-Type": "application/pdf",
       "Content-Disposition": `inline; filename="anuncio-${id}.pdf"`,

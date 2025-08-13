@@ -18,8 +18,14 @@ const userSchema = new mongoose.Schema(
       trim: true,
       unique: true,
       minlength: [3, "O nome do utilizador deve ter pelo menos 3 caracteres."],
-      maxlength: [30, "O nome do utilizador não pode ter mais que 30 caracteres."],
-      match: [/^[a-z0-9_.-]+$/, "O nome do utilizador contém caracteres inválidos."],
+      maxlength: [
+        30,
+        "O nome do utilizador não pode ter mais que 30 caracteres.",
+      ],
+      match: [
+        /^[a-z0-9_.-]+$/,
+        "O nome do utilizador contém caracteres inválidos.",
+      ],
     },
     email: {
       type: String,
@@ -39,7 +45,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
       trim: true,
-      maxlength: [255, "O link da imagem não pode ter mais que 255 caracteres."],
+      maxlength: [
+        255,
+        "O link da imagem não pode ter mais que 255 caracteres.",
+      ],
     },
     phone: {
       type: String,

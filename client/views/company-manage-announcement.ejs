@@ -150,7 +150,6 @@
 </label>
 <div>
   <style>
-    /* Força o estilo padrão de checkbox */
       .form-check-input[type="checkbox"] {
         appearance: checkbox;
         -webkit-appearance: checkbox;
@@ -247,7 +246,6 @@
 
   </form>
   </br>  
-    <!-- O form para eliminar necessita estar fora do form principal para funcionar-->
     <form id="deleteForm" method="POST" action="/company-manage-announcement/<%= announcement._id %>?_method=DELETE">
     <div class="actions-btn">
       <button id="deletebtn" type="button" class="btn btn-delete">
@@ -259,11 +257,10 @@
 </div>
 
 
-<!--- rever amanha, em principio apagar --->
 <div class="modal" id="confirmModal" style="display: none;">
   <span class="close" onclick="closeModal()">&times;</span>
   <div class="icon">!</div>
-  <h2>Tem certeza?</h2>
+  <h2>Tens a certeza?</h2>
   <p>Estás prestes a apagar o teu anúncio. Esta ação não pode ser desfeita.</p>
   <div class="buttons">
     <button class="btn-black btn-small" onclick="document.getElementById('deleteForm').submit()">Sim, excluir</button>
@@ -271,7 +268,6 @@
   </div>
 </div>
 
-<!-- Script -->
 <script>
   document.getElementById("deletebtn").addEventListener("click", () => {
     document.getElementById("confirmModal").style.display = "block";
@@ -280,4 +276,3 @@
     document.getElementById("confirmModal").style.display = "none";
   }
 </script>
-<!--- rever amanha, em principio apagar --->

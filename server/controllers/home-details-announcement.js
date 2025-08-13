@@ -10,11 +10,11 @@ const getHomeDetailsAnnouncement = async (req, res) => {
     }
 
     const announcement = await Announcement.findById(announcementId)
-    .populate({
-      path: "company_id",
-      select: "name phone nif address postcode municipality about_us pic",
-    })
-    .lean();
+      .populate({
+        path: "company_id",
+        select: "name phone nif address postcode municipality about_us pic",
+      })
+      .lean();
 
     if (!announcement) {
       return res.status(404).send("Anúncio não encontrado.");

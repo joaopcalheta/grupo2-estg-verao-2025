@@ -4,7 +4,6 @@ function toggleMenu() {
   document.querySelector(".overlay").classList.toggle("open");
 }
 
-// Dá scroll para o item selecionado no parametro do url
 document.addEventListener("DOMContentLoaded", function () {
   const params = new URLSearchParams(window.location.search);
 

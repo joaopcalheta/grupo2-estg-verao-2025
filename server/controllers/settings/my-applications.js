@@ -20,7 +20,6 @@ const getMyApplicationsPage = async (req, res) => {
 
 const deleteApplication = async (req, res) => {
   try {
-    // 1. Buscar a candidatura antes de apagar
     const application = await Application.findOneAndDelete({
       _id: req.params.id,
       user_id: req.user._id,
@@ -32,7 +31,6 @@ const deleteApplication = async (req, res) => {
       return res.status(404).json({ message: "Candidatura não encontrada" });
     }
 
-    // 2. Se existir, decrementar o número de candidaturas no anúncio
     await Announcement.findByIdAndUpdate(application.announcement_id, {
       $inc: { numberOfApplications: -1 },
     });

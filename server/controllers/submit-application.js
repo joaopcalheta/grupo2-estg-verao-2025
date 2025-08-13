@@ -8,7 +8,7 @@ const Announcement = require("../models/announcement");
 const expireAnnouncements = require("../utils/expireAnnouncements");
 const getSubmitApplication = async (req, res) => {
   try {
-    await expireAnnouncements(); // Expira anúncios antes de carregar a página - verifica se data de fim ja passou e altera o estado para "Expirado"
+    await expireAnnouncements(); // expira anúncios antes de carregar a página - verifica se data de fim ja passou e altera o estado para "Expirado"
     const { id } = req.query;
     let user = null;
     let profile = null;
@@ -71,7 +71,6 @@ const postSubmitApplication = async (req, res) => {
 
     await newApplication.save();
 
-    // Incrementar o número de candidaturas na coleção Announcement
     await Announcement.findByIdAndUpdate(req.body.announcement_id, {
       $inc: { numberOfApplications: 1 },
     });

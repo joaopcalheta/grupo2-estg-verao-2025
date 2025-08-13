@@ -3,7 +3,6 @@ const Announcement = require("../models/announcement");
 const path = require("path");
 const expireAnnouncements = require("../utils/expireAnnouncements");
 
-// Mapeamento categoria -> imagem default
 const categoryToImage = {
   Restauração: "/images/restauracao.jpg",
   Limpeza: "/images/limpeza.jpg",
@@ -56,14 +55,12 @@ const postCompanyCreateAnnouncement = async (req, res) => {
 
     console.log("Dados recebidos do front end:", req.body);
 
-    // Caminho da imagem enviada ou imagem default por categoria
     const uploadedPath = req.file ? `/uploads/${req.file.filename}` : null;
     const picPath =
       uploadedPath ||
       categoryToImage[category] ||
       "/css/images/defaults/default.png";
 
-    // Cria o novo anúncio
     const newAnnouncement = new Announcement({
       job_name,
       category,
@@ -104,7 +101,6 @@ const postCompanyCreateAnnouncement = async (req, res) => {
 
     await newAnnouncement.save();
 
-    // Redireciona com notificação
     res.send(`
       <script>
         sessionStorage.setItem('mostrarNotificacao', 'true');

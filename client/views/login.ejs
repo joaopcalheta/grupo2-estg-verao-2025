@@ -5,16 +5,12 @@
 </head>
 
 <!--Mensagem de erro caso o utilizador não esteja autenticado-->
-<% if (error && error.length) { %>
-  <% error.forEach(msg => { %>
-    <div class="alert alert-danger"><%= msg %></div>
-  <% }) %>
-<% } %>
-<% if (success && success.length) { %>
-  <% success.forEach(msg => { %>
-    <div class="alert alert-success"><%= msg %></div>
-  <% }) %>
-<% } %>
+<% if (error && error.length) { %> <% error.forEach(msg => { %>
+<div class="alert alert-danger"><%= msg %></div>
+<% }) %> <% } %> <% if (success && success.length) { %> <% success.forEach(msg
+=> { %>
+<div class="alert alert-success"><%= msg %></div>
+<% }) %> <% } %>
 
 <h1 class="fw-bold mt-4 mb-4">Bem-vindo!</h1>
 
@@ -52,7 +48,6 @@
   </div>
   <br />
 
-
   <button type="submit" class="mt-2 btn btn-blue w-100">Login</button>
 </form>
 
@@ -61,7 +56,7 @@
     <div class="candidato-f">
       <div class="text-start pb-1">Nome</div>
       <input
-      class="mb-2"
+        class="mb-2"
         name="name"
         type="text"
         placeholder="Escreva o seu nome"
@@ -71,21 +66,21 @@
       /><br />
 
       <div class="text-start pb-1">Username</div>
-<input
-class="mb-2"
-  name="username"
-  type="text"
-  placeholder="Escreva o seu nome de utilizador"
-  minlength="3"
-  maxlength="30"
-  pattern="^[a-z0-9_.-]+$"
-  title="Apenas letras minúsculas, números, '.', '-' e '_' são permitidos"
-  required
-/>
-
-     <div class="text-start pb-1">Email</div>
       <input
-      class="mb-2"
+        class="mb-2"
+        name="username"
+        type="text"
+        placeholder="Escreva o seu nome de utilizador"
+        minlength="3"
+        maxlength="30"
+        pattern="^[a-z0-9_.-]+$"
+        title="Apenas letras minúsculas, números, '.', '-' e '_' são permitidos"
+        required
+      />
+
+      <div class="text-start pb-1">Email</div>
+      <input
+        class="mb-2"
         name="email"
         type="email"
         placeholder="Escreva o seu email"
@@ -95,7 +90,7 @@ class="mb-2"
 
       <div class="text-start pb-1">Password</div>
       <input
-      class="mb-2"
+        class="mb-2"
         name="password"
         type="password"
         placeholder="Escreva a sua password"

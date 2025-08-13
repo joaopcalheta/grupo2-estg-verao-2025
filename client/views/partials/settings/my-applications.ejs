@@ -16,22 +16,25 @@
     <!-- texto -->
     <div class="d-flex flex-column justify-content-between ps-2 pt-1 pb-2">
       <div class="mb-2">
-      <h5 class="text-truncate" style="max-width: 135px"><%= app.announcement_id?.job_name || 'Anuncio' %></h5>
-      <h6 class="mb-0 fw-normal"><%= new Date(app.submittedAt).toLocaleString('pt-PT') %></h6>
+        <h5 class="text-truncate" style="max-width: 135px">
+          <%= app.announcement_id?.job_name || 'Anuncio' %>
+        </h5>
+        <h6 class="mb-0 fw-normal">
+          <%= new Date(app.submittedAt).toLocaleString('pt-PT') %>
+        </h6>
       </div>
     </div>
   </div>
 
   <span class="pe-2 align-content-center">
     <div class="d-flex flex-column gap-2 justify-content-center pe-3 pb-2 pt-2">
-      <!-- Botão Detalhes -->
       <button
         class="btn btn-blue btn-small w-100"
         onclick="window.location.href='/company-details-candidate?id=<%= app._id %>'"
       >
         <h6 class="mb-0" style="font-weight: 600">Detalhes</h6>
       </button>
-      <!-- Botão Eliminar -->
+
       <form
         method="POST"
         action="/my-applications/<%= app._id %>?_method=DELETE"

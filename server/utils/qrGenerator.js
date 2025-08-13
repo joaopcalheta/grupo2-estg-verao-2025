@@ -19,7 +19,6 @@ async function gerarQRCode(url, nomeArquivo, pastaDestino = "public/qrcodes") {
       },
     });
 
-    // Retorna o caminho que pode ser usado em <img src="">
     return `/qrcodes/${nomeArquivo}.png`;
   } catch (err) {
     console.error("Erro ao gerar QR Code:", err);

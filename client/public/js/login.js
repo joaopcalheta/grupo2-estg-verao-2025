@@ -24,7 +24,6 @@ btnRegister.addEventListener("click", () => {
   loginForm.classList.remove("active");
   registerForm.classList.add("active");
 
-  // Mostrar apenas campos de candidato ao mudar para registo
   btnCandidato.checked = true;
   candidatoFields.style.display = "none";
   empresaFields.style.display = "block";

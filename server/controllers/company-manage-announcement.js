@@ -52,7 +52,8 @@ const categoryToImage = {
 const updateCompanyAnnouncement = async (req, res) => {
   try {
     const announcementId = req.params.announcementID;
-    if (!announcementId) return res.status(400).send("ID do anúncio não foi fornecido");
+    if (!announcementId)
+      return res.status(400).send("ID do anúncio não foi fornecido");
 
     const current = await Announcement.findById(announcementId);
     if (!current) return res.status(404).send("Anúncio não foi encontrado");
@@ -89,8 +90,9 @@ const updateCompanyAnnouncement = async (req, res) => {
       salary,
       end_date,
       numberOfPositions,
-      description, state,
-      schedule: { startTime, endTime }
+      description,
+      state,
+      schedule: { startTime, endTime },
     };
 
     if (req.file) {
@@ -107,7 +109,7 @@ const updateCompanyAnnouncement = async (req, res) => {
 
       updateData.pic = newPath;
     }
-    
+
     // se a categoria mudou e a imagem atual é um default antigo, pode atualizar para o novo default
     else if (category && category !== current.category) {
       updateData.pic = categoryToImage[category] || current.pic;
@@ -119,11 +121,11 @@ const updateCompanyAnnouncement = async (req, res) => {
       { new: true, runValidators: true }
     );
 
-    if (!updatedAnnouncement) return res.status(404).send("Anúncio não foi encontrado");
+    if (!updatedAnnouncement)
+      return res.status(404).send("Anúncio não foi encontrado");
 
     const companyID = updatedAnnouncement.company_id;
 
-    // ✅ Retorna um sucesso simples
     return res.send(`
       <script>
         sessionStorage.setItem('mostrarNotificacaoEdit', 'true');
@@ -159,7 +161,6 @@ const deleteCompanyAnnouncement = async (req, res) => {
     // apagar o anúncio
     await Announcement.findByIdAndDelete(announcementId);
 
-    // ✅ Retorna um sucesso simples
     return res.send(`
       <script>
         sessionStorage.setItem('mostrarNotificacaoRemocao', 'true');

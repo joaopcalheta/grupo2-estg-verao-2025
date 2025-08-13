@@ -5,10 +5,8 @@ async function gerarPdf(conteudoHTML, caminhoArquivo = "relatorio.pdf") {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
-  // Define o conteúdo HTML
   await page.setContent(conteudoHTML, { waitUntil: "networkidle0" });
 
-  // Gera o PDF
   await page.pdf({
     path: caminhoArquivo,
     format: "A4",
@@ -22,8 +20,7 @@ async function gerarPdf(conteudoHTML, caminhoArquivo = "relatorio.pdf") {
   });
 
   await browser.close();
-  console.log(`PDF gerado em: ${caminhoArquivo}`);
+  console.log(`PDF gerado aqui: ${caminhoArquivo}`);
 }
 
-// Exporta a função para uso em outros arquivos
 module.exports = gerarPdf;

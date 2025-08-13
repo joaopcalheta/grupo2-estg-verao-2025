@@ -7,14 +7,13 @@ const Announcement = require("../models/announcement");
 const path = require("path");
 const fs = require("fs");
 
-// GET: Mostrar formulário com dados atuais
 const getEditCompany = async (req, res) => {
   try {
     const companyId = req.params.id;
 
     const company = await Company.findOne({
       _id: companyId,
-      admin_usernames: req.user.username, // Garante que os admins editem / giram as empresas deles
+      admin_usernames: req.user.username,
     });
 
     if (!company) {
@@ -28,7 +27,6 @@ const getEditCompany = async (req, res) => {
   }
 };
 
-// POST: Atualizar empresa
 const postEditCompany = async (req, res) => {
   try {
     const companyId = req.params.id;
@@ -54,7 +52,7 @@ const postEditCompany = async (req, res) => {
     // Remove duplicados
     const uniqueUsernames = [...new Set(submittedUsernames)];
 
-    // Impede remoção do único admin
+    // impede remocao de 1 so admin se for o unico admin
     if (!uniqueUsernames.includes(currentUsername)) {
       return res
         .status(400)
@@ -65,7 +63,7 @@ const postEditCompany = async (req, res) => {
       return res.status(400).send("É necessário pelo menos um administrador.");
     }
 
-    // Valida usernames
+    // verifica se todos os usernames existem
     const users = await User.find({
       username: { $in: uniqueUsernames },
     })
@@ -78,7 +76,6 @@ const postEditCompany = async (req, res) => {
       return res.status(400).send("Alguns usernames são inválidos.");
     }
 
-    // buscar empresa atual para saber imagem antiga
     const current = await Company.findOne({
       _id: companyId,
       admin_usernames: currentUsername,
@@ -151,23 +148,23 @@ const deleteCompany = async (req, res) => {
       company_id: companyId,
     }).select("_id");
 
-    // Extrair IDs dos anúncios
+    // extrair IDs dos anúncios
     const announcementIds = announcements.map((a) => a._id);
 
-    // Apagar todas as candidaturas associadas a esses anúncios
+    // apagar todas as candidaturas associadas a esses anúncios
     await Application.deleteMany({ announcement_id: { $in: announcementIds } });
 
-    // Apagar os anúncios da empresa
+    // apagar os anúncios da empresa
     await Announcement.deleteMany({ company_id: companyId });
 
-    // Apagar a empresa
+    // apagar a empresa
     const deletedCompany = await Company.findByIdAndDelete(companyId);
 
     if (!deletedCompany) {
       return res.status(404).send("Empresa não foi encontrada");
     }
 
-    // Manda de volta para a página das empresas e envia notificação
+    // manda de volta para a página das empresas e envia notificação
     return res.send(`
       <script>
         sessionStorage.setItem('mostrarNotificacaoDeleteCompany', 'true');

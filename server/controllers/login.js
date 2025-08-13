@@ -28,7 +28,6 @@ const logout = (req, res, next) => {
 const register = async (req, res) => {
   const { name, username, email, password, confirmpassword } = req.body;
 
-  // Validação simples
   if (!name || !username || !email || !password || !confirmpassword) {
     req.flash("error", "Todos os campos são obrigatórios.");
     return res.redirect("/login");
@@ -40,7 +39,6 @@ const register = async (req, res) => {
   }
 
   try {
-    // Verifica se já existe utilizador com o mesmo email ou username
     const existingUser = await User.findOne({ $or: [{ email }, { username }] });
 
     if (existingUser) {
@@ -48,10 +46,8 @@ const register = async (req, res) => {
       return res.redirect("/login");
     }
 
-    // Hash da password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Criar novo utilizador
     const newUser = new User({
       name,
       username,
